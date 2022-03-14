@@ -1,36 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-  <defs>
-    <clipPath id="clip-path">
-      <rect width="16" height="16" fill="none"/>
-    </clipPath>
-  </defs>
-  <g id="Repeat_Grid_45" data-name="Repeat Grid 45" clip-path="url(#clip-path)">
-    <g transform="translate(-234 -762)">
-      <rect id="Rectangle_4724" data-name="Rectangle 4724" width="4" height="4" transform="translate(234 762)"/>
-    </g>
-    <g transform="translate(-228 -762)">
-      <rect id="Rectangle_4724-2" data-name="Rectangle 4724" width="4" height="4" transform="translate(234 762)"/>
-    </g>
-    <g transform="translate(-222 -762)">
-      <rect id="Rectangle_4724-3" data-name="Rectangle 4724" width="4" height="4" transform="translate(234 762)"/>
-    </g>
-    <g transform="translate(-234 -756)">
-      <rect id="Rectangle_4724-4" data-name="Rectangle 4724" width="4" height="4" transform="translate(234 762)"/>
-    </g>
-    <g transform="translate(-228 -756)">
-      <rect id="Rectangle_4724-5" data-name="Rectangle 4724" width="4" height="4" transform="translate(234 762)"/>
-    </g>
-    <g transform="translate(-222 -756)">
-      <rect id="Rectangle_4724-6" data-name="Rectangle 4724" width="4" height="4" transform="translate(234 762)"/>
-    </g>
-    <g transform="translate(-234 -750)">
-      <rect id="Rectangle_4724-7" data-name="Rectangle 4724" width="4" height="4" transform="translate(234 762)"/>
-    </g>
-    <g transform="translate(-228 -750)">
-      <rect id="Rectangle_4724-8" data-name="Rectangle 4724" width="4" height="4" transform="translate(234 762)"/>
-    </g>
-    <g transform="translate(-222 -750)">
-      <rect id="Rectangle_4724-9" data-name="Rectangle 4724" width="4" height="4" transform="translate(234 762)"/>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path id="grid" d="M12,16V12h4v4ZM6,16V12h4v4ZM0,16V12H4v4Zm12-6V6h4v4ZM6,10V6h4v4ZM0,10V6H4v4ZM12,4V0h4V4ZM6,4V0h4V4ZM0,4V0H4V4Z"/>
 </svg>
