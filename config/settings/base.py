@@ -83,6 +83,8 @@ LOCAL_APPS = [
     "mptt",
     "easy_thumbnails",
     "django_filters",
+    "pages",
+    "products",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

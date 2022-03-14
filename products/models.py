@@ -13,7 +13,7 @@ class Category(MPTTModel):
     photo = ThumbnailerImageField(upload_to="photos", blank=True)
     slug = models.SlugField(max_length=100, unique=True)
     parent = TreeForeignKey(
-        "self", blank=True, null=True, related_name="child", on_delete=models.CASCADE
+        "self", related_name="child", blank=True, null=True, on_delete=models.CASCADE
     )
 
     def __str__(self):
@@ -37,9 +37,8 @@ class Product(models.Model):
     category = models.ManyToManyField(
         "Category",
         related_name="products",
-        on_delete=models.CASCADE,
         default=False,
-        null=True,
+        blank=True,
     )
 
     def __str__(self):

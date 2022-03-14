@@ -1,0 +1,546 @@
+body {
+    font-family: "Noto Sans JP", "\6E38\30B4\30B7\30C3\30AF\4F53", Yu Gothic, YuGothic, Hiragino Kaku Gothic Pro, "\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3", Meiryo UI, "\30E1\30A4\30EA\30AA", Meiryo, Osaka, MS PGothic, sans-serif;
+}
+
+.button {
+    @apply block py-3 px-2 rounded text-center text-white bg-crimson-500 leading-5 hover:bg-crimson-400 hover:text-white;
+
+    &.ghost {
+        @apply bg-white border-2 border-solid border-orange text-orange leading-6 hover:bg-orange hover:text-white;
+
+        &.crimson {
+            @apply leading-8 border-crimson text-crimson hover:bg-crimson hover:text-white;
+        }
+    }
+
+}
+
+.wrap-image {
+    overflow: hidden;
+
+    &:hover {
+        opacity: .7;
+        img {
+            transition: 1.8s all;
+            transform: scale(1.1, 1.1);
+            &.no-effect {
+                transform: scale(1, 1);
+            }
+        }
+        &.no-highlight {
+            opacity: 1;
+        }
+    }
+    .no-effect {
+        img{
+            transform: scale(1, 1);
+        }
+    }
+}
+
+.marked {
+    background: linear-gradient(transparent 55%, #FED95B 0%);
+    display: inline;
+}
+
+.lined {
+    background: linear-gradient(transparent 93%, #381B03 0%);
+    display: inline;
+    padding: 0 2px 2%;
+}
+
+.center-line {
+  @apply block relative;
+  &:before {
+    @apply absolute right-0 w-full bg-gray;
+    height: 1px;
+    top: 50%;
+    z-index: 1;
+    content: '';
+  }
+  span {
+    @apply relative bg-white pr-2;
+    z-index: 2;
+  }
+}
+
+.slashed {
+    position: relative;
+
+    &:before {
+        content: '';
+        width: 100%;
+        height: 11px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: url('../images/rept_stripe-red.png') left top repeat;
+        background-size: 17px 11px;
+    //z-index: -1;
+    }
+}
+
+.striped {
+    &.blue {
+        background: transparent url("../images/rept_stripe-blue.png") left top repeat;
+        background-size: 13px 13px;
+    }
+
+    &.orange {
+        background: transparent url("../images/rept_stripe-orange.png") left top repeat;
+        background-size: 13px 13px;
+    }
+
+    &.green {
+        background: transparent url("../images/rept_stripe-green.png") left top repeat;
+        background-size: 13px 13px;
+    }
+}
+
+.underlined {
+    position: relative;
+
+    &:after {
+        content: '';
+        width: 42px;
+        height: 3px;
+        background-color: theme('colors.crimson.500');
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translate(-50%, 0)
+    }
+}
+
+@screen md {
+    &:after {
+        width: 85px;
+        bottom: -8px;
+    }
+}
+
+.centerlined {
+    position: relative;
+
+    &:before {
+        content: '';
+        width: 1px;
+        height: 100%;
+        background-color: theme('colors.crimson.500');
+        position: absolute;
+        left: 50%;
+        top: 0;
+    }
+}
+
+.bg-plate {
+    background: transparent url("../images/bg_title.png") center center no-repeat;
+    background-size: contain;
+}
+
+.bg-gray-to-white {
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 30%, rgba(238,238,238,1) 100%);
+}
+
+.shadow-top {
+    @apply relative;
+    &:before {
+        @apply absolute left-0 top-0 w-full h-full shadow-md;
+        content: '';
+        height: 300px;
+        background: linear-gradient(0deg, rgba(255,255,255,1) 30%, rgba(238,238,238,1) 100%);
+        z-index: -1;
+    }
+}
+
+.embed-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+
+    .embed-responsive-item,
+    iframe,
+    embed,
+    object,
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        border: 0;
+    }
+}
+
+.aspect-ratio-square {
+    padding-top: 100%;
+}
+
+.aspect-ratio-16\/9 {
+    padding-top: 56.25%;
+}
+
+.aspect-ratio-4\/3 {
+    padding-top: 75%;
+}
+
+.aspect-ratio-21\/9 {
+    padding-top: 42.86%;
+}
+
+.modal {
+    transition: all 0.25s ease-in-out;
+
+    &-enter,
+    &-leave-to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    &-enter-active,
+    &-leave-active {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+}
+
+.loader {
+    border-right-color: transparent !important;
+    animation: loader-rotate 1s linear infinite;
+}
+
+#hero {
+  background: linear-gradient(transparent 38%, #FED95B 0%);
+  .image-filter, .white-filter {
+    @apply absolute left-0 right-0 top-0 w-full h-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto;
+
+    &:before, &:after {
+      @apply absolute top-0 z-20 w-screen;
+      content: "";
+    }
+
+    &:before {
+      left: calc(-100vw + -26px);
+    }
+
+    &:after {
+      right: calc(-100vw + -26px);
+    }
+  }
+
+  .white-filter {
+    &:before, &:after {
+      @apply h-full bg-white opacity-80;
+    }
+  }
+
+  .image-filter {
+    &:before, &:after {
+      @apply h-full;
+      backdrop-filter: saturate(30%);
+      backdrop-filter: blur(3px);
+    }
+  }
+}
+
+.news {
+  li {
+    @apply py-4 flex justify-start items-center border-b border-dashed border-black text-sm;
+    time {
+      @apply text-xs;
+    }
+    .tag {
+      @apply block w-32 mx-4 py-1 text-xs font-bold text-center;
+      &.yellow {
+        @apply bg-yellow text-black;
+      }
+      &.blue {
+        @apply bg-blue text-white;
+      }
+      &.green {
+        @apply bg-green text-white;
+      }
+      &.orange {
+        @apply bg-orange text-white;
+      }
+    }
+  }
+}
+
+.parallax-section {
+  @apply relative w-full h-80;
+}
+.parallax-child-section {
+  @apply absolute left-0 top-0 w-full h-80;
+  clip: rect(0, auto, auto, 0);
+}
+#frontlashID {
+  @apply fixed top-0 left-0 block w-full h-full;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: 1;
+}
+.fw-main-row {
+  background-attachment: scroll;
+  background-image: url(../images/bg_hayayude.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.exhibition {
+    background: transparent url("../images/bg_exhibition.jpg") center center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+
+    > .container {
+        position: relative;
+
+        &:before,
+        &:after {
+            content: '';
+            width: 78px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            background: transparent url("../images/rept_metal-frame.png") left top repeat-y;
+            background-size: contain;
+        }
+
+        &:before {
+            left: 0;
+            margin-left: -78px;
+        }
+
+        &:after {
+            right: 0;
+            margin-right: -78px;
+            transform: scaleX(-1);
+        }
+    }
+}
+
+.brand {
+    background: transparent url("../images/bg_corner.png") left top no-repeat;
+    background-size: 86px 80px;
+}
+
+.brand-nav {
+    transform: translate(0, 0);
+    &.scrolled {
+        transform: translate(0, 68px);
+    }
+}
+@screen lg {
+    .brand-nav {
+        &.scrolled {
+            transform: translate(0, 81px);
+        }
+    }
+}
+
+.parallax-sp {
+    @apply relative;
+    padding-top: 400px;
+    &:before {
+        @apply fixed left-0 top-0 w-screen h-screen;
+        content: none;
+        z-index: -1;
+    }
+}
+@screen md {
+    .parallax-sp {
+        @apply pt-0;
+
+        &:before {
+            content: none;
+        }
+    }
+}
+
+#karaage {
+    &:before {
+        background: transparent url("../images/bg_karaage.jpg") center center no-repeat;
+        background-size: cover;
+    }
+    &.in-view {
+        &:before {
+            content: '';
+        }
+    }
+}
+#hayayude {
+    &:before {
+        background: transparent url("../images/bg_hayayude.jpg") center center no-repeat;
+        background-size: cover;
+    }
+    &.in-view {
+        &:before {
+            content: '';
+        }
+    }
+}
+#smilemeal {
+    &:before {
+        background: transparent url("../images/bg_smilemeal.jpg") center center no-repeat;
+        background-size: cover;
+    }
+    &.in-view {
+        &:before {
+            content: '';
+        }
+    }
+}
+#iqf {
+    &:before {
+        background: transparent url("../images/bg_iqf.jpg") center center no-repeat;
+        background-size: cover;
+    }
+    &.in-view {
+        &:before {
+            content: '';
+        }
+    }
+}
+#souzai {
+    &:before {
+        background: transparent url("../images/bg_souzai.jpg") center center no-repeat;
+        background-size: cover;
+    }
+    &.in-view {
+        &:before {
+            content: '';
+        }
+    }
+}
+#tenpurako {
+    &:before {
+        background: transparent url("../images/bg_tenpurako.jpg") center center no-repeat;
+        background-size: cover;
+    }
+    &.in-view {
+        &:before {
+            content: '';
+        }
+    }
+}
+@screen md {
+    .parallax-pc {
+        min-height: 400px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &.karaage {
+            background-image: url("../images/bg_karaage.jpg");
+        }
+
+        &.hayayude {
+            background-image: url("../images/bg_hayayude.jpg");
+        }
+
+        &.smilemeal {
+            background-image: url("../images/bg_smilemeal.jpg");
+        }
+
+        &.iqf {
+            background-image: url("../images/bg_iqf.jpg");
+        }
+
+        &.souzai {
+            background-image: url("../images/bg_souzai.jpg");
+        }
+
+        &.tenpurako {
+            background-image: url("../images/bg_tenpurako.jpg");
+        }
+    }
+}
+
+.extra_block {
+    ol {
+        @apply list-decimal ml-4;
+        li {
+
+        }
+    }
+}
+
+.playable {
+    @apply relative cursor-pointer bg-white overflow-hidden;
+    &:before {
+        @apply absolute left-0 top-0 w-full h-full bg-black opacity-25;
+        content: '';
+    }
+    .play {
+        @apply absolute inset-0 flex justify-center items-center;
+    }
+    &:hover {
+        svg {
+            @apply transform scale-110 duration-500;
+        }
+        &:before {
+            @apply opacity-50 transition-opacity duration-1000;
+        }
+    }
+}
+
+/* Hide scrollbar */
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.scrollable {
+    @apply absolute left-0 top-0 z-30 w-full h-12 md:h-16 pr-8 flex justify-end items-center;
+    &:before {
+        @apply absolute left-0 top-0 w-full h-full bg-black opacity-60;
+        content: '';
+    }
+    .arrowSliding {
+        position: absolute;
+        -webkit-animation: slide 3s linear infinite;
+        animation: slide 3s linear infinite;
+        .arrow {
+            width: 1rem;
+            height: 1rem;
+            border: 0.2rem solid;
+            border-color: white transparent transparent white;
+            transform: rotate(135deg);
+        }
+        &.delay1 {
+            -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+        }
+        &.delay2 {
+            -webkit-animation-delay: 2s;
+            animation-delay: 2s;
+        }
+        &.delay3 {
+            -webkit-animation-delay: 3s;
+            animation-delay: 3s;
+        }
+    }
+    &.touched {
+        @apply hidden;
+    }
+}
+
+.cool-lightbox__wrapper {
+    max-width: calc(100vw - (44px * 2));
+    margin: 0 auto;
+    background-color: #000;
+}
+.cool-lightbox__wrapper video{
+    max-height: calc(100vh - 120px);
+}

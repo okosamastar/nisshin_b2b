@@ -12,3 +12,11 @@ def contact(request):
 
 def ec(request):
     return render(request, "pages/ec.html")
+
+
+def micstore(request):
+    return render(request, "pages/micstore.html")
+
+
+def spring_2022(request):
+    return render(request, "pages/spring_2022.html")

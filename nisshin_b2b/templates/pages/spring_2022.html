@@ -1,0 +1,2157 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+新商品展示会 2022年春｜プロのための業務用食品サイト｜株式会社日清製粉ウェルナ
+{% endblock title %}
+
+{% block content %}
+  <div class="md:sticky md:top-0 md:h-0 z-40 overflow-visible w-full">
+    <div class="nav fixed md:absolute bottom-0 md:top-0 md:bottom-auto left-0 md:left-auto md:right-0 z-40 lg:pt-[140px] w-full md:w-12 md:h-screen flex md:flex-col justify-center items-center">
+      <a href="https://secure-link.jp/wf/?c=wf73663703" target="_blank" class="w-1/2 md:w-full py-3 md:py-6 md:px-3 md:my-2 bg-crimson md:rounded-l-md text-white hover:bg-crimson-400 flex md:flex-col justify-center items-center">
+        <svg-vue icon="mail" class="w-6 h-6 text-white"></svg-vue>
+        <img src="{% static 'images/v_text_contact.png' %}" alt="お問い合わせ" class="hidden md:block w-4 mt-2">
+        <span class="md:hidden ml-2 text-sm font-bold text-white">お問い合わせ</span>
+      </a>
+      <a href="https://secure-link.jp/wf/?c=wf14875648" target="_blank" class="w-1/2 md:w-full py-3 md:py-6 md:px-3 md:my-2 bg-green md:rounded-l-md text-white hover:bg-green-400 flex md:flex-col justify-center items-center">
+        <svg-vue icon="foodie" class="w-6 h-6 text-white"></svg-vue>
+        <img src="{% static 'images/v_text_sample.png' %}" alt="無料サンプル" class="hidden md:block w-4 mt-2">
+        <span class="md:hidden ml-2 text-sm font-bold text-white">無料サンプル</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="exhibition px-8 sm:px-0">
+    <div class="container mx-auto">
+      <div class="relative z-10 w-full flex justify-between items-start px-2 sm:px-[12%] -mb-4 sm:-mb-6">
+        <img src="{% static 'images/spot_01.png' %}" alt="日清製粉ウェルナ 親商品展示会 2022年春" class="w-11 sm:w-[3.8rem]">
+        <img src="{% static 'images/spot_02.png' %}" alt="日清製粉ウェルナ 親商品展示会 2022年春" class="w-8 sm:w-12">
+        <img src="{% static 'images/spot_03.png' %}" alt="日清製粉ウェルナ 親商品展示会 2022年春" class="w-11 sm:w-14">
+      </div>
+      <div class="flex flex-wrap items-start -mx-2 pb-10 sm:pb-28 md:pb-40">
+        <div class="md:hidden w-full">
+          <img src="{% static 'images/hero_exhibition_sp.png' %}" alt="日清製粉ウェルナ 親商品展示会 2022年春" class="sm:hidden">
+          <img src="{% static 'images/hero_exhibition.jpg' %}" alt="日清製粉ウェルナ 親商品展示会 2022年春" class="hidden sm:block">
+        </div>
+        <div id="movie_sp_slot" class="w-full"></div>
+        <div class="hidden sm:block w-full sm:w-[236px] px-2">
+          <div class="bg-white pb-4">
+            <div class="brand py-10 sm:py-12 flex justify-center border-b border-dashed border-gray-400">
+              <img src="{% static 'images/title_logo.png' %}" class="w-44 sm:w-36" alt="日清製粉ウェルナ">
+            </div>
+            <div class="flex justify-center pt-5 px-3">
+              <div @click="showVideoStream('https://www.youtube.com/watch?v=AjsNxmOh4OE')" class="playable">
+                <img src="{% static 'images/thumbnail.jpg' %}" alt="日清製粉ウェルナ">
+                <div class="play">
+                  <svg-vue icon="play" class="w-14 text-white"></svg-vue>
+                </div>
+              </div>
+            </div>
+            <div class="centerlined mt-4 py-6 text-center">
+              <span class="relative py-2 text-sm text-crimson font-medium bg-white">新コーポレートブランド</span>
+            </div>
+            <p class="p-4 text-sm font-medium tracking-tight sm:tracking-wide">2022年1月1日、日清フーズは日清製粉ウェルナへ</p>
+            <div class="px-4">
+              <a href="https://www.nisshin-seifun-welna.com/index/nisshin-seifun-welna/" target="_blank" class="w-full button">詳しくはこちら</a>
+            </div>
+          </div>
+
+          <div class="relative bg-white mt-4 p-4">
+            <div class="pt-1 px-6 sm:px-3">
+              <img src="{% static 'images/title_free.png' %}" alt="無料サンプルご用意しました">
+            </div>
+            <div class="pt-3">
+              <img src="{% static 'images/image_free.png' %}" alt="無料サンプルご用意しました">
+            </div>
+            <div class="py-4">
+              <img src="{% static 'images/image_sample.jpg' %}" alt="無料サンプルご用意しました">
+            </div>
+            <a href="https://secure-link.jp/wf/?c=wf14875648" target="_blank" class="w-full button bg-orange hover:bg-orange-400">お申込みはこちら</a>
+            <div class="absolute left-0 top-0 -ml-5 mt-4 w-[172px] sm:w-[128px] rotate-[-7deg]">
+              <img src="{% static 'images/badge_free.png' %}" alt="FREE!">
+            </div>
+          </div>
+
+          <div class="relative bg-blue-50 mt-6 p-3">
+            <div class="relative z-20 p-3 border border-solid border-blue text-blue bg-white">
+              <h3 class="pt-2 pb-3 font-medium border-b border-dashed border-blue text-center">販売サイトのご案内</h3>
+              <p class="py-3 text-center text-sm sm:text-xs">外部販売サイトへ移動します</p>
+              <a href="/index/b2b/index_ec.html" target="_blank" class="w-full button bg-blue text-base sm:text-sm hover:bg-blue-400">販売サイトへアクセス</a>
+            </div>
+            <div class="absolute z-10 left-0 top-0 w-full flex justify-center -mt-4">
+              <div class="w-14 h-14 rounded-full bg-blue-50 flex justify-center items-center"></div>
+            </div>
+            <div class="absolute z-30 left-0 top-0 w-full flex justify-center -mt-2">
+              <span class="bg-blue w-10 h-10 rounded-full flex justify-center items-center">
+                  <svg-vue icon="basket" class="w-6 w-6 mt-0.5 text-white"></svg-vue>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 px-2">
+          <div class="hidden md:block w-full pb-4">
+            <img src="{% static 'images/hero_exhibition.jpg' %}" alt="日清製粉ウェルナ 親商品展示会 2022年春">
+          </div>
+          <div class="flex flex-wrap flex-row-reverse -mx-2">
+            <div class="w-full md:w-[236px] px-2 mt-4 sm:mt-0">
+              <div class="flex flex-wrap md:flex-col bg-black">
+                <div class="w-full sm:w-7/12 md:w-full sm:pl-6 sm:pt-4 md:p-0 mx-auto">
+                  <img src="{% static 'images/hero_karaage.jpg' %}" alt="The Karaage から揚げ粉" class="w-full mx-auto">
+                  <div class="px-4 md:px-2 py-6">
+                    <img src="{% static 'images/catch_karaage.png' %}" alt="The Karaage から揚げ粉" class="w-full mx-auto">
+                  </div>
+                </div>
+                <div class="hidden sm:block sm:w-5/12 md:w-full pb-4 px-4">
+                  <div class="pt-2 sm:pt-4 md:pt-2">
+                    <a href="#saku" @click="scrollTo('#saku')">
+                      <img src="{% static 'images/image_karaage01.jpg' %}" alt="">
+                    </a>
+                  </div>
+                  <div class="pt-6">
+                    <a href="#gotsu" @click="scrollTo('#gotsu')">
+                      <img src="{% static 'images/image_karaage02.jpg' %}" alt="">
+                    </a>
+                  </div>
+                  <div class="pt-6">
+                    <a href="#tare" @click="scrollTo('#tare')">
+                      <img src="{% static 'images/image_karaage03.jpg' %}" alt="">
+                    </a>
+                  </div>
+                  <div class="pt-6">
+                    <a href="#zaku" @click="scrollTo('#zaku')">
+                      <img src="{% static 'images/image_karaage04.jpg' %}" alt="">
+                    </a>
+                  </div>
+                </div>
+                <div class="w-full pb-6 px-4 sm:pt-0 md:pt-2">
+                  <a href="#karaage" @click="scrollTo('#karaage')">
+                    <a href="#karaage" class="w-full button bg-orange hover:bg-orange-400 text-xl sm:text-base">詳しくはこちら</a>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="flex-1 px-2">
+              <div id="movie_pc_slot">
+                <div ref="b2bmovie" class="w-full bg-black text-white p-2 sm:mt-0 sm:mb-4 md:mb-0">
+                  <div class="aspect-w-16 aspect-h-9">
+                    <video-player
+                      :options="{
+                          autoplay: true,
+                          controls: true,
+                          sources: [{
+                              src: 'https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/mov/welna_b2b_newitem.mp4',
+                              type: 'video/mp4'
+                          }]
+                      }"
+                    ></video-player>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap -mx-2">
+                <div class="w-full sm:w-1/2 px-2 mt-4">
+                  <div class="bg-white h-full flex flex-col justify-between border-t-4 border-solid border-orange">
+                    <div class="py-2 px-4">
+                      <img src="{% static 'images/title_hayayude.png' %}" alt="" class="w-full mx-auto">
+                    </div>
+                    <div class="pb-4">
+                      <img src="{% static 'images/image_hayayude.jpg' %}" alt="" class="w-full mx-auto">
+                      <div class="px-4">
+                        <a href="#hayayude" class="w-full button bg-orange hover:bg-orange-400 text-lg sm:text-base" @click="scrollTo('#hayayude')">詳しくはこちら</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full sm:w-1/2 px-2 mt-4">
+                  <div class="bg-white h-full flex flex-col justify-between">
+                    <div class="striped blue md:h-16 py-2 px-14">
+                      <img src="{% static 'images/title_smile-meal.png' %}" alt="" class="w-full xs:w-8/12 sm:w-full mx-auto">
+                    </div>
+                    <div class="pb-2">
+                      <img src="{% static 'images/image_smile-meal.jpg' %}" alt="" class="w-full mx-auto">
+                    </div>
+                    <div class="pb-4 px-4">
+                      <a href="#smilemeal" class="w-full button bg-orange hover:bg-orange-400 text-lg sm:text-base" @click="scrollTo('#smilemeal')">詳しくはこちら</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full sm:w-1/3 pl-2 mt-4">
+                  <div class="bg-white h-full flex flex-col justify-between">
+                    <div class="striped green sm:h-16 py-2 xs:py-4 sm:py-2 px-4 flex items-center">
+                      <div class="bg-plate w-full py-3 xs:py-5 sm:py-3 text-lg xs:text-2xl sm:text-lg text-center font-medium leading-none">天ぷら粉</div>
+                    </div>
+                    <div class="py-4 sm:pt-2 sm:pb-4 text-center leading-relaxed sm:leading-tight">
+                      <p class="marked text-lg sm:text-xs font-medium">デリバリー・持ち帰り後でも<br>"かるサク衣"!</p>
+                    </div>
+                    <div class="relative pb-2 flex justify-center items-center">
+                      <div class="pl-6 xs:pl-20 sm:pl-6 pr-0">
+                        <img src="{% static 'images/image_karusaku.jpg' %}" alt="" class="w-32 xs:w-44 sm:w-20">
+                      </div>
+                      <div class="p-4 pl-2">
+                        <img src="{% static 'images/badge_roomtemp_mini.png' %}" alt="" class="w-16 sm:w-10">
+                      </div>
+                    </div>
+                    <div class="pb-4 px-4">
+                      <a href="#tenpurako" class="w-full button ghost py-2 sm:py-1 text-lg sm:text-sm" @click="scrollTo('#tenpurako')">詳しくはこちら</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full sm:w-1/3 mt-4">
+                  <div class="bg-white h-full flex flex-col justify-between border-l border-dashed border-gray-400">
+                    <div class="striped orange sm:h-16 py-2 xs:py-4 sm:py-2 px-4 flex items-center">
+                      <div class="bg-plate w-full py-3 xs:py-5 sm:py-3 text-lg xs:text-2xl sm:text-lg text-center font-medium leading-none">惣菜パスタ</div>
+                    </div>
+                    <div class="py-4 sm:py-2 text-center leading-relaxed sm:leading-tight">
+                      <p class="marked text-lg sm:text-xs font-medium">お好みの食材で<br>自由にアレンジ惣菜用パスタ</p>
+                    </div>
+                    <div class="relative pb-2">
+                      <img src="{% static 'images/image_souzai-pasta.png' %}" alt="" class="w-full mx-auto">
+                      <div class="absolute right-0 bottom-0 w-16 h-16 sm:w-10 sm:h-10 mr-4 mb-2">
+                        <img src="{% static 'images/badge_frozen_mini.png' %}" alt="" class="">
+                      </div>
+                    </div>
+                    <div class="pb-4 px-4">
+                      <a href="#souzai" class="w-full button ghost py-2 sm:py-1 text-lg sm:text-sm" @click="scrollTo('#souzai')">詳しくはこちら</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full sm:w-1/3 pr-2 mt-4">
+                  <div class="bg-white h-full flex flex-col justify-between border-l border-dashed border-gray-400">
+                    <div class="sm:h-16 py-5 sm:pt-1 sm:pb-0 px-10 sm:px-4 bg-brown-50 flex items-center">
+                      <img src="{% static 'images/title_iqf_alt.png' %}" alt="" class="mx-auto">
+                    </div>
+                    <div class="py-4 sm:py-2 text-center leading-relaxed sm:leading-tight">
+                      <p class="marked text-lg sm:text-xs font-medium">必要量だけ時短提供!<br>アレンジしやすいミニサイズ</p>
+                    </div>
+                    <div class="pb-2">
+                      <img src="{% static 'images/image_iqf.jpg' %}" alt="" class="w-full mx-auto">
+                    </div>
+                    <div class="pb-4 px-4">
+                      <a href="#iqf" class="w-full button ghost py-2 sm:py-1 text-lg sm:text-sm" @click="scrollTo('#iqf')">詳しくはこちら</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative bg-gray-100 md:max-h-[350px]">
+    <div id="lineupMenu" class="w-full transform sm:-translate-y-16 md:-translate-y-28">
+      <div class="sm:container mx-auto py-4 md:py-8 px-4 md:px-10 bg-white shadow-lg">
+        <h2 class="slashed w-full text-center pt-8 mb-6 sm:mb-10">
+          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">New products</span>
+          <span class="block text-2xl md:text-3xl font-bold leading-snug">新商品ラインアップ</span>
+        </h2>
+        <ul class="hidden sm:flex flex-wrap -mx-1 -mt-2">
+          <li class="w-4/12 md:w-2/12 px-1 mt-2">
+            <a href="#karaage" class="wrap-image h-full flex flex-col-reverse items-center shadow" @click="scrollTo('#karaage')">
+              <h3 class="flex-1 py-5 font-bold flex items-center text-center leading-tight">THE <br class="hidden md:block">KARAAGE</h3>
+              <img src="{% static 'images/tab_roomtemp.png' %}" class="no-effect relative z-20 w-14 -mt-2 -mb-3" alt="常温">
+              <div class="w-full h-28 flex justify-center items-center bg-black">
+                <img src="{% static 'images/title_karaage.png' %}" alt="" class="max-w-[85%] max-h-full">
+              </div>
+            </a>
+          </li>
+          <li class="w-4/12 md:w-2/12 px-1 mt-2">
+            <a href="#hayayude" class="wrap-image h-full flex flex-col-reverse items-center shadow" @click="scrollTo('#hayayude')">
+              <h3 class="flex-1 py-5 font-bold flex items-center text-center leading-tight">早ゆで<br class="hidden md:block">スパゲティ</h3>
+              <img src="{% static 'images/tab_roomtemp.png' %}" class="no-effect relative z-20 w-14 -mt-2 -mb-3" alt="常温">
+              <div class="w-full h-28 flex justify-center items-center bg-gray-50 border border-solid border-gray-100 pb-2">
+                <img src="{% static 'images/image_hayayude_alt.png' %}" alt="" class="max-w-[90%] max-h-full">
+              </div>
+            </a>
+          </li>
+          <li class="w-4/12 md:w-2/12 px-1 mt-2">
+            <a href="#smilemeal" class="wrap-image h-full flex flex-col-reverse items-center shadow" @click="scrollTo('#smilemeal')">
+              <h3 class="flex-1 py-5 font-bold flex items-center text-center leading-tight">Smile Meal</h3>
+              <img src="{% static 'images/tab_frozen.png' %}" class="no-effect relative z-20 w-14 -mt-2 -mb-3" alt="冷凍">
+              <div class="striped blue w-full h-28 flex justify-center items-center">
+                <img src="{% static 'images/title_smile-meal.png' %}" alt="" class="max-w-[85%] max-h-full">
+              </div>
+            </a>
+          </li>
+          <li class="w-4/12 md:w-2/12 px-1 mt-2">
+            <a href="#iqf" class="wrap-image h-full flex flex-col-reverse items-center shadow" @click="scrollTo('#iqf')">
+              <h3 class="flex-1 py-5 font-bold flex items-center text-center leading-tight">IQF <br class="hidden md:block">バラ凍結パスタ</h3>
+              <img src="{% static 'images/tab_frozen.png' %}" class="no-effect relative z-20 w-14 -mt-2 -mb-3" alt="冷凍">
+              <div class="w-full h-28 flex justify-center items-center bg-brown-50 py-5">
+                <img src="{% static 'images/title_iqf.png' %}" alt="" class="max-h-full ml-2">
+              </div>
+            </a>
+          </li>
+          <li class="w-4/12 md:w-2/12 px-1 mt-2">
+            <a href="#souzai" class="wrap-image h-full flex flex-col-reverse items-center shadow" @click="scrollTo('#souzai')">
+              <h3 class="flex-1 py-5 font-bold flex items-center text-center leading-tight">惣菜パスタ</h3>
+              <img src="{% static 'images/tab_frozen.png' %}" class="no-effect relative z-20 w-14 -mt-2 -mb-3" alt="">
+              <div class="striped orange w-full h-28 flex justify-center items-center">
+                <img src="{% static 'images/image_souzai-pasta.png' %}" alt="" class="max-w-full max-h-full">
+              </div>
+            </a>
+          </li>
+          <li class="w-4/12 md:w-2/12 px-1 mt-2">
+            <a href="#tenpurako" class="wrap-image h-full flex flex-col-reverse items-center shadow" @click="scrollTo('#tenpurako')">
+              <h3 class="flex-1 py-5 font-bold flex items-center text-center leading-tight">天ぷら粉</h3>
+              <img src="{% static 'images/tab_roomtemp.png' %}" class="no-effect relative z-20 w-14 -mt-2 -mb-3" alt=常温"">
+              <div class="striped green w-full h-28 flex justify-center items-center py-3">
+                <img src="{% static 'images/image_karusaku.jpg' %}" alt="" class="max-w-[85%] max-h-full">
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div ref="brandnav" class="brand-nav fixed left-0 top-0 z-50 w-full bg-white transition duration-500 ease-in shadow-md">
+      <div class="relative sm:container mx-auto">
+        <div class="absolute left-0 top-0 z-40 p-2 bg-crimson">
+          <a href="#app" @click="scrollTo('#app')">
+            <svg-vue icon="title_short" class="h-8 md:h-12 text-white"></svg-vue>
+          </a>
+        </div>
+        <div class="ml-20 mr-3">
+          <ul class="w-full h-12 md:h-16 flex md:justify-center items-center md:-mx-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+            <li class="px-2 md:px-4">
+              <a href="#karaage" @click="scrollTo('#karaage')" class="flex justify-center items-center">
+                <span class="text-xs font-bold hover:text-crimson">THE KARAAGE</span>
+                <svg-vue icon="chevron_alt" class="w-2 ml-1 transform rotate-180 text-crimson"></svg-vue>
+              </a>
+            </li>
+            <li class="px-2 md:px-4">
+              <a href="#hayayude" @click="scrollTo('#hayayude')" class="flex justify-center items-center">
+                <span class="text-xs font-bold hover:text-crimson">早ゆで スパゲティ</span>
+                <svg-vue icon="chevron_alt" class="w-2 ml-1 transform rotate-180 text-crimson"></svg-vue>
+              </a>
+            </li>
+            <li class="px-2 md:px-4">
+              <a href="#smilemeal" @click="scrollTo('#smilemeal')" class="flex justify-center items-center">
+                <span class="text-xs font-bold hover:text-crimson">Smile Meal</span>
+                <svg-vue icon="chevron_alt" class="w-2 ml-1 transform rotate-180 text-crimson"></svg-vue>
+              </a>
+            </li>
+            <li class="px-2 md:px-4">
+              <a href="#iqf" @click="scrollTo('#iqf')" class="flex justify-center items-center">
+                <span class="text-xs font-bold hover:text-crimson">IQF バラ凍結パスタ</span>
+                <svg-vue icon="chevron_alt" class="w-2 ml-1 transform rotate-180 text-crimson"></svg-vue>
+              </a>
+            </li>
+            <li class="px-2 md:px-4">
+              <a href="#souzai" @click="scrollTo('#souzai')" class="flex justify-center items-center">
+                <span class="text-xs font-bold hover:text-crimson">惣菜パスタ</span>
+                <svg-vue icon="chevron_alt" class="w-2 ml-1 transform rotate-180 text-crimson"></svg-vue>
+              </a>
+            </li>
+            <li class="px-2 md:px-4">
+              <a href="#tenpurako" @click="scrollTo('#tenpurako')" class="flex justify-center items-center">
+                <span class="text-xs font-bold hover:text-crimson">天ぷら粉</span>
+                <svg-vue icon="chevron_alt" class="w-2 ml-1 transform rotate-180 text-crimson"></svg-vue>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div ref="scrollable" class="sm:hidden scrollable absolute right-0 top-0" @mousedown="hideIndicator" @touchstart="hideIndicator">
+          <div class="arrowSliding">
+            <div class="arrow"></div>
+          </div>
+          <div class="arrowSliding delay1">
+            <div class="arrow"></div>
+          </div>
+          <div class="arrowSliding delay2">
+            <div class="arrow"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="products" class="overflow-x-hidden">
+
+    <div id="karaage" class="parallax-sp">
+      <div class="parallax-pc karaage"></div>
+      <div class="bg-white pt-0.5 pb-14 md:pb-24">
+        <div class="container mx-auto">
+          <div class="bg-black text-white -mt-36 sm:-mx-10">
+            <div class="flex flex-wrap justify-start items-center p-4 sm:p-10">
+              <div class="w-full sm:w-5/12">
+                <div class="py-4 sm:pr-6">
+                  <div class="py-2 px-4">
+                    <img src="{% static 'images/features/hero_karaage_01.png' %}" alt="THE KARAAGE">
+                  </div>
+                  <div class="px-4">
+                    <img src="{% static 'images/features/hero_karaage_02.png' %}" alt="THE KARAAGE">
+                  </div>
+                  <div class="pt-6 sm:pb-10 px-4">
+                    <img src="{% static 'images/features/hero_karaage_03.png' %}" alt="THE KARAAGE">
+                  </div>
+                </div>
+              </div>
+              <div class="w-full sm:w-7/12">
+                <div class="p-4">
+                  <img src="{% static 'images/features/hero_karaage_04.png' %}" alt="THE KARAAGE">
+                  <p class="text-xs text-white mt-4">※音声を出力する場合はナビゲーションバーのスピーカーボタンを押してください。</p>
+                  <div class="flex flex-wrap justify-start items-start -mx-1 sm:-mx-3 mt-6">
+                    <div class="w-1/2 px-1 sm:px-3 mb-2 sm:mb-6">
+                      <a href="#" class="wrap-image block border border-solid border-yellow-400" @click="(e)=>{e.preventDefault();showVideoStream('https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/karaage/mov/01_speaktrends.mp4')}">
+                        <img src="{% static 'images/features/hero_karaage_05.png' %}" alt="THE KARAAGE">
+                      </a>
+                    </div>
+                    <div class="w-1/2 px-1 sm:px-3 mb-2 sm:mb-6">
+                      <a href="#" class="wrap-image block border border-solid border-yellow-400" @click="(e)=>{e.preventDefault();showVideoStream('https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/karaage/mov/02_introduction.mp4')}">
+                        <img src="{% static 'images/features/hero_karaage_08.png' %}" alt="THE KARAAGE">
+                      </a>
+                    </div>
+                    <div class="w-1/2 px-1 sm:px-3 mb-2 sm:mb-6">
+                      <a href="#" class="wrap-image block border border-solid border-yellow-400" @click="(e)=>{e.preventDefault();showVideoStream('https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/karaage/mov/04_trial.mp4')}">
+                        <img src="{% static 'images/features/hero_karaage_07.png' %}" alt="THE KARAAGE">
+                      </a>
+                    </div>
+                    <div class="w-1/2 px-1 sm:px-3 mb-2 sm:mb-6">
+                      <a href="https://secure-link.jp/wf/?c=wf05737232" target="_blank" class="wrap-image block border border-solid border-yellow-400">
+                        <img src="{% static 'images/features/hero_karaage_06.png' %}" alt="THE KARAAGE">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full">
+                <div class="px-4 flex flex-wrap justify-start items-start -mx-4">
+                  <div class="w-1/2 sm:w-1/4 px-4 mb-4 sm:mb-0">
+                    <a href="#saku" @click="scrollTo('#saku')">
+                      <img src="{% static 'images/image_karaage01.jpg' %}" alt="">
+                    </a>
+                  </div>
+                  <div class="w-1/2 sm:w-1/4 px-4 mb-4 sm:mb-0">
+                    <a href="#gotsu" @click="scrollTo('#gotsu')">
+                      <img src="{% static 'images/image_karaage02.jpg' %}" alt="">
+                    </a>
+                  </div>
+                  <div class="w-1/2 sm:w-1/4 px-4 mb-4 sm:mb-0">
+                    <a href="#tare" @click="scrollTo('#tare')">
+                      <img src="{% static 'images/image_karaage03.jpg' %}" alt="">
+                    </a>
+                  </div>
+                  <div class="w-1/2 sm:w-1/4 px-4 mb-4 sm:mb-0">
+                    <a href="#zaku" @click="scrollTo('#zaku')">
+                      <img src="{% static 'images/image_karaage04.jpg' %}" alt="">
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full w-full sm:flex bg-yellow sm:px-4 pt-1 pb-10 sm:py-8 mt-3 sm:mt-10 mx-auto">
+                <div class="w-full sm:w-1/3 mt-6 sm:mt-0">
+                  <img src="{% static 'images/features/feature_karaage_01.png' %}" alt="食感">
+                </div>
+                <div class="w-full sm:w-1/3 mt-10 sm:mt-0">
+                  <img src="{% static 'images/features/feature_karaage_02.png' %}" alt="経時耐性">
+                </div>
+                <div class="w-full sm:w-1/3 mt-10 sm:mt-0">
+                  <img src="{% static 'images/features/feature_karaage_03.png' %}" alt="外観">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="saku" class="py-10 md:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                              {
+                                  src: '{% static 'images/products/271300_01.jpg' %}',
+                                  title: 'THE KARAAGE 薄衣サクサクから揚げ粉'
+                              },
+                              {
+                                  src: '{% static 'images/products/271300_02.jpg' %}',
+                                  title: 'THE KARAAGE 薄衣サクサクから揚げ粉'
+                              },
+                              {
+                                  src: '{% static 'images/products/271300_03.jpg' %}',
+                                  title: 'THE KARAAGE 薄衣サクサクから揚げ粉'
+                              },
+                          ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">THE KARAAGE<br>薄衣サクサクから揚げ粉</h2>
+                <span class="inline-block mt-4 p-2 text-lg leading-none font-bold bg-[#744B2F] text-white">まぶしタイプ</span>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_roomtemp.png' %}" class="hidden sm:block w-14 h-14" alt="常温">
+                  <img src="{% static 'images/tab_roomtemp.png' %}" class="sm:hidden w-18 mr-2" alt="常温">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  昨今のから揚げのトレンドである「薄衣」でありながらも軽くてサクサクした食感が長持ちするから揚げ粉です。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                              'fry',
+                          ]"
+                :conditions="[
+                              {
+                                  title: 'temp',
+                                  value: '170～180℃'
+                              },
+                              {
+                                  title: 'time',
+                                  value: '約4分<br>※鶏肉30g/個<br>使用時'
+                              },
+                          ]"
+                :specs_a="[
+                              {
+                                  title: '荷姿',
+                                  value: '1kg×10'
+                              },
+                              {
+                                  title: '段ボール',
+                                  value: '225×390×280mm'
+                              },
+                              {
+                                  title: '個包装',
+                                  value: '345×225×40mm'
+                              },
+                              {
+                                  title: 'ケース重量',
+                                  value: '10.8kg'
+                              },
+                          ]"
+                :specs_b="[
+                              {
+                                  title: 'POSコード',
+                                  value: '4902110271300'
+                              },
+                              {
+                                  title: 'GTINコード',
+                                  value: '14902110271307'
+                              },
+                              {
+                                  title: 'マークコード',
+                                  value: '271300'
+                              },
+                          ]"
+                :specs_c="[
+                              {
+                                  title: '原産国',
+                                  value: '日本'
+                              },
+                              {
+                                  title: '出荷開始日',
+                                  value: '2022年3月1日'
+                              },
+                              {
+                                  title: '賞味期限',
+                                  value: '12ヶ月'
+                              },
+                          ]"
+                :extra_b="{
+                              title: '基本調理方法',
+                              subtitle: '※鶏肉2㎏使用時',
+                              text: '<ol><li>下味付きの鶏肉2㎏に対して本品を400gまぶします。</li><li>５分程度なじませます。</li><li>170～180℃に熱した油で揚げます。(素材の大きさにより揚げ時間を調整してください)</li></ol>',
+                              url: '#'
+                          }"
+              ></detail-info>
+            </div>
+          </div>
+          <div id="gotsu" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                              {
+                                  src: '{% static 'images/products/271310_01.jpg' %}',
+                                  title: 'THE KARAAGE ゴツゴツから揚げ粉'
+                              },
+                              {
+                                  src: '{% static 'images/products/271310_02.jpg' %}',
+                                  title: 'THE KARAAGE ゴツゴツから揚げ粉'
+                              },
+                              {
+                                  src: '{% static 'images/products/271310_03.jpg' %}',
+                                  title: 'THE KARAAGE ゴツゴツから揚げ粉'
+                              },
+                          ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">THE KARAAGE<br>ゴツゴツから揚げ粉</h2>
+                <span class="inline-block mt-4 p-2 text-lg leading-none font-bold bg-[#1F4B8A] text-white">練りこみまぶしタイプ</span>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_roomtemp.png' %}" class="hidden sm:block w-14 h-14" alt="常温">
+                  <img src="{% static 'images/tab_roomtemp.png' %}" class="sm:hidden w-18 mr-2" alt="常温">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  専門店の様な凹凸感のあるゴツゴツとした外観に仕上がるから揚げ粉です。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                              'fry',
+                          ]"
+                :conditions="[
+                              {
+                                  title: 'water',
+                                  value: '肉の使用量<br>に対し５％'
+                              },
+                              {
+                                  title: 'temp',
+                                  value: '170～180℃'
+                              },
+                              {
+                                  title: 'time',
+                                  value: '約４分<br>※鶏肉30g/個<br>使用時'
+                              },
+                          ]"
+                :specs_a="[
+                              {
+                                  title: '荷姿',
+                                  value: '1kg×10'
+                              },
+                              {
+                                  title: '段ボール',
+                                  value: '225×390×280mm'
+                              },
+                              {
+                                  title: '個包装',
+                                  value: '345×225×40mm'
+                              },
+                              {
+                                  title: 'ケース重量',
+                                  value: '10.8kg'
+                              },
+                          ]"
+                :specs_b="[
+                              {
+                                  title: 'POSコード',
+                                  value: '4902110271317'
+                              },
+                              {
+                                  title: 'GTINコード',
+                                  value: '14902110271314'
+                              },
+                              {
+                                  title: 'マークコード',
+                                  value: '271310'
+                              },
+                          ]"
+                :specs_c="[
+                              {
+                                  title: '原産国',
+                                  value: '日本'
+                              },
+                              {
+                                  title: '出荷開始日',
+                                  value: '2022年3月1日'
+                              },
+                              {
+                                  title: '賞味期限',
+                                  value: '12ヶ月'
+                              },
+                          ]"
+                :extra_b="{
+                              title: '基本調理方法',
+                              subtitle: '※鶏肉2㎏使用時',
+                              text: '<ol><li>下味を付けた鶏肉2㎏の入ったボウルに、水100gと本品を400g入れて混ぜ合わせます。</li><li>170～180℃に熱した油で揚げます。（素材の大きさにより揚げ時間を調節してください）</li></ol>',
+                              url: '#'
+                          }"
+              ></detail-info>
+            </div>
+          </div>
+          <div id="tare" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                              {
+                                  src: '{% static 'images/products/271320_01.jpg' %}',
+                                  title: 'THE KARAAGE タレかけカリサクから揚げ粉'
+                              },
+                              {
+                                  src: '{% static 'images/products/271320_02.jpg' %}',
+                                  title: 'THE KARAAGE タレかけカリサクから揚げ粉'
+                              },
+                              {
+                                  src: '{% static 'images/products/271320_03.jpg' %}',
+                                  title: 'THE KARAAGE タレかけカリサクから揚げ粉'
+                              },
+                         ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">THE KARAAGE<br>タレかけカリサクから揚げ粉</h2>
+                <span class="inline-block mt-4 p-2 text-lg leading-none font-bold bg-[#882F6E] text-white">練りこみまぶしタイプ</span>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_roomtemp.png' %}" class="hidden sm:block w-14 h-14" alt="常温">
+                  <img src="{% static 'images/tab_roomtemp.png' %}" class="sm:hidden w-18 mr-2" alt="常温">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  タレをかけても衣がしっかりしておりカリサク食感が長持ちするから揚げ粉です。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                              'fry',
+                          ]"
+                :conditions="[
+                              {
+                                  title: 'water',
+                                  value: '粉の使用量<br>に対し120%'
+                              },
+                              {
+                                  title: 'temp',
+                                  value: '170～180℃'
+                              },
+                              {
+                                  title: 'time',
+                                  value: '約４分<br>※鶏肉30g/個<br>使用時'
+                              },
+                          ]"
+                :specs_a="[
+                              {
+                                  title: '荷姿',
+                                  value: '1kg×10'
+                              },
+                              {
+                                  title: '段ボール',
+                                  value: '235×390×280mm'
+                              },
+                              {
+                                  title: '個包装',
+                                  value: '345×225×40mm'
+                              },
+                              {
+                                  title: 'ケース重量',
+                                  value: '10.8kg'
+                              },
+                          ]"
+                :specs_b="[
+                              {
+                                  title: 'POSコード',
+                                  value: '4902110271324'
+                              },
+                              {
+                                  title: 'GTINコード',
+                                  value: '14902110271321'
+                              },
+                              {
+                                  title: 'マークコード',
+                                  value: '271320'
+                              },
+                          ]"
+                :specs_c="[
+                              {
+                                  title: '原産国',
+                                  value: '日本'
+                              },
+                              {
+                                  title: '出荷開始日',
+                                  value: '2022年3月1日'
+                              },
+                              {
+                                  title: '賞味期限',
+                                  value: '12ヶ月'
+                              },
+                          ]"
+                :extra_b="{
+                              title: '基本調理方法',
+                              subtitle: '※鶏肉2㎏使用時',
+                              text: '<ol><li>水240gと本品200gをボウルに加え、ダマがなくなるまで混ぜてバッター液を作ります。</li><li>鶏肉を①のバッター液に潜らせてまんべんなくつけた後、本品300gを均一にまぶします。</li><li>170～180℃に熱した油で揚げます。（素材の大きさにより揚げ時間を調節してください）</li><li>お好みのタレをかけてください。</li></ol>',
+                              url: '#'
+                          }"
+              ></detail-info>
+            </div>
+          </div>
+          <div id="zaku" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                              {
+                                  src: '{% static 'images/products/271330_01.jpg' %}',
+                                  title: 'THE KARAAGE ザクザクから揚げ粉'
+                              },
+                              {
+                                  src: '{% static 'images/products/271330_02.jpg' %}',
+                                  title: 'THE KARAAGE ザクザクから揚げ粉'
+                              },
+                              {
+                                  src: '{% static 'images/products/271330_03.jpg' %}',
+                                  title: 'THE KARAAGE ザクザクから揚げ粉'
+                              },
+                          ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">THE KARAAGE<br>ザクザクから揚げ粉</h2>
+                <span class="inline-block mt-4 p-2 text-lg leading-none font-bold bg-[#397B4A] text-white">まぶしタイプ</span>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_roomtemp.png' %}" class="hidden sm:block w-14 h-14" alt="常温">
+                  <img src="{% static 'images/tab_roomtemp.png' %}" class="sm:hidden w-18 mr-2" alt="常温">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  米粉を配合。ザクザクとした特徴のある食感に仕上がるから揚げ粉です。フライドチキンやジーパイ等のアレンジから揚げにも最適です。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                              'fry',
+                          ]"
+                :conditions="[
+                              {
+                                  title: 'water',
+                                  value: '粉の使用量<br>に対し25%'
+                              },
+                              {
+                                  title: 'temp',
+                                  value: '170～180℃'
+                              },
+                              {
+                                  title: 'time',
+                                  value: '約４分<br>※鶏肉30g/個<br>使用時'
+                              },
+                          ]"
+                :specs_a="[
+                              {
+                                  title: '荷姿',
+                                  value: '1kg×10'
+                              },
+                              {
+                                  title: '段ボール',
+                                  value: '225×390×280mm'
+                              },
+                              {
+                                  title: '個包装',
+                                  value: '345×225×40mm'
+                              },
+                              {
+                                  title: 'ケース重量',
+                                  value: '10.8kg'
+                              },
+                          ]"
+                :specs_b="[
+                              {
+                                  title: 'POSコード',
+                                  value: '4902110271331'
+                              },
+                              {
+                                  title: 'GTINコード',
+                                  value: '14902110271338'
+                              },
+                              {
+                                  title: 'マークコード',
+                                  value: '271330'
+                              },
+                          ]"
+                :specs_c="[
+                              {
+                                  title: '原産国',
+                                  value: '日本'
+                              },
+                              {
+                                  title: '出荷開始日',
+                                  value: '2022年3月1日'
+                              },
+                              {
+                                  title: '賞味期限',
+                                  value: '12ヶ月'
+                              },
+                          ]"
+                :extra_b="{
+                              title: '基本調理方法',
+                              subtitle: '※鶏肉2㎏使用時',
+                              text: '<ol><li>ボウルに水100gと本品を400gを加え、そぼろ状になるまで混ぜます。</li><li>下味を付けた鶏肉2㎏に①を均一にまぶします。</li><li>170～180℃に熱した油で揚げます。（素材の大きさにより揚げ時間を調節してください）</li></ol>',
+                              url: '#'
+                          }"
+              ></detail-info>
+            </div>
+          </div>
+
+          <div class="mt-6 sm:mt-10">
+            <div class="px-4 md:px-0">
+              <h2 class="slashed w-full text-center pt-8 mb-10">
+                <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">OTHER LINEUP</span>
+                <span class="block text-2xl md:text-3xl font-bold leading-snug">その他のラインアップ</span>
+              </h2>
+            </div>
+            <div class="md:px-6">
+              <card-slider :products="[
+                              {
+                                  'title': 'THE KARAAGE から揚げ粉お肉ジューシータイプ 1kg',
+                                  'image': '{% static 'images/products/337590_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/agemono/karaage.html',
+                                  'weight': '1kg×10',
+                                  'code': '337590',
+                              },
+                              {
+                                  'title': 'THE KARAAGEから揚げ粉お肉ジューシータイプ 500g',
+                                  'image': '{% static 'images/products/337600_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/agemono/karaage.html',
+                                  'weight': '500g×20',
+                                  'code': '337600',
+                              },
+                              {
+                                  'title': 'THE KARAAGEから揚げ粉味付け自由な水溶きタイプ中華街仕立て',
+                                  'image': '{% static 'images/products/334570_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/agemono/karaage.html',
+                                  'weight': '1kg×10',
+                                  'code': '270590',
+                                  'newmark': true
+                              },
+                          ]">
+              </card-slider>
+            </div>
+          </div>
+          <div class="mt-16 sm:mt-24">
+            <div class="px-4 md:px-0">
+              <h2 class="slashed w-full text-center pt-8 mb-10">
+                <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">Positioning map</span>
+                <span class="block text-2xl md:text-3xl font-bold leading-snug">日清製粉ウェルナ<br>から揚げ粉ポジショニングMAP</span>
+              </h2>
+            </div>
+            <div class="black px-4 md:p-0">
+              <div class="p-2 md:p-5 bg-black">
+                <a href="#" @click="(e)=>{ e.preventDefault(); openLightBox(0,[{type: 'image', src: '{% static 'images/features/feature_karaage_04.png' %}'}]) }">
+                  <img src="{% static 'images/features/feature_karaage_04.png' %}" alt="から揚げ粉ポジショニングMAP">
+                </a>
+              </div>
+              <a href="https://www.nisshin-seifun-welna.com/index/b2b/the-karaage/" class="block pt-6">
+                <img src="{% static 'images/bnr_karaage.jpg' %}" alt="から揚げ粉ポジショニングMAP">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hayayude" class="parallax-sp">
+      <div class="parallax-pc hayayude"></div>
+      <div class="bg-white pt-0.5 pb-14 md:pb-24">
+        <div class="container mx-auto">
+          <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
+            <div class="sm:flex">
+              <div class="flex-none w-full sm:w-[190px] md:w-[280px] sm:bg-crimson flex justify-center items-center">
+                <div class="px-24 sm:p-6">
+                  <img src="{% static 'images/features/hero_mama.png' %}" alt="マ・マー THE PRO">
+                </div>
+              </div>
+              <div class="flex justify-center items-center">
+                <div class="py-6 sm:py-4 px-6">
+                  <img src="{% static 'images/features/hero_hayayude_01.png' %}" alt="マ・マー THE PRO 早ゆでスパゲティ1.6mm">
+                </div>
+              </div>
+              <div class="flex justify-center items-center">
+                <a href="#hayayude16" @click="scrollTo('#hayayude16')">
+                  <img src="{% static 'images/image_hayayude_alt.png' %}" alt="マ・マー THE PRO 早ゆでスパゲティ1.6mm">
+                </a>
+              </div>
+            </div>
+            <div class="sm:bg-gray-100 sm:pt-0.5 md:pb-6 sm:mt-10">
+              <div class="w-full sm:max-w-[85%] mx-auto mt-14 sm:mt-24 pb-12 pt-0 bg-brown-800 text-white text-center rounded-lg">
+                <div class="sm:w-[500px] mx-auto transform -translate-y-8 px-6">
+                  <img src="{% static 'images/features/hero_hayayude_03.png' %}" alt="">
+                </div>
+                <div class="text-sm text-center text-yellow-500">（特許取得済 特許第5726493号）</div>
+                <p class="py-6 sm:py-8 px-6 sm:px-16 text-left leading-loose">麺に切り込みを入れることで、パスタ本来のおいしさはそのままに、ゆで時間を短縮する、当社独自の製法で作り上げました。ゆで上がると標準品と変わらない丸い断面形状になり、手軽にアルデンテ食感のパスタが楽しめます。</p>
+                <div class="sm:w-[560px] mx-auto ml-2 mr-4 sm:mx-auto ">
+                  <img src="{% static 'images/features/hero_hayayude_04.png' %}" alt="">
+                </div>
+              </div>
+              <div class="w-full w-full bg-gray-100 sm:g-white p-6 pb-3 sm:p-10 mt-6 md:mt-10 mx-auto rounded-lg">
+                <div class="pb-6">
+                  <div class="-mx-8 sm:mx-0">
+                    <img src="{% static 'images/features/feature_hayayude_01.png' %}" class="hidden sm:block" alt="食感">
+                    <img src="{% static 'images/features/feature_hayayude_01_sp.png' %}" class="sm:hidden" alt="食感">
+                  </div>
+                  <div class="mt-6 xs:w-72 mx-8 xs:mx-auto">
+                    <img src="{% static 'images/features/feature_hayayude_02.png' %}" alt="食感">
+                  </div>
+                  <p class="py-6 sm:py-8 p-4 sm:px-32 leading-relaxed">４カ所に切り込みを入れるなどして食感アップ！切り込みの入れ方を工夫したことで、ゆで時間はそのままに、さらに本格アルデンテ食感を実現！</p>
+                  <div class="lg:px-32">
+                    <img src="{% static 'images/features/feature_hayayude_03.png' %}" alt="食感">
+                  </div>
+                </div>
+                <div class="pb-4 sm:py-6 sm:pl-24 md:pl-60">
+                  <div class="pt-3 sm:pt-6 leading-relaxed flex justify-start items-start sm:items-center">
+                    <svg-vue icon="checked" class="flex-none w-6 h-6 sm:w-8 sm:h-8 mt-1 text-black"></svg-vue>
+                    <div class="ml-3">
+                      <p class="flex-none marked text-lg sm:text-2xl font-bold">フライパンであおってもおいしさキープ！</p>
+                    </div>
+                  </div>
+                  <div class="pt-3 sm:pt-6 leading-relaxed flex justify-start items-start sm:items-center">
+                    <svg-vue icon="checked" class="flex-none w-6 h-6 sm:w-8 sm:h-8 mt-1 text-black"></svg-vue>
+                    <div class="ml-3">
+                      <p class="flex-none marked text-lg sm:text-2xl font-bold">食感の経時耐性向上</p>
+                    </div>
+                  </div>
+                  <div class="pt-3 sm:pt-6 leading-relaxed flex justify-start items-start sm:items-center">
+                    <svg-vue icon="checked" class="flex-none w-6 h-6 sm:w-8 sm:h-8 mt-1 text-black"></svg-vue>
+                    <div class="ml-3">
+                      <p class="flex-none marked text-lg sm:text-2xl font-bold">電子レンジでの調理も可能</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="hayayude16" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                                  {
+                                      src: '{% static 'images/products/271440_01.jpg' %}',
+                                      title: 'マ・マー THE PRO 早ゆでスパゲティ1.6mm'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/271440_02.jpg' %}',
+                                      title: 'マ・マー THE PRO 早ゆでスパゲティ1.6mm'
+                                  },
+                              ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">マ・マー THE PRO<br>早ゆでスパゲティ1.6mm</h2>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_roomtemp.png' %}" class="hidden sm:block w-14 h-14" alt="常温">
+                  <img src="{% static 'images/tab_roomtemp.png' %}" class="sm:hidden w-18 mr-2" alt="常温">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  デュラムセモリナ100％の商品。当社独自の「早ゆで・スーパープロント製法」により、ゆで時間たったの３分で提供できるスパゲティです。フライパン煽り・レンジ調理が可能な為、様々な用途でご使用いただけます。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                                  'boil',
+                              ]"
+                :conditions="[
+                                  {
+                                      title: 'time',
+                                      value: '3分'
+                                  },
+                              ]"
+                :specs_a="[
+                                  {
+                                      title: '荷姿',
+                                      value: '2.5kg✕4'
+                                  },
+                                  {
+                                      title: '段ボール',
+                                      value: '234×283×253mm'
+                                  },
+                                  {
+                                      title: '個包装',
+                                      value: '270×330×50mm'
+                                  },
+                                  {
+                                      title: 'ケース重量',
+                                      value: '10.4kg'
+                                  },
+                              ]"
+                :specs_b="[
+                                  {
+                                      title: 'POSコード',
+                                      value: '4902110271447'
+                                  },
+                                  {
+                                      title: 'GTINコード',
+                                      value: '14902110271444'
+                                  },
+                                  {
+                                      title: 'マークコード',
+                                      value:'271440'
+                                  },
+                              ]"
+                :specs_c="[
+                                  {
+                                      title: '原産国',
+                                      value: 'トルコ'
+                                  },
+                                  {
+                                      title: '出荷開始日',
+                                      value: '2022年6月1日'
+                                  },
+                                  {
+                                      title: '賞味期限',
+                                      value: '36ヶ月'
+                                  },
+                              ]"
+                :extra_a="{
+                                  text: '早ゆでスパゲティ1.6mmは電子レンジ調理も可能です。<br>本品100g　水400㏄　600Wの場合：7分',
+                                  url: '#'
+                              }"
+                :extra_c="{
+                                  text: '※調理方法等ご不明な点はお問い合わせください',
+                                  url: '#'
+                              }"
+              ></detail-info>
+            </div>
+          </div>
+
+          <div class="mt-6 sm:">
+            <div class="px-4 md:px-0">
+              <h2 class="slashed w-full text-center pt-8 mb-10">
+                <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">OTHER LINEUP</span>
+                <span class="block text-2xl md:text-3xl font-bold leading-snug">その他のラインアップ</span>
+              </h2>
+            </div>
+            <div class="md:px-6">
+              <card-slider :products="[
+                              {
+                                  'title': '早ゆでスパゲティ プロント 1.6mm 500g',
+                                  'image': '{% static 'images/products/361960_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/mama/lineup_01.html',
+                                  'weight': '500g×15',
+                                  'code': '361960',
+                              },
+                              {
+                                  'title': 'マ・マー早ゆでスパゲティ プロント 2.2mm 2.5kg',
+                                  'image': '{% static 'images/products/343980_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/mama/lineup_01.html',
+                                  'weight': '2.5kg×4',
+                                  'code': '343980',
+                              },
+                          ]">
+              </card-slider>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="smilemeal" class="parallax-sp">
+      <div class="parallax-pc smilemeal"></div>
+      <div class="bg-white pt-0.5 pb-14 md:pb-24">
+        <div class="container mx-auto">
+          <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
+            <div class="sm:flex">
+              <div class="flex-none w-full sm:w-[190px] md:w-[260px] sm:bg-crimson flex justify-center items-center">
+                <div class="px-24 sm:p-6">
+                  <img src="{% static 'images/features/hero_mama.png' %}" alt="マ・マー THE PRO">
+                </div>
+              </div>
+              <div class="flex justify-center items-center">
+                <div class="pt-4 pb-6 m:py-4 sm:px-6">
+                  <img src="{% static 'images/features/hero_smilemeal_01.png' %}" alt="マ・マーTHE PRO Smile Meal">
+                </div>
+              </div>
+              <div class="relative flex-none w-11/12 sm:w-[220px] md:w-[260px] mx-auto flex justify-center items-center">
+                <img src="{% static 'images/features/hero_smilemeal_02.png' %}" alt="マ・マーTHE PRO Smile Meal">
+                <a href="#wafu" class="absolute left-0 top-0 w-full h-1/2" @click="scrollTo('#wafu')"></a>
+                <a href="#napolitan" class="absolute left-0 top-1/2 w-full h-1/2" @click="scrollTo('#napolitan')"></a>
+              </div>
+            </div>
+            <div class="sm:flex w-full bg-gray-100 py-6 px-4 sm:p-8 md:p-10 mt-6 sm:mt-10 mx-auto">
+              <div class="w-full sm:w-6/12 md:w-6/12 flex flex-col justify-between">
+                <div class="pb-4 pr-3 sm:pr-0 sm:pb-0">
+                  <img src="{% static 'images/features/feature_smilemeal_01.png' %}" alt="食感">
+                  <p class="pl-6 md:pl-8 pt-3 pb-4 sm:pb-6 leading-snug text-center">
+                    <span class="font-bold">長さ半分の麺を使用し<br>通常より柔らかめの食感で</span><br>
+                    <span class="block mt-3 text-xl md:text-2xl text-crimson font-bold">食べやすさ◎</span>
+                  </p>
+                </div>
+                <div class="pb-4 pr-3 sm:pr-0 sm:pb-0">
+                  <img src="{% static 'images/features/feature_smilemeal_02.png' %}" alt="食感">
+                  <p class="pl-6 mdm:pl-8 pt-3 pb-4 sm:pb-6 leading-snug text-center">
+                    <span class="font-bold">塩味控えめ・食物繊維入りで<br>美味しさしっかり</span><br>
+                    <span class="block mt-3 text-xl md:text-2xl text-crimson font-bold">満足感も◎</span>
+                  </p>
+                </div>
+                <div class="pr-3 sm:pr-0">
+                  <img src="{% static 'images/features/feature_smilemeal_03.png' %}" alt="食感">
+                  <p class="pl-6 md:pl-8 py-4 pt-3 sm:pb-0 leading-snug text-center">
+                    <span class="font-bold">コンベクションオーブンで温め、<br>お好みの具材と混ぜるだけ</span><br>
+                    <span class="block mt-3 text-xl md:text-2xl text-crimson font-bold flex justify-center items-center">アレンジ可能◎</span>
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4 sm:mt-0 w-full sm:w-6/12 md:w-6/12 pt-10 sm:pt-0 border-t border-dashed border-black sm:border-none">
+                <div class="px-4 sm:px-6 md:px-8 sm:pl-12 md:pl-16">
+                  <img src="{% static 'images/features/feature_smilemeal_04.png' %}" alt="食感" class="w-full mx-auto">
+                </div>
+                <div class="px-4 sm:px-6 md:px-8 sm:pl-12 md:pl-16 pt-8">
+                  <img src="{% static 'images/features/feature_smilemeal_05.png' %}" alt="食感" class="w-full mx-auto">
+                </div>
+                <div class="px-4 sm:px-6 md:px-8 sm:pl-12 md:pl-16 pt-8">
+                  <p class="flex text-xs">
+                    <span class="mr-2">※</span>
+                    <span>６５歳以上が１日に推奨されている食物繊維量は２１ｇ/日とされております。（厚生労働省　日本人の食事摂取基準2020年版より）</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="napolitan" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                                  {
+                                      src: '{% static 'images/products/290470_01.jpg' %}',
+                                      title: 'マ・マーTHE PRO Smile Meal やさしい味わい ナポリタン'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290470_02.jpg' %}',
+                                      title: 'マ・マーTHE PRO Smile Meal やさしい味わい ナポリタン'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290470_03.jpg' %}',
+                                      title: 'マ・マーTHE PRO Smile Meal やさしい味わい ナポリタン'
+                                  },
+                              ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">マ・マーTHE PRO<br>Smile Meal<br>やさしい味わい ナポリタン</h2>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_frozen.png' %}" class="hidden sm:block w-14 h-14" alt="冷凍">
+                  <img src="{% static 'images/tab_frozen.png' %}" class="sm:hidden w-18 mr-2" alt="冷凍">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  麺の長さを半分にし、やわらかめの食感にすることで、高齢の方も食べやすいように工夫したナポリタンです。また、ソースは塩味控えめでも美味しく、食物繊維入りの設計です。お好みの具材によりアレンジが可能で、付け合わせにも使用可能です。<br><br>トマトケチャップ・トマトペーストをベースにソテーオニオン・ニンニクの風味を生かし、やさしいながらも濃厚な味わいです。
+                  <span class="block mt-6 text-xs text-gray-900">※本商品は具材無しの商品となります。具材は別でご準備をお願いいたします。</span>
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                                  'steam',
+                              ]"
+                :conditions="[
+                                  {
+                                      title: 'temp',
+                                      value: '100℃'
+                                  },
+                                  {
+                                      title: 'time',
+                                      value: '25分'
+                                  },
+                              ]"
+                :specs_a="[
+                                  {
+                                      title: '荷姿',
+                                      value: '230g×12×2'
+                                  },
+                                  {
+                                      title: '段ボール',
+                                      value: '400×220×(150×2)mm'
+                                  },
+                                  {
+                                      title: '個包装',
+                                      value: '250×140×23mm'
+                                  },
+                                  {
+                                      title: 'ケース重量',
+                                      value: '6.3kg'
+                                  },
+                              ]"
+                :specs_b="[
+                                  {
+                                      title: 'POSコード',
+                                      value: '4902110290479'
+                                  },
+                                  {
+                                      title: 'GTINコード',
+                                      value: '34902110290470'
+                                  },
+                                  {
+                                      title: 'マークコード',
+                                      value: '290470'
+                                  },
+                              ]"
+                :specs_c="[
+                                  {
+                                      title: '原産国',
+                                      value: '日本'
+                                  },
+                                  {
+                                      title: '出荷開始日',
+                                      value: '2022年3月1日'
+                                  },
+                                  {
+                                      title: '賞味期限',
+                                      value: '12ヶ月'
+                                  },
+                              ]"
+                :extra_c="{
+                                  text: '※調理方法等ご不明な点はお問い合わせください',
+                                  url: '#'
+                              }"
+              ></detail-info>
+            </div>
+          </div>
+          <div id="wafu" class="pt-10 sm:pt-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                                  {
+                                      src: '{% static 'images/products/290480_01.jpg' %}',
+                                      title: 'マ・マーTHE PRO Smile Meal やさしい味わい 和風パスタ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290480_02.jpg' %}',
+                                      title: 'マ・マーTHE PRO Smile Meal やさしい味わい 和風パスタ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290480_03.jpg' %}',
+                                      title: 'マ・マーTHE PRO Smile Meal やさしい味わい 和風パスタ'
+                                  },
+                              ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">マ・マーTHE PRO<br>Smile Meal<br>やさしい味わい 和風パスタ</h2>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_frozen.png' %}" class="hidden sm:block w-14 h-14" alt="冷凍">
+                  <img src="{% static 'images/tab_frozen.png' %}" class="sm:hidden w-18 mr-2" alt="冷凍">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  麺の長さを半分にし、やわらかめの食感にすることで、高齢の方も食べやすいように工夫した和風パスタです。ソースは塩味控えめでも美味しく、食物繊維入りの設計です。お好みの具材によりアレンジが可能で、付け合わせにも使用可能です。<br><br>鰹節エキスで旨味を加え、唐辛子、黒胡椒を使用してアクセントを付けました。ゆず風味であっさりとした仕上がりです。
+                  <span class="block mt-6 text-xs text-gray-900">※本商品は具材無しの商品となります。具材は別でご準備をお願いいたします。</span>
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                                  'steam',
+                              ]"
+                :conditions="[
+                                  {
+                                      title: 'temp',
+                                      value: '100℃'
+                                  },
+                                  {
+                                      title: 'time',
+                                      value: '25分'
+                                  },
+                              ]"
+                :specs_a="[
+                                  {
+                                      title: '荷姿',
+                                      value: '230g×12×2'
+                                  },
+                                  {
+                                      title: '段ボール',
+                                      value: '400×220×(150×2)mm'
+                                  },
+                                  {
+                                      title: '個包装',
+                                      value: '250×140×23mm'
+                                  },
+                                  {
+                                      title: 'ケース重量',
+                                      value: '6.3kg'
+                                  },
+                              ]"
+                :specs_b="[
+                                  {
+                                      title: 'POSコード',
+                                      value: '4902110290486'
+                                  },
+                                  {
+                                      title: 'GTINコード',
+                                      value: '34902110290487'
+                                  },
+                                  {
+                                      title: 'マークコード',
+                                      value: '290480'
+                                  },
+                              ]"
+                :specs_c="[
+                                  {
+                                      title: '原産国',
+                                      value: '日本'
+                                  },
+                                  {
+                                      title: '出荷開始日',
+                                      value: '2022年3月1日'
+                                  },
+                                  {
+                                      title: '賞味期限',
+                                      value: '12ヶ月'
+                                  },
+                              ]"
+                :extra_c="{
+                                  text: '※調理方法等ご不明な点はお問い合わせください',
+                                  url: '#'
+                              }"
+              ></detail-info>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="iqf" class="parallax-sp">
+      <div class="parallax-pc iqf"></div>
+      <div class="bg-white pt-0.5 pb-14 md:pb-24">
+        <div class="container mx-auto">
+          <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
+            <div class="sm:flex">
+              <div class="flex-none w-full sm:w-[190px] md:w-[280px] sm:bg-crimson flex justify-center items-center">
+                <div class="px-24 sm:p-6">
+                  <img src="{% static 'images/features/hero_mama.png' %}" alt="マ・マー THE PRO">
+                </div>
+              </div>
+              <div class="flex justify-center items-center">
+                <div class="py-6 sm:py-4 px-4 sm:px-6">
+                  <img src="{% static 'images/features/hero_iqf_01.png' %}" alt="マ・マーTHE PRO IQF（バラ凍結）MINI">
+                </div>
+              </div>
+              <div class="relative flex-none w-full sm:w-[250px] md:w-[310px] flex justify-center items-center">
+                <img src="{% static 'images/features/hero_iqf_02.png' %}" alt="マ・マーTHE PRO IQF（バラ凍結）MINI">
+                <div class="absolute left-0 bottom-[6%] flex w-full h-4/6">
+                  <a href="#fusilli" class="w-1/3 h-full" @click="scrollTo('#fusilli')"></a>
+                  <a href="#straight" class="w-1/3 h-full" @click="scrollTo('#straight')"></a>
+                  <a href="#shell" class="w-1/3 h-full" @click="scrollTo('#shell')"></a>
+                </div>
+              </div>
+            </div>
+            <div class="w-full bg-gray-100 mx-auto pt-8 pb-4 sm:py-12 px-6 sm:px-14 md:px-24 mt-4 sm:mt-10">
+              <div class="mb-6 sm:mb-10 -mx-4 sm:mx-0">
+                <h4 class="sm:w-10/12 mx-auto"><img src="{% static 'images/features/feature_iqf_01.png' %}" alt=""></h4>
+              </div>
+              <div class="sm:flex sm:-mx-4 md:-mx-8">
+                <div class="w-full sm:w-1/3 px-8 sm:px-4 md:px-8 mb-6 sm:mb-0">
+                  <img src="{% static 'images/features/feature_iqf_02.png' %}" alt="ポイントその１">
+                  <p class="pt-4 sm:pt-8 leading-relaxed text-center font-bold">スプーンにちょうどよくのっかるので取り分けやすく、食べやすい</p>
+                </div>
+                <div class="w-full sm:w-1/3 px-8 sm:px-4 md:px-8 mb-6 sm:mb-0">
+                  <img src="{% static 'images/features/feature_iqf_03.png' %}" alt="ポイントその２">
+                  <p class="pt-4 sm:pt-8 leading-relaxed text-center font-bold">メインから副菜まで様々なメニューに活用が可能</p>
+                </div>
+                <div class="w-full sm:w-1/3 px-8 sm:px-4 md:px-8 mb-6 sm:mb-0">
+                  <img src="{% static 'images/features/feature_iqf_04.png' %}" alt="ポイントその３">
+                  <p class="pt-4 sm:pt-8 leading-relaxed text-center font-bold">子供から高齢者まで幅広い世代に支持されるサイズ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="fusilli" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                                  {
+                                      src: '{% static 'images/products/331750_01.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI フィジリ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/331750_02.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI フィジリ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/331750_03.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI フィジリ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/331750_04.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI フィジリ'
+                                  },
+                              ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">マ・マーTHE PRO<br>IQF（バラ凍結）MINI<br>フィジリ</h2>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_frozen.png' %}" class="hidden sm:block w-14 h-14" alt="冷凍">
+                  <img src="{% static 'images/tab_frozen.png' %}" class="sm:hidden w-18 mr-2" alt="冷凍">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  らせん状の形をした小型パスタ。スプーンにのっかるサイズで、スープやサラダだけでなく小鉢メニューにもご使用いただけます。ソフトな食感で、お子様から年配の方まで幅広い層におすすめです。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                                  'boil'
+                              ]"
+                :conditions="[
+                                  {
+                                      title: 'time',
+                                      value: '30秒'
+                                  },
+                              ]"
+                :specs_a="[
+                                  {
+                                      title: '荷姿',
+                                      value: '500g×12×2'
+                                  },
+                                  {
+                                      title: '段ボール',
+                                      value: '352×406×(199×2)mm'
+                                  },
+                                  {
+                                      title: '個包装',
+                                      value: '270×190×40mm'
+                                  },
+                                  {
+                                      title: 'ケース重量',
+                                      value: '12.8kg'
+                                  },
+                              ]"
+                :specs_b="[
+                                  {
+                                      title: 'POSコード',
+                                      value: '4902110290424'
+                                  },
+                                  {
+                                      title: 'GTINコード',
+                                      value: '34902110290425'
+                                  },
+                                  {
+                                      title: 'マークコード',
+                                      value: '290420'
+                                  },
+                              ]"
+                :specs_c="[
+                                  {
+                                      title: '原産国',
+                                      value: '日本'
+                                  },
+                                  {
+                                      title: '出荷開始日',
+                                      value: '2022年3月1日'
+                                  },
+                                  {
+                                      title: '賞味期限',
+                                      value: '12ヶ月'
+                                  },
+                              ]"
+              ></detail-info>
+            </div>
+          </div>
+          <div id="straight" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                                  {
+                                      src: '{% static 'images/products/290440_01.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI ストレートマカロニ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290440_02.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI ストレートマカロニ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290440_03.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI ストレートマカロニ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290440_04.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI ストレートマカロニ'
+                                  },
+                             ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">マ・マーTHE PRO<br>IQF（バラ凍結）MINI<br>ストレートマカロニ</h2>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_frozen.png' %}" class="hidden sm:block w-14 h-14" alt="冷凍">
+                  <img src="{% static 'images/tab_frozen.png' %}" class="sm:hidden w-18 mr-2" alt="冷凍">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  ストレートタイプの小型マカロニ。スプーンにのっかるサイズで、スープやサラダだけでなく小鉢メニューにもご使用いただけます。ソフトな食感で、お子様から年配の方まで幅広い層におすすめです。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                                  'boil'
+                              ]"
+                :conditions="[
+                                  {
+                                      title: 'time',
+                                      value: '30秒'
+                                  },
+                              ]"
+                :specs_a="[
+                                  {
+                                      title: '荷姿',
+                                      value: '500g×12×2'
+                                  },
+                                  {
+                                      title: '段ボール',
+                                      value: '352×406×(199×2)mm'
+                                  },
+                                  {
+                                      title: '個包装',
+                                      value: '270×190×40mm'
+                                  },
+                                  {
+                                      title: 'ケース重量',
+                                      value: '12.8kg'
+                                  },
+                              ]"
+                :specs_b="[
+                                  {
+                                      title: 'POSコード',
+                                      value: '4902110290448'
+                                  },
+                                  {
+                                      title: 'GTINコード',
+                                      value: '34902110290449'
+                                  },
+                                  {
+                                      title: 'マークコード',
+                                      value: '290440'
+                                  },
+                              ]"
+                :specs_c="[
+                                  {
+                                      title: '原産国',
+                                      value: '日本'
+                                  },
+                                  {
+                                      title: '出荷開始日',
+                                      value: '2022年3月1日'
+                                  },
+                                  {
+                                      title: '賞味期限',
+                                      value: '12ヶ月'
+                                  },
+                              ]"
+              ></detail-info>
+            </div>
+          </div>
+          <div id="shell" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                                  {
+                                      src: '{% static 'images/products/290430_01.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI シェル'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290430_02.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI シェル'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290430_03.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI シェル'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290430_04.jpg' %}',
+                                      title: 'マ・マーTHE PRO IQF（バラ凍結）MINI シェル'
+                                  },
+                             ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">マ・マーTHE PRO<br>IQF（バラ凍結）MINI<br>シェル</h2>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_frozen.png' %}" class="hidden sm:block w-14 h-14" alt="冷凍">
+                  <img src="{% static 'images/tab_frozen.png' %}" class="sm:hidden w-18 mr-2" alt="冷凍">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  貝殻の形をした小型のマカロニ。スプーンにのっかるサイズで、スープやサラダだけでなく小鉢メニューにもご使用いただけます。ソフトな食感で、お子様から年配の方まで幅広い層におすすめです。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                                  'boil'
+                              ]"
+                :conditions="[
+                                  {
+                                      title: 'time',
+                                      value: '30秒'
+                                  },
+                              ]"
+                :specs_a="[
+                                  {
+                                      title: '荷姿',
+                                      value: '500g×12×2'
+                                  },
+                                  {
+                                      title: '段ボール',
+                                      value: '352×406×(199×2)mm'
+                                  },
+                                  {
+                                      title: '個包装',
+                                      value: '270×190×40mm'
+                                  },
+                                  {
+                                      title: 'ケース重量',
+                                      value: '12.8kg'
+                                  },
+                              ]"
+                :specs_b="[
+                                  {
+                                      title: 'POSコード',
+                                      value: '4902110290431'
+                                  },
+                                  {
+                                      title: 'GTINコード',
+                                      value: '34902110290432'
+                                  },
+                                  {
+                                      title: 'マークコード',
+                                      value: '290430'
+                                  },
+                              ]"
+                :specs_c="[
+                                  {
+                                      title: '原産国',
+                                      value: '日本'
+                                  },
+                                  {
+                                      title: '出荷開始日',
+                                      value: '2022年3月1日'
+                                  },
+                                  {
+                                      title: '賞味期限',
+                                      value: '12ヶ月'
+                                  },
+                              ]"
+              ></detail-info>
+            </div>
+          </div>
+
+          <div class="mt-6 sm:">
+            <div class="px-4 md:px-0">
+              <h2 class="slashed w-full text-center pt-8 mb-10">
+                <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">OTHER LINEUP</span>
+                <span class="block text-2xl md:text-3xl font-bold leading-snug">その他のラインアップ</span>
+              </h2>
+            </div>
+            <div class="md:px-6">
+              <card-slider :products="[
+                              {
+                                  'title': 'IQF(バラ凍結) カサレッチャ',
+                                  'image': '{% static 'images/products/290280_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/reiseipasta/',
+                                  'weight': '500g×12×2',
+                                  'code': '290280',
+                              },
+                              {
+                                  'title': 'IQF(バラ凍結)  フィジリ',
+                                  'image': '{% static 'images/products/290290_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/reiseipasta/',
+                                  'weight': '500g×12×2',
+                                  'code': '290220',
+                              },
+                              {
+                                  'title': 'IQF(バラ凍結)  ペンネリガーテ',
+                                  'image': '{% static 'images/products/290220_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/reiseipasta/',
+                                  'weight': '500g×12×2',
+                                  'code': '290210',
+                              },
+                              {
+                                  'title': 'IQF(バラ凍結)  パッケリ',
+                                  'image': '{% static 'images/products/290210_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/reiseipasta/',
+                                  'weight': '400g×12×2',
+                                  'code': '290290',
+                              },
+                              {
+                                  'title': 'IQF(バラ凍結)  リガトーニ',
+                                  'image': '{% static 'images/products/290230_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/reiseipasta/',
+                                  'weight': '500g×12×2',
+                                  'code': '290230',
+                              },
+                          ]">
+              </card-slider>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="souzai" class="parallax-sp">
+      <div class="parallax-pc souzai"></div>
+      <div class="bg-white pt-0.5 pb-14 md:pb-24">
+        <div class="container mx-auto">
+          <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
+            <div class="sm:flex">
+              <div class="flex-none w-full sm:w-[190px] md:w-[280px] sm:bg-crimson flex justify-center items-center">
+                <div class="px-24 sm:p-6">
+                  <img src="{% static 'images/features/hero_mama.png' %}" alt="マ・マー THE PRO">
+                </div>
+              </div>
+              <div class="flex justify-center items-center">
+                <div class="py-4 px-6 sm:pr-4">
+                  <img src="{% static 'images/features/hero_souzai_01.png' %}" alt="マ・マーTHE PRO 惣菜バリエーションパスタ">
+                </div>
+              </div>
+              <div class="flex-none w-full w-11/12 sm:w-[190px] md:w-[230px] mx-auto flex justify-center items-center">
+                <a href="#peperoncino" @click="scrollTo('#peperoncino')">
+                  <img src="{% static 'images/features/hero_souzai_02.png' %}" alt="マ・マーTHE PRO 惣菜バリエーションパスタ">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div id="peperoncino" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                                  {
+                                      src: '{% static 'images/products/290460_01.jpg' %}',
+                                      title: 'マ・マーTHE PRO 惣菜バリエーションパスタ ペペロンチーニ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290460_02.jpg' %}',
+                                      title: 'マ・マーTHE PRO 惣菜バリエーションパスタ ペペロンチーニ'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/290460_03.jpg' %}',
+                                      title: 'マ・マーTHE PRO 惣菜バリエーションパスタ ペペロンチーニ'
+                                  },
+                             ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">マ・マーTHE PRO<br>惣菜用バリエーションパスタ<br>ペペロンチーニ</h2>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_frozen.png' %}" class="hidden sm:block w-14 h-14" alt="冷凍">
+                  <img src="{% static 'images/tab_frozen.png' %}" class="sm:hidden w-18 mr-2" alt="冷凍">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  時間が経っても食感が残るパスタと、味わいが感じられるソースを配合しました。冷めた状態でもおいしくお召し上がりいただけます。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                                  'steam',
+                              ]"
+                :conditions="[
+                                  {
+                                      title: 'temp',
+                                      value: '100℃'
+                                  },
+                                  {
+                                      title: 'time',
+                                      value: '30分'
+                                  },
+                              ]"
+                :specs_a="[
+                                  {
+                                      title: '荷姿',
+                                      value: '330g×12×2'
+                                  },
+                                  {
+                                      title: '段ボール',
+                                      value: '396×236×(154×2)mm'
+                                  },
+                                  {
+                                      title: '個包装',
+                                      value: '240×150×40mm'
+                                  },
+                                  {
+                                      title: 'ケース重量',
+                                      value: '12.8kg'
+                                  },
+                              ]"
+                :specs_b="[
+                                  {
+                                      title: 'POSコード',
+                                      value: '4902110290462'
+                                  },
+                                  {
+                                      title: 'GTINコード',
+                                      value: '34902110290463'
+                                  },
+                                  {
+                                      title: 'マークコード',
+                                      value:'290460'
+                                  },
+                              ]"
+                :specs_c="[
+                                  {
+                                      title: '原産国',
+                                      value: '日本'
+                                  },
+                                  {
+                                      title: '出荷開始日',
+                                      value: '2022年3月1日'
+                                  },
+                                  {
+                                      title: '賞味期限',
+                                      value: '12ヶ月'
+                                  },
+                              ]"
+              ></detail-info>
+            </div>
+          </div>
+          <div class="mt-6 sm:">
+            <div class="px-4 sm:px-0">
+              <h2 class="slashed w-full text-center pt-8 mb-10">
+                <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">OTHER LINEUP</span>
+                <span class="block text-2xl md:text-3xl font-bold leading-snug">その他のラインアップ</span>
+              </h2>
+            </div>
+            <div class="sm:px-6">
+              <card-slider :products="[
+                              {
+                                  'title': '惣菜用バリエーションパスタ ナポリタン',
+                                  'image': '{% static 'images/products/290110_01.jpg' %}',
+                                  'link': 'javascript:void(0)',
+                                  'weight': '330g×12×2',
+                                  'code': '290110',
+                                  'class': 'no-effect no-highlight pointer-events-none'
+                              },
+                              {
+                                  'title': '惣菜用バリエーションパスタ 和風きのこ',
+                                  'image': '{% static 'images/products/290170_01.jpg' %}',
+                                  'link': 'javascript:void(0)',
+                                  'weight': '330g×12×2',
+                                  'code': '290170',
+                                  'class': 'no-effect no-highlight pointer-events-none'
+                              },
+                              {
+                                  'title': '惣菜用バリエーションパスタ たらこ',
+                                  'image': '{% static 'images/products/290190_01.jpg' %}',
+                                  'link': 'javascript:void(0)',
+                                  'weight': '330g×12×2',
+                                  'code': '290190',
+                                  'class': 'no-effect no-highlight pointer-events-none'
+                              },
+                          ]">
+              </card-slider>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tenpurako" class="parallax-sp">
+      <div class="parallax-pc tenpurako"></div>
+      <div class="bg-white pt-0.5 md:pb-6">
+        <div class="container mx-auto">
+          <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
+            <div class="striped green py-4 flex justify-center items-center">
+              <div class="w-8/12 sm:w-3/12">
+                <img src="{% static 'images/features/hero_tenpurako_02.png' %}" alt="天ぷら粉 パックに入れてもかるサク衣">
+              </div>
+            </div>
+            <div class="sm:-mt-10 sm:flex items-end">
+              <div class="sm:flex flex-row-reverse items-end">
+                <div class="flex justify-center items-center">
+                  <div class="py-6 sm:py-0 px-8 sm:px-8 md:px-16">
+                    <img src="{% static 'images/features/hero_tenpurako_03.png' %}" alt="天ぷら粉 パックに入れてもかるサク衣">
+                  </div>
+                </div>
+                <div class="flex-none w-full sm:w-[215px] md:w-[260px] flex justify-center items-center">
+                  <div class="sm:pl-6">
+                    <img src="{% static 'images/features/hero_tenpurako_01.jpg' %}" alt="天ぷら粉 パックに入れてもかるサク衣">
+                  </div>
+                </div>
+              </div>
+              <div class="flex-none w-full sm:w-[215px] md:w-[260px] hidden sm:flex justify-center items-center">
+                <div class="sm:pr-6">
+                  <a href="#karusaku" @click="scrollTo('#karusaku')">
+                    <img src="{% static 'images/features/hero_tenpurako_04.png' %}" alt="天ぷら粉 パックに入れてもかるサク衣">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="w-full bg-gray-100 mx-auto py-4 sm:py-12 px-4 sm:px-16 mt-6 sm:mt-10">
+              <div class="sm:mb-4">
+                <h4 class="w-full py-3 bg-crimson text-lg sm:text-2xl sm:text-3xl text-white font-bold text-center">パックに入れて時間がたっても…</h4>
+                <div class="w-full flex justify-center">
+                  <svg-vue icon="triangle" class="w-10 h-8 -mt-2 text-crimson rotate-90"></svg-vue>
+                </div>
+              </div>
+              <div class="sm:flex sm:-mx-8">
+                <div class="w-full sm:w-1/2 sm:px-8 flex flex-col justify-between">
+                  <div class="py-2">
+                    <div class="p-5 sm:p-3 md:p-5 bg-white border-3 border-solid border-crimson">
+                      <img src="{% static 'images/features/feature_tenpurakko_01.png' %}" alt="パックに入れてもかるサク衣">
+                    </div>
+                  </div>
+                  <div class="py-2">
+                    <div class="p-5 sm:p-3 md:p-5 bg-white border-3 border-solid border-crimson">
+                      <img src="{% static 'images/features/feature_tenpurakko_02.png' %}" alt="パックに入れてもかるサク衣">
+                    </div>
+                  </div>
+                  <div class="py-2">
+                    <div class="p-5 sm:p-3 md:p-5 bg-white border-3 border-solid border-crimson">
+                      <img src="{% static 'images/features/feature_tenpurakko_03.png' %}" alt="パックに入れてもかるサク衣">
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full sm:w-1/2 sm:pr-8 flex items-center">
+                  <div class="py-2">
+                    <img src="{% static 'images/features/feature_tenpurakko_04.png' %}" alt="パックに入れてもかるサク衣">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="karusaku" class="py-10 sm:py-14">
+            <div class="sm:flex justify-between items-start sm:-mx-4">
+              <div class="w-full sm:w-5/12 px-4">
+                <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                                  {
+                                      src: '{% static 'images/products/271380_01.jpg' %}',
+                                      title: '天ぷら粉 パックに入れてもかるサク衣'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/271380_02.jpg' %}',
+                                      title: '天ぷら粉 パックに入れてもかるサク衣'
+                                  },
+                                  {
+                                      src: '{% static 'images/products/271380_03.jpg' %}',
+                                      title: '天ぷら粉 パックに入れてもかるサク衣'
+                                  },
+
+                             ]"
+                ></detail-slider>
+              </div>
+              <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold leading-snug">天ぷら粉<br>パックに入れてもかるサク衣</h2>
+                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+                  <img src="{% static 'images/badge_roomtemp.png' %}" class="hidden sm:block w-14 h-14" alt="常温">
+                  <img src="{% static 'images/tab_roomtemp.png' %}" class="sm:hidden w-18 mr-2" alt="常温">
+                </div>
+                <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+                  パックに入れてもサクっとかるい食感が長持ちする天ぷら粉です。黄色い揚げ色に仕上がり、べちゃつきや油っぽさを感じにくい為、テイクアウトや惣菜売場におすすめです。
+                </p>
+              </div>
+            </div>
+            <div class="bg-gray-100 mt-3 sm:mt-10">
+              <detail-info
+                :facilities="[
+                                  'fry',
+                              ]"
+                :conditions="[
+                                  {
+                                      title: 'water',
+                                      value: '160%'
+                                  },
+                                  {
+                                      title: 'temp',
+                                      value: '170～180℃'
+                                  },
+                                  {
+                                      title: 'time',
+                                      value: '約2分'
+                                  },
+                              ]"
+                :specs_a="[
+                                  {
+                                      title: '荷姿',
+                                      value: '1kg×10'
+                                  },
+                                  {
+                                      title: '段ボール',
+                                      value: '175×509×255mm'
+                                  },
+                                  {
+                                      title: '個包装',
+                                      value: '320×210×40mm'
+                                  },
+                                  {
+                                      title: 'ケース重量',
+                                      value: '10.8kg'
+                                  },
+                              ]"
+                :specs_b="[
+                                  {
+                                      title: 'POSコード',
+                                      value: '4902110271386'
+                                  },
+                                  {
+                                      title: 'GTINコード',
+                                      value: '14902110271383'
+                                  },
+                                  {
+                                      title: 'マークコード',
+                                      value:'271380'
+                                  },
+                              ]"
+                :specs_c="[
+                                  {
+                                      title: '原産国',
+                                      value: '日本'
+                                  },
+                                  {
+                                      title: '出荷開始日',
+                                      value: '2022年3月1日'
+                                  },
+                                  {
+                                      title: '賞味期限',
+                                      value: '12ヶ月'
+                                  },
+                              ]"
+              ></detail-info>
+            </div>
+          </div>
+
+          <div class="mt-6 sm:mt-10">
+            <h2 class="slashed w-full text-center pt-8 mb-10">
+              <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">OTHER LINEUP</span>
+              <span class="block text-2xl md:text-3xl font-bold leading-snug">その他のラインアップ</span>
+            </h2>
+            <div class="sm:px-6">
+              <card-slider :products="[
+                              {
+                                  'title': '天ぷら粉打ち粉いらずのかるサク衣',
+                                  'image': '{% static 'images/products/394810_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/agemono/karusaku.html',
+                                  'weight': '1kg×10',
+                                  'code': '394810',
+                              },
+                              {
+                                  'title': '天ぷら粉かるサク衣',
+                                  'image': '{% static 'images/products/332440_01.jpg' %}',
+                                  'link': 'https://www.nisshin-seifun-welna.com/index/b2b/agemono/karusaku.html',
+                                  'weight': '1kg×10',
+                                  'code': '332440',
+                              },
+                              {
+                                  'title': '天ぷら粉味わい衣',
+                                  'image': '{% static 'images/products/271390_01.jpg' %}',
+                                  'link': 'javascript:void(0)',
+                                  'weight': '1kg×10',
+                                  'code': '271390',
+                                  'class': 'no-effect no-highlight pointer-events-none'
+                              },
+                          ]">
+              </card-slider>
+            </div>
+          </div>
+
+          <div class="mt-16 sm:mt-24">
+            <h2 class="slashed w-full text-center pt-8 mb-10">
+              <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">Positioning map</span>
+              <span class="block text-2xl md:text-3xl font-bold leading-snug">日清製粉ウェルナ<br>天ぷら粉ポジショニングMAP</span>
+            </h2>
+            <div class="flex black px-4 md:p-0">
+              <a href="#" @click="(e)=>{ e.preventDefault(); openLightBox(0,[{type: 'image', src: '{% static 'images/features/feature_tenpurakko_05.png' %}'}]) }">
+                <img src="{% static 'images/features/feature_tenpurakko_05.png' %}" alt="から揚げ粉ポジショニングMAP">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <cool-light-box
+    ref="lightbox"
+    :items="media"
+    :index="mediaIndex"
+    :effect="'fade'"
+    :useZoomBar="true"
+    @close="mediaIndex = null"
+  >
+  </cool-light-box>
+{% endblock content %}

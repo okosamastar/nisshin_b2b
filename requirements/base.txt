@@ -27,3 +27,4 @@ django-cors-headers==3.11.0 # https://github.com/adamchainz/django-cors-headers
 django-mptt==0.13.4
 easy_thumbnails==2.8.1
 django-filter==21.1
+django-braces==1.15.0
