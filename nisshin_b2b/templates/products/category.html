@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="">
+    <div class="parallax-section">
+      <div class="parallax-child-section">
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static '/images/categories/cat_pasta.jpg' %});"></section>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mx-auto">
+    <div class="relative z-30 shadow-top bg-white p-10 -mt-24 rounded">
+      <div class="flex -mx-4">
+        <div class="w-[280px] px-4">
+          <h3 class="flex items-center p-3 bg-crimson">
+            <div class="w-7 h-7 flex justify-center items-center bg-white rounded-full">
+              <svg-vue icon="grid" class="w-4 h-4 text-crimson"></svg-vue>
+            </div>
+            <span class="text-white ml-2 font-bold tracking-wider">商品メニュー</span>
+          </h3>
+          <ul>
+            <li>
+              <button class="w-full py-4 flex justify-between items-center border-b border-dashed border-gray-600">
+                <div class="flex-none w-16 h-16">
+                  <img src="{% static 'images/categories/cat_tenpurako_square.jpg' %}" alt="天ぷら粉">
+                </div>
+                <div class="flex-1 text-left">
+                  <span class="pl-3 font-bold">天ぷら粉</span>
+                </div>
+                <svg-vue icon="chevron_alt" class="flex-none w-3 h-3 rotate-90"></svg-vue>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1 px-4">
+          <h2 class="slashed w-full pt-10 flex justify-center items-center">
+            <div class="text-center">
+              <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">LONG PASTA</span>
+              <span class="block text-2xl md:text-3xl font-bold leading-snug">ロングパスタ</span>
+            </div>
+          </h2>
+
+          <div class="flex flex-wrap -mx-2 mt-14">
+            <div class="w-4/12 px-2">
+
+              <a href="#" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+                <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+                  <div class="py-1 overflow-hidden">
+                    <img src="{% static 'images/products/271330_01.jpg' %}" alt="天ぷら粉" class="w-auto h-full mx-auto">
+                  </div>
+                  <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                    <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+                  </div>
+                </div>
+                <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+                  <span class="p-1 text-xs border border-crimson text-crimson leading-none">ロングパスタ</span>
+                  <span class="mt-2">ラウンドアップスパゲティ Super Hardタイプ 1.6mm《塩ゆで》　180g</span>
+                </h4>
+                <dl class="pt-2 px-2 flex flex-wrap items-start bg-gray-100">
+                  <dt class="w-6/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                    <span class="block border-l-4 border-solid border-crimson px-2">荷姿</span>
+                  </dt>
+                  <dd class="w-6/12 py-1 pl-3 mb-1 text-xs">320g×8×4</dd>
+                  <dt class="w-6/12 py-1 px-1 mb-2 text-xs font-bold bg-white">
+                    <span class="block border-l-4 border-solid border-crimson px-2">マークコード</span>
+                  </dt>
+                  <dd class="w-6/12 pt-1 pl-3 text-xs">4892734479</dd>
+                </dl>
+              </a>
+
+            </div>
+
+            <div class="w-4/12 px-2">
+
+              <a href="#" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+                <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+                  <div class="py-1 overflow-hidden">
+                    <img src="{% static 'images/products/271330_01.jpg' %}" alt="天ぷら粉" class="w-auto h-full mx-auto">
+                  </div>
+                  <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                    <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+                  </div>
+                </div>
+                <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+                  <span class="p-1 text-xs border border-crimson text-crimson leading-none">天ぷら粉</span>
+                  <span class="mt-2">天ぷら粉　パックに入れてもかるサク衣</span>
+                </h4>
+                <dl class="pt-2 px-2 flex flex-wrap items-start bg-gray-100">
+                  <dt class="w-6/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                    <span class="block border-l-4 border-solid border-crimson px-2">荷姿</span>
+                  </dt>
+                  <dd class="w-6/12 py-1 pl-3 mb-1 text-xs">320g×8×4</dd>
+                  <dt class="w-6/12 py-1 px-1 mb-2 text-xs font-bold bg-white">
+                    <span class="block border-l-4 border-solid border-crimson px-2 tracking-tight">マークコード</span>
+                  </dt>
+                  <dd class="w-6/12 pt-1 pl-3 text-xs">4892734479</dd>
+                </dl>
+              </a>
+
+            </div>
+
+            <div class="w-4/12 px-2">
+
+              <a href="#" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+                <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+                  <div class="py-1 overflow-hidden">
+                    <img src="{% static 'images/products/271330_01.jpg' %}" alt="天ぷら粉" class="w-auto h-full mx-auto">
+                  </div>
+                  <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                    <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+                  </div>
+                </div>
+                <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+                  <span class="p-1 text-xs border border-crimson text-crimson leading-none">天ぷら粉</span>
+                  <span class="mt-2">天ぷら粉かるサク衣</span>
+                </h4>
+                <dl class="pt-2 px-2 flex flex-wrap items-start bg-gray-100">
+                  <dt class="w-6/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                    <span class="block border-l-4 border-solid border-crimson px-2">荷姿</span>
+                  </dt>
+                  <dd class="w-6/12 py-1 pl-3 mb-1 text-xs">320g×8×4</dd>
+                  <dt class="w-6/12 py-1 px-1 mb-2 text-xs font-bold bg-white">
+                    <span class="block border-l-4 border-solid border-crimson px-2">マークコード</span>
+                  </dt>
+                  <dd class="w-6/12 pt-1 pl-3 text-xs">4892734479</dd>
+                </dl>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}

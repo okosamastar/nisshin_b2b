@@ -63,7 +63,7 @@
 
 <div id="app" class="relative" data-imagepath="{% static 'images/' %}">
 
-  <nav id="nav" class="overflow-x-hidden">
+  <nav id="nav" class="relative z-60 overflow-x-hidden">
     <div id="brand-nav" class="bg-yellow-50 h-14 flex justify-between items-center border-t-2 border-crimson">
       <a href="/index/" class="flex items-center">
         <svg-vue icon="brand" class="w-40 h-8"></svg-vue>
@@ -86,12 +86,12 @@
       </div>
       <ul class="h-14 flex items-center text-sm px-4 -mx-4">
         <li class="w-40 h-full border-l border-crimson flex justify-center items-center">
-          <a href="/index/b2b/" class="header-nav-ul-li-a text-xs text-white lg:text-black">
+          <a href="/b2b/" class="header-nav-ul-li-a text-xs text-white lg:text-black">
             <span class="font-bold">トップ</span>
           </a>
         </li>
         <li class="w-40 h-full border-l border-crimson flex justify-center items-center">
-          <a href="javascript:void(0);" class="header-nav-ul-li-a text-xs text-black">
+          <a href="/b2b/products/" class="header-nav-ul-li-a text-xs text-black">
             <span class="font-bold">商品情報</span>
           </a>
         </li>
@@ -124,7 +124,7 @@
     <p>Use this document as a way to quick start any new project.</p>
   {% endblock content %}
 
-  <div class="bg-white py-16 md:py-24 overflow-x-hidden">
+  <section class="bg-white py-16 md:py-24 overflow-x-hidden">
     <div class="relative -mx-2">
       <image-slider :images="[
               '{% static 'images/image_food_01.jpg' %}',
@@ -168,9 +168,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="bg-crimson py-16">
+  <section class="bg-crimson py-16">
     <div class="container mx-auto">
       <h2 class="flex justify-center items-center">
         <svg-vue icon="mail" class="w-8 h-6 text-white mr-3"></svg-vue>
@@ -186,7 +186,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <footer class="overflow-x-hidden">
     <div class="bg-white py-10">

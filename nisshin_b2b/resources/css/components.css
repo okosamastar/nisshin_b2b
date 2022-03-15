@@ -112,6 +112,14 @@ body {
     }
 }
 
+.brackets {
+  @apply relative;
+  &:before {
+    @apply absolute left-0 top-0 w-6 h-6 border-l-4 border-t-4 border-crimson;
+    content: '';
+  }
+}
+
 @screen md {
     &:after {
         width: 85px;
@@ -143,15 +151,32 @@ body {
     background: linear-gradient(0deg, rgba(255,255,255,1) 30%, rgba(238,238,238,1) 100%);
 }
 
+.bg-gray-to-transparent {
+  @apply relative;
+  &:before {
+    @apply absolute left-0 right-0 top-0 -z-1 w-full h-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto bg-gray-100;
+    content: '';
+    transform: translateX(-100%);
+  }
+  .container {
+    background: linear-gradient(90deg, rgba(238,238,238,1) 128px, rgba(238,238,238,0) 0%);
+  }
+
+}
+
 .shadow-top {
-    @apply relative;
-    &:before {
-        @apply absolute left-0 top-0 w-full h-full shadow-md;
-        content: '';
-        height: 300px;
-        background: linear-gradient(0deg, rgba(255,255,255,1) 30%, rgba(238,238,238,1) 100%);
-        z-index: -1;
-    }
+  @apply relative z-10 shadow-lg;
+  &:after {
+    @apply absolute left-0 bottom-0 -mb-4;
+    width: calc(100% + 2rem);
+    height: 100%;
+    margin-left: -1rem;
+    content: '';
+    background: linear-gradient(0deg, rgba(255,255,255, 1) 30%, rgba(255,255,255, 0) 60%)
+  }
+  > * {
+    @apply relative z-20;
+  }
 }
 
 .embed-responsive {
@@ -235,7 +260,7 @@ body {
 
   .white-filter {
     &:before, &:after {
-      @apply h-full bg-white opacity-80;
+      @apply h-full bg-white opacity-40;
     }
   }
 
@@ -243,7 +268,7 @@ body {
     &:before, &:after {
       @apply h-full;
       backdrop-filter: saturate(30%);
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(8px);
     }
   }
 }
@@ -287,7 +312,6 @@ body {
 }
 .fw-main-row {
   background-attachment: scroll;
-  background-image: url(../images/bg_hayayude.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

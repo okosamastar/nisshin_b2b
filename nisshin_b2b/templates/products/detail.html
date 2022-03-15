@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="">
+    <div class="parallax-section">
+      <div class="parallax-child-section">
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static '/images/categories/cat_pasta.jpg' %});"></section>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mx-auto">
+    <div class="relative z-30 shadow-top bg-white p-10 -mt-24 rounded">
+
+      <div class="sm:flex justify-between items-start sm:-mx-4">
+        <div class="w-full sm:w-5/12 px-4">
+          <detail-slider :newmark="true" :handle-modal="openLightBox" :images="[
+                {
+                  src: '{% static 'images/products/271300_01.jpg' %}',
+                  title: 'THE KARAAGE 薄衣サクサクから揚げ粉'
+                },
+                {
+                  src: '{% static 'images/products/271300_02.jpg' %}',
+                  title: 'THE KARAAGE 薄衣サクサクから揚げ粉'
+                },
+                {
+                  src: '{% static 'images/products/271300_03.jpg' %}',
+                  title: 'THE KARAAGE 薄衣サクサクから揚げ粉'
+                },
+            ]"
+          ></detail-slider>
+        </div>
+        <div class="relative w-full sm:w-7/12 px-4 pt-10 sm:pt-0 text-center sm:text-left">
+          <h2 class="text-2xl md:text-3xl font-bold leading-snug">THE KARAAGE<br>薄衣サクサクから揚げ粉</h2>
+          <span class="inline-block mt-4 p-2 text-lg leading-none font-bold bg-[#744B2F] text-white">まぶしタイプ</span>
+          <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
+            <img src="{% static 'images/badge_roomtemp.png' %}" class="hidden sm:block w-14 h-14" alt="常温">
+            <img src="{% static 'images/tab_roomtemp.png' %}" class="sm:hidden w-18 mr-2" alt="常温">
+          </div>
+          <p class="mt-10 py-10 border-t border-dashed border-gray-400 text-left">
+            昨今のから揚げのトレンドである「薄衣」でありながらも軽くてサクサクした食感が長持ちするから揚げ粉です。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+{% endblock content %}

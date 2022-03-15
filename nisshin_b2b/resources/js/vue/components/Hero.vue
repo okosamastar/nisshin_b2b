@@ -1,5 +1,5 @@
 <template>
-  <div id="hero" class="block overflow-x-hidden">
+  <section id="hero" class="block overflow-x-hidden">
 
     <div class="relative">
       <div class="image-filter"></div>
@@ -13,16 +13,24 @@
       </div>
     </div>
 
-    <div class="container mx-auto py-4">
-      <Splide ref="thumbs" :options="thumbsOptions">
+    <div class="relative container mx-auto py-5">
+      <Splide ref="thumbs" :options="thumbsOptions" class="relative z-10">
         <SplideSlide v-for="slide in slides" :key="'thmb_' + slide.id">
           <div class="bg-white">
             <img :src="slide.src" :alt="slide.title">
           </div>
         </SplideSlide>
       </Splide>
+      <div class="absolute left-0 bottom-0 w-full h-full flex justify-between items-center">
+        <button ref="prev" class="-ml-10" @click="prevSlide">
+          <svg-vue  icon="chevron_alt" class="w-4 h-4 -rotate-90"></svg-vue>
+        </button>
+        <button ref="next" class="-mr-10" @click="nextSlide">
+          <svg-vue  icon="chevron_alt" class="w-4 rotate-90"></svg-vue>
+        </button>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -47,7 +55,7 @@ export default {
         gap       : '1.6rem',
         pagination: false,
         focus     : 'center',
-        arrows    : true,
+        arrows    : false,
       },
       thumbsOptions: {
         type        : 'slide',
@@ -58,7 +66,7 @@ export default {
         perMove     : 1,
         isNavigation: true,
         updateOnMove: true,
-        arrows      : true,
+        arrows      : false,
       },
     }
   },
@@ -69,7 +77,14 @@ export default {
   },
 
   methods: {
-
+    prevSlide: function () {
+      console.log('prev')
+      this.$refs.splide.go( '<' );
+    },
+    nextSlide: function () {
+      console.log('next')
+      this.$refs.splide.go( '>' );
+    }
   },
 
   mounted() {
@@ -77,6 +92,7 @@ export default {
     if ( thumbsSplide ) {
       this.$refs.splide?.sync( thumbsSplide );
     }
+
   },
 
   destroyed() {
