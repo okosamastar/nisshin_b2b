@@ -11,7 +11,10 @@
               <img :src="imagePath + 'badge_new.png'" alt="New" class="no-effect">
             </div>
           </div>
-          <h4 class="flex-1 p-4 font-bold flex justify-center items-center">{{ product.title }}</h4>
+          <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+            <span v-if="product.category" class="p-1 mb-2 text-xs border border-crimson text-crimson leading-none">{{ product.category }}</span>
+            <span class="">{{ product.title }}</span>
+          </h4>
           <dl class="pt-2 px-2 flex flex-wrap items-start bg-gray-100">
             <dt class="w-6/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
               <span class="block border-l-4 border-solid border-crimson px-2">荷姿</span>

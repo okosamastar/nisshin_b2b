@@ -120,11 +120,22 @@ body {
   }
 }
 
-@screen md {
-    &:after {
-        width: 85px;
-        bottom: -8px;
-    }
+.dotted {
+  @apply h-8 border-l-5 border-crimson flex items-center;
+  > span {
+    @apply flex-none inline-flex items-center h-full px-4 text-lg text-crimson font-bold bg-white;
+  }
+  &:after {
+    @apply flex-1 h-8;
+    background: transparent url("../images/dotted.png") left 2px repeat;
+    background-size: 30px 30px;
+    content: '';
+  }
+}
+
+.corner {
+  background: transparent url("../images/corner.png") left top no-repeat;
+  background-size: 140px auto;
 }
 
 .centerlined {
@@ -159,7 +170,7 @@ body {
     transform: translateX(-100%);
   }
   .container {
-    background: linear-gradient(90deg, rgba(238,238,238,1) 128px, rgba(238,238,238,0) 0%);
+    background: linear-gradient(90deg, rgba(238,238,238,1) 130px, rgba(238,238,238,0) 0%);
   }
 
 }
@@ -176,6 +187,16 @@ body {
   }
   > * {
     @apply relative z-20;
+  }
+}
+
+.list-caution {
+  li {
+    @apply flex justify-start items-start;
+    &:before {
+      @apply mr-2;
+      content: '※';
+    }
   }
 }
 

@@ -1,16 +1,6 @@
 <template>
-  <div>
-    <div class="md:flex justify-start items-start -mx-1">
-      <div class="hidden md:block flex-none w-22 px-1">
-        <div
-            v-for="(image, index) in images"
-            :key="image.src"
-            @click="showSlide(index)"
-            class="wrap-image w-[75px] h-[75px] mb-2 border border-solid border-gray-300 flex justify-center items-center cursor-pointer"
-        >
-          <img :src="image.src" :alt="image.title">
-        </div>
-      </div>
+  <div class="w-full">
+    <div class="md:flex flex-wrap justify-start items-start" :class="{'flex-row-reverse -mx-1' : layout==='row'}">
       <div class="flex-1 overflow-x-hidden px-1">
         <div class="relative border border-solid border-gray-300 aspect-h-1 aspect-y-1">
           <Splide ref="splide" :options="options">
@@ -22,6 +12,19 @@
           </Splide>
           <div v-if="newmark" class="absolute left-0 top-0 mx-2 w-16 h-16">
             <img :src="imagePath + 'badge_new.png'" alt="NEW" class="no-effect">
+          </div>
+        </div>
+      </div>
+      <div :class="layout==='row'? 'hidden md:block flex-none w-[5.625rem] px-1' : 'flex flex-wrap mt-2 -mx-1 px-1'">
+        <div
+            v-for="(image, index) in images"
+            :key="image.src"
+            @click="showSlide(index)"
+            class="flex justify-center items-center cursor-pointer mb-2"
+            :class="{'w-1/4 px-1': layout==='col'}"
+        >
+          <div class="wrap-image border border-solid border-gray-300">
+            <img :src="image.src" :alt="image.title">
           </div>
         </div>
       </div>
@@ -38,6 +41,10 @@ export default {
     images: {
       type: Array,
       default: []
+    },
+    layout: {
+      type: String,
+      default: 'row'
     },
     newmark: {
       type: Boolean,

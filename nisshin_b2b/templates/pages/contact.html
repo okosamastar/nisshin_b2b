@@ -1,7 +1,139 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-  <div class="container mx-auto">
-    <p>this is contact page</p>
-  </div>
+  <section class="">
+    <div class="parallax-section">
+      <div class="parallax-child-section">
+        <div class="bg-gray-to-transparent relative z-10 h-full">
+          <div class="container mx-auto h-full flex items-center">
+            <h1 class="flex flex-col items-start">
+              <span class="inline-block p-2 bg-crimson text-4xl text-white font-bold font-en uppercase leading-none tracking-wider">Concierge</span>
+              <span class="inline-block p-2 mt-2 bg-crimson text-4xl text-white font-bold font-en uppercase leading-none tracking-wider">service</span>
+              <span class="block mt-4 text-xl font-bold leading-none tracking-wider">ご相談窓口</span>
+            </h1>
+          </div>
+        </div>
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static '/images/categories/kitchen.jpg' %});"></section>
+      </div>
+    </div>
+    <div class="container mx-auto">
+      <div class="brackets shadow-top relative z-30 w-7/12 p-10 bg-white -mt-10 leading-relaxed">
+        <p>商品のご説明や、商品開発、企画等に関するご相談など、お困りごとがございましたら、お気軽に窓口までお問い合わせください。専門スタッフが対応させていただきます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <div class="container mx-auto">
+      <h2 class="slashed w-full pt-10 flex justify-center items-center">
+        <div class="text-center">
+          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">ONLINE</span>
+          <span class="block text-2xl md:text-3xl font-bold leading-snug">ウェブからのお問い合わせ</span>
+        </div>
+      </h2>
+      <div class="pt-10 mt-10 border-t border-dashed">
+        <p class="text-center">以下の「お問い合わせフォームはこちら」ボタンよりフォームへ移動して、<br>必要事項をご入力の上、お問い合わせ内容をお送りください。</p>
+      </div>
+      <div class="bg-gray-100 mt-12 p-10">
+        <ul class="list-disc pl-6 text-xs">
+          <li class="py-1">お客様の個人情報およびお問い合わせ等の内容は、適切に取り扱います。お寄せいただきましたご意見・ご質問等の内容は、お客様へのお返事および弊社の製品・サービスの向上と改善に活かすためのもので、それ以外の目的で使用することはございません。</li>
+          <li class="py-1">お返事の内容は、お客様個人宛てにお送りするものです。一部または全部を転載、二次利用することはご遠慮ください。</li>
+          <li class="py-1">お問い合わせの内容によっては、お時間を頂戴する場合やお電話で連絡する場合がございます。またお返事を差し上げられない場合もございますので、あらかじめご了承ください。</li>
+          <li class="py-1">現在、お問い合わせを多くいただいており、回答をお待たせする場合がございます。ご了承の程お願い申し上げます。</li>
+          <li class="py-1">販売店のお問い合わせの場合は、必ずご購入希望地域（例：○○市○○町）及び商品名、内容量等をご記入ください。</li>
+          <li class="py-1">商品の不具合についてのお問い合わせは、正確にお調べさせていただくため、当該品及び容器をお取り置きの上、ご連絡ください。</li>
+          <li class="py-1">弊社との商取引や、お客様からの新商品のご提案、技術・デザイン・製造方法・広告宣伝・マーケティング等に関するご提案、商品、サービスなどのご案内及びご紹介につきましては、受付けておりません。あらかじめご了承ください。</li>
+        </ul>
+
+        <ul class="mt-6 list-caution text-xs">
+          <li class="py-1">その他、詳しい個人情報の取り扱いに関しましては、弊社プライバシーポリシーをご覧ください。</li>
+          <li class="py-1">受付順のご回答となりますが、お問合せ内容によっては、ご回答にお時間をいただく場合がありますのであらかじめご了承ください。</li>
+          <li class="py-1">日曜祝日のお問い合わせは、翌営業日以降のご回答とさせていただきます。</li>
+        </ul>
+      </div>
+
+      <div class="flex justify-center mt-16">
+        <a href="#" class="button w-80 py-6 tracking-wider">お問い合わせフォームはこちら</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <div class="container mx-auto">
+      <h2 class="slashed w-full pt-10 flex justify-center items-center">
+        <div class="text-center">
+          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">hotline</span>
+          <span class="block text-2xl md:text-3xl font-bold leading-snug">お電話によるお問い合わせ</span>
+        </div>
+      </h2>
+      <div class="pt-10 mt-10 border-t border-dashed">
+        <p class="text-center">営業時間にあわせて最寄りの営業部、または営業所へお問い合わせください。</p>
+      </div>
+
+      <div class="w-10/12 mx-auto bg-crimson-50 py-4 px-6 mt-12">
+        <div class="flex justify-between">
+          <h3 class="flex-none pr-6 flex justify-start items-center">
+            <div class="w-10 h-10 bg-crimson rounded-full flex justify-center items-center">
+              <svg-vue icon="company" class="w-5 h-5 text-white"></svg-vue>
+            </div>
+            <span class="ml-2 text-xl text-crimson font-bold">営業時間</span>
+          </h3>
+          <div class="flex-1 p-10 bg-white text-center">
+            <div class="block text-xl text-crimson font-bold">月曜日～金曜日／10：00～17：00</div>
+            <div class="block text-sm">（土・日・祝日・弊社休業日を除く）</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex -mx-2 mt-12">
+        <div class="w-3/12 px-2">
+          <div class="h-full border border-crimson">
+            <h4 class="h-18 flex justify-center items-center border-t-3 font-bold border-crimson">業務用営業部</h4>
+            <dl class="p-4 border-t border-dashed border-crimson">
+              <dt class="p-1 bg-crimson text-xs text-white leading-none">TEL</dt>
+              <dd class="mt-2 text-sm leading-snug">03-5641-8115</dd>
+              <dt class="mt-4 p-1 bg-crimson text-xs text-white leading-none">住所</dt>
+              <dd class="mt-2 text-sm leading-snug">〒103-8544<br>東京都中央区日本橋小網町19-12</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="w-3/12 px-2">
+          <div class="h-full border border-crimson">
+            <h4 class="h-18 flex justify-center items-center border-t-3 font-bold border-crimson">中部営業所</h4>
+            <dl class="p-4 border-t border-dashed border-crimson">
+              <dt class="p-1 bg-crimson text-xs text-white leading-none">TEL</dt>
+              <dd class="mt-2 text-sm leading-snug">052-972-8970</dd>
+              <dt class="mt-4 p-1 bg-crimson text-xs text-white leading-none">住所</dt>
+              <dd class="mt-2 text-sm leading-snug">〒461-0008<br>愛知県名古屋市東区武平町5-1　名古屋栄ビル</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="w-3/12 px-2">
+          <div class="h-full border border-crimson">
+            <h4 class="h-18 flex justify-center items-center border-t-3 font-bold border-crimson">西日本用営業部</h4>
+            <dl class="p-4 border-t border-dashed border-crimson">
+              <dt class="p-1 bg-crimson text-xs text-white leading-none">TEL</dt>
+              <dd class="mt-2 text-sm leading-snug">06-6350-6005</dd>
+              <dt class="mt-4 p-1 bg-crimson text-xs text-white leading-none">住所</dt>
+              <dd class="mt-2 text-sm leading-snug">〒532-0003<br>大阪府大阪市淀川区宮原3-5-36 新大阪トラストタワー</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="w-3/12 px-2">
+          <div class="h-full border border-crimson">
+            <h4 class="h-18 flex justify-center items-center border-t-3 font-bold border-crimson">九州営業所</h4>
+            <dl class="p-4 border-t border-dashed border-crimson">
+              <dt class="p-1 bg-crimson text-xs text-white leading-none">TEL</dt>
+              <dd class="mt-2 text-sm leading-snug">092-472-4881</dd>
+              <dt class="mt-4 p-1 bg-crimson text-xs text-white leading-none">住所</dt>
+              <dd class="mt-2 text-sm leading-snug">〒812-0011<br>福岡県福岡市博多区博多駅前3-19-5 博多石川ビル</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 {% endblock content %}

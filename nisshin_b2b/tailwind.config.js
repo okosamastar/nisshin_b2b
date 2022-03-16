@@ -14,7 +14,7 @@ module.exports = {
       'xs': '544px',
       'sm': '768px',
       'md': '992px',
-      'lg': '1100px',
+      'lg': '1025px',
       // 'xl': '1400px',
     },
     spacing: {
@@ -22,6 +22,7 @@ module.exports = {
       '18': '4.5rem',
     },
     fontSize: {
+      '2xs': '0.625rem',
       'xs': '.75rem',
       'sm': '.875rem',
       'tiny': '.875rem',
@@ -46,6 +47,8 @@ module.exports = {
     borderWidth: {
       ...borderWidth,
       '3': '3px',
+      '4': '4px',
+      '5': '5px',
       '9': '9px',
       '10': '10px',
       '11': '11px',
@@ -140,7 +143,7 @@ module.exports = {
         },
         'crimson': {
           DEFAULT: '#E82817',
-          '50': '#F9C3BE',
+          '50': '#FFEDEB',
           '100': '#F7B2AB',
           '200': '#F38F86',
           '300': '#EF6D61',
