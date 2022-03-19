@@ -25,7 +25,7 @@ class PhotoInline(admin.StackedInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    pass
+    inlines = [PhotoInline]
 
 
 admin.site.register(Category, CategoryAdmin)
