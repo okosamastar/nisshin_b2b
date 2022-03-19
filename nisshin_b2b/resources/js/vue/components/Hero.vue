@@ -92,7 +92,6 @@ export default {
     if ( thumbsSplide ) {
       this.$refs.splide?.sync( thumbsSplide );
     }
-
   },
 
   destroyed() {
