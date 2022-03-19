@@ -1,21 +1,18 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
 # Create your views here.
-def home(request):
-    return render(request, "pages/home.html")
+class homeView(TemplateView):
+    template_name = "pages/home.html"
 
 
-def contact(request):
-    return render(request, "pages/contact.html")
+class contactView(TemplateView):
+    template_name = "pages/contact.html"
 
 
-def ec(request):
-    return render(request, "pages/ec.html")
-
-
-def micstore(request):
-    return render(request, "pages/micstore.html")
+class storestView(TemplateView):
+    template_name = "pages/ec.html"
 
 
 def spring_2022(request):

@@ -20,11 +20,11 @@ class FacilityAdmin(admin.ModelAdmin):
     pass
 
 
+class PhotoInline(admin.StackedInline):
+    model = Photo
+
+
 class ProductAdmin(admin.ModelAdmin):
-    pass
-
-
-class PhotoAdmin(admin.ModelAdmin):
     pass
 
 
@@ -33,4 +33,3 @@ admin.site.register(Tag, TagAdmin)
 admin.site.register(Industry, IndustryAdmin)
 admin.site.register(Facility, FacilityAdmin)
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Photo, PhotoAdmin)

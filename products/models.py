@@ -33,6 +33,9 @@ class Tag(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
     slug = models.SlugField(max_length=100, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Facility(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
@@ -49,6 +52,9 @@ class Industry(models.Model):
     photo = ThumbnailerImageField(upload_to="photos", blank=True)
     slug = models.SlugField(max_length=100, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Product(models.Model):
 
@@ -58,14 +64,14 @@ class Product(models.Model):
     )
 
     title = models.CharField(max_length=255, null=False, blank=False)
-    subtitle = models.CharField(max_length=255, null=False, blank=False)
+    subtitle = models.CharField(max_length=255, null=True, blank=True)
     slug = models.SlugField(unique=True)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     description = models.TextField()
     is_published = models.BooleanField(default=True)
     is_new = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=datetime.now, blank=True)
-    shipping_date = models.DateTimeField(blank=True)
+    shipping_date = models.DateTimeField(null=True, blank=True)
     hero = ThumbnailerImageField(upload_to="photos/heros/", blank=True)
     preservation = StatusField(
         choices_name="PRESERVATION", help_text="温度帯", default=PRESERVATION.room_temp
@@ -96,7 +102,7 @@ class Product(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Photo(models.Model):
@@ -111,11 +117,17 @@ class Series(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
+
 
 class Brand(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     series = models.ForeignKey(Series, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 class Handling(models.Model):
