@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="">
+    <div class="parallax-section">
+      <div class="parallax-child-section">
+        <div class="bg-gray-to-transparent relative z-10 h-full">
+          <div class="container mx-auto h-full flex items-center">
+            <h1 class="flex flex-col items-start">
+              <span class="inline-block p-2 bg-crimson text-4xl text-white font-bold font-en uppercase leading-none tracking-wider">Product</span>
+              <span class="inline-block p-2 mt-2 bg-crimson text-4xl text-white font-bold font-en uppercase leading-none tracking-wider">LINEUP</span>
+              <span class="block mt-4 text-xl font-bold leading-none tracking-wider">商品情報</span>
+            </h1>
+          </div>
+        </div>
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static '/images/categories/cat_pasta.jpg' %});"></section>
+      </div>
+    </div>
+    <div class="container mx-auto">
+      <div class="brackets shadow-top relative z-30 w-7/12 p-10 bg-white -mt-10 leading-relaxed">
+        <p>加工食品事業では家庭用小麦粉のほか、家庭用・業務用のプレミックスやパスタ・パスタソースを中心に、バリエーション豊かな製品を「日清」「マ・マー」「青の洞窟」「ディ・チェコ」等のブランドで提供しています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <div class="container mx-auto">
+      <h2 class="slashed w-full pt-10 flex justify-center items-center">
+        <div class="text-center">
+          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">Product LINEUP</span>
+          <span class="block text-2xl md:text-3xl font-bold leading-snug">カテゴリー</span>
+        </div>
+      </h2>
+
+      <div class="mt-8 sm:mt-10">
+        <ul class="flex flex-wrap -mx-2">
+          {% for category in category_list %}
+          <li class="w-1/4 px-2 mb-4">
+            <a href="{% url 'products.products' cat=category.slug %}" class="shadow">
+              <img src="{% static '/images/categories/cat_tenpura.jpg' %}" alt="">
+              <h3 class="text-center h-20 flex justify-center items-center">{{ category.title }}</h3>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+  </section>
+{% endblock content %}

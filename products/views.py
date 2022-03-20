@@ -1,15 +1,37 @@
-from django.shortcuts import render
+from django.views.generic import DetailView, ListView
+
+from .models import Category, Facility, Product
 
 # Create your views here.
 
 
-def index(request):
-    return render(request, "products/index.html")
+class CategoriesView(ListView):
+    model = Category
+
+    def get_queryset(self):
+        return Category.objects.filter(parent_id__isnull=True)
 
 
-def category(request):
-    return render(request, "products/category.html")
+class ProductsView(ListView):
+    model = Product
+
+    def get_queryset(self):
+        cat = self.kwargs["cat"]
+        return Product.objects.filter(category__slug=cat)
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductsView, self).get_context_data(**kwargs)
+        cat = self.kwargs["cat"]
+        context["current_category"] = Category.objects.get(slug=cat)
+        context["category_list"] = Category.objects.filter(parent_id__isnull=True)
+        return context
 
 
-def detail(request):
-    return render(request, "products/detail.html")
+class ProductDetail(DetailView):
+    model = Product
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductDetail, self).get_context_data(**kwargs)
+        context["facility_list"] = Facility.objects.all()
+        context["category_list"] = Category.objects.filter(parent_id__isnull=True)
+        return context

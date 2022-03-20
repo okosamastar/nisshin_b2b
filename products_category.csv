@@ -1,0 +1,55 @@
+id,title,title_en,subtitle,description,hero,photo,slug,lft,rght,tree_id,level,parent_id
+1,天ぷら粉,tenpurako,,,,,tenpurako,1,8,1,0,
+2,から揚げ粉,karaageko,,,,,karaageko,1,14,2,0,
+3,バッター・打ち粉,batter uchiko,,,,,batter_uchiko,1,10,3,0,
+4,和風メニュー,wafu,(お好み焼・たこ焼他),,,,wafu,1,12,4,0,
+5,洋風メニュー,yofu,(スイーツ他),,,,yofu,1,18,5,0,
+6,ロングパスタ,long pasta,,,,,long_pasta,1,18,6,0,
+7,ショートパスタ,short pasta,,,,,short_pasta,1,14,7,0,
+8,調理済みパスタ,cooked pasta,,,,,cooked_pasta,1,6,8,0,
+9,パスタソース,pasta sauce,,,,,pasta_sauce,1,8,9,0,
+10,かるサクシリーズ,kurusaku,,,,,karusaku,2,3,1,1,1
+11,揚げ上手シリーズ,agejozu,,,,,agejozu,4,5,1,1,1
+12,調理行程削減,chouri koutei,,,,,chouri_koutei,6,7,1,1,1
+13,水溶き,mizutaki,,,,,mizutaki,2,3,2,1,2
+14,漬け込みまぶしタイプ,tsukekomi,,,,,tsukekomi,4,5,2,1,2
+15,水溶きまぶし,mizutoki mabushi,,,,,mizutoki_mabushi,6,7,2,1,2
+16,まぶしタイプ,mabushi,,,,,mabushi,8,9,2,1,2
+17,味つき,ajitsuki,,,,,ajitsuki,10,11,2,1,2
+18,味なし,ajinashii,,,,,ajinashii,12,13,2,1,2
+19,打ち粉,uchiko,,,,,uchiko,2,3,3,1,3
+20,バッター,batter,,,,,batter,4,5,3,1,3
+21,畜肉用,chikuniku,,,,,chikuniku,6,7,3,1,3
+22,魚介用,gyokai,,,,,gyokai,8,9,3,1,3
+23,たこ焼,takoyaki,,,,,takoyaki,2,3,4,1,4
+24,お好み焼,okonomiyaki,,,,,okonomiyaki,4,5,4,1,4
+25,鯛焼き,taiyaki,,,,,taiyaki,6,7,4,1,4
+26,大判焼き,obanyaki,,,,,obanyaki,8,9,4,1,4
+27,冷麺,reimen,,,,,reimen,10,11,4,1,4
+28,パンケーキ,pancake,,,,,pancake,2,3,5,1,5
+29,クレープ,crepe,,,,,crepe,4,5,5,1,5
+30,ホットケーキ,hotcake,,,,,hotcake,6,7,5,1,5
+31,蒸しパン,mushipan,,,,,mushipan,8,9,5,1,5
+32,ワッフル,waffle,,,,,waffle,10,11,5,1,5
+33,ピザ,pizza,,,,,pizza,12,13,5,1,5
+34,チュロス,churro,,,,,churro,14,15,5,1,5
+35,ホワイトソース,white sauce,,,,,white_sauce,16,17,5,1,5
+36,～1.5㎜,1.5mm,,,,,1_5mm,2,3,6,1,6
+37,1.6～1.7㎜,1.6～1.7㎜,,,,,1_6-1_7mm,4,5,6,1,6
+38,1.8㎜～,1.8㎜～,,,,,1_8mm,6,7,6,1,6
+39,ハーフ,half,,,,,half,8,9,6,1,6
+40,乾麺,kanmen,,,,,kanmen,10,11,6,1,6
+41,生麺,namamen,,,,,namamen,12,13,6,1,6
+42,ゆで時間短縮,yudejikan tanshuku,,,,,yudejikan_tanshuku,14,15,6,1,6
+43,ディチェコ,dececco,,,,,dececco,16,17,6,1,6
+44,ストレートマカロニ,straight macaroni,,,,,straight_macaroni,2,3,7,1,7
+45,フィジリ,fusilli,,,,,fusilli,4,5,7,1,7
+46,ペンネ,penne,,,,,penne,6,7,7,1,7
+47,シェル,shell,,,,,shell,8,9,7,1,7
+48,その他,other shortpasta,,,,,other_shortpasta,10,11,7,1,7
+49,ディチェコ,dececco shortpasta,,,,,dececco_shortpasta,12,13,7,1,7
+50,ワンディッシュ,one dish,,,,,onedish,2,3,8,1,8
+51,付け合わせ,tsukeawase,,,,,tsukeawase,4,5,8,1,8
+52,パウチ,pouch,,,,,pouch,2,3,9,1,9
+53,缶,can,,,,,can,4,5,9,1,9
+54,チューブ,tube,,,,,tube,6,7,9,1,9

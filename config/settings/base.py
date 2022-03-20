@@ -75,14 +75,15 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
+    "mptt",
+    "easy_thumbnails",
+    "django_filters",
+    "ordered_model",
 ]
 
 LOCAL_APPS = [
     "nisshin_b2b.users",
     # Your stuff: custom apps go here
-    "mptt",
-    "easy_thumbnails",
-    "django_filters",
     "pages",
     "products",
 ]
