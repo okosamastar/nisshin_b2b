@@ -338,6 +338,29 @@ body {
   background-size: cover;
 }
 
+.facility {
+  .icon {
+    @apply bg-gray-400;
+  }
+  .arrow {
+    @apply text-gray-400;
+  }
+  .body {
+    @apply text-gray-400;
+  }
+  &.is_active {
+    .icon {
+      @apply bg-crimson;
+    }
+    .arrow {
+      @apply text-crimson;
+    }
+    .body {
+      @apply text-crimson;
+    }
+  }
+}
+
 .exhibition {
     background: transparent url("../images/bg_exhibition.jpg") center center no-repeat;
     background-size: cover;

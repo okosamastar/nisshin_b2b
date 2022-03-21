@@ -54,7 +54,7 @@
               <a href="{% url 'products.detail' slug=product.slug %}" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
                 <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
                   <div class="py-1 overflow-hidden">
-                    <img src="{% static 'images/products/271330_01.jpg' %}" alt="天ぷら粉" class="w-auto h-full mx-auto">
+                    <img src="{% static 'images/products/271330_01.jpg' %}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
                   </div>
                   <div class="absolute left-0 top-0 w-12 h-12 mx-2">
                     <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">

@@ -1,6 +1,6 @@
 from django.views.generic import DetailView, ListView
 
-from .models import Category, Facility, Product
+from .models import Category, Facility, Industry, Product
 
 # Create your views here.
 
@@ -33,5 +33,6 @@ class ProductDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProductDetail, self).get_context_data(**kwargs)
         context["facility_list"] = Facility.objects.all()
+        context["industry_list"] = Industry.objects.all()
         context["category_list"] = Category.objects.filter(parent_id__isnull=True)
         return context
