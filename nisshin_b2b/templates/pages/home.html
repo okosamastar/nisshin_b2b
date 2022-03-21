@@ -43,12 +43,15 @@
 
       <div class="mt-8 sm:mt-10">
         <ul class="flex flex-wrap shadow">
+          {% for category in category_list %}
           <li class="w-1/5">
+            <a href="{% url 'products.products' cat=product.slug %}"></a>
             <div class="border border-gray-200">
               <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
+              <h3 class="text-center h-20 flex justify-center items-center">{{ category.name }}</h3>
             </div>
           </li>
+          {% endfor %}
           <li class="w-1/5">
             <div class="border border-gray-200">
               <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">

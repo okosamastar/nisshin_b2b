@@ -3345,9 +3345,6 @@ video {
 }.bg-gray{
 	--tw-bg-opacity: 1;
 	background-color: rgba(156, 156, 156, var(--tw-bg-opacity));
-}.bg-gray-400{
-	--tw-bg-opacity: 1;
-	background-color: rgba(176, 176, 176, var(--tw-bg-opacity));
 }.bg-gray-200{
 	--tw-bg-opacity: 1;
 	background-color: rgba(217, 217, 217, var(--tw-bg-opacity));
