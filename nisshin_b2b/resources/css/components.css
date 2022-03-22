@@ -1,7 +1,3 @@
-body {
-    font-family: "Noto Sans JP", "\6E38\30B4\30B7\30C3\30AF\4F53", Yu Gothic, YuGothic, Hiragino Kaku Gothic Pro, "\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3", Meiryo UI, "\30E1\30A4\30EA\30AA", Meiryo, Osaka, MS PGothic, sans-serif;
-}
-
 .button {
     @apply block py-3 px-2 rounded text-center text-white bg-crimson-500 leading-5 hover:bg-crimson-400 hover:text-white;
 
@@ -49,18 +45,20 @@ body {
     padding: 0 2px 2%;
 }
 
-.center-line {
-  @apply block relative;
-  &:before {
-    @apply absolute right-0 w-full bg-gray;
-    height: 1px;
-    top: 50%;
-    z-index: 1;
-    content: '';
-  }
-  span {
-    @apply relative bg-white pr-2;
-    z-index: 2;
+@screen md {
+  .center-line {
+    @apply block relative;
+    &:before {
+      @apply absolute right-0 w-full bg-gray;
+      height: 1px;
+      top: 50%;
+      z-index: 1;
+      content: '';
+    }
+    span {
+      @apply relative bg-white pr-2;
+      z-index: 2;
+    }
   }
 }
 
@@ -135,7 +133,13 @@ body {
 
 .corner {
   background: transparent url("../images/corner.png") left top no-repeat;
-  background-size: 140px auto;
+  background-size: 80px auto;
+}
+@screen md {
+  .corner {
+    background: transparent url("../images/corner.png") left top no-repeat;
+    background-size: 140px auto;
+  }
 }
 
 .centerlined {
@@ -172,21 +176,22 @@ body {
   .container {
     background: linear-gradient(90deg, rgba(238,238,238,1) 130px, rgba(238,238,238,0) 0%);
   }
-
 }
 
-.shadow-top {
-  @apply relative z-10 shadow-lg;
-  &:after {
-    @apply absolute left-0 bottom-0 -mb-4;
-    width: calc(100% + 2rem);
-    height: 100%;
-    margin-left: -1rem;
-    content: '';
-    background: linear-gradient(0deg, rgba(255,255,255, 1) 30%, rgba(255,255,255, 0) 60%)
-  }
-  > * {
-    @apply relative z-20;
+@screen md {
+  .shadow-top {
+    @apply relative z-10 shadow-lg;
+    &:after {
+      @apply absolute left-0 bottom-0 -mb-4;
+      width: calc(100% + 2rem);
+      height: 100%;
+      margin-left: -1rem;
+      content: '';
+      background: linear-gradient(0deg, rgba(255,255,255, 1) 30%, rgba(255,255,255, 0) 60%)
+    }
+    > * {
+      @apply relative z-20;
+    }
   }
 }
 
@@ -196,6 +201,26 @@ body {
     &:before {
       @apply mr-2;
       content: '※';
+    }
+  }
+}
+
+
+#site-nav {
+  #menus {
+    @apply transition-all duration-500 opacity-0;
+    transform: translateY(-500px);
+    &.is_active {
+      @apply opacity-100;
+      transform: translateY(0);
+    }
+  }
+}
+@screen md {
+  #site-nav {
+    #menus {
+      @apply transition-none opacity-100;
+      transform: translateY(0);
     }
   }
 }
@@ -298,10 +323,10 @@ body {
   li {
     @apply py-4 flex justify-start items-center border-b border-dashed border-black text-sm;
     time {
-      @apply text-xs;
+      @apply text-xs font-bold;
     }
     .tag {
-      @apply block w-32 mx-4 py-1 text-xs font-bold text-center;
+      @apply flex-none block py-1 text-xs font-bold text-center;
       &.yellow {
         @apply bg-yellow text-black;
       }

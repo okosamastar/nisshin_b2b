@@ -44,6 +44,18 @@ $font-ja: 'Noto Sans JP', sans-serif;
   font-family: $font-ja;
 }
 
+html {
+  height: -webkit-fill-available;
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: "Noto Sans JP", "\6E38\30B4\30B7\30C3\30AF\4F53", Yu Gothic, YuGothic, Hiragino Kaku Gothic Pro, "\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3", Meiryo UI, "\30E1\30A4\30EA\30AA", Meiryo, Osaka, MS PGothic, sans-serif;
+}
+
 details {
   height: var(--collapsed);
   overflow: hidden;

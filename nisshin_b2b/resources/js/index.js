@@ -17,6 +17,7 @@ Vue.use(SvgVue);
 Vue.use(VueLazyLoad)
 
 // import Share from './vue/components/Share.vue'
+import Navigation from "./vue/components/Navigation.vue";
 import Hero from './vue/components/Hero.vue'
 import DetailSlider from './vue/components/DetailSlider.vue'
 import DetailInfo from './vue/components/DetailInfo.vue'
@@ -36,6 +37,7 @@ new Vue({
   },
   components: {
     // Share,
+    Navigation,
     Hero,
     DetailSlider,
     CardSlider,

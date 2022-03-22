@@ -317,3 +317,11 @@ REST_FRAMEWORK = {
 CORS_URLS_REGEX = r"^/api/.*$"
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+THUMBNAIL_ALIASES = {
+    "": {
+        "square": {"size": (412, 412), "crop": True},
+        "square_small": {"size": (128, 128), "crop": True},
+        "rectangle": {"size": (500, 320), "crop": True},
+    },
+}

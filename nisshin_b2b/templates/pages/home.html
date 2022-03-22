@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load thumbnail %}
 
 {% block content %}
 
@@ -31,110 +32,62 @@
     ]"
   ></hero>
 
-  <section class="mt-10">
+  <section class="mt-6 md:mt-10">
     <div class="container mx-auto">
-      <h2 class="slashed w-full pt-16 flex justify-between items-center">
-        <div class="flex-none">
-          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">Product LINEUP</span>
+      <h2 class="slashed w-full pt-10 md:pt-16 flex flex-col md:flex-row justify-between items-center">
+        <div class="flex-none text-center md:text-left">
+          <span class="block mb-1 md:mb-3 text-crimson text-xs font-bold font-en leading-none uppercase tracking-wide">Product LINEUP</span>
           <span class="block text-2xl md:text-3xl font-bold leading-snug">商品情報</span>
         </div>
-        <p class="w-7/12">加工食品事業では家庭用小麦粉のほか、家庭用・業務用のプレミックスやパスタ・パスタソースを中心に、バリエーション豊かな製品を「日清」「マ・マー」「青の洞窟」「ディ・チェコ」等のブランドで提供しています。</p>
+        <p class="w-full md:w-7/12 p-6 md:p-0 text-sm md:text-base">加工食品事業では家庭用小麦粉のほか、家庭用・業務用のプレミックスやパスタ・パスタソースを中心に、バリエーション豊かな製品を「日清」「マ・マー」「青の洞窟」「ディ・チェコ」等のブランドで提供しています。</p>
       </h2>
 
-      <div class="mt-8 sm:mt-10">
+      <div class="sm:mt-10">
         <ul class="flex flex-wrap shadow">
           {% for category in category_list %}
-          <li class="w-1/5">
-            <a href="{% url 'products.products' cat=product.slug %}"></a>
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">{{ category.name }}</h3>
-            </div>
+          <li class="w-1/2 md:w-1/5">
+            <a href="{% url 'products.products' cat=category.slug %}">
+              <div class="border border-gray-200">
+                <img src="{{ category.photo|thumbnail_url:'square' }}" alt="">
+                <h3 class="text-center h-20 flex flex-col justify-center items-center">
+                  <span class="block font-bold">{{ category.title }}</span>
+                  {% if category.subtitle %}
+                  <span class="block text-sm">{{ category.subtitle }}</span>
+                  {% endif %}
+                </h3>
+              </div>
+            </a>
           </li>
           {% endfor %}
-          <li class="w-1/5">
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
-            </div>
-          </li>
-          <li class="w-1/5">
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
-            </div>
-          </li>
-          <li class="w-1/5">
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
-            </div>
-          </li>
-          <li class="w-1/5">
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
-            </div>
-          </li>
-          <li class="w-1/5">
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
-            </div>
-          </li>
-          <li class="w-1/5">
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
-            </div>
-          </li>
-          <li class="w-1/5">
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
-            </div>
-          </li>
-          <li class="w-1/5">
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
-            </div>
-          </li>
-          <li class="w-1/5">
-            <div class="border border-gray-200">
-              <img src="{% static '/images/categories/cat_tenpurako_square.jpg' %}" alt="">
-              <h3 class="text-center h-20 flex justify-center items-center">天ぷら粉</h3>
-            </div>
-          </li>
         </ul>
       </div>
 
-      <div class="flex justify-center mt-16">
-        <a href="#" class="button w-80 py-6 tracking-wider">商品情報はこちら</a>
+      <div class="flex justify-center mt-10 md:mt-16">
+        <a href="{% url 'products.category' %}" class="button w-80 py-6 tracking-wider">商品情報はこちら</a>
       </div>
 
     </div>
   </section>
 
-  <section class="relative my-16 -mb-16">
-    <div class="py-16">
-      <div class="parallax-section">
+  <section class="relative mt-16 mb-8 md:my-16">
+    <div class="md:py-16">
+      <div class="parallax-section hidden md:block">
         <div class="parallax-child-section">
           <section class="fw-main-row" id="frontlashID" style="background-image: url({% static '/images/bg_hayayude.jpg' %});"></section>
         </div>
       </div>
     </div>
-    <div class="absolute left-0 top-0 w-full h-full flex justify-center items-center">
+    <div class="md:absolute md:left-0 md:top-0 w-full h-full flex justify-center items-center">
       <div class="container">
         <div class="flex md:justify-end">
-          <div class="w-1/2 relative z-10 bg-blue-50 p-6 shadow-md">
+          <div class="w-full md:w-1/2 relative z-10 bg-blue-50 p-6 shadow-md">
             <div class="relative z-20 p-6 border border-solid border-blue-300 bg-white">
               <h3 class="pt-2 pb-3 font-medium border-b border-dashed border-blue text-center">
                 <span class="block mb-2 text-blue text-xs font-bold font-en uppercase tracking-wide">ONLINE STORE</span>
                 <span class="block text-2xl md:text-3xl text-blue font-bold leading-snug">販売サイトのご案内</span>
               </h3>
               <p class="py-6 text-sm leading-loose">加工食品事業では家庭用小麦粉のほか、家庭用・業務用のプレミックスやパスタ・パスタソースを中心に、バリエーション豊かな製品を「日清」「マ・マー」「青の洞窟」「ディ・チェコ」等のブランドで提供しています。</p>
-              <a href="/b2b/ec/" target="_blank" class="w-full md:w-8/12 mx-auto button py-4 bg-blue text-base hover:bg-blue-400">詳しくはこちら</a>
+              <a href="{% url 'stores' %}" class="w-full md:w-8/12 mx-auto button py-4 bg-blue text-base hover:bg-blue-400">詳しくはこちら</a>
             </div>
             <div class="absolute z-10 left-0 top-0 w-full flex justify-center -mt-6">
               <div class="w-20 h-20 rounded-full bg-blue-50 flex justify-center items-center"></div>
@@ -150,38 +103,48 @@
     </div>
   </section>
 
-  <section class="bg-gray-100 py-24">
+  <section class="bg-gray-100 px-4 py-6 md:py-24">
     <div class="container mx-auto">
-      <div class="bg-white border-t-2 border-crimson p-10">
+      <div class="bg-white border-t-2 border-crimson p-6 md:p-10">
         <h2 class="w-full text-center mb-6 sm:mb-10">
           <span class="block mb-2 text-crimson text-xs font-bold font-en uppercase tracking-wide">Information</span>
           <span class="block text-2xl md:text-3xl font-bold leading-snug">おしらせ</span>
         </h2>
-        <ul class="news px-24 mb-6 mx-auto">
+        <ul class="news md:px-24 mb-6 mx-auto border-t border-dashed border-black md:border-none">
           <li>
-            <time datetime="2018-07-07">2021.12.10</time>
-            <div class="tag yellow">商品</div>
-            <span>日清製粉ウェルナ　業務用製品の価格改定について</span>
+            <div class="flex flex-col md:flex-row-reverse items-center text-center md:text-left">
+              <div class="tag w-20 md:w-32 mr-2 md:mr-4 yellow">商品</div>
+              <time datetime="2018-07-07" class="w-20 md:w-auto p-1 mr-2 md:mr-4 bg-gray-100 md:bg-transparent">2021.12.10</time>
+            </div>
+            <span class="">日清製粉ウェルナ　業務用製品の価格改定について</span>
           </li>
           <li>
-            <time datetime="2018-07-07">2021.12.10</time>
-            <div class="tag yellow">商品</div>
-            <span>日清製粉ウェルナ　業務用新製品の発表について</span>
+            <div class="flex flex-col md:flex-row-reverse items-center text-center md:text-left">
+              <div class="tag w-20 md:w-32 mr-2 md:mr-4 yellow">商品</div>
+              <time datetime="2018-07-07" class="w-20 md:w-auto p-1 mr-2 md:mr-4 bg-gray-100 md:bg-transparent">2021.12.10</time>
+            </div>
+            <span class="">日清製粉ウェルナ　業務用新製品の発表について</span>
           </li>
           <li>
-            <time datetime="2018-07-07">2021.12.10</time>
-            <div class="tag blue">情報</div>
-            <span>●月分のレシピ通信を公開しました</span>
+            <div class="flex flex-col md:flex-row-reverse items-center text-center md:text-left">
+              <div class="tag w-20 md:w-32 mr-2 md:mr-4 blue">情報</div>
+              <time datetime="2018-07-07" class="w-20 md:w-auto p-1 mr-2 md:mr-4 bg-gray-100 md:bg-transparent">2021.12.10</time>
+            </div>
+            <span class="">●月分のレシピ通信を公開しました</span>
           </li>
           <li>
-            <time datetime="2018-07-07">2021.12.10</time>
-            <div class="tag green">お知らせ</div>
-            <span>2022年春の新商品発表会について</span>
+            <div class="flex flex-col md:flex-row-reverse items-center text-center md:text-left">
+              <div class="tag w-20 md:w-32 mr-2 md:mr-4 green">お知らせ</div>
+              <time datetime="2018-07-07" class="w-20 md:w-auto p-1 mr-2 md:mr-4 bg-gray-100 md:bg-transparent">2021.12.10</time>
+            </div>
+            <span class="">2022年春の新商品発表会について</span>
           </li>
           <li>
-            <time datetime="2018-07-07">2021.12.10</time>
-            <div class="tag orange">レシピ</div>
-            <span>●月分のおすすめレシピを公開しました</span>
+            <div class="flex flex-col md:flex-row-reverse items-center text-center md:text-left">
+              <div class="tag w-20 md:w-32 mr-2 md:mr-4 orange">レシピ</div>
+              <time datetime="2018-07-07" class="w-20 md:w-auto p-1 mr-2 md:mr-4 bg-gray-100 md:bg-transparent">2021.12.10</time>
+            </div>
+            <span class="">●月分のおすすめレシピを公開しました</span>
           </li>
         </ul>
       </div>

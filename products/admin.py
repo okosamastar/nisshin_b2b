@@ -34,6 +34,7 @@ class PhotoInline(admin.StackedInline):
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = [PhotoInline]
+    prepopulated_fields = {"slug": ("markcode",)}
 
 
 admin.site.register(Category, CategoryAdmin)

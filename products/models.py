@@ -90,26 +90,20 @@ class Series(models.Model):
 
 
 class Product(TimeStampedModel):
-
-    PRESERVATION = Choices(
-        ("room_temp", "常温"),
-        ("frozen", "冷凍"),
-    )
-
     title = models.CharField(max_length=255, null=False, blank=False)
     subtitle = models.CharField(max_length=255, null=True, blank=True)
     markcode = models.PositiveIntegerField(null=False, blank=False)
     pos = models.BigIntegerField(null=True, blank=True)
     gtin = models.BigIntegerField(null=True, blank=True)
     packing = models.CharField(max_length=255, null=True, blank=True)
-    packing_weight = models.CharField(max_length=255, null=True, blank=True)
-    packing_width = models.PositiveSmallIntegerField(null=True, blank=True)
-    packing_height = models.PositiveSmallIntegerField(null=True, blank=True)
-    packing_depth = models.PositiveSmallIntegerField(null=True, blank=True)
-    carton_weight = models.CharField(max_length=255, null=True, blank=True)
-    carton_width = models.PositiveSmallIntegerField(null=True, blank=True)
-    carton_height = models.PositiveSmallIntegerField(null=True, blank=True)
-    carton_depth = models.PositiveSmallIntegerField(null=True, blank=True)
+    packing_weight = models.CharField(max_length=100, null=True, blank=True)
+    packing_width = models.CharField(max_length=100, null=True, blank=True)
+    packing_height = models.CharField(max_length=100, null=True, blank=True)
+    packing_depth = models.CharField(max_length=100, null=True, blank=True)
+    carton_weight = models.CharField(max_length=100, null=True, blank=True)
+    carton_width = models.CharField(max_length=100, null=True, blank=True)
+    carton_height = models.CharField(max_length=100, null=True, blank=True)
+    carton_depth = models.CharField(max_length=100, null=True, blank=True)
     expiration_date = models.CharField(max_length=255, null=True, blank=True)
     slug = models.SlugField(unique=True)
     price = models.PositiveIntegerField(default=0, null=True, blank=True)
@@ -133,9 +127,6 @@ class Product(TimeStampedModel):
     freespace_c = models.TextField(null=True, blank=True)
     country = models.CharField(max_length=255, null=True, blank=True)
     related = models.ManyToManyField("self", null=True, blank=True, symmetrical=False)
-    preservation = StatusField(
-        choices_name="PRESERVATION", help_text="温度帯", default=PRESERVATION.room_temp
-    )
     category = models.ManyToManyField(
         Category,
         related_name="product",
