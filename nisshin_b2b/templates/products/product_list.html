@@ -22,26 +22,26 @@
             </div>
           </h2>
 
-          <div class="bg-gray-100 flex justify-start">
+          <div class="mt-10 bg-gray-100 flex justify-start">
             <h3 class="flex items-center border-r border-dashed border-gray-300">
               <span class="text-sm font-en text-crimson font-bold uppercase -rotate-90">tags</span>
             </h3>
             <ul class="flex-1 p-4 flex flex-wrap items-center -mx-2">
               <li class="inline-block py-1 px-2">
-                <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson text-white text-sm font-bold rounded-full">
+                <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson text-white text-xs md:text-sm font-bold rounded-full">
                   すべて
                 </a>
               </li>
               {% for tag in tag_list  %}
                 <li class="inline-block py-1 px-2">
-                  <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson text-white text-sm font-bold rounded-full">
+                  <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson text-white text-xs md:text-sm font-bold rounded-full">
                     {{ tag.name }}
                   </a>
                 </li>
               {% endfor %}
               {% for child in current_category.child.all  %}
               <li class="inline-block py-1 px-2">
-                <a href="{% url 'products.products' cat=current_category.slug child=child.slug %}" class="block py-1 px-4 bg-crimson text-white text-sm font-bold rounded-full">
+                <a href="{% url 'products.products' cat=current_category.slug child=child.slug %}" class="block py-1 px-4 bg-crimson text-white text-xs md:text-sm font-bold rounded-full">
                   {{ child.title }}
                 </a>
               </li>
@@ -52,15 +52,21 @@
           <div class="flex flex-wrap -mx-1 md:-mx-2 mt-8 md:mt-14 transform">
 
             {% for product in product_list %}
-            <div class="w-1/2 md:w-4/12 px-1 md:px-2">
+            <div class="w-1/2 md:w-4/12 px-1 md:px-2 mb-2 md:mb-4">
               <a href="{% url 'products.detail' slug=product.slug %}" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
                 <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
                   <div class="py-1 overflow-hidden">
-                    <img src="{% static 'images/products/271330_01.jpg' %}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                  {% for photo in related.photo_set.all %}
+                    {% if photo.label == 'main' %}
+                      <img src="{{ photo.photo }}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                    {% endif %}
+                  {% endfor %}
                   </div>
+                  {% if product.is_new %}
                   <div class="absolute left-0 top-0 w-12 h-12 mx-2">
                     <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
                   </div>
+                  {% endif %}
                 </div>
                 <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
                   {% for cat in product.category.all %}

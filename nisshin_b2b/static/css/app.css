@@ -4137,6 +4137,8 @@ video {
 		margin-right: 0px;
 	}.md\:mt-14{
 		margin-top: 3.5rem;
+	}.md\:mb-4{
+		margin-bottom: 1rem;
 	}.md\:block{
 		display: block;
 	}.md\:inline{
@@ -4354,6 +4356,8 @@ video {
 		font-size: 1.875rem;
 	}.md\:text-2xl{
 		font-size: 1.5rem;
+	}.md\:text-sm{
+		font-size: .875rem;
 	}.md\:font-bold{
 		font-weight: 700;
 	}.md\:text-black{
