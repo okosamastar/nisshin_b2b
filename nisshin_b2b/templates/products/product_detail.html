@@ -488,15 +488,19 @@
               {
                   'title': '{{ related.title }}',
                   {% for cat in related.category.all %}
-                  {% if cat.parent == null %}
-                  'category': '天ぷら粉',
-                  {% endif %}
+                    {% if cat.parent == null %}
+                    'category': '天ぷら粉',
+                    {% endif %}
                   {% endfor %}
-                  {% for photo in related.photo_set.all %}
-                  {% if photo.label == 'main' %}
-                  'image': '{{ photo.photo | thumbnail_url:'square' }}',
+                  {% if related.photo_set.all|length > 0 %}
+                    {% for photo in related.photo_set.all %}
+                      {% if photo.label == 'main' %}
+                      'image': '{{ photo.photo | thumbnail_url:'square' }}',
+                      {% endif %}
+                    {% endfor %}
+                  {% else %}
+                  'image': '',
                   {% endif %}
-                  {% endfor %}
                   'link': '{% url 'products.detail' slug=related.markcode %}',
                   'weight': '{{ related.packing_weigh | default:'---' }}',
                   'code': '{{ related.markcode }}',

@@ -22,6 +22,7 @@
     "/images/bnr_karaage.jpg": "/images/bnr_karaage.jpg",
     "/images/catch_karaage.png": "/images/catch_karaage.png",
     "/images/corner.png": "/images/corner.png",
+    "/images/default_thumbnail.png": "/images/default_thumbnail.png",
     "/images/dotted.png": "/images/dotted.png",
     "/images/ec_foods_fridge.png": "/images/ec_foods_fridge.png",
     "/images/ec_micstore.png": "/images/ec_micstore.png",
@@ -72,6 +73,5 @@
     "/images/title_smile-meal.png": "/images/title_smile-meal.png",
     "/images/v_text_contact.png": "/images/v_text_contact.png",
     "/images/v_text_sample.png": "/images/v_text_sample.png",
-    "/css/app.css": "/css/app.css",
-    "/css/legacy.css": "/css/legacy.css"
+    "/css/app.css": "/css/app.css"
 }

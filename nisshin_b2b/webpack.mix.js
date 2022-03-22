@@ -70,11 +70,6 @@ mix.js(`${resourcesPath}/js/index.js`, `${staticPath}/js/`)
         `${staticPath}/js/index.css`,
         `${staticPath}/css/style.css`
     ], `${staticPath}/css/app.css`)
-    .styles([
-        `${resourcesPath}/css/common_header.css`,
-        `${resourcesPath}/css/global.css`,
-        `${resourcesPath}/css/index_style.css`
-    ], `${staticPath}/css/legacy.css`)
 
 // .options({
 //   processCssUrls: false,
