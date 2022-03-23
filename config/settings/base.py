@@ -324,3 +324,4 @@ THUMBNAIL_ALIASES = {
         "rectangle": {"size": (500, 320), "crop": True},
     },
 }
+THUMBNAIL_DEFAULT_STORAGE = "nisshin_b2b.utils.storages.MediaRootS3Boto3Storage"
