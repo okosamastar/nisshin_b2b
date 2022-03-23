@@ -123,7 +123,9 @@ INSTALLED_APPS += ["anymail"]  # noqa F405
 # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
 # https://anymail.readthedocs.io/en/stable/esps/amazon_ses/
 EMAIL_BACKEND = "anymail.backends.amazon_ses.EmailBackend"
-ANYMAIL = {}
+ANYMAIL = {
+    "MAILGUN_API_KEY": "a3fd3bddf154f6199a2a6f1a20864f7e-acb0b40c-382bcf55",
+}
 
 # django-compressor
 # ------------------------------------------------------------------------------
