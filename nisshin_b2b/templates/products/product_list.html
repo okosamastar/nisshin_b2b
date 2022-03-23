@@ -56,13 +56,9 @@
               <a href="{% url 'products.detail' slug=product.slug %}" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
                 <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
 
-                  {% if product.photo_set.all|length > 0 %}
+                  {% if product.main_photo %}
                   <div class="py-1 overflow-hidden">
-                  {% for photo in product.photo_set.all %}
-                    {% if photo.label == 'main' %}
-                      <img src="{{ photo.photo|thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
-                    {% endif %}
-                  {% endfor %}
+                    <img src="{{ product.main_photo.photo|thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
                   </div>
                   {% else %}
                   <div class="py-1 overflow-hidden bg-gray-100">

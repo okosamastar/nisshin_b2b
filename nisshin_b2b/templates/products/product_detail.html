@@ -20,8 +20,8 @@
           <div class="sm:flex justify-between items-start sm:-mx-4">
             <div class="sm:w-[360px] md:px-4">
               <detail-slider :newmark="{{ product.is_new|lower }}" layout="col" :handle-modal="openLightBox" :images="[
-                {% if product.photo_set.all|length > 0 %}
-                  {% for photo in product.photo_set.all %}
+                {% if product.photos.all|length > 0 %}
+                  {% for photo in product.photos.all %}
                     {
                       src: '{{ photo.photo | thumbnail_url:'square' }}',
                       title: '{{ product.title | safe }}'
@@ -505,12 +505,8 @@
                     'category': {{ cat.title }},
                     {% endif %}
                   {% endfor %}
-                  {% if related.photo_set.all|length > 0 %}
-                    {% for photo in related.photo_set.all %}
-                      {% if photo.label == 'main' %}
-                      'image': '{{ photo.photo | thumbnail_url:'square' }}',
-                      {% endif %}
-                    {% endfor %}
+                  {% if related.main_photo %}
+                  'image': '{{ related.main_photo.photo | thumbnail_url:'square' }}',
                   {% else %}
                   'image': '{% static 'images/default_thumbnail.png' %}',
                   {% endif %}

@@ -156,10 +156,15 @@ class Product(TimeStampedModel):
             self.slug = slugify(self.markcode)
         return super(Product, self).save(*args, **kwargs)
 
+    def main_photo(self):
+        return self.photos.get(label="main")
+
 
 class Photo(models.Model):
     LABEL = Choices("main", "cooked", "package")
 
     photo = ThumbnailerImageField(upload_to="photos", blank=False)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        Product, related_name="photos", on_delete=models.CASCADE
+    )
     label = StatusField(choices_name="LABEL", default=LABEL.cooked)
