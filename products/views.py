@@ -40,6 +40,9 @@ class ProductDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductDetail, self).get_context_data(**kwargs)
+        product = context.get("object")
+
+        context["current_category"] = product.category.get(parent_id__isnull=True)
         context["facility_list"] = Facility.objects.all()
         context["industry_list"] = Industry.objects.all()
         context["category_list"] = Category.objects.filter(parent_id__isnull=True)
