@@ -56,6 +56,9 @@ http:
       # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
       headers:
         hostsProxyHeaders: ["X-CSRFToken"]
+    auth:
+      basicauth:
+        users: "nswprodev:$$apr1$$kmoK7vkF$$9nZB5obXukkwBWfthrnHE."
 
   services:
     django:
