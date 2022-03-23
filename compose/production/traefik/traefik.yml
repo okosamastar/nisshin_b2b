@@ -60,7 +60,7 @@ http:
     test-auth:
       basicAuth:
         users:
-          - "nswprodev:$$apr1$$kmoK7vkF$$9nZB5obXukkwBWfthrnHE."
+          - "nswprodev:$$apr1$$if8h1rbp$$/lNgYY6vKDiRMlz0kMFAb1"
 
   services:
     django:
