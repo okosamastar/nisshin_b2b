@@ -26,7 +26,22 @@
                   title: '{{ product.title | safe }}'
                 },
                 {% endfor %}
-            ]"
+                {% if product.photo_set.all|length > 0 %}
+                  {% for photo in product.photo_set.all %}
+                    {% if photo.label == 'main' %}
+                    {
+                      src: '{{ photo.photo | thumbnail_url:'square' }}',
+                      title: '{{ product.title | safe }}'
+                    },
+                    {% endif %}
+                  {% endfor %}
+                {% else %}
+                {
+                  src: '{% static 'images/default_thumbnail.png' %}',
+                  title: '{{ product.title | safe }}'
+                },
+                {% endif %}
+              ]"
               ></detail-slider>
             </div>
             <div class="relative flex-1 md:px-4 pt-10 sm:pt-0 text-center sm:text-left">
@@ -495,7 +510,7 @@
                   'title': '{{ related.title }}',
                   {% for cat in related.category.all %}
                     {% if cat.parent == null %}
-                    'category': '天ぷら粉',
+                    'category': {{ cat.title }},
                     {% endif %}
                   {% endfor %}
                   {% if related.photo_set.all|length > 0 %}
@@ -505,7 +520,7 @@
                       {% endif %}
                     {% endfor %}
                   {% else %}
-                  'image': '',
+                  'image': '{% static 'images/default_thumbnail.png' %}',
                   {% endif %}
                   'link': '{% url 'products.detail' slug=related.markcode %}',
                   'weight': '{{ related.packing_weigh | default:'---' }}',
