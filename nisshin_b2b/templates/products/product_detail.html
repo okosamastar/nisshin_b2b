@@ -252,13 +252,13 @@
                 <ul class="flex flex-wrap -mx-1 mt-2">
                   {% for industry in industry_list %}
                   <li class="w-full md:w-4/12 px-1 mt-2">
-                    <div class="p-2 flex items-center border bg-white {% if industry in product.industry.all %}border-crimson{% else %}border-gray-300{% endif %}">
+                    <div class="p-2 flex items-center border bg-white {% if industry in product.industry.all %}border-crimson text-crimson{% else %}border-gray-300 text-gray-400{% endif %}">
                       {% if industry in product.industry.all %}
                       <svg-vue icon="check" class="flex-none w-6 h-6 text-crimson"></svg-vue>
                       {% else %}
                       <div class="flex-none w-6 h-6 border-2 border-gray-200 rounded-full"></div>
                       {% endif %}
-                      <span class="flex-1 pr-6 text-xs text-crimson text-center leading-none">{{ industry.name }}</span>
+                      <span class="flex-1 pr-6 text-xs text-center leading-none">{{ industry.name }}</span>
                     </div>
                   </li>
                   {% endfor %}
@@ -348,12 +348,15 @@
                   <h3 class="w-full text-crimson font-bold">梱包<span class="text-xs font-normal">（個装）</span></h3>
 
                   <div class="pt-3">
+
+                    {% if false %}
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
                       <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">重量</span>
                       </dt>
                       <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_weight | default:'---' }}</dd>
                     </dl>
+                    {% endif %}
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
                       <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
@@ -385,12 +388,15 @@
                   <h3 class="w-full text-crimson font-bold">梱包<span class="text-xs font-normal">（外装）</span></h3>
 
                   <div class="pt-3">
+
+                    {% if false %}
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
                       <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">総重量</span>
                       </dt>
                       <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_weight | default:'---' }}</dd>
                     </dl>
+                    {% endif %}
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
                       <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
