@@ -7,17 +7,18 @@
       <div class="sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto">
         <Splide ref="splide" :options="mainOptions">
           <SplideSlide v-for="slide in slides" :key="'main_' + slide.id">
-            <img :src="slide.src" :alt="slide.title">
+            <img :src="slide.src_sp" :alt="slide.title" class="md:hidden">
+            <img :src="slide.src_pc" :alt="slide.title" class="hidden md:block">
           </SplideSlide>
         </Splide>
       </div>
     </div>
 
-    <div class="relative container mx-auto py-5">
-      <Splide ref="thumbs" :options="thumbsOptions" class="relative z-10">
+    <div class="hidden md:block relative container mx-auto py-5">
+      <Splide ref="thumbs" :options="thumbsOptions" class="relative z-10 flex justify-center">
         <SplideSlide v-for="slide in slides" :key="'thmb_' + slide.id">
           <div class="bg-white">
-            <img :src="slide.src" :alt="slide.title">
+            <img :src="slide.src_pc" :alt="slide.title">
           </div>
         </SplideSlide>
       </Splide>

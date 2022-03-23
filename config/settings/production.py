@@ -207,3 +207,4 @@ sentry_sdk.init(
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+THUMBNAIL_DEFAULT_STORAGE = "nisshin_b2b.utils.storages.MediaRootS3Boto3Storage"

@@ -6,7 +6,7 @@
   <section class="">
     <div class="parallax-section">
       <div class="parallax-child-section">
-        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static '/images/categories/cat_pasta.jpg' %});"></section>
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({{ current_category.hero | thumbnail_url:'hero' }});"></section>
       </div>
     </div>
   </section>

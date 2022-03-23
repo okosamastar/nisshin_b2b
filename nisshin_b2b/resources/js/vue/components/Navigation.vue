@@ -14,7 +14,7 @@
         </aside>
         <div
           ref="humberger"
-          class="absolute right-0 top-0 z-30 md:relative md:w-22 h-20 md:h-full md:border-l border-crimson flex justify-center items-center cursor-pointer"
+          class="md:hidden absolute right-0 top-0 z-30 md:relative md:w-22 h-20 md:h-full md:border-l border-crimson flex justify-center items-center cursor-pointer"
           @click="toggle"
         >
           <div class="flex flex-col justify-between items-end w-14 h-14 p-4">
