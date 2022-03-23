@@ -31,7 +31,7 @@ certificatesResolvers:
 http:
   routers:
     web-secure-router:
-      rule: "Host(`green-ghost.com`) || Host(`www.green-ghost.com`)"
+      rule: "Host(`pro.nisshin-seifun-welna.com`) || Host(`cdn.pro.nisshin-seifun-welna.com`)"
       entryPoints:
         - web-secure
       middlewares:
@@ -42,7 +42,7 @@ http:
         certResolver: letsencrypt
 
     flower-secure-router:
-      rule: "Host(`green-ghost.com`)"
+      rule: "Host(`pro.nisshin-seifun-welna.com`)"
       entryPoints:
         - flower
       service: flower
