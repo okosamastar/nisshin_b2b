@@ -31,7 +31,7 @@ certificatesResolvers:
 http:
   routers:
     web-secure-router:
-      rule: "Host(`pro.nisshin-seifun-welna.com`) || Host(`cdn.pro.nisshin-seifun-welna.com`)"
+      rule: "Host(`pro.nisshin-seifun-welna.com`)"
       entryPoints:
         - web-secure
       middlewares:
