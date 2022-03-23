@@ -2670,13 +2670,13 @@ video {
 	height: 20rem;
 	width: 100%;
   clip: rect(0, auto, auto, 0);
-}#frontlashID{
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: block;
-	height: 100%;
-	width: 100%;
+}#frontlashID {
+  /*
+  @apply fixed top-0 left-0 block w-full h-full;
+  */
+  display: block;
+  height: 100%;
+  width: 100%;
   transform: translateZ(0);
   will-change: transform;
   z-index: 1;
@@ -4263,9 +4263,6 @@ video {
 	}.md\:py-16{
 		padding-top: 4rem;
 		padding-bottom: 4rem;
-	}.md\:py-24{
-		padding-top: 6rem;
-		padding-bottom: 6rem;
 	}.md\:py-12{
 		padding-top: 3rem;
 		padding-bottom: 3rem;
@@ -4290,6 +4287,9 @@ video {
 	}.md\:px-6{
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
+	}.md\:py-24{
+		padding-top: 6rem;
+		padding-bottom: 6rem;
 	}.md\:px-24{
 		padding-left: 6rem;
 		padding-right: 6rem;
