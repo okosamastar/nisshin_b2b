@@ -37,18 +37,18 @@ http:
       middlewares:
         - csrf
       service: django
-      # tls:
+      tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
-        # certResolver: letsencrypt
+        certResolver: letsencrypt
 
     flower-secure-router:
       rule: "Host(`pro.nisshin-seifun-welna.com`)"
       entryPoints:
         - flower
       service: flower
-      # tls:
+      tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
-        # certResolver: letsencrypt
+        certResolver: letsencrypt
 
   middlewares:
     csrf:
