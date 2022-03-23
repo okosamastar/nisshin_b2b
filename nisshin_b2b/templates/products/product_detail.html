@@ -22,12 +22,10 @@
               <detail-slider :newmark="{{ product.is_new|lower }}" layout="col" :handle-modal="openLightBox" :images="[
                 {% if product.photo_set.all|length > 0 %}
                   {% for photo in product.photo_set.all %}
-                    {% if photo.label == 'main' %}
                     {
                       src: '{{ photo.photo | thumbnail_url:'square' }}',
                       title: '{{ product.title | safe }}'
                     },
-                    {% endif %}
                   {% endfor %}
                 {% else %}
                 {
