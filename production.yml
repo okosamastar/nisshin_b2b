@@ -43,6 +43,8 @@ services:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
       - "0.0.0.0:5555:5555"
+    labels:
+      - "traefik.http.middlewares.test-auth.basicauth.users=nswprodev:$$apr1$$if8h1rbp$$/lNgYY6vKDiRMlz0kMFAb1"
 
   redis:
     image: redis:6
