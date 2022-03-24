@@ -50,6 +50,10 @@ export default {
             perPage: 3,
             padding: '3rem'
           },
+          1024: {
+            perPage: 5,
+            gap: '1rem',
+          }
         }
         // breakpoints: {
         //   800: {
