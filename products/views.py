@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.views.generic import DetailView, ListView
 
 from .models import Category, Facility, Industry, Product, Tag
@@ -30,7 +31,13 @@ class ProductsView(ListView):
         context = super(ProductsView, self).get_context_data(**kwargs)
         cat = self.kwargs["cat"]
         context["current_category"] = Category.objects.get(slug=cat)
-        context["tag_list"] = Tag.objects.all()
+        context["tag_list"] = (
+            Tag.objects.filter(
+                product__in=list(self.object_list.values_list("id", flat=True))
+            )
+            .annotate(Count("product"))
+            .order_by("the_order")
+        )
         context["category_list"] = Category.objects.filter(parent_id__isnull=True)
         return context
 
@@ -40,9 +47,9 @@ class ProductDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductDetail, self).get_context_data(**kwargs)
-        product = context.get("object")
+        products = context.get("object")
 
-        context["current_category"] = product.category.get(parent_id__isnull=True)
+        context["current_category"] = products.category.get(parent_id__isnull=True)
         context["facility_list"] = Facility.objects.all()
         context["industry_list"] = Industry.objects.all()
         context["category_list"] = Category.objects.filter(parent_id__isnull=True)

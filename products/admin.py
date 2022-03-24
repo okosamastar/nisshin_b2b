@@ -1,3 +1,4 @@
+from adminsortable.admin import SortableAdmin
 from django.contrib import admin
 
 from .models import Brand, Category, Facility, Industry, Photo, Product, Series, Tag
@@ -8,7 +9,7 @@ class CategoryAdmin(admin.ModelAdmin):
     pass
 
 
-class TagAdmin(admin.ModelAdmin):
+class TagAdmin(SortableAdmin):
     pass
 
 

@@ -1,3 +1,4 @@
+from adminsortable.models import SortableMixin
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
@@ -35,12 +36,16 @@ class Category(MPTTModel):
         return super(Category, self).save(*args, **kwargs)
 
 
-class Tag(models.Model):
+class Tag(SortableMixin):
     name = models.CharField(max_length=255, null=False, blank=False)
     slug = models.SlugField(max_length=100, unique=True)
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ["the_order"]
 
 
 class Facility(models.Model):

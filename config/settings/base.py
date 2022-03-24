@@ -78,6 +78,7 @@ THIRD_PARTY_APPS = [
     "mptt",
     "easy_thumbnails",
     "django_filters",
+    "adminsortable",
 ]
 
 LOCAL_APPS = [
