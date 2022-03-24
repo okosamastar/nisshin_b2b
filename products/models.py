@@ -175,7 +175,7 @@ class Product(TimeStampedModel, SortableMixin):
     )
 
     def __str__(self):
-        return self.title
+        return self.title + "(" + str(self.markcode) + ")"
 
     def save(self, *args, **kwargs):  # new
         if not self.slug:
