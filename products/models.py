@@ -12,7 +12,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 
 # Create your models here.
-class Category(MPTTModel):
+class Category(MPTTModel, SortableMixin):
     title = models.CharField(max_length=255, db_index=True, verbose_name="カテゴリー名（日本語）")
     title_en = models.CharField(max_length=255, db_index=True, verbose_name="カテゴリー（英語）")
     subtitle = models.CharField(max_length=255, null=True, blank=True)
@@ -20,6 +20,7 @@ class Category(MPTTModel):
     hero = ThumbnailerImageField(upload_to="photos/heros/", blank=True)
     photo = ThumbnailerImageField(upload_to="photos", blank=True)
     slug = models.SlugField(max_length=100, unique=True)
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     parent = TreeForeignKey(
         "self", related_name="child", blank=True, null=True, on_delete=models.CASCADE
     )
@@ -35,6 +36,9 @@ class Category(MPTTModel):
             self.slug = slugify(self.title_en)
         return super(Category, self).save(*args, **kwargs)
 
+    class Meta:
+        ordering = ["the_order"]
+
 
 class Tag(SortableMixin):
     name = models.CharField(max_length=255, null=False, blank=False)
@@ -48,28 +52,37 @@ class Tag(SortableMixin):
         ordering = ["the_order"]
 
 
-class Facility(models.Model):
+class Facility(SortableMixin):
     name = models.CharField(max_length=255, null=False, blank=False)
     slug = models.SlugField(max_length=100, unique=True)
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ["the_order"]
 
-class Industry(models.Model):
+
+class Industry(SortableMixin):
     name = models.CharField(max_length=255, null=False, blank=False)
     description = models.TextField(blank=True, null=True)
     hero = ThumbnailerImageField(upload_to="photos/heros/", blank=True)
     photo = ThumbnailerImageField(upload_to="photos", blank=True)
     slug = models.SlugField(max_length=100, unique=True)
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ["the_order"]
 
-class Brand(models.Model):
+
+class Brand(SortableMixin):
     name = models.CharField(max_length=255, null=False, blank=False)
     slug = models.SlugField(unique=True)
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
         return self.name
@@ -79,11 +92,15 @@ class Brand(models.Model):
             self.slug = slugify(self.name)
         return super(Brand, self).save(*args, **kwargs)
 
+    class Meta:
+        ordering = ["the_order"]
 
-class Series(models.Model):
+
+class Series(SortableMixin):
     name = models.CharField(max_length=255, null=False, blank=False)
     slug = models.SlugField(unique=True)
     brand = models.ForeignKey(Brand, null=True, blank=True, on_delete=models.CASCADE)
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
         return self.name
@@ -93,8 +110,11 @@ class Series(models.Model):
             self.slug = slugify(self.name)
         return super(Series, self).save(*args, **kwargs)
 
+    class Meta:
+        ordering = ["the_order"]
 
-class Product(TimeStampedModel):
+
+class Product(TimeStampedModel, SortableMixin):
     title = models.CharField(max_length=255, null=False, blank=False)
     subtitle = models.CharField(max_length=255, null=True, blank=True)
     markcode = models.PositiveIntegerField(null=False, blank=False)
@@ -132,6 +152,7 @@ class Product(TimeStampedModel):
     freespace_c = models.TextField(null=True, blank=True)
     country = models.CharField(max_length=255, null=True, blank=True)
     related = models.ManyToManyField("self", null=True, blank=True, symmetrical=False)
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     category = models.ManyToManyField(
         Category,
         related_name="product",
@@ -163,6 +184,9 @@ class Product(TimeStampedModel):
 
     def main_photo(self):
         return self.photos.get(label="main")
+
+    class Meta:
+        ordering = ["the_order"]
 
 
 class Photo(models.Model):

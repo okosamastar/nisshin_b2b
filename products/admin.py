@@ -5,7 +5,7 @@ from .models import Brand, Category, Facility, Industry, Photo, Product, Series,
 
 
 # Register your models here.
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(SortableAdmin):
     pass
 
 
@@ -13,19 +13,19 @@ class TagAdmin(SortableAdmin):
     pass
 
 
-class IndustryAdmin(admin.ModelAdmin):
+class IndustryAdmin(SortableAdmin):
     pass
 
 
-class FacilityAdmin(admin.ModelAdmin):
+class FacilityAdmin(SortableAdmin):
     pass
 
 
-class BrandAdmin(admin.ModelAdmin):
+class BrandAdmin(SortableAdmin):
     pass
 
 
-class SeriesAdmin(admin.ModelAdmin):
+class SeriesAdmin(SortableAdmin):
     pass
 
 
@@ -33,7 +33,7 @@ class PhotoInline(admin.StackedInline):
     model = Photo
 
 
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(SortableAdmin):
     inlines = [PhotoInline]
     prepopulated_fields = {"slug": ("markcode",)}
 
