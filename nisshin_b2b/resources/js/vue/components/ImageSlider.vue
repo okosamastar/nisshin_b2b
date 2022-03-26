@@ -36,24 +36,7 @@ export default {
         autoScroll: {
           speed: 2,
         },
-        breakpoints: {
-          543: {
-            perPage: 1,
-            padding: '3rem'
-          },
-          767: {
-            perPage: 2,
-            padding: '3rem'
-          },
-          991: {
-            perPage: 3,
-            padding: '3rem'
-          },
-          1024: {
-            perPage: 5,
-            gap: '1rem',
-          }
-        }
+
         // breakpoints: {
         //   800: {
         //     centerMode: false,
