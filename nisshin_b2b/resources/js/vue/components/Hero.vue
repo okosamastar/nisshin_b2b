@@ -7,18 +7,20 @@
       <div class="sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto">
         <Splide ref="splide" :options="mainOptions">
           <SplideSlide v-for="slide in slides" :key="'main_' + slide.id">
-            <img :src="slide.src_sp" :alt="slide.title" class="md:hidden">
-            <img :src="slide.src_pc" :alt="slide.title" class="hidden md:block">
+            <a :href="slide.link" :target="slide.target">
+              <img :src="slide.src_sp" :alt="slide.title" class="md:hidden">
+              <img :src="slide.src_pc" :alt="slide.title" class="hidden md:block">
+            </a>
           </SplideSlide>
         </Splide>
       </div>
     </div>
 
     <div class="hidden md:block relative container mx-auto py-5">
-      <Splide ref="thumbs" :options="thumbsOptions" class="relative z-10 flex justify-center">
-        <SplideSlide v-for="slide in slides" :key="'thmb_' + slide.id">
+      <Splide ref="thumbs" :options="thumbsOptions" class="relative z-10 text-center">
+        <SplideSlide v-for="slide in slides" :key="'thmb_' + slide.id" class="w-full">
           <div class="bg-white">
-            <img :src="slide.src_pc" :alt="slide.title">
+            <img :src="slide.src_pc" :alt="slide.title" class="w-full h-auto">
           </div>
         </SplideSlide>
       </Splide>
@@ -35,8 +37,6 @@
 </template>
 
 <script>
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
-import '@splidejs/splide/dist/css/splide.min.css';
 
 export default {
   props: {
@@ -73,8 +73,6 @@ export default {
   },
 
   components: {
-    Splide,
-    SplideSlide,
   },
 
   methods: {
@@ -135,6 +133,10 @@ export default {
 }
 
 ::v-deep #splide02 {
+  .splide__track{
+    display: flex;
+    justify-content: center;
+  }
   @media (min-width: 992px) {
     .splide__arrows {
       .splide__arrow {

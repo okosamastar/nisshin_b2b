@@ -15,12 +15,12 @@
             </h1>
           </div>
         </div>
-        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/categories/cat_pasta.jpg' %});"></section>
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/bg_foods.jpg' %});"></section>
       </div>
     </div>
     <div class="container mx-auto">
       <div class="brackets shadow-top relative z-30 w-full md:w-7/12 px-8 py-6 md:p-10 bg-white md:-mt-10 leading-relaxed">
-        <p class="text-sm md:text-base">加工食品事業では家庭用小麦粉のほか、家庭用・業務用のプレミックスやパスタ・パスタソースを中心に、バリエーション豊かな製品を「日清」「マ・マー」「青の洞窟」「ディ・チェコ」等のブランドで提供しています。</p>
+        <p class="text-sm md:text-base">業態の変化や多様化するニーズに応え、業務用のお客様の皆様の課題解決につながる商品群を「常温」「冷凍」の温度帯で幅広くご用意しています。</p>
       </div>
     </div>
   </section>
@@ -38,8 +38,10 @@
         <ul class="flex flex-wrap -mx-2 px-4 md:px-0">
           {% for category in category_list %}
           <li class="w-1/2 md:w-1/4 px-2 mb-4">
-            <a href="{% url 'products.products' cat=category.slug %}" class="shadow">
-              <img src="{{ category.photo|thumbnail_url:'rectangle' }}" alt="">
+            <a href="{% url 'products.products' cat=category.slug %}" class="block shadow-md wrap-image">
+              <div class="overflow-hidden">
+                <img src="{{ category.photo|thumbnail_url:'rectangle' }}" alt="">
+              </div>
               <h3 class="text-center h-20 flex flex-col justify-center items-center">
                 <span class="block font-bold">{{ category.title }}</span>
                 {% if category.subtitle %}

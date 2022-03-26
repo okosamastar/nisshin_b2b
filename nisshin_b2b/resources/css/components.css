@@ -11,20 +11,47 @@
 
 }
 
+.nav-link {
+  @apply md:w-40 h-14 md:h-full bg-crimson md:bg-white;
+  a {
+    @apply block h-full pl-4 md:pl-0 md:py-4 border-t-[0.1rem] border-white text-white md:text-black hover:bg-crimson hover:text-white transition-all duration-300;
+    div {
+      @apply h-full flex justify-start md:justify-center items-center md:border-l md:border-r border-crimson;
+      border-right-color: transparent;
+      span {
+        @apply text-base md:text-xs md:font-bold;
+      }
+    }
+    &:hover {
+      div {
+        @apply border-transparent;
+      }
+    }
+  }
+}
+
 .wrap-image {
     overflow: hidden;
 
+    img {
+      @apply transition-all duration-1000;
+
+      transform: scale(1, 1);
+    }
+
     &:hover {
-        opacity: .7;
+
         img {
-            transition: 1.8s all;
+          @apply opacity-70;
             transform: scale(1.1, 1.1);
             &.no-effect {
                 transform: scale(1, 1);
             }
         }
         &.no-highlight {
-            opacity: 1;
+          img{
+            @apply opacity-100;
+          }
         }
     }
     .no-effect {

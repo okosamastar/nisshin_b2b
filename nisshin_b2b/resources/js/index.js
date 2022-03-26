@@ -6,6 +6,8 @@ import 'aos/dist/aos.css'
 import SvgVue from 'svg-vue'
 import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+import VueSplide from '@splidejs/vue-splide';
+import '@splidejs/splide/dist/css/splide.min.css';
 import inView from "in-view";
 import _ from "lodash";
 
@@ -13,6 +15,7 @@ const VueScrollTo = require('vue-scrollto');
 
 Vue.use(VueScrollTo);
 Vue.use(VueYouTubeEmbed)
+Vue.use( VueSplide );
 Vue.use(SvgVue);
 Vue.use(VueLazyLoad)
 
@@ -65,15 +68,17 @@ new Vue({
       this.isMobile = window.innerWidth < 992
       inView.offset({ top: this.isMobile ? -800 : 0, bottom: this.isMobile ? -600 : 0 });
       const movie = this.$refs.b2bmovie
-      if(this.isMobile) {
-        if(!movie.closest('#movie_sp_slot')){
-          let dest = document.getElementById('movie_sp_slot')
-          dest.appendChild(movie)
-        }
-      } else {
-        if(!movie.closest('#movie_pc_slot')) {
-          let dest = document.getElementById('movie_pc_slot')
-          dest.appendChild(movie)
+      if(movie){
+        if(this.isMobile) {
+          if(!movie.closest('#movie_sp_slot')){
+            let dest = document.getElementById('movie_sp_slot')
+            dest.appendChild(movie)
+          }
+        } else {
+          if(!movie.closest('#movie_pc_slot')) {
+            let dest = document.getElementById('movie_pc_slot')
+            dest.appendChild(movie)
+          }
         }
       }
     },

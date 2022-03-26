@@ -1,15 +1,15 @@
 <template>
-  <div class="relative h-20 md:h-24 overflow-visible">
+  <div class="relative h-20 overflow-visible">
     <div id="site-nav" class="relative z-20 w-full bg-white md:flex justify-between items-center">
-      <div class="relative z-10 w-full md:w-auto h-20 md:h-24 px-4 md:px-6 flex items-center bg-white">
+      <div class="relative z-10 w-full md:w-auto h-20 px-4 md:px-6 flex items-center bg-white">
         <a href="https://www.nisshin-seifun-welna.com/index/">
-          <svg-vue icon="logo_welna" class="w-32 h-10"></svg-vue>
+          <svg-vue icon="logo_welna" class="w-36 h-12"></svg-vue>
         </a>
       </div>
       <div v-if="isVisible" class="flex">
         <aside
           id="menus"
-          class="absolute left-0 top-20 md:relative md:flex md:h-14 items-center w-full md:w-auto text-sm md:px-4 md:-mx-4 shadow-lg md:shadow-none"
+          class="absolute left-0 top-20 md:relative md:flex items-center w-full md:w-auto h-20 text-sm md:px-4 md:-mx-4 shadow-lg md:shadow-none"
           :class="{'is_active': isActive}"
         >
           <slot></slot>

@@ -7,17 +7,19 @@
   <hero :slides="[
         {
             id: 1,
-            src_pc: '{% static 'images/heros/hero_brand.jpg' %}',
-            src_sp: '{% static 'images/heros/hero_brand_sp.jpg' %}',
-            title: '小麦には人を幸せにする無限の力がある。',
-            link: '#'
-        },
-        {
-            id: 1,
             src_pc: '{% static 'images/heros/hero_cm.jpg' %}',
             src_sp: '{% static 'images/heros/hero_cm_sp.jpg' %}',
             title: 'あったかな、ウェルナ。日清フーズは日清製粉ウェルナへ',
-            link: '#'
+            link: 'https://www.nisshin-seifun-welna.com/index/nisshin-seifun-welna/',
+            target: '_blank'
+        },
+        {
+            id: 2,
+            src_pc: '{% static 'images/heros/hero_brand.jpg' %}',
+            src_sp: '{% static 'images/heros/hero_brand_sp.jpg' %}',
+            title: '小麦には人を幸せにする無限の力がある。',
+            link: 'https://www.nisshin-seifun-welna.com/index/nisshin-seifun-welna/',
+            target: '_blank'
         },
     ]"
   ></hero>
@@ -29,16 +31,18 @@
           <span class="block mb-1 md:mb-3 text-crimson text-xs font-bold font-en leading-none uppercase tracking-wide">Product LINEUP</span>
           <span class="block text-2xl md:text-3xl font-bold leading-snug">商品情報</span>
         </div>
-        <p class="w-full md:w-7/12 p-6 md:p-0 text-sm md:text-base">加工食品事業では家庭用小麦粉のほか、家庭用・業務用のプレミックスやパスタ・パスタソースを中心に、バリエーション豊かな製品を「日清」「マ・マー」「青の洞窟」「ディ・チェコ」等のブランドで提供しています。</p>
+        <p class="w-full md:w-7/12 p-6 md:p-0 text-sm md:text-base">業態の変化や多様化するニーズに応え、業務用のお客様の皆様の課題解決につながる商品群を「常温」「冷凍」の温度帯で幅広くご用意しています。</p>
       </h2>
 
       <div class="sm:mt-10">
         <ul class="flex flex-wrap shadow">
           {% for category in category_list %}
           <li class="w-1/2 md:w-1/5">
-            <a href="{% url 'products.products' cat=category.slug %}">
+            <a href="{% url 'products.products' cat=category.slug %}" class="block wrap-image bg-white text-black hover:bg-crimson hover:text-white transition-all">
               <div class="border border-gray-200">
-                <img src="{{ category.photo|thumbnail_url:'square' }}" alt="">
+                <div class="overflow-hidden bg-white">
+                  <img src="{{ category.photo|thumbnail_url:'square' }}" alt="">
+                </div>
                 <h3 class="text-center h-20 flex flex-col justify-center items-center">
                   <span class="block font-bold">{{ category.title }}</span>
                   {% if category.subtitle %}
@@ -63,20 +67,25 @@
     <div class="md:py-16">
       <div class="parallax-section hidden md:block">
         <div class="parallax-child-section">
-          <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/bg_hayayude.jpg' %});"></section>
+          <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/bg_stores.jpg' %});"></section>
         </div>
       </div>
     </div>
     <div class="md:absolute md:left-0 md:top-0 w-full h-full flex justify-center items-center">
       <div class="container">
-        <div class="flex md:justify-end">
+        <div class="relative z-20 flex md:justify-between items-center">
+          <div class="w-1/2">
+            <div class="">
+              <img src="{% static 'images/img_cart.png' %}" alt="販売サイトのご案内" class="w-9/12 mx-auto">
+            </div>
+          </div>
           <div class="w-full md:w-1/2 relative z-10 bg-blue-50 p-6 shadow-md">
-            <div class="relative z-20 p-6 border border-solid border-blue-300 bg-white">
+            <div class="p-6 border border-solid border-blue-300 bg-white">
               <h3 class="pt-2 pb-3 font-medium border-b border-dashed border-blue text-center">
                 <span class="block mb-2 text-blue text-xs font-bold font-en uppercase tracking-wide">ONLINE STORE</span>
                 <span class="block text-2xl md:text-3xl text-blue font-bold leading-snug">販売サイトのご案内</span>
               </h3>
-              <p class="py-6 text-sm leading-loose">加工食品事業では家庭用小麦粉のほか、家庭用・業務用のプレミックスやパスタ・パスタソースを中心に、バリエーション豊かな製品を「日清」「マ・マー」「青の洞窟」「ディ・チェコ」等のブランドで提供しています。</p>
+              <p class="py-6 text-sm leading-loose">弊社業務用商品をお買い求めの場合は、リンク先の弊社お取引先様ECサイトでもご購入いただけます。</p>
               <a href="{% url 'stores' %}" class="w-full md:w-8/12 mx-auto button py-4 bg-blue text-base hover:bg-blue-400">詳しくはこちら</a>
             </div>
             <div class="absolute z-10 left-0 top-0 w-full flex justify-center -mt-6">

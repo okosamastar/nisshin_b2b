@@ -28,21 +28,21 @@
             </h3>
             <ul class="flex-1 p-4 flex flex-wrap items-center -mx-2">
               <li class="inline-block py-1 px-2">
-                <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson text-white text-xs md:text-sm font-bold rounded-full">
-                  すべて
+                <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full">
+                  <span class="text-white">すべて</span>
                 </a>
               </li>
               {% for tag in tag_list  %}
                 <li class="inline-block py-1 px-2">
-                  <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson text-white text-xs md:text-sm font-bold rounded-full">
-                    {{ tag.name }}
+                  <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full">
+                    <span class="text-white">{{ tag.name }} {{ tag.product__count }}</span>
                   </a>
                 </li>
               {% endfor %}
               {% for child in current_category.child.all  %}
               <li class="inline-block py-1 px-2">
-                <a href="{% url 'products.products' cat=current_category.slug child=child.slug %}" class="block py-1 px-4 bg-crimson text-white text-xs md:text-sm font-bold rounded-full">
-                  {{ child.title }}
+                <a href="{% url 'products.products' cat=current_category.slug child=child.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full">
+                  <span class="text-white">{{ child.title }}</span>
                 </a>
               </li>
               {% endfor %}
@@ -53,7 +53,7 @@
 
             {% for product in product_list %}
             <div class="w-1/2 md:w-4/12 px-1 md:px-2 mb-2 md:mb-4">
-              <a href="{% url 'products.detail' slug=product.slug %}" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+              <a href="{% url 'products.detail' slug=product.slug %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
                 <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
 
                   {% if product.main_photo %}
@@ -80,7 +80,7 @@
                   {% endfor %}
                   <span class="mt-2 text-sm md:text-base">{{ product.title }}</span>
                 </h4>
-                <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100">
+                <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
                   <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
                     <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
                   </dt>
@@ -97,12 +97,14 @@
           </div>
         </div>
         <div class="flex-none md:w-[280px] md:px-4 mt-8 md:mt-0">
-          <h3 class="flex items-center p-3 bg-crimson">
-            <div class="w-7 h-7 flex justify-center items-center bg-white rounded-full">
-              <svg-vue icon="grid" class="w-4 h-4 text-crimson"></svg-vue>
-            </div>
-            <span class="text-white ml-2 font-bold tracking-wider">商品メニュー</span>
-          </h3>
+          <a href="{% url 'products.category' %}">
+            <h3 class="flex items-center p-3 bg-crimson">
+              <div class="w-7 h-7 flex justify-center items-center bg-white rounded-full">
+                <svg-vue icon="grid" class="w-4 h-4 text-crimson"></svg-vue>
+              </div>
+              <span class="text-white ml-2 font-bold tracking-wider">商品メニュー</span>
+            </h3>
+          </a>
           <ul>
             {% for category in category_list %}
               <li>

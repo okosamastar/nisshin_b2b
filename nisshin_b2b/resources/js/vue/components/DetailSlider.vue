@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
-import '@splidejs/splide/dist/css/splide.min.css';
 
 export default {
   props: {
@@ -84,8 +82,6 @@ export default {
   },
 
   components: {
-    Splide,
-    SplideSlide,
   },
 
   methods: {

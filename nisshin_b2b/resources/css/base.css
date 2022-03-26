@@ -70,3 +70,19 @@ details {
     height: var(--expanded);
   }
 }
+
+a {
+  @apply hover:text-crimson;
+  &:hover {
+    svg {
+      @apply text-crimson;
+    }
+  }
+  &.no-hover-svg {
+    &:hover{
+      svg {
+        color: inherit;
+      }
+    }
+  }
+}

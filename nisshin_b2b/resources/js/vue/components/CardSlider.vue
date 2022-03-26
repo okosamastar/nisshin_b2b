@@ -15,7 +15,7 @@
             <span v-if="product.category" class="p-1 mb-2 text-xs border border-crimson text-crimson leading-none">{{ product.category }}</span>
             <span class="">{{ product.title }}</span>
           </h4>
-          <dl class="pt-2 px-2 flex flex-wrap items-start bg-gray-100">
+          <dl class="pt-2 px-2 flex flex-wrap items-start bg-gray-100 text-black">
             <dt class="w-6/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
               <span class="block border-l-4 border-solid border-crimson px-2">荷姿</span>
             </dt>
@@ -32,9 +32,6 @@
 </template>
 
 <script>
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
-import '@splidejs/splide/dist/css/splide.min.css';
-
 
 export default {
   props: {
@@ -69,8 +66,6 @@ export default {
   },
 
   components: {
-    Splide,
-    SplideSlide,
   },
 
   methods: {

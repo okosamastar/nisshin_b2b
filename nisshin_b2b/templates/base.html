@@ -29,19 +29,11 @@
   <!-- Place favicon.ico in the root directory -->
 
   <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({
-      'gtm.start':
-        new Date().getTime(), event: 'gtm.js'
-    });
-    var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-    j.async = true;
-    j.src =
-      'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-  })(window, document, 'script', 'dataLayer', 'GTM-NL2DJL6');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TMNH6JM');</script>
   <!-- End Google Tag Manager -->
 
   <script src="https://use.typekit.net/xcg4ytx.js"></script>
@@ -61,9 +53,9 @@
 
 <body class="bg-white">
 
-<div id="app" class="relative pt-[8rem] md:pt-[9.5rem]" data-imagepath="{% static 'images/' %}">
+<div id="app" class="relative pt-[8rem]" data-imagepath="{% static 'images/' %}">
 
-  <nav id="nav" class="fixed left-0 top-0 z-60 w-full">
+  <nav id="nav" class="fixed left-0 top-0 z-60 w-full shadow">
     <div id="brand-nav" class="relative z-30 bg-yellow-50 h-14 flex justify-between items-center border-t-2 border-crimson">
       <a href="https://www.nisshin-seifun-welna.com/index/" class="flex items-center">
         <svg-vue icon="brand" class="w-40 h-8"></svg-vue>
@@ -81,19 +73,19 @@
     </div>
 
     <navigation>
-        <div class="md:w-40 h-14 md:h-full bg-crimson md:bg-white md:border-l border-crimson">
-          <a href="{% url 'home' %}" class="h-full pl-4 md:pl-0 flex justify-start md:justify-center items-center border-t-[0.1rem] border-white">
-            <span class="text-base md:text-xs text-white md:text-black md:font-bold">トップ</span>
+        <div class="nav-link">
+          <a href="{% url 'home' %}">
+            <div><span>トップ</span></div>
           </a>
         </div>
-        <div class="md:w-40 h-14 md:p-0 md:h-full bg-crimson md:bg-white md:border-l border-crimson">
-          <a href="{% url 'products.category' %}" class="h-full pl-4 md:pl-0 flex justify-start md:justify-center items-center border-t-[0.1rem] border-white">
-            <span class="text-base md:text-xs text-white md:text-black md:font-bold">商品情報</span>
+        <div class="nav-link">
+          <a href="{% url 'products.category' %}">
+            <div class="ml-[-1px]"><span class="text-base md:text-xs md:font-bold">商品情報</span></div>
           </a>
         </div>
-        <div class="md:w-40 h-14 md:p-0 md:h-full bg-crimson md:bg-white md:border-l border-crimson">
-          <a href="{% url 'stores' %}" class="h-full pl-4 md:pl-0 flex justify-start md:justify-center items-center border-t-[0.1rem] border-white">
-            <span class="text-base md:text-xs text-white md:text-black md:font-bold">販売サイトのご案内</span>
+        <div class="nav-link">
+          <a href="{% url 'stores' %}">
+            <div class="ml-[-1px]"><span class="text-base md:text-xs md:font-bold">販売サイトのご案内</span></div>
           </a>
         </div>
         <div class="md:hidden h-14 bg-white">
@@ -117,8 +109,8 @@
   </nav>
 
   <div class="md:sticky md:top-0 md:h-0 z-40 overflow-visible w-full">
-    <div class="nav fixed md:absolute bottom-0 md:top-0 md:bottom-auto left-0 md:left-auto md:right-0 z-40 lg:pt-[140px] w-full md:w-12 md:h-screen flex md:flex-col justify-center items-center">
-      <a href="https://secure-link.jp/wf/?c=wf73663703" target="_blank" class="w-1/2 md:w-full py-3 md:py-6 md:px-3 md:my-2 bg-crimson md:rounded-l-md text-white hover:bg-crimson-400 flex md:flex-col justify-center items-center">
+    <div class="nav fixed md:absolute bottom-0 md:top-0 md:bottom-auto left-0 md:left-auto md:right-0 z-40 lg:pt-[140px] w-full md:w-12 md:h-screen flex md:flex-col justify-center items-center text-white">
+      <a href="{% url 'contact' %}" class="w-1/2 md:w-full py-3 md:py-6 md:px-3 md:my-2 bg-crimson md:rounded-l-md hover:bg-crimson-400 hover:text-white flex md:flex-col justify-center items-center no-hover-svg">
         <svg-vue icon="mail" class="w-6 h-6 text-white"></svg-vue>
         <img src="{% static 'images/v_text_contact.png' %}" alt="お問い合わせ" class="hidden md:block w-4 mt-2">
         <span class="md:hidden ml-2 text-sm font-bold text-white">お問い合わせ</span>
@@ -161,8 +153,8 @@
                 <div class="h-full xs:border-l border-solid border-crimson xs:px-8 flex flex-col justify-between">
                   <div class="xs:absolute xs:left-0 xs:top-0 xs:-rotate-90 xs:p-4 text-xs font-bold text-crimson font-en text-center xs:text-left tracking-wide transform xs:translate-y-[3.6rem]">CATALOG</div>
                   <div class="">
-                    <h3 class="mt-2 xs:mt-0 text-2xl xs:text-xl sm:text-3xl font-bold text-center xs:text-left leading-none">
-                      新商品カタログ
+                    <h3 class="mt-2 xs:mt-0 text-2xl xs:text-xl sm:text-3xl font-bold text-center xs:text-left leading-tight">
+                      業務用総合カタログ2022年度版
                     </h3>
                   </div>
                   <div class="xs:hidden w-6/12 mt-4 mx-auto">
@@ -171,7 +163,7 @@
                     </a>
                   </div>
                   <div class="">
-                    <h4 class="mt-4 mb-4 sm:mb-2 text-base font-bold leading-snug tracking-tight text-center xs:text-left">2022年 業務用新商品<br class="xs:hidden">リニューアル品のご案内</h4>
+                    <h4 class="mt-4 mb-4 sm:mb-2 text-base font-bold leading-snug tracking-tight text-center xs:text-left">業務用のお客様の課題解決に<br class="xs:hidden">つながる商品と提案を</h4>
                     <p class="text-sm sm:text-base pb-4 leading-normal sm:leading-snug">2022年業務用春の新商品をまとめた資料です。ダウンロードしてご覧ください。</p>
                   </div>
                   <a href="https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/gyoumu_catalog.pdf" target="_blank" class="button crimson ghost text-lg font-bold py-3 xs:py-2 sm:py-3">ダウンロードはこちら</a>
@@ -193,12 +185,12 @@
     <div class="container mx-auto">
       <h2 class="flex justify-center items-center">
         <svg-vue icon="mail" class="w-8 h-6 text-white mr-3"></svg-vue>
-        <span class="text-2xl text-white font-bold font-en uppercase tracking-wider">CONTACT</span>
+        <span class="text-2xl text-white font-bold font-en uppercase tracking-wider">CONTACT US</span>
       </h2>
-      <p class="pt-6 pb-8 md:py-12 text-center text-white text-sm md:text-base">サンプル品のお申込みから、商品やサービス等のご説明など、<br class="hidden md:block">ご不明な点がございましたら、お気軽にお問い合わせください。</p>
+      <p class="pt-6 pb-8 md:py-12 text-center text-white text-sm md:text-base">商品のご説明や、商品開発、企画等に関するご相談など、お困りごとがございましたら、<br class="hidden md:block">お気軽に窓口までお問い合わせください。専門スタッフが対応させていただきます。</p>
       <div class="lg:w-8/12 flex justify-center items-center -mx-2 md:-mx-4 lg:mx-auto">
         <div class="w-6/12 px-2 md:px-4">
-          <a href="{% url 'contact' %}" class="button py-4 md:py-6 border border-white bg-white text-crimson font-bold">ご相談窓口</a>
+          <a href="{% url 'contact' %}" class="button py-4 md:py-6 border border-white bg-white text-crimson font-bold">お問い合わせ</a>
         </div>
         <div class="hidden w-6/12 px-2 md:px-4">
           <a href="#" class="button py-4 md:py-6 border border-white font-bold">よくあるご質問</a>
@@ -215,15 +207,15 @@
             <svg-vue icon="logo_welna" class="w-36 h-16"></svg-vue>
           </div>
           <div class="w-full md:w-9/12">
-            <ul class="md:flex md:-mx-2 text-gray-800">
-              <li class="w-full md:w-3/12 md:px-2">
-                <a href="{% url 'home' %}" class="center-line block py-4 md:py-2 px-6 md:px-0 font-bold border-b md:border-none">
-                  <span>ホーム</span>
+            <ul class="md:flex flex-wrap md:-mx-2 text-gray-800">
+              <li class="w-full md:px-2">
+                <a href="{% url 'home' %}" class="block py-4 md:py-2 px-6 md:px-0 font-bold border-b md:border-none">
+                  <span>トップ</span>
                 </a>
               </li>
               <li class="w-full md:w-6/12">
                 <div class="md:px-2 border-b md:border-none">
-                  <a href="{% url 'products.category' %}" class="center-line block pt-4 pb-2 md:pt-2 px-6 md:px-0 font-bold">
+                  <a href="{% url 'products.category' %}" class="block pt-4 pb-2 md:pt-2 px-6 md:px-0 font-bold">
                     <span>商品情報</span>
                   </a>
                   <div class="flex mb-6 md:mb-0">
@@ -268,13 +260,20 @@
                 <a href="{% url 'stores' %}" class="block py-4 md:py-2 px-6 md:px-0 font-bold border-b md:border-none">
                   販売サイトのご案内
                 </a>
-                <a href="{% url 'contact' %}" class="block py-4 md:py-2 px-6 md:px-0 font-bold border-b md:border-none">
-                  ご相談窓口
-                </a>
                 {% if false %}
                 <a href="{% url 'stores' %}" class="block py-4 md:py-2 px-6 md:px-0 font-bold border-b md:border-none">
                   よくあるご質問
                 </a>
+                {% endif %}
+              </li>
+              <li class="w-full md:w-3/12 md:px-2">
+                <a href="{% url 'contact' %}" class="block py-4 md:py-2 px-6 md:px-0 font-bold border-b md:border-none">
+                  お問い合わせ
+                </a>
+                {% if false %}
+                  <a href="{% url 'stores' %}" class="block py-4 md:py-2 px-6 md:px-0 font-bold border-b md:border-none">
+                    よくあるご質問
+                  </a>
                 {% endif %}
               </li>
             </ul>
@@ -302,6 +301,9 @@
         </li>
         <li class="pl-4 md:px-3 my-2 md:my-0">
           <a href="https://www.nisshin-seifun-welna.com/index/cookie-policy/" class="leading-none">クッキーポリシー</a>
+        </li>
+        <li class="pl-4 md:px-3 my-2 md:my-0">
+          <a href="javascript:Bootstrapper.gateway.openModal();" class="leading-none">クッキー詳細設定</a>
         </li>
         <li class="pl-4 md:px-3 my-2 md:my-0">
           <a href="https://www.e-sousyoku.com/" target="_blank" class="flex items-center leading-none">
@@ -335,6 +337,9 @@
     </script>
     {% endcomment %}
 {% endblock inline_javascript %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMNH6JM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 </body>
 
 </html>
