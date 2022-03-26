@@ -2,7 +2,7 @@
   <div class="splide_images" ref="splide">
     <div class="splide__track">
       <ul class="splide__list">
-        <li v-for="(image, index) in images" v-bind:key="'images' + index" class="splide__slide sm:1/2 md:1/3 lg:1/5">
+        <li v-for="(image, index) in images" v-bind:key="'images' + index" class="splide__slide w-full sm:w-1/2 md:w-1/3 lg:w-1/5 mr-4">
           <img :src="image" alt="日清製粉ウェルナ" class="w-full">
         </li>
       </ul>
