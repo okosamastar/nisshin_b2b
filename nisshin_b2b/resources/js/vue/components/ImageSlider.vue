@@ -2,7 +2,7 @@
   <div class="splide_images" ref="splide">
     <div class="splide__track">
       <ul class="splide__list">
-        <li v-for="(image, index) in images" v-bind:key="index" class="splide__slide">
+        <li v-for="(image, index) in images" v-bind:key="'images' + index" class="splide__slide">
           <img :src="image" alt="日清製粉ウェルナ" class="w-full">
         </li>
       </ul>
@@ -36,7 +36,24 @@ export default {
         autoScroll: {
           speed: 2,
         },
-
+        breakpoints: {
+          543: {
+            perPage: 1,
+            padding: '3rem'
+          },
+          767: {
+            perPage: 2,
+            padding: '3rem'
+          },
+          991: {
+            perPage: 3,
+            padding: '3rem'
+          },
+          1024: {
+            perPage: 5,
+            gap: '1rem',
+          }
+        }
         // breakpoints: {
         //   800: {
         //     centerMode: false,
@@ -58,8 +75,13 @@ export default {
   methods: {
   },
 
+  created() {
+  },
+
   mounted() {
-    this.splide = new Splide( '.splide_images', this.options ).mount({ AutoScroll });
+    this.$nextTick( () =>
+      this.splide = new Splide( '.splide_images', this.options ).mount({ AutoScroll })
+    )
   },
 
   destroyed() {},

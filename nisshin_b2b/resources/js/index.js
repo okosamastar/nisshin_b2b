@@ -13,12 +13,6 @@ import _ from "lodash";
 
 const VueScrollTo = require('vue-scrollto');
 
-Vue.use(VueScrollTo);
-Vue.use(VueYouTubeEmbed)
-Vue.use( VueSplide );
-Vue.use(SvgVue);
-Vue.use(VueLazyLoad)
-
 // import Share from './vue/components/Share.vue'
 import Navigation from "./vue/components/Navigation.vue";
 import Hero from './vue/components/Hero.vue'
@@ -27,6 +21,12 @@ import DetailInfo from './vue/components/DetailInfo.vue'
 import CardSlider from './vue/components/CardSlider.vue'
 import ImageSlider from './vue/components/ImageSlider.vue'
 import VideoPlayer from "./vue/components/VideoPlayer.vue";
+
+Vue.use(VueScrollTo);
+Vue.use(VueYouTubeEmbed)
+Vue.use( VueSplide );
+Vue.use(SvgVue);
+Vue.use(VueLazyLoad)
 
 new Vue({
   el: '#app',
