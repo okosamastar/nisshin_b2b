@@ -53,9 +53,5 @@ class ProductDetail(DetailView):
         context["facility_list"] = Facility.objects.all()
         context["industry_list"] = Industry.objects.all()
         context["category_list"] = Category.objects.filter(parent_id__isnull=True)
-        for tag in Tag.objects.all():
-            if tag.slug == "dry":
-                context["preservation"] = tag
-            elif tag.slug == "frozen":
-                context["preservation"] = tag
+
         return context

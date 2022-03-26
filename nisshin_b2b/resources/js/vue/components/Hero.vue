@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="hidden md:block relative container mx-auto py-5">
+    <div class="hidden md:block relative sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto py-5">
       <Splide ref="thumbs" :options="thumbsOptions" class="relative z-10 text-center">
         <SplideSlide v-for="slide in slides" :key="'thmb_' + slide.id" class="w-full">
           <div class="bg-white">

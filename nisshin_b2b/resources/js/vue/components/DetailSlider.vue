@@ -6,7 +6,7 @@
           <Splide ref="splide" :options="options">
             <SplideSlide v-for="(image, index) in images" v-bind:key="image.src">
               <div class="wrap-image">
-                <img :src="image.src" :alt="image.title" class="cursor-pointer" @click="magnify(index)">
+                <img :src="image.src" :alt="image.title" class="mx-auto cursor-pointer" @click="magnify(index)">
               </div>
             </SplideSlide>
           </Splide>

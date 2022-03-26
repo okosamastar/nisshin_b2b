@@ -1,7 +1,7 @@
 <template>
   <Splide ref="splide" :options="options">
     <SplideSlide v-for="product in products" v-bind:key="product.url" class="wrap-image splide__slide" :class="product.class? product.class : ''">
-      <div class="h-full px-2">
+      <div class="h-full">
         <a :href="product.link" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
           <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
             <div class="py-1 overflow-hidden">
@@ -9,6 +9,9 @@
             </div>
             <div v-if="product.newmark" class="absolute left-0 top-0 w-12 h-12 mx-2">
               <img :src="imagePath + 'badge_new.png'" alt="New" class="no-effect">
+            </div>
+            <div v-if="product.preservation" class="absolute right-0 bottom-0 w-9 h-9 mx-2">
+              <img :src="imagePath + 'badge_' + product.preservation + '_mini.png'" alt="New" class="no-effect">
             </div>
           </div>
           <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
@@ -45,19 +48,30 @@ export default {
     return {
       imagePath: this.$imagePath,
       options: {
-        perPage: 4,
+        perPage: 4.25,
         perMove: 1,
+        gap: '0.8rem',
         trimSpace: true,
         wheel: false,
         pagination: false,
         breakpoints: {
-          767: {
+          543: {
             perPage: 1,
             perMove: 1,
             padding: '3.5rem'
           },
+          767: {
+            perPage: 2.25,
+            perMove: 1,
+            padding: '1rem'
+          },
           991: {
-            perPage: 3,
+            perPage: 3.25,
+            padding: 0
+          },
+          1024: {
+            perPage: 3.25,
+            padding: 0
           },
         }
       },

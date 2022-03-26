@@ -15,7 +15,7 @@ module.exports = {
       'sm': '768px',
       'md': '992px',
       'lg': '1025px',
-      // 'xl': '1400px',
+      'xl': '1137px',
     },
     spacing: {
       ...spacing,
@@ -169,6 +169,7 @@ module.exports = {
         },
       },
       width: {
+        '13': '3.25rem',
         '18': '4.5rem',
         '22': '5.5rem',
         '26': '6.5rem',
@@ -176,6 +177,7 @@ module.exports = {
         '34': '8.5rem',
       },
       height: {
+        '13': '3.25rem',
         '18': '4.5rem',
         '22': '5.5rem',
         '26': '6.5rem',

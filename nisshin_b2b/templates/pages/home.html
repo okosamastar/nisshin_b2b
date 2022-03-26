@@ -26,27 +26,28 @@
 
   <section class="mt-6 md:mt-10">
     <div class="container mx-auto">
-      <h2 class="slashed w-full pt-10 md:pt-16 flex flex-col md:flex-row justify-between items-center">
+
+      <h2 class="slashed w-full pt-10 md:pt-12 flex flex-col sm:flex-row justify-between items-center">
         <div class="flex-none text-center md:text-left">
           <span class="block mb-1 md:mb-3 text-crimson text-xs font-bold font-en leading-none uppercase tracking-wide">Product LINEUP</span>
           <span class="block text-2xl md:text-3xl font-bold leading-snug">商品情報</span>
         </div>
-        <p class="w-full md:w-7/12 p-6 md:p-0 text-sm md:text-base">業態の変化や多様化するニーズに応え、業務用のお客様の皆様の課題解決につながる商品群を「常温」「冷凍」の温度帯で幅広くご用意しています。</p>
+        <p class="w-full sm:w-9/12 md:w-7/12 py-6 md:p-0 text-sm md:text-base">業態の変化や多様化するニーズに応え、業務用のお客様の皆様の課題解決につながる商品群を「常温」「冷凍」の温度帯で幅広くご用意しています。</p>
       </h2>
 
       <div class="sm:mt-10">
         <ul class="flex flex-wrap shadow">
           {% for category in category_list %}
-          <li class="w-1/2 md:w-1/5">
+          <li class="w-1/2 sm:w-1/5">
             <a href="{% url 'products.products' cat=category.slug %}" class="block wrap-image bg-white text-black hover:bg-crimson hover:text-white transition-all">
               <div class="border border-gray-200">
                 <div class="overflow-hidden bg-white">
-                  <img src="{{ category.photo|thumbnail_url:'square' }}" alt="">
+                  <img src="{{ category.photo|thumbnail_url:'square' }}" alt="{{ category.title | safe }}" class="w-full h-auto">
                 </div>
                 <h3 class="text-center h-20 flex flex-col justify-center items-center">
-                  <span class="block font-bold">{{ category.title }}</span>
+                  <span class="block font-bold text-sm md:text-base">{{ category.title }}</span>
                   {% if category.subtitle %}
-                  <span class="block text-sm">{{ category.subtitle }}</span>
+                  <span class="block text-sm sm:text-xs md:text-sm">{{ category.subtitle }}</span>
                   {% endif %}
                 </h3>
               </div>
@@ -57,41 +58,42 @@
       </div>
 
       <div class="flex justify-center mt-10 md:mt-16">
-        <a href="{% url 'products.category' %}" class="button w-80 py-6 tracking-wider">商品情報はこちら</a>
+        <a href="{% url 'products.category' %}" class="button w-full sm:w-80 py-6 tracking-wider">商品情報はこちら</a>
       </div>
 
     </div>
+
   </section>
 
-  <section class="relative mt-16 mb-8 md:my-16">
-    <div class="md:py-16">
-      <div class="parallax-section hidden md:block">
+  <section class="relative mt-16 sm:mb-8 md:mb-16">
+    <div class="sm:py-16">
+      <div class="parallax-section hidden sm:block">
         <div class="parallax-child-section">
           <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/bg_stores.jpg' %});"></section>
         </div>
       </div>
     </div>
-    <div class="md:absolute md:left-0 md:top-0 w-full h-full flex justify-center items-center">
+    <div class="sm:absolute sm:left-0 sm:top-0 w-full h-full flex justify-center items-center">
       <div class="container">
-        <div class="relative z-20 flex md:justify-between items-center">
-          <div class="w-1/2">
+        <div class="relative z-20 flex justify-center md:justify-between items-center">
+          <div class="hidden sm:block w-1/2">
             <div class="">
               <img src="{% static 'images/img_cart.png' %}" alt="販売サイトのご案内" class="w-9/12 mx-auto">
             </div>
           </div>
-          <div class="w-full md:w-1/2 relative z-10 bg-blue-50 p-6 shadow-md">
-            <div class="p-6 border border-solid border-blue-300 bg-white">
-              <h3 class="pt-2 pb-3 font-medium border-b border-dashed border-blue text-center">
-                <span class="block mb-2 text-blue text-xs font-bold font-en uppercase tracking-wide">ONLINE STORE</span>
-                <span class="block text-2xl md:text-3xl text-blue font-bold leading-snug">販売サイトのご案内</span>
+          <div class="w-full sm:w-1/2 relative z-10 bg-blue-50 p-4 sm:p-6 shadow-md">
+            <div class="p-4 sm:p-6 border border-solid border-blue-300 bg-white">
+              <h3 class="py-4 sm:pt-0 font-medium border-b border-dashed border-blue text-center">
+                <span class="block my-2 text-blue text-xs font-bold font-en uppercase tracking-wide leading-none">ONLINE STORE</span>
+                <span class="block text-xl sm:text-2xl md:text-3xl text-blue font-bold leading-none">販売サイトのご案内</span>
               </h3>
-              <p class="py-6 text-sm leading-loose">弊社業務用商品をお買い求めの場合は、リンク先の弊社お取引先様ECサイトでもご購入いただけます。</p>
+              <p class="py-6 text-sm leading-relaxed sm:leading-loose md:text-center">弊社業務用商品をお買い求めの場合は、リンク先の弊社お取引先様ECサイトでもご購入いただけます。</p>
               <a href="{% url 'stores' %}" class="w-full md:w-8/12 mx-auto button py-4 bg-blue text-base hover:bg-blue-400">詳しくはこちら</a>
             </div>
-            <div class="absolute z-10 left-0 top-0 w-full flex justify-center -mt-6">
+            <div class="absolute z-10 left-0 top-0 w-full flex justify-center mt-[-2.25rem]">
               <div class="w-20 h-20 rounded-full bg-blue-50 flex justify-center items-center"></div>
             </div>
-            <div class="absolute z-30 left-0 top-0 w-full flex justify-center -mt-3">
+            <div class="absolute z-30 left-0 top-0 w-full flex justify-center -mt-6">
                 <span class="bg-blue w-14 h-14 rounded-full flex justify-center items-center">
                     <svg-vue icon="basket" class="w-8 w-8 mt-0.5 text-white"></svg-vue>
                 </span>

@@ -12,7 +12,7 @@
   </section>
 
   <div class="container mx-auto">
-    <div class="relative z-30 shadow-top bg-white p-4 md:p-10 md:-mt-24 md:-mx-10 rounded">
+    <div class="relative z-30 shadow-top bg-white pt-8 xl:p-10 xl:-mt-24 xl:-mx-10 rounded">
       <div class="md:flex md:flex-row-reverse md:-mx-4">
         <div class="flex-1 md:px-4">
           <h2 class="slashed w-full pt-10 flex justify-center items-center">
@@ -22,25 +22,25 @@
             </div>
           </h2>
 
-          <div class="mt-10 bg-gray-100 flex justify-start">
-            <h3 class="flex items-center border-r border-dashed border-gray-300">
-              <span class="text-sm font-en text-crimson font-bold uppercase -rotate-90">tags</span>
+          <div class="mt-10 bg-gray-100 sm:flex justify-start">
+            <h3 class="py-2 px-4 sm:p-0 flex justify-center items-center border-b sm:border-b-none sm:border-r border-dashed border-gray-300">
+              <span class="text-sm font-en text-crimson tracking-wider font-bold uppercase sm:-rotate-90">tags</span>
             </h3>
-            <ul class="flex-1 p-4 flex flex-wrap items-center -mx-2">
-              <li class="inline-block py-1 px-2">
+            <ul class="flex-1 p-2 sm:p-4 flex flex-wrap justify-center sm:justify-start items-center -mx-1 sm:-mx-2">
+              <li class="inline-block py-1 px-1 sm:px-2">
                 <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full">
                   <span class="text-white">すべて</span>
                 </a>
               </li>
-              {% for tag in tag_list  %}
-                <li class="inline-block py-1 px-2">
+              {% for tag in tag_list %}
+                <li class="inline-block py-1 px-1 sm:px-2">
                   <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full">
                     <span class="text-white">{{ tag.name }} {{ tag.product__count }}</span>
                   </a>
                 </li>
               {% endfor %}
               {% for child in current_category.child.all  %}
-              <li class="inline-block py-1 px-2">
+              <li class="inline-block py-1 px-1 sm:px-2">
                 <a href="{% url 'products.products' cat=current_category.slug child=child.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full">
                   <span class="text-white">{{ child.title }}</span>
                 </a>
@@ -49,15 +49,15 @@
             </ul>
           </div>
 
-          <div class="flex flex-wrap -mx-1 md:-mx-2 mt-8 md:mt-14 transform">
+          <div class="flex flex-wrap -mx-1 sm:-mx-2 mt-8 md:mt-14 transform">
 
             {% for product in product_list %}
-            <div class="w-1/2 md:w-4/12 px-1 md:px-2 mb-2 md:mb-4">
+            <div class="w-1/2 sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
               <a href="{% url 'products.detail' slug=product.slug %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
                 <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
 
                   {% if product.main_photo %}
-                  <div class="py-1 overflow-hidden">
+                  <div class="py-3 overflow-hidden">
                     <img src="{{ product.main_photo.photo|thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
                   </div>
                   {% else %}
@@ -71,13 +71,15 @@
                     <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
                   </div>
                   {% endif %}
+
+                  <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
+                    {% with 'images/badge_'|add:product.preservation.slug|add:'_mini.png' as image_badge %}
+                    <img src="{% static image_badge %}" alt="{{ product.preservation.name | safe }}" class="no-effect">
+                    {% endwith %}
+                  </div>
                 </div>
                 <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-                  {% for cat in product.category.all %}
-                    {% if cat.parent == null %}
-                      <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ cat.title }}</span>
-                    {% endif %}
-                  {% endfor %}
+                  <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
                   <span class="mt-2 text-sm md:text-base">{{ product.title }}</span>
                 </h4>
                 <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">

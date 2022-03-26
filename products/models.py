@@ -175,15 +175,23 @@ class Product(TimeStampedModel, SortableMixin):
     )
 
     def __str__(self):
-        return self.title + "(" + str(self.markcode) + ")"
+        return self.title + " (" + str(self.markcode) + ")"
 
     def save(self, *args, **kwargs):  # new
         if not self.slug:
             self.slug = slugify(self.markcode)
         return super(Product, self).save(*args, **kwargs)
 
+    def main_category(self):
+        return self.category.get(parent_id__isnull=True)
+
     def main_photo(self):
         return self.photos.get(label="main")
+
+    def preservation(self):
+        for tag in self.tag.all():
+            if tag.slug == "dry" or tag.slug == "frozen":
+                return tag
 
     class Meta:
         ordering = ["the_order"]

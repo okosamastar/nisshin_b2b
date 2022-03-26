@@ -6,3 +6,9 @@
 
 @import "tailwindcss/utilities";
 @import "utilities.css";
+
+@layer components{
+  .container {
+    @apply max-w-[1136px] px-4 sm:px-6 md:px-12;
+  }
+}

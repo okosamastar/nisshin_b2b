@@ -12,13 +12,13 @@
   </section>
 
   <div class="container mx-auto">
-    <div class="relative z-30 shadow-top bg-white p-4 md:p-10 md:-mt-24 md:-mx-10 rounded">
+    <div class="relative z-30 shadow-top bg-white pt-8 xl:p-10 xl:-mt-24 xl:-mx-10 rounded">
 
       <div class="md:flex md:flex-row-reverse md:-mx-4">
         <div class="flex-1 md:px-4">
 
-          <div class="sm:flex justify-between items-start sm:-mx-4">
-            <div class="sm:w-[360px] md:px-4">
+          <div class="sm:flex justify-between items-start sm:-mx-3 lg:-mx-4">
+            <div class="sm:w-[280px] lg:w-[360px] sm:px-3 lg:px-4">
               <detail-slider :newmark="{{ product.is_new|lower }}" layout="col" :handle-modal="openLightBox" :images="[
                 {% if product.photos.all|length > 0 %}
                   {% for photo in product.photos.all %}
@@ -36,31 +36,22 @@
               ]"
               ></detail-slider>
             </div>
-            <div class="relative flex-1 md:px-4 pt-10 sm:pt-0 text-center sm:text-left">
-              {% for cat in product.category.all %}
-              {% if cat.parent == null %}
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ cat.title }}</span>
-              {% endif %}
-              {% endfor %}
-              <h1 class="my-12 text-2xl md:text-3xl font-bold leading-snug">
+            <div class="relative flex-1 sm:px-3 lg:px-4 pt-7 sm:pt-0 border-t border-gray-300 sm:border-none">
+              <div class="flex -mx-1">
+                <div class="px-1">
+                  <span class="block p-2 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
+                </div>
+                <div class="px-1">
+                  <span class="block w-16 p-2 text-xs text-white leading-none text-center tracking-wider color_{{ product.preservation.slug }}">{{ product.preservation.name }}</span>
+                </div>
+              </div>
+              <h1 class="mt-4 mb-6 sm:my-8 sm:my-12 text-xl sm:text-2xl lg:text-3xl font-bold leading-snug">
                 <span class="block">{{ product.title }}</span>
                 {% if product.subtitle %}
                 <span class="inline-block mt-4 p-2 text-lg leading-none font-bold bg-gray text-white">{{ product.subtitle }}</span>
                 {% endif %}
               </h1>
-              {% if product.preservation == 'dry' %}
-              <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
-                <img src="{% static 'images/badge_roomtemp.png' %}" class="hidden sm:block w-14 h-14" alt="常温">
-                <img src="{% static 'images/tab_roomtemp.png' %}" class="sm:hidden w-18 mr-2" alt="常温">
-              </div>
-              {% endif %}
-              {% if product.preservation == 'frozen' %}
-                <div class="absolute right-0 top-0 px-4 -mt-3 sm:mt-0">
-                  <img src="{% static 'images/badge_frozen.png' %}" class="hidden sm:block w-14 h-14" alt="冷凍">
-                  <img src="{% static 'images/tab_frozen.png' %}" class="sm:hidden w-18 mr-2" alt="冷凍">
-                </div>
-              {% endif %}
-              <p class="py-4 border-t border-dashed border-gray-400 text-left">
+              <p class="pt-4 sm:pt-6 border-t border-dashed border-gray-400 text-left leading-relaxed sm:leading-loose">
                 {{ product.description }}
               </p>
               {% if product.brand.name %}
@@ -84,7 +75,7 @@
             </div>
           </div>
 
-          <div class="detail mt-8 md:mt-16">
+          <div class="detail mt-8 md:mt-10">
             <h2 class="dotted">
               <span>基本情報</span>
             </h2>
@@ -140,7 +131,11 @@
                     {% for facility in facility_list  %}
                     <div class="w-1/3 px-0.5 mt-1">
                       <div class="py-3 flex flex-col justify-center items-center bg-white text-center {% if facility in product.facility.all %}text-crimson{% else %}text-gray-400{% endif %}">
-                        <svg-vue icon="{{ facility.slug }}" class="w-18 h-16 mx-auto"></svg-vue>
+                        {% if facility.slug == 'fry' %}
+                        <svg-vue icon="{{ facility.slug }}" class="w-18 h-14 mx-auto"></svg-vue>
+                        {% else %}
+                        <svg-vue icon="{{ facility.slug }}" class="w-16 h-14 mx-auto"></svg-vue>
+                        {% endif %}
                         <span class="block text-sm font-bold">{{ facility.name }}</span>
                       </div>
                     </div>
@@ -162,7 +157,7 @@
                           <svg-vue icon="triangle" class="arrow w-3 h-4"></svg-vue>
                         </div>
                         <div class="flex-1 flex items-center">
-                          <div class="body py-4 pl-4 text-sm font-bold">{{ product.handling_water | linebreaksbr | default:"---" }}</div>
+                          <div class="body py-2 pl-4 text-sm font-bold">{{ product.handling_water | linebreaksbr | default:"---" }}</div>
                         </div>
                       </div>
                     </div>
@@ -176,7 +171,7 @@
                           <svg-vue icon="triangle" class="arrow w-3 h-4"></svg-vue>
                         </div>
                         <div class="flex-1 flex items-center">
-                          <div class="body py-4 pl-4 text-sm font-bold">
+                          <div class="body py-2 pl-4 text-sm font-bold">
                             {{ product.handling_temp | linebreaksbr | default:"---" }}
                           </div>
                         </div>
@@ -192,7 +187,7 @@
                           <svg-vue icon="triangle" class="arrow w-3 h-4"></svg-vue>
                         </div>
                         <div class="flex-1 flex items-center">
-                          <div class="body py-4 pl-4 text-sm font-bold">{{ product.handling_time | linebreaksbr | default:"---" }}</div>
+                          <div class="body py-2 pl-4 text-sm font-bold">{{ product.handling_time | linebreaksbr | default:"---" }}</div>
                         </div>
                       </div>
                     </div>
@@ -206,7 +201,7 @@
                           <svg-vue icon="triangle" class="arrow w-3 h-4"></svg-vue>
                         </div>
                         <div class="flex-1 flex items-center">
-                          <div class="body py-4 pl-4 text-sm font-bold">{{ product.handling_recipe | linebreaksbr | default:"---" }}</div>
+                          <div class="body py-2 pl-4 text-sm font-bold">{{ product.handling_recipe | linebreaksbr | default:"---" }}</div>
                         </div>
                       </div>
                     </div>
@@ -258,7 +253,7 @@
                 <h3 class="w-full text-crimson font-bold">業態別おすすめ</h3>
                 <ul class="flex flex-wrap -mx-1 mt-2">
                   {% for industry in industry_list %}
-                  <li class="w-full md:w-4/12 px-1 mt-2">
+                  <li class="w-full sm:w-1/2 xl:w-4/12 px-1 mt-2">
                     <div class="p-2 flex items-center border bg-white {% if industry in product.industry.all %}border-crimson text-crimson{% else %}border-gray-300 text-gray-400{% endif %}">
                       {% if industry in product.industry.all %}
                       <svg-vue icon="check" class="flex-none w-6 h-6 text-crimson"></svg-vue>
@@ -275,74 +270,74 @@
             </div>
           </div>
 
-          <div class="detail mt-8 md:mt-16">
+          <div class="detail mt-8 md:mt-12">
             <h2 class="dotted">
               <span>詳細情報</span>
             </h2>
             <div class="flex flex-wrap -mx-2 pt-2">
-              <div class="w-full md:w-1/2 px-2 mt-4">
+              <div class="w-full sm:w-1/2 px-2 mt-4">
                 <div class="h-full p-4 bg-gray-100">
                   <h3 class="w-full text-crimson font-bold">栄養成分</h3>
 
                   <div class="pt-3">
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">生産国</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.country | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.country | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">荷姿</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">温度帯</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">
-                        {{ preservation.name | default:'---' }}
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">
+                        {{ product.preservation.name | default:'---' }}
                       </dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">賞味期限</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.expiration_date | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.expiration_date | default:'---' }}</dd>
                     </dl>
                   </div>
 
                 </div>
               </div>
 
-              <div class="w-full md:w-1/2 px-2 mt-4">
+              <div class="w-full sm:w-1/2 px-2 mt-4">
                 <div class="h-full p-4 bg-gray-100">
                   <h3 class="w-full text-crimson font-bold">コード</h3>
 
                   <div class="pt-3">
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">POS</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.pos | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.pos | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">GTIN</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.gtin | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.gtin | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">マークコード</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.markcode }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.markcode }}</dd>
                     </dl>
 
                   </div>
@@ -350,7 +345,7 @@
                 </div>
               </div>
 
-              <div class="w-full md:w-1/2 px-2 mt-4">
+              <div class="w-full sm:w-1/2 px-2 mt-4">
                 <div class="h-full p-4 bg-gray-100">
                   <h3 class="w-full text-crimson font-bold">梱包<span class="text-xs font-normal">（個装）</span></h3>
 
@@ -358,39 +353,39 @@
 
                     {% if false %}
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">重量</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_weight | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_weight | default:'---' }}</dd>
                     </dl>
                     {% endif %}
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">サイズ幅（W)</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_width | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_width | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">サイズ奥行（D)</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_height | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_height | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">サイズ高さ（H)</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_depth | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_depth | default:'---' }}</dd>
                     </dl>
                   </div>
 
                 </div>
               </div>
 
-              <div class="w-full md:w-1/2 px-2 mt-4">
+              <div class="w-full sm:w-1/2 px-2 mt-4">
                 <div class="h-full p-4 bg-gray-100">
                   <h3 class="w-full text-crimson font-bold">梱包<span class="text-xs font-normal">（外装）</span></h3>
 
@@ -398,32 +393,32 @@
 
                     {% if false %}
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">総重量</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_weight | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_weight | default:'---' }}</dd>
                     </dl>
                     {% endif %}
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">サイズ幅（W)</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_width | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_width | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">サイズ奥行（D)</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_height | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_height | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
                         <span class="block border-l-4 border-solid border-crimson px-2">サイズ高さ（H)</span>
                       </dt>
-                      <dd class="w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_depth | default:'---' }}</dd>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_depth | default:'---' }}</dd>
                     </dl>
                   </div>
 
@@ -432,7 +427,7 @@
             </div>
           </div>
 
-          <a href="{% url 'stores' %}" class="block w-full bg-blue-50 p-4 mt-8 md:mt-16 hover:text-white no-hover-svg">
+          <a href="{% url 'stores' %}" class="block w-full bg-blue-50 p-4 mt-8 md:mt-12 hover:text-white no-hover-svg">
               <h3 class="flex justify-center md:justify-start items-center">
                 <div class="w-10 h-10 bg-blue rounded-full flex justify-center items-center">
                   <svg-vue icon="basket" class="w-6 h-6 text-white"></svg-vue>
@@ -455,7 +450,7 @@
               </div>
           </a>
 
-          <div class="corner my-8 md:mt-16 p-4 border border-black bg-white">
+          <div class="corner mt-8 md:mt-12 p-4 border border-black bg-white">
             <h4 class="pt-4 px-4 md:px-0 text-sm md:text-base font-bold leading-snug md:text-center">「日清フーズ（株）」は、2022年1月1日より、<br class="hidden md:block">「（株）日清製粉ウェルナ」に社名を変更いたしました。</h4>
             <p class="py-3 md:pt-6 md:pb-0 px-4 text-xs text-left">社名変更に伴い、各製品のパッケージ表記は、これまでの「日清フーズ（株）」から「（株）日清製粉ウェルナ」へ変更いたします。</p>
           </div>
@@ -492,21 +487,17 @@
         </div>
       </div>
 
-      <div class="mt-8 md:mt-16">
+      <div class="mt-8 md:mt-12">
         <h2 class="slashed w-full text-center pt-8 mb-10">
           <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">OTHER LINEUP</span>
           <span class="block text-2xl md:text-3xl font-bold leading-snug">その他のラインアップ</span>
         </h2>
-        <div class="sm:px-6">
+        <div class="-mx-4 sm:mx-0">
           <card-slider :products="[
             {% for related in product.related.all %}
               {
                   'title': '{{ related.title }}',
-                  {% for cat in related.category.all %}
-                    {% if cat.parent == null %}
-                    'category': {{ cat.title }},
-                    {% endif %}
-                  {% endfor %}
+                  'category': '{{ related.main_category.title }}',
                   {% if related.main_photo %}
                   'image': '{{ related.main_photo.photo | thumbnail_url:'square' }}',
                   {% else %}
@@ -515,9 +506,10 @@
                   'link': '{% url 'products.detail' slug=related.markcode %}',
                   'weight': '{{ related.packing_weigh | default:'---' }}',
                   'code': '{{ related.markcode }}',
+                  'preservation': '{{ related.preservation.slug }}',
               },
             {% endfor %}
-                          ]">
+          ]">
           </card-slider>
         </div>
       </div>
