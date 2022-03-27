@@ -49,7 +49,7 @@ export default {
       imagePath: this.$imagePath,
       options: {
         type: 'loop',
-        perPage: 4.25,
+        perPage: 4,
         perMove: 1,
         gap: '0.8rem',
         trimSpace: true,
