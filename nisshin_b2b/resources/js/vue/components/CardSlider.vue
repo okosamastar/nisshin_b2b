@@ -67,11 +67,11 @@ export default {
             padding: '1rem'
           },
           991: {
-            perPage: 3.25,
+            perPage: 3,
             padding: 0
           },
           1024: {
-            perPage: 3.25,
+            perPage: 3,
             padding: 0
           },
         }
