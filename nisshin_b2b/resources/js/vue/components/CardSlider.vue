@@ -10,7 +10,7 @@
             <div v-if="product.newmark" class="absolute left-0 top-0 w-12 h-12 mx-2">
               <img :src="imagePath + 'badge_new.png'" alt="New" class="no-effect">
             </div>
-            <div v-if="product.preservation" class="absolute right-0 bottom-0 w-9 h-9 mx-2">
+            <div v-if="product.preservation" class="absolute left-auto right-0 top-auto bottom-0 w-9 h-9 mx-2">
               <img :src="imagePath + 'badge_' + product.preservation + '_mini.png'" alt="New" class="no-effect">
             </div>
           </div>
@@ -48,6 +48,7 @@ export default {
     return {
       imagePath: this.$imagePath,
       options: {
+        type: 'loop',
         perPage: 4.25,
         perMove: 1,
         gap: '0.8rem',
