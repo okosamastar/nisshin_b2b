@@ -71,12 +71,12 @@ export default {
           },
           991: {
             perPage: 3,
-            padding: 0,
+            padding: '1rem',
             arrows: true,
           },
           1024: {
             perPage: 3,
-            padding: 0,
+            padding: '1rem',
             arrows: true,
           },
         }
