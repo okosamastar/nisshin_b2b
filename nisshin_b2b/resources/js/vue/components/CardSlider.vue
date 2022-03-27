@@ -54,25 +54,30 @@ export default {
         gap: '0.8rem',
         trimSpace: true,
         wheel: false,
+        arrows: true,
         pagination: false,
         breakpoints: {
           543: {
             perPage: 1,
             perMove: 1,
-            padding: '3.5rem'
+            padding: '3.5rem',
+            arrows: false,
           },
           767: {
             perPage: 2.25,
             perMove: 1,
-            padding: '1rem'
+            padding: '1rem',
+            arrows: false,
           },
           991: {
             perPage: 3,
-            padding: 0
+            padding: 0,
+            arrows: true,
           },
           1024: {
             perPage: 3,
-            padding: 0
+            padding: 0,
+            arrows: true,
           },
         }
       },
