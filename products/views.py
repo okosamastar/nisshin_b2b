@@ -30,11 +30,30 @@ class ProductsView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ProductsView, self).get_context_data(**kwargs)
         cat = self.kwargs["cat"]
-        product_all = Product.objects.filter(category__slug=cat)
+
+        current_category = Category.objects.get(slug=cat)
+        if current_category.parent:
+            current_category = current_category.parent
+
+        context["current_category"] = current_category
+        context["subcategories"] = (
+            current_category.child.all()
+            .annotate(Count("product"))
+            .order_by("the_order")
+        )
+        context["category_list"] = Category.objects.filter(parent_id__isnull=True)
+
+        product_in_category = Product.objects.filter(
+            category__slug=current_category.slug
+        )
+        context["all_count"] = product_in_category.count()
+
         tag_all = Tag.objects.all().order_by("the_order")
         tag_matched = Tag.objects.filter(
-            product__in=list(product_all.values_list("id", flat=True))
+            product__in=list(product_in_category.values_list("id", flat=True))
         ).annotate(Count("product"))
+
+        # product_serched = Product.objects.filter(category__slug=cat)
         # only matched in search results
         # tag_matched = Tag.objects.filter(
         #     product__in=list(self.object_list.values_list("id", flat=True))
@@ -49,22 +68,6 @@ class ProductsView(ListView):
                 tag.count = 0
 
         context["tag_list"] = tag_all
-
-        current_category = Category.objects.get(slug=cat)
-        if current_category.parent:
-            current_category = current_category.parent
-            context["all_count"] = Product.objects.filter(
-                category__slug=current_category.slug
-            ).count()
-        else:
-            context["all_count"] = product_all.count()
-        context["current_category"] = current_category
-        context["subcategories"] = (
-            current_category.child.all()
-            .annotate(Count("product"))
-            .order_by("the_order")
-        )
-        context["category_list"] = Category.objects.filter(parent_id__isnull=True)
 
         return context
 
