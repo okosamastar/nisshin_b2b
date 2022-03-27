@@ -1,5 +1,5 @@
 <template>
-  <Splide ref="splide" :options="options">
+  <Splide ref="splide" :options="options" class="sm:px-8">
     <SplideSlide v-for="product in products" v-bind:key="product.url" class="wrap-image splide__slide" :class="product.class? product.class : ''">
       <div class="h-full">
         <a :href="product.link" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
@@ -10,7 +10,7 @@
             <div v-if="product.newmark" class="absolute left-0 top-0 w-12 h-12 mx-2">
               <img :src="imagePath + 'badge_new.png'" alt="New" class="no-effect">
             </div>
-            <div v-if="product.preservation" class="absolute left-auto right-0 top-auto bottom-0 w-9 h-9 mx-2">
+            <div v-if="product.preservation" class="absolute left-auto right-0 top-auto bottom-0 w-9 h-9 m-2">
               <img :src="imagePath + 'badge_' + product.preservation + '_mini.png'" alt="New" class="no-effect">
             </div>
           </div>
@@ -60,23 +60,23 @@ export default {
           543: {
             perPage: 1,
             perMove: 1,
-            padding: '3.5rem',
+            padding: '3.2rem',
             arrows: false,
           },
           767: {
-            perPage: 2.25,
+            perPage: 2,
             perMove: 1,
-            padding: '1rem',
+            padding: '3.2rem',
             arrows: false,
           },
           991: {
             perPage: 3,
-            padding: '1rem',
+            padding: 0,
             arrows: true,
           },
           1024: {
             perPage: 3,
-            padding: '1rem',
+            padding: 0,
             arrows: true,
           },
         }
@@ -120,16 +120,24 @@ export default {
 .splide >>> .splide__arrow {
   background-color: transparent;
 }
+.splide >>> .splide__arrow svg {
+  fill: #E82817;
+}
 .splide >>> .splide__arrow--prev {
-  left: -2.4rem;
+  left: -.5rem;
 }
 .splide >>> .splide__arrow--prev:disabled {
   opacity: .2;
 }
 .splide >>> .splide__arrow--next {
-  right: -2.4rem;
+  right: -.5rem;
 }
 .splide >>> .splide__arrow--next:disabled {
   opacity: .2;
+}
+@media screen and (max-width: 767px) {
+  .splide >>> .splide__arrows {
+    display: none;
+  }
 }
 </style>
