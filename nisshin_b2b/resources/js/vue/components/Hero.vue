@@ -68,6 +68,7 @@ export default {
         isNavigation: true,
         updateOnMove: true,
         arrows      : false,
+        drag        : false,
       },
     }
   },
