@@ -30,15 +30,38 @@ class ProductsView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ProductsView, self).get_context_data(**kwargs)
         cat = self.kwargs["cat"]
-        context["current_category"] = Category.objects.get(slug=cat)
-        context["tag_list"] = (
-            Tag.objects.filter(
-                product__in=list(self.object_list.values_list("id", flat=True))
-            )
+        all = Product.objects.filter(category__slug=cat)
+        tag_all = Tag.objects.all().order_by("the_order")
+        tag_matched = Tag.objects.filter(
+            product__in=list(all.values_list("id", flat=True))
+        ).annotate(Count("product"))
+        # only matched in search results
+        # tag_matched = Tag.objects.filter(
+        #     product__in=list(self.object_list.values_list("id", flat=True))
+        # )
+
+        for tag in tag_all:
+            if tag in tag_matched:
+                tag.active = True
+                tag.count = tag_matched.get(id=tag.pk).product__count
+            else:
+                tag.active = False
+                tag.count = 0
+
+        context["tag_list"] = tag_all
+        context["all_count"] = all.count()
+
+        current_category = Category.objects.get(slug=cat)
+        if current_category.parent:
+            current_category = current_category.parent
+        context["current_category"] = current_category
+        context["subcategories"] = (
+            current_category.child.all()
             .annotate(Count("product"))
             .order_by("the_order")
         )
         context["category_list"] = Category.objects.filter(parent_id__isnull=True)
+
         return context
 
 

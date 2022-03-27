@@ -26,25 +26,54 @@
             <h3 class="py-2 px-4 sm:p-0 flex justify-center items-center border-b sm:border-b-none sm:border-r border-dashed border-gray-300">
               <span class="text-sm font-en text-crimson tracking-wider font-bold uppercase sm:-rotate-90">tags</span>
             </h3>
-            <ul class="flex-1 p-2 sm:p-4 flex flex-wrap justify-center sm:justify-start items-center -mx-1 sm:-mx-2">
-              <li class="inline-block py-1 px-1 sm:px-2">
-                <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full">
+            <ul class="flex-1 p-2 sm:p-4 flex flex-wrap justify-center sm:justify-start items-center -mx-1">
+              <li class="inline-block py-1 px-1">
+                {% if view.kwargs.tag or view.kwargs.cat != current_category.slug %}
+                <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full flex items-center">
                   <span class="text-white">すべて</span>
+                  <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex md:justify-center items-center leading-none tracking-[0]">{{ all_count }}</div>
                 </a>
+                {% else %}
+                <span class="block py-1 px-4 bg-yellow text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                  <span class="text-black">すべて</span>
+                  <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex md:justify-center items-center leading-none tracking-[0]">{{ all_count }}</div>
+                </span>
+                {% endif %}
               </li>
               {% for tag in tag_list %}
-                <li class="inline-block py-1 px-1 sm:px-2">
-                  <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full">
-                    <span class="text-white">{{ tag.name }} {{ tag.product__count }}</span>
+                <li class="inline-block py-1 px-1">
+                  {% if tag.slug == view.kwargs.tag %}
+                    <span class="block py-1 px-4 bg-yellow text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                      <span class="text-black">{{ tag.name }}</span>
+                      <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex md:justify-center items-center leading-none tracking-[0]">{{ tag.count }}</div>
+                    </span>
+                  {% elif tag.active %}
+                  <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full flex items-center">
+                    <span class="text-white">{{ tag.name }}</span>
+                    <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex md:justify-center items-center leading-none tracking-[0]">{{ tag.count }}</div>
                   </a>
+                  {% else %}
+                    <span class="block py-1 px-4 bg-gray-200 text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                      <span class="text-gray-400">{{ tag.name }}</span>
+                      <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-gray-300 flex md:justify-center items-center leading-none tracking-[0]">{{ tag.count }}</div>
+                    </span>
+                  {% endif %}
                 </li>
               {% endfor %}
-              {% for child in current_category.child.all  %}
-              <li class="inline-block py-1 px-1 sm:px-2">
-                <a href="{% url 'products.products' cat=current_category.slug child=child.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full">
-                  <span class="text-white">{{ child.title }}</span>
-                </a>
-              </li>
+              {% for cat in subcategories  %}
+                {% if cat.slug == view.kwargs.cat %}
+                <span class="block py-1 px-4 bg-yellow text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                  <span class="text-black">{{ cat.title }}</span>
+                  <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex md:justify-center items-center leading-none tracking-[0]">{{ cat.product__count }}</div>
+                </span>
+                {% else %}
+                <li class="inline-block py-1 px-1">
+                  <a href="{% url 'products.products' cat=current_category.slug cat=cat.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full flex items-center">
+                    <span class="text-white">{{ cat.title }}</span>
+                    <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex md:justify-center items-center leading-none tracking-[0]">{{ cat.product__count }}</div>
+                  </a>
+                </li>
+                {% endif %}
               {% endfor %}
             </ul>
           </div>
@@ -72,11 +101,13 @@
                   </div>
                   {% endif %}
 
+                  {% if product.preservation %}
                   <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
                     {% with 'images/badge_'|add:product.preservation.slug|add:'_mini.png' as image_badge %}
                     <img src="{% static image_badge %}" alt="{{ product.preservation.name | safe }}" class="no-effect">
                     {% endwith %}
                   </div>
+                  {% endif %}
                 </div>
                 <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
                   <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>

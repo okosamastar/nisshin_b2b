@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto&display=swap');
 
 @font-face {
   font-family: 'Noto Sans JP';
@@ -34,12 +34,15 @@
 }
 
 $font-en: 'Lato', sans-serif;
+$font-en-alt: 'Roboto', sans-serif;
 $font-ja: 'Noto Sans JP', sans-serif;
 
 .font-en {
   font-family: $font-en;
 }
-
+.font-en-alt {
+  font-family: $font-en-alt;
+}
 .font-ja {
   font-family: $font-ja;
 }
