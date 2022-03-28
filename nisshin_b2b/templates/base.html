@@ -62,7 +62,7 @@
     <div id="brand-nav" class="relative z-30 bg-yellow-50 h-14 flex justify-between items-center border-t-2 border-crimson">
       <a href="https://www.nisshin-seifun-welna.com/index/" class="flex items-center">
         <svg-vue icon="brand" class="w-40 h-8"></svg-vue>
-        <img src="{% static 'images/text_copy.png' %}" alt="健康と信頼をお届けする" class="w-36 h-auto ml-2">
+        <img src="{% static 'images/text_copy.png' %}" alt="健康と信頼をお届けする" class="w-40 h-auto ml-2">
       </a>
       <ul class="hidden md:flex items-center text-xs px-4 -mx-4">
         <li class="px-4">
@@ -92,13 +92,8 @@
           </a>
         </div>
         <div class="md:hidden h-14 bg-white">
-          <a href="{% url 'stores' %}" class="h-full pl-4 flex justify-start items-center border-t-[0.1rem] border-gray-200">
-            <span class="text-sm text-black font-medium">ご相談窓口</span>
-          </a>
-        </div>
-        <div class="md:hidden h-14 bg-white">
-          <a href="{% url 'stores' %}" class="h-full pl-4 flex justify-start items-center border-t-[0.1rem] border-gray-200">
-            <span class="text-sm text-black font-medium">サンプル請求</span>
+          <a href="{% url 'contact' %}" class="h-full pl-4 flex justify-start items-center border-t-[0.1rem] border-gray-200">
+            <span class="text-sm text-black font-medium">お問い合わせ</span>
           </a>
         </div>
         <div class="md:hidden h-14 bg-white">

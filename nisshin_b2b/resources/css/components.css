@@ -203,10 +203,10 @@
     transform: translateX(-100%);
   }
   .container {
-    background: linear-gradient(90deg, rgba(238,238,238,1) 142px, rgba(238,238,238,0) 0%);
+    background: linear-gradient(90deg, rgba(238,238,238,1) 128px, rgba(238,238,238,0) 0%);
   }
 }
-@screen md {
+@screen sm {
   .bg-gray-to-transparent {
     .container {
       background: linear-gradient(90deg, rgba(238, 238, 238, 1) 186px, rgba(238, 238, 238, 0) 0%);
