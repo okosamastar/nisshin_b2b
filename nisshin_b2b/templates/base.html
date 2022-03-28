@@ -75,35 +75,46 @@
       </ul>
     </div>
 
-    <navigation>
-        <div class="nav-link">
-          <a href="{% url 'home' %}">
-            <div><span>トップ</span></div>
+    <div id="prerender" ref="prerender" class="relative h-20 overflow-visible">
+      <div id="site-nav" class="relative z-20 w-full bg-white md:flex justify-between items-center">
+        <div class="relative z-10 w-full md:w-auto h-20 px-4 md:px-6 flex items-center bg-white">
+          <a href="https://www.nisshin-seifun-welna.com/index/">
+            <svg-vue icon="logo_welna" class="w-32 md:w-36 h-12"></svg-vue>
           </a>
         </div>
-        <div class="nav-link">
-          <a href="{% url 'products.category' %}">
-            <div class="ml-[-1px]"><span class="text-base md:text-xs md:font-bold">商品情報</span></div>
-          </a>
-        </div>
-        <div class="nav-link">
-          <a href="{% url 'stores' %}">
-            <div class="ml-[-1px]"><span class="text-base md:text-xs md:font-bold">販売サイトのご案内</span></div>
-          </a>
-        </div>
-        <div class="md:hidden h-14 bg-white">
-          <a href="{% url 'contact' %}" class="h-full pl-4 flex justify-start items-center border-t-[0.1rem] border-gray-200">
-            <span class="text-sm text-black font-medium">お問い合わせ</span>
-          </a>
-        </div>
-        <div class="md:hidden h-14 bg-white">
-          <a href="https://www.nisshin.com/?_ccdp.uid=9360be57-5036-4181-b20b-93900efa1ad5&amp;_ccdp.sid=f66c4b08842f6cb667928e59087ad75f"
-             target="_blank" class="h-full pl-4 flex justify-start items-center border-t-[0.1rem] border-gray-200">
-            <span class="text-sm text-black font-medium">日清製粉グループ</span>
-            <svg-vue icon="external" class="w-3 h-3 ml-2 text-gray-600"></svg-vue>
-          </a>
-        </div>
-    </navigation>
+      </div>
+    </div>
+    <div id="jsrender" ref="jsrender" class="hidden">
+      <navigation>
+          <div class="nav-link">
+            <a href="{% url 'home' %}">
+              <div><span>トップ</span></div>
+            </a>
+          </div>
+          <div class="nav-link">
+            <a href="{% url 'products.category' %}">
+              <div class="ml-[-1px]"><span class="text-base md:text-xs md:font-bold">商品情報</span></div>
+            </a>
+          </div>
+          <div class="nav-link">
+            <a href="{% url 'stores' %}">
+              <div class="ml-[-1px]"><span class="text-base md:text-xs md:font-bold">販売サイトのご案内</span></div>
+            </a>
+          </div>
+          <div class="md:hidden h-14 bg-white">
+            <a href="{% url 'contact' %}" class="h-full pl-4 flex justify-start items-center border-t-[0.1rem] border-gray-200">
+              <span class="text-sm text-black font-medium">お問い合わせ</span>
+            </a>
+          </div>
+          <div class="md:hidden h-14 bg-white">
+            <a href="https://www.nisshin.com/?_ccdp.uid=9360be57-5036-4181-b20b-93900efa1ad5&amp;_ccdp.sid=f66c4b08842f6cb667928e59087ad75f"
+               target="_blank" class="h-full pl-4 flex justify-start items-center border-t-[0.1rem] border-gray-200">
+              <span class="text-sm text-black font-medium">日清製粉グループ</span>
+              <svg-vue icon="external" class="w-3 h-3 ml-2 text-gray-600"></svg-vue>
+            </a>
+          </div>
+      </navigation>
+    </div>
   </nav>
 
   <div class="md:sticky md:top-0 md:right-0 z-40 md:w-full">
@@ -196,6 +207,10 @@
       </div>
     </div>
   </section>
+
+  <div id="pagetop" ref="pagetop" class="fixed z-40 right-0 bottom-0 mr-4 mb-6 md:mr-8 md:mb-[4.25rem] w-10 h-10 flex justify-center items-center bg-white border border-crimson transition-all cursor-pointer" @click="scrollTo('#app')">
+    <svg-vue icon="chevron" class="w-3 h-3 mt-1 text-crimson -rotate-90"></svg-vue>
+  </div>
 
   <footer id="footer" ref="footer" class="overflow-x-hidden">
     <div class="bg-white md:py-10">

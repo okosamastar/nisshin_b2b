@@ -6,7 +6,7 @@
           <svg-vue icon="logo_welna" class="w-32 md:w-36 h-12"></svg-vue>
         </a>
       </div>
-      <div v-if="isVisible" class="flex">
+      <div class="flex">
         <aside
           id="menus"
           class="absolute left-0 top-20 md:relative md:flex items-center w-full md:w-auto h-20 text-sm md:px-4 md:-mx-4 shadow-lg md:shadow-none"
@@ -46,7 +46,6 @@ export default {
   data() {
     return {
       isActive: false,
-      isVisible: false,
     }
   },
 
@@ -77,7 +76,10 @@ export default {
   },
 
   mounted() {
-    this.isVisible = true
+    const prerender = document.getElementById('prerender')
+    const jsrender = document.getElementById('jsrender')
+    prerender.classList.add('hidden')
+    jsrender.classList.remove('hidden')
   }
 }
 </script>

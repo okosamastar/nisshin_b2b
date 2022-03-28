@@ -334,6 +334,14 @@
     animation: loader-rotate 1s linear infinite;
 }
 
+#pagetop{
+  @apply opacity-0;
+  &.show {
+    @apply opacity-100
+  }
+}
+
+
 #hero {
   background: linear-gradient(transparent 38%, #FED95B 0%);
   .image-filter, .white-filter {

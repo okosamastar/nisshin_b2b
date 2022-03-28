@@ -104,7 +104,7 @@ new Vue({
 
       const p = scrollElem.scrollTop;
 
-      if(p < 120){
+      if(p < 150){
         mainnav.classList.remove("scrolled");
       } else if (p > this.scrollY) {
         mainnav.classList.add("scrolled")
@@ -115,7 +115,7 @@ new Vue({
       }
 
       if (pagetop) {
-        300 < p ? pagetop.classList.remove("hidden") : pagetop.classList.add("hidden");
+        800 > p ? pagetop.classList.remove("show") : pagetop.classList.add("show");
       }
 
       this.scrollY = p;
