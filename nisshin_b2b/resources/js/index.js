@@ -57,7 +57,8 @@ new Vue({
       imageUrl: null,
       showSideTab: false,
       media: [{}],
-      mediaIndex: null
+      mediaIndex: null,
+      scrollY: 0,
     }
   },
   methods: {
@@ -89,19 +90,37 @@ new Vue({
       }
     },
     handleScroll: function (event) {
-      const btn = document.getElementById('pagetop');
-      const scrollElem = (function(doc) {
-        if ('scrollingElement' in doc) {
+      const mainnav = this.$refs.mainnav;
+      const footer  = document.getElementById("footer");
+      const pagetop = document.getElementById("pagetop");
+      const exhibition = document.getElementById('exhibition')
+
+      const scrollElem = (function (doc) {
+        if ("scrollingElement" in doc) {
           return doc.scrollingElement;
         }
         return doc.documentElement;
       })(document);
+
       const p = scrollElem.scrollTop;
-      if(btn){
-        300 < p ? btn.classList.remove('hidden') : btn.classList.add('hidden')
+
+      if(p < 120){
+        mainnav.classList.remove("scrolled");
+      } else if (p > this.scrollY) {
+        mainnav.classList.add("scrolled")
+      } else {
+        if(!exhibition || inView.is(footer)){
+          mainnav.classList.remove("scrolled")
+        }
       }
 
-      if(this.isMobile){
+      if (pagetop) {
+        300 < p ? pagetop.classList.remove("hidden") : pagetop.classList.add("hidden");
+      }
+
+      this.scrollY = p;
+
+      if(exhibition && this.isMobile){
         inView('#karaage').on('enter', (e)=>e.classList.add('in-view'))
         inView('#hayayude').on('enter', (e)=>e.classList.add('in-view')).on('exit', (e)=>e.classList.remove('in-view'))
         inView('#smilemeal').on('enter', (e)=>e.classList.add('in-view')).on('exit', (e)=>e.classList.remove('in-view'))
@@ -183,18 +202,10 @@ new Vue({
       this.mediaIndex = 0
     },
     showStickyNav: function (){
-      this.$refs.brandnav.classList.add('scrolled')
-      const brandheader = document.getElementById('brandheader')
-      brandheader.classList.add('is-small')
-      document.documentElement.classList.add('scrolled')
+      this.$refs.exhibitnav.classList.add('scrolled')
     },
     hideStickyNav: function () {
-      if(!inView.is(document.querySelector('.l-footer_b2b'))) {
-        this.$refs.brandnav.classList.remove('scrolled')
-        const brandheader = document.getElementById('brandheader')
-        brandheader.classList.remove('is-small')
-        document.documentElement.classList.remove('scrolled')
-      }
+      this.$refs.exhibitnav.classList.remove('scrolled')
     },
     hideIndicator: function (e) {
       e.currentTarget.classList.add('hidden');

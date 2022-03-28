@@ -6,7 +6,7 @@
 {% endblock title %}
 
 {% block content %}
-  <div class="exhibition px-8 sm:px-0">
+  <div id="exhibition" class="exhibition px-8 sm:px-0">
     <div class="container mx-auto">
       <div class="relative z-10 w-full flex justify-between items-start px-2 sm:px-[12%] -mb-4 sm:-mb-6">
         <img src="{% static 'images/spot_01.png' %}" alt="日清製粉ウェルナ 親商品展示会 2022年春" class="w-11 sm:w-[3.8rem]">
@@ -225,7 +225,7 @@
 
   <div class="relative bg-gray-100 md:max-h-[350px]">
     <div id="lineupMenu" class="w-full transform sm:-translate-y-16 md:-translate-y-28">
-      <div class="sm:container mx-auto py-4 md:py-8 px-4 md:px-10 bg-white shadow">
+      <div class="sm:container mx-auto py-4 md:py-8 bg-white shadow">
         <h2 class="slashed w-full text-center pt-8 mb-6 sm:mb-10">
           <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">New products</span>
           <span class="block text-2xl md:text-3xl font-bold leading-snug">新商品ラインアップ</span>
@@ -289,7 +289,7 @@
       </div>
     </div>
 
-    <div ref="brandnav" class="brand-nav fixed left-0 top-0 z-50 w-full bg-white transition duration-500 ease-in shadow-md">
+    <div ref="exhibitnav" class="exhibit-nav fixed left-0 top-0 z-50 w-full bg-white transition duration-500 ease-in shadow-md">
       <div class="relative sm:container mx-auto">
         <div class="absolute left-0 top-0 z-40 p-2 bg-crimson">
           <a href="#app" @click="scrollTo('#app')">

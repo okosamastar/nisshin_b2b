@@ -11,6 +11,13 @@
 
 }
 
+#nav {
+  @apply transition-all transform translate-y-0;
+  &.scrolled {
+    @apply -translate-y-14;
+  }
+}
+
 .nav-link {
   @apply md:w-40 h-14 md:h-full bg-crimson md:bg-white;
   a {
@@ -476,17 +483,10 @@
     background-size: 86px 80px;
 }
 
-.brand-nav {
+.exhibit-nav {
     transform: translate(0, 0);
     &.scrolled {
-        transform: translate(0, 68px);
-    }
-}
-@screen lg {
-    .brand-nav {
-        &.scrolled {
-            transform: translate(0, 81px);
-        }
+        transform: translate(0, 80px);
     }
 }
 

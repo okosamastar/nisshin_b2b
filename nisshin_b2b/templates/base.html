@@ -56,9 +56,9 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMNH6JM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<div id="app" class="relative pt-[8rem]" data-imagepath="{% static 'images/' %}">
+<div id="app" class="relative pt-[8.5rem]" data-imagepath="{% static 'images/' %}">
 
-  <nav id="nav" class="fixed left-0 top-0 z-60 w-full shadow">
+  <nav id="nav" ref="mainnav" class="fixed left-0 top-0 z-60 w-full shadow">
     <div id="brand-nav" class="relative z-30 bg-yellow-50 h-14 flex justify-between items-center border-t-2 border-crimson">
       <a href="https://www.nisshin-seifun-welna.com/index/" class="flex items-center">
         <svg-vue icon="brand" class="w-40 h-8"></svg-vue>
@@ -197,7 +197,7 @@
     </div>
   </section>
 
-  <footer class="overflow-x-hidden">
+  <footer id="footer" ref="footer" class="overflow-x-hidden">
     <div class="bg-white md:py-10">
       <div class="container mx-auto">
         <div class="md:flex -mx-4 sm:-mx-6 md:mx-0">
