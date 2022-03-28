@@ -498,10 +498,9 @@
               {
                   'title': '{{ related.title }}',
                   'category': '{{ related.main_category.title }}',
+                  'staticpath': '{% static 'images/' %}',
                   {% if related.main_photo %}
                   'image': '{{ related.main_photo.photo | thumbnail_url:'square' }}',
-                  {% else %}
-                  'image': '{% static 'images/default_thumbnail.png' %}',
                   {% endif %}
                   'link': '{% url 'products.detail' slug=related.markcode %}',
                   'weight': '{{ related.packing_weigh | default:'---' }}',
