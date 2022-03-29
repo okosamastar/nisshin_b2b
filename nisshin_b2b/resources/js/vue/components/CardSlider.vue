@@ -4,7 +4,7 @@
       <div class="h-full">
         <a :href="product.link" class="h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
           <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
-            <div v-if="product.image" class="py-3 overflow-hidden bg-gray-100">
+            <div v-if="product.image" class="py-3 overflow-hidden bg-white">
               <img :src="product.image" :alt="product.title" class="w-auto h-full mx-auto">
             </div>
             <div v-else class="py-1 overflow-hidden bg-gray-100">
