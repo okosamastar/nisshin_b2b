@@ -2,7 +2,7 @@
   <div class="w-full">
     <div class="md:flex flex-wrap justify-start items-start" :class="{'flex-row-reverse -mx-1' : layout==='row'}">
       <div class="flex-1 overflow-x-hidden md:px-1">
-        <div class="relative border border-solid border-gray-300 aspect-h-1 aspect-y-1">
+        <div class="relative p-3 md:p-6 border border-solid border-gray-300 aspect-h-1 aspect-y-1">
           <Splide ref="splide" :options="options">
             <SplideSlide v-for="(image, index) in images" v-bind:key="image.src">
               <div class="wrap-image">
@@ -23,7 +23,7 @@
             class="flex justify-center items-center cursor-pointer mb-2"
             :class="{'w-1/4 px-1': layout==='col'}"
         >
-          <div class="wrap-image border border-solid border-gray-300">
+          <div class="wrap-image p-1 border border-solid border-gray-300">
             <img :src="image.src" :alt="image.title">
           </div>
         </div>

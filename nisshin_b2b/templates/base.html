@@ -336,6 +336,16 @@
     </div>
   </footer>
 
+  <cool-light-box
+    ref="lightbox"
+    :items="media"
+    :index="mediaIndex"
+    :effect="'fade'"
+    :useZoomBar="true"
+    @close="mediaIndex = null"
+  >
+  </cool-light-box>
+
 </div>
 
 {% block modal %}{% endblock modal %}

@@ -189,6 +189,7 @@ new Vue({
       })
     },
     openLightBox: function (index, mediaArray) {
+      console.log('called light box ', index)
       this.media = mediaArray
       this.mediaIndex = index
     },
