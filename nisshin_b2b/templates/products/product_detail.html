@@ -362,24 +362,25 @@
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
                       <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
-                        <span class="block border-l-4 border-solid border-crimson px-2">サイズ幅（W)</span>
+                        <span class="block border-l-4 border-solid border-crimson px-2">タテ</span>
+                      </dt>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_height | default:'---' }}</dd>
+                    </dl>
+
+                    <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                        <span class="block border-l-4 border-solid border-crimson px-2">ヨコ</span>
                       </dt>
                       <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_width | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
                       <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
-                        <span class="block border-l-4 border-solid border-crimson px-2">サイズ奥行（D)</span>
+                        <span class="block border-l-4 border-solid border-crimson px-2">奥行/厚み</span>
                       </dt>
                       <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_depth | default:'---' }}</dd>
                     </dl>
 
-                    <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
-                        <span class="block border-l-4 border-solid border-crimson px-2">サイズ高さ（H)</span>
-                      </dt>
-                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.packing_height | default:'---' }}</dd>
-                    </dl>
                   </div>
 
                 </div>
@@ -402,24 +403,25 @@
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
                       <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
-                        <span class="block border-l-4 border-solid border-crimson px-2">サイズ幅（W)</span>
+                        <span class="block border-l-4 border-solid border-crimson px-2">タテ</span>
+                      </dt>
+                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_height | default:'---' }}</dd>
+                    </dl>
+
+                    <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
+                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
+                        <span class="block border-l-4 border-solid border-crimson px-2">ヨコ</span>
                       </dt>
                       <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_width | default:'---' }}</dd>
                     </dl>
 
                     <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
                       <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
-                        <span class="block border-l-4 border-solid border-crimson px-2">サイズ奥行（D)</span>
+                        <span class="block border-l-4 border-solid border-crimson px-2">奥行/厚み</span>
                       </dt>
                       <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_depth | default:'---' }}</dd>
                     </dl>
 
-                    <dl class="mt-1 flex flex-wrap justify-start items-start pb-0.5 border-b border-gray-200">
-                      <dt class="w-6/12 lg:w-5/12 py-1 px-1 mb-1 text-xs font-bold bg-white">
-                        <span class="block border-l-4 border-solid border-crimson px-2">サイズ高さ（H)</span>
-                      </dt>
-                      <dd class="w-6/12 lg:w-7/12 py-1 pl-3 mb-1 text-xs">{{ product.carton_height | default:'---' }}</dd>
-                    </dl>
                   </div>
 
                 </div>
