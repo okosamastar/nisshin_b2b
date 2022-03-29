@@ -15,6 +15,7 @@ class CategoriesView(ListView):
 
 class ProductsView(ListView):
     model = Product
+    allow_empty = False
 
     def get_queryset(self):
         cat = self.kwargs["cat"]
@@ -74,6 +75,7 @@ class ProductsView(ListView):
 
 class ProductDetail(DetailView):
     model = Product
+    allow_empty = False
 
     def get_context_data(self, **kwargs):
         context = super(ProductDetail, self).get_context_data(**kwargs)
