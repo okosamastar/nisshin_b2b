@@ -168,6 +168,9 @@ module.exports = {
           '900': '#2F3A12'
         },
       },
+      scale: {
+        flip: '-1',
+      },
       width: {
         '13': '3.25rem',
         '18': '4.5rem',

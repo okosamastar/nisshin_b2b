@@ -341,6 +341,21 @@
   }
 }
 
+.tags {
+  @apply relative;
+  &:before, &:after {
+    @apply w-5 h-5;
+    background: transparent url("../images/photo_corner.png") top left no-repeat;
+    background-size: cover;
+    content: '';
+  }
+  &:before {
+    @apply absolute left-0 top-0 -ml-0.5 -mt-0.5;
+  }
+  &:after {
+    @apply absolute right-0 bottom-0 -mr-0.5 -mb-0.5 -rotate-180;
+  }
+}
 
 #hero {
   background: linear-gradient(transparent 38%, #FED95B 0%);
