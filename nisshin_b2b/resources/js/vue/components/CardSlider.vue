@@ -51,7 +51,7 @@ export default {
     return {
       imagePath: this.$imagePath,
       options: {
-        type: 'loop',
+        type: 'slide',
         perPage: 4,
         perMove: 1,
         gap: '0.8rem',
