@@ -1,3 +1,4 @@
+from braces.views import PrefetchRelatedMixin
 from django.db.models import Count
 from django.views.generic import DetailView, ListView
 
@@ -13,20 +14,21 @@ class CategoriesView(ListView):
         return Category.objects.filter(parent_id__isnull=True)
 
 
-class ProductsView(ListView):
+class ProductsView(PrefetchRelatedMixin, ListView):
     model = Product
     allow_empty = False
+    prefetch_related = ["category", "photos"]
 
     def get_queryset(self):
         cat = self.kwargs["cat"]
-        list = Product.objects.filter(category__slug=cat)
+        queryset = Product.objects.filter(category__slug=cat, is_published=True)
         if "child" in self.kwargs:
             child = self.kwargs["child"]
-            list = list.filter(category__slug=child)
+            queryset = queryset.filter(category__slug=child)
         if "tag" in self.kwargs:
             tag = self.kwargs["tag"]
-            list = list.filter(tag__slug=tag)
-        return list
+            queryset = queryset.filter(tag__slug=tag)
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super(ProductsView, self).get_context_data(**kwargs)
@@ -73,9 +75,13 @@ class ProductsView(ListView):
         return context
 
 
-class ProductDetail(DetailView):
+class ProductDetail(PrefetchRelatedMixin, DetailView):
     model = Product
     allow_empty = False
+    prefetch_related = ["category", "industry", "facility", "photos", "related"]
+
+    def get_queryset(self):
+        return self.model.objects.filter(is_published=True)
 
     def get_context_data(self, **kwargs):
         context = super(ProductDetail, self).get_context_data(**kwargs)
@@ -85,5 +91,6 @@ class ProductDetail(DetailView):
         context["facility_list"] = Facility.objects.all()
         context["industry_list"] = Industry.objects.all()
         context["category_list"] = Category.objects.filter(parent_id__isnull=True)
+        context["related_items"] = products.related.filter(is_published=True)
 
         return context

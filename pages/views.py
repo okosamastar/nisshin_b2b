@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.defaults import page_not_found
 from django.views.generic import ListView, TemplateView
 
 from products.models import Category
@@ -27,3 +28,7 @@ class micstoreView(TemplateView):
 
 def spring_2022(request):
     return render(request, "pages/spring_2022.html")
+
+
+def custom_page_not_found(request):
+    return page_not_found(request, None)

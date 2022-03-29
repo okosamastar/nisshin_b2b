@@ -494,7 +494,7 @@
         </h2>
         <div class="-mx-4 sm:mx-0">
           <card-slider :products="[
-            {% for related in product.related.all %}
+            {% for related in related_items %}
               {
                   'title': '{{ related.title }}',
                   'category': '{{ related.main_category.title }}',
