@@ -331,3 +331,4 @@ nisshin_b2b/media/
 .env
 .envs/*
 !.envs/.local/
+sql.txt
