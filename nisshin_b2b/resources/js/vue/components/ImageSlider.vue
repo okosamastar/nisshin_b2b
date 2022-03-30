@@ -34,7 +34,7 @@ export default {
         arrows: false,
         pagination: false,
         autoScroll: {
-          speed: 2,
+          speed: 1.25,
         },
         breakpoints: {
           543: {

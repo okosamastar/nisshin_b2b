@@ -2,7 +2,7 @@
   <div class="relative h-20 overflow-visible">
     <div id="site-nav" class="relative z-20 w-full bg-white md:flex justify-between items-center">
       <div class="relative z-10 w-full md:w-auto h-20 px-4 md:px-6 flex items-center bg-white">
-        <a href="https://www.nisshin-seifun-welna.com/index/">
+        <a href="https://www.nisshin-seifun-welna.com/index/" target="_blank">
           <svg-vue icon="logo_welna" class="w-32 md:w-36 h-12"></svg-vue>
         </a>
       </div>

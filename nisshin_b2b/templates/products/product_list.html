@@ -19,6 +19,7 @@
             <div class="text-center">
               <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">{{ current_category.title_en }}</span>
               <span class="block text-2xl md:text-3xl font-bold leading-snug">{{ current_category.title }}</span>
+              <span class="block text-sm sm:text-base">{{ current_category.subtitle }}</span>
             </div>
           </h2>
 
@@ -113,7 +114,7 @@
                 </div>
                 <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
                   <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
-                  <span class="mt-2 text-sm md:text-base">{{ product.title }}</span>
+                  <span class="mt-2 text-sm md:text-base">{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}</span>
                 </h4>
                 <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
                   <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
