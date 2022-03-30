@@ -345,8 +345,8 @@
                 </div>
               </div>
 
-              <div class="w-full sm:w-1/2 px-2 mt-4">
-                <div class="h-full p-4 bg-gray-100">
+              <div class="w-full sm:w-1/2 px-2 mt-4 flex flex-col">
+                <div class="flex-none p-4 bg-gray-100">
                   <h3 class="w-full text-crimson font-bold">梱包<span class="text-xs font-normal">（個装）</span></h3>
 
                   <div class="pt-3">
@@ -382,14 +382,35 @@
                     </dl>
 
                   </div>
-
                 </div>
+
+                <div class="flex-1 border border-dashed py-3 px-4 mt-4">
+                  <h4 class="text-crimson"><span class="font-bold">個包装サイズについて</span> <span class="text-xs">（単位：mm）</span></h4>
+                  <div class="flex items-center mt-4">
+                    <div class="w-7/12 text-sm pr-3">
+                      <h5 class="px-2 py-1 font-bold bg-gray-100">段ボールサイズ</h5>
+                      <p class="mt-2">長側面を正面にして、タテ×ヨコ×奥行の表示</p>
+                    </div>
+                    <div class="w-6/12">
+                      <img src="{% static 'images/size_cardboard.png' %}" alt="段ボールサイズ">
+                    </div>
+                  </div>
+                  <div class="flex items-center mt-4">
+                    <div class="w-7/12 text-sm pr-3">
+                      <h5 class="px-2 py-1 font-bold bg-gray-100">クラフト袋サイズ</h5>
+                      <p class="mt-2">正面から見て、タテ×ヨコ×奥行の表示</p>
+                    </div>
+                    <div class="w-6/12 px-8">
+                      <img src="{% static 'images/size_pack.png' %}" alt="クラフト袋サイズ">
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
-              <div class="w-full sm:w-1/2 px-2 mt-4">
-                <div class="h-full p-4 bg-gray-100">
+              <div class="w-full sm:w-1/2 px-2 mt-4 flex flex-col">
+                <div class="flex-none p-4 bg-gray-100">
                   <h3 class="w-full text-crimson font-bold">梱包<span class="text-xs font-normal">（外装）</span></h3>
-
                   <div class="pt-3">
 
                     {% if false %}
@@ -423,9 +444,32 @@
                     </dl>
 
                   </div>
-
                 </div>
+
+                <div class="flex-1 border border-dashed py-3 px-4 mt-4">
+                  <h4 class="text-crimson"><span class="font-bold">外装サイズについて</span> <span class="text-xs">（単位：mm）</span></h4>
+                  <div class="flex items-center mt-4">
+                    <div class="w-7/12 text-sm pr-3">
+                      <h5 class="px-2 py-1 font-bold bg-gray-100">袋もの、箱もの</h5>
+                      <p class="mt-2">パッケージ表を正面にして、タテ×ヨコ×奥行（厚み）の表示</p>
+                    </div>
+                    <div class="w-6/12">
+                      <img src="{% static 'images/size_box.png' %}" alt="袋もの、箱もの">
+                    </div>
+                  </div>
+                  <div class="flex items-center mt-4">
+                    <div class="w-7/12 text-sm pr-3">
+                      <h5 class="px-2 py-1 font-bold bg-gray-100">缶もの</h5>
+                      <p class="mt-2">直径×高さの表示</p>
+                    </div>
+                    <div class="w-6/12 px-8">
+                      <img src="{% static 'images/size_can.png' %}" alt="缶もの">
+                    </div>
+                  </div>
+                </div>
+
               </div>
+
             </div>
           </div>
 
