@@ -77,7 +77,7 @@
     <div class="sm:py-16">
       <div class="parallax-section hidden sm:block">
         <div class="parallax-child-section">
-          <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/bg_stores.jpg' %});"></section>
+          <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/bg_kitchen.jpg' %});"></section>
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@
       <div class="container">
         <div class="relative z-20 flex justify-center md:justify-between items-center">
           <div class="hidden sm:block w-1/2">
-            <div class="">
+            <div class="hidden">
               <img src="{% static 'images/img_cart.png' %}" alt="販売サイトのご案内" class="w-9/12 mx-auto">
             </div>
           </div>
@@ -95,7 +95,7 @@
                 <span class="block my-2 text-blue text-xs font-bold font-en uppercase tracking-wide leading-none">E-COMMERCE WEBSITES</span>
                 <span class="block text-xl sm:text-2xl md:text-3xl text-blue font-bold leading-none">販売サイトのご案内</span>
               </h3>
-              <p class="py-6 text-sm leading-relaxed sm:leading-loose md:text-center">弊社業務用商品をお買い求めの場合は、リンク先の弊社お取引先様ECサイトでもご購入いただけます。</p>
+              <p class="py-6 text-sm leading-relaxed sm:leading-loose md:text-center">弊社業務用商品をお買い求めの場合は、<br class="hidden sm:block">リンク先の弊社お取引先様ECサイトでもご購入いただけます。</p>
               <a href="{% url 'stores' %}" class="w-full md:w-8/12 mx-auto button py-4 bg-blue text-base hover:bg-blue-400">詳しくはこちら</a>
             </div>
             <div class="absolute z-10 left-0 top-0 w-full flex justify-center mt-[-2.25rem]">

@@ -500,6 +500,32 @@
         }
     }
 }
+@screen sm {
+  .exhibition {
+    > .container {
+      &:before {
+        margin-left: -53px;
+      }
+
+      &:after {
+        margin-right: -53px;
+      }
+    }
+  }
+}
+@screen lg {
+  .exhibition {
+    > .container {
+      &:before {
+        margin-left: -30px;
+      }
+
+      &:after {
+        margin-right: -30px;
+      }
+    }
+  }
+}
 
 .brand {
     background: transparent url("../images/bg_corner.png") left top no-repeat;

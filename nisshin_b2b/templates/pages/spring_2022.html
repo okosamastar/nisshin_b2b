@@ -22,7 +22,7 @@
 
 {% block content %}
   <div id="exhibition" class="exhibition px-8 sm:px-0">
-    <div class="container mx-auto px-0">
+    <div class="container mx-auto px-0 sm:px-6 lg:px-12">
       <div class="relative z-10 w-full flex justify-between items-start px-2 sm:px-[12%] -mb-4 sm:-mb-6">
         <img src="{% static 'images/spot_01.png' %}" alt="日清製粉ウェルナ 親商品展示会 2022年春" class="w-11 sm:w-[3.8rem]">
         <img src="{% static 'images/spot_02.png' %}" alt="日清製粉ウェルナ 親商品展示会 2022年春" class="w-8 sm:w-12">
@@ -98,7 +98,7 @@
               <div class="flex flex-wrap md:flex-col bg-black">
                 <div class="w-full sm:w-7/12 md:w-full sm:pl-6 sm:pt-4 md:p-0 mx-auto">
                   <img src="{% static 'images/hero_karaage.jpg' %}" alt="The Karaage から揚げ粉" class="w-full mx-auto">
-                  <div class="w-full px-4 mt-3 sm:pt-0 md:pt-2">
+                  <div class="sm:hidden md:block w-full px-4 mt-3 sm:pt-0 md:pt-2">
                     <a href="#karaage" @click="scrollTo('#karaage')">
                       <a href="#karaage" class="w-full button bg-orange hover:bg-orange-400 text-xl sm:text-base">詳しくはこちら</a>
                     </a>
@@ -128,7 +128,13 @@
                       <img src="{% static 'images/image_karaage04.jpg' %}" alt="">
                     </a>
                   </div>
+                  <div class="pt-2 hidden sm:block md:hidden">
+                    <a href="#karaage" @click="scrollTo('#karaage')">
+                      <a href="#karaage" class="w-full button bg-orange hover:bg-orange-400 text-xl sm:text-base">詳しくはこちら</a>
+                    </a>
+                  </div>
                 </div>
+
               </div>
             </div>
             <div class="flex-1 px-2">
@@ -374,7 +380,7 @@
     <div id="karaage" class="parallax-sp">
       <div class="parallax-pc karaage"></div>
       <div class="bg-white pt-0.5 pb-14 md:pb-24">
-        <div class="container mx-auto px-0">
+        <div class="container mx-auto px-0 sm:px-6 md:px-12">
           <div class="bg-black text-white -mt-36 sm:-mx-10">
             <div class="flex flex-wrap justify-start items-center p-4 sm:p-10">
               <div class="w-full sm:w-5/12">
@@ -1042,7 +1048,7 @@
     <div id="hayayude" class="parallax-sp">
       <div class="parallax-pc hayayude"></div>
       <div class="bg-white pt-0.5 pb-14 md:pb-24">
-        <div class="container mx-auto px-0">
+        <div class="container mx-auto px-0 sm:px-6 md:px-12">
           <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
             <div class="sm:flex">
               <div class="flex-none w-full sm:w-[190px] md:w-[280px] sm:bg-crimson flex justify-center items-center">
@@ -1266,7 +1272,7 @@
     <div id="smilemeal" class="parallax-sp">
       <div class="parallax-pc smilemeal"></div>
       <div class="bg-white pt-0.5 pb-14 md:pb-24">
-        <div class="container mx-auto px-0">
+        <div class="container mx-auto px-0 sm:px-6 md:px-12">
           <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
             <div class="sm:flex">
               <div class="flex-none w-full sm:w-[190px] md:w-[260px] sm:bg-crimson flex justify-center items-center">
@@ -1585,7 +1591,7 @@
     <div id="iqf" class="parallax-sp">
       <div class="parallax-pc iqf"></div>
       <div class="bg-white pt-0.5 pb-14 md:pb-24">
-        <div class="container mx-auto px-0">
+        <div class="container mx-auto px-0 sm:px-6 md:px-12">
           <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
             <div class="sm:flex">
               <div class="flex-none w-full sm:w-[190px] md:w-[280px] sm:bg-crimson flex justify-center items-center">
@@ -2047,7 +2053,7 @@
     <div id="souzai" class="parallax-sp">
       <div class="parallax-pc souzai"></div>
       <div class="bg-white pt-0.5 pb-14 md:pb-24">
-        <div class="container mx-auto px-0">
+        <div class="container mx-auto px-0 sm:px-6 md:px-12">
           <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
             <div class="sm:flex">
               <div class="flex-none w-full sm:w-[190px] md:w-[280px] sm:bg-crimson flex justify-center items-center">
@@ -2232,7 +2238,7 @@
     <div id="tenpurako" class="parallax-sp">
       <div class="parallax-pc tenpurako"></div>
       <div class="bg-white pt-0.5 md:pb-6">
-        <div class="container mx-auto px-0">
+        <div class="container mx-auto px-0 sm:px-6 md:px-12">
           <div class="bg-white -mt-36 p-4 sm:p-10 pb-0 sm:-mx-10 shadow-top">
             <div class="striped green py-4 flex justify-center items-center">
               <div class="w-8/12 sm:w-3/12">
@@ -2242,7 +2248,7 @@
             <div class="sm:-mt-10 sm:flex items-end">
               <div class="sm:flex flex-row-reverse items-end">
                 <div class="flex justify-center items-center">
-                  <div class="py-6 sm:py-0 px-8 sm:px-8 md:px-16 lg:px-32">
+                  <div class="py-6 sm:py-0 px-8 sm:px-8 md:px-16">
                     <img src="{% static 'images/features/hero_tenpurako_03.png' %}" alt="天ぷら粉 パックに入れてもかるサク衣">
                   </div>
                 </div>
@@ -2444,3 +2450,5 @@
     </div>
   </div>
 {% endblock content %}
+
+{% block scrolltotop %}{% endblock scrolltotop %}
