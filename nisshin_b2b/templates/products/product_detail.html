@@ -19,7 +19,12 @@
 
           <div class="sm:flex justify-between items-start sm:-mx-3 lg:-mx-4">
             <div class="sm:w-[280px] lg:w-[360px] sm:px-3 lg:px-4">
-              <detail-slider :newmark="{{ product.is_new|lower }}" layout="col" :handle-modal="openLightBox" :images="[
+              <detail-slider
+                layout="col"
+                :newmark="{{ product.is_new|lower }}"
+                :handle-modal="openLightBox"
+                :add-padding=true
+                :images="[
                 {% if product.photos.all|length > 0 %}
                   {% for photo in product.photos.all %}
                     {
