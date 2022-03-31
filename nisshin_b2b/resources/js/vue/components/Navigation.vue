@@ -1,7 +1,7 @@
 <template>
-  <div class="relative h-20 overflow-visible">
+  <div class="relative h-21 overflow-visible">
     <div id="site-nav" class="relative z-20 w-full bg-white md:flex justify-between items-center">
-      <div class="relative z-10 w-full md:w-auto h-20 px-4 md:px-6 flex items-center bg-white">
+      <div class="relative z-10 w-full md:w-auto h-21 px-4 md:px-6 flex items-center bg-white">
         <a href="https://www.nisshin-seifun-welna.com/index/" target="_blank">
           <svg-vue icon="logo_welna" class="w-32 md:w-36 h-12"></svg-vue>
         </a>
@@ -9,14 +9,14 @@
       <div class="flex">
         <aside
           id="menus"
-          class="absolute left-0 top-20 md:relative md:flex items-center w-full md:w-auto h-20 text-sm md:px-4 md:-mx-4 shadow-lg md:shadow-none"
+          class="absolute left-0 top-20 md:relative md:flex items-center w-full md:w-auto h-21 text-sm md:px-4 md:-mx-4 shadow-lg md:shadow-none"
           :class="{'is_active': isActive}"
         >
           <slot></slot>
         </aside>
         <div
           ref="humberger"
-          class="md:hidden absolute right-0 top-0 z-30 md:relative md:w-22 h-20 md:h-full md:border-l border-crimson flex justify-center items-center cursor-pointer"
+          class="md:hidden absolute right-0 top-0 z-30 md:relative md:w-22 h-21 md:h-full md:border-l border-crimson flex justify-center items-center cursor-pointer"
           @click="toggle"
         >
           <div class="flex flex-col justify-between items-end w-14 h-14 p-4">
