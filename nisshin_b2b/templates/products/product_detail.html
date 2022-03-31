@@ -2,6 +2,8 @@
 {% load static %}
 {% load thumbnail %}
 
+{% block title %}{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}｜商品情報｜日清製粉ウェルナ業務用{% endblock title %}
+
 {% block content %}
   <section class="">
     <div class="parallax-section">
