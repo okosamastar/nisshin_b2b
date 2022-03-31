@@ -44,6 +44,8 @@
   } catch (e) {
   }</script>
 
+  <script type="text/javascript" src="//nexus.ensighten.com/uw-nisshin/welna/Bootstrap.js"></script>
+
   <link rel="preconnect" href="https://fonts.gstatic.com/"/>
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin/>
   {% block css %}
@@ -147,6 +149,7 @@
   {% block content %}
   {% endblock content %}
 
+  {% block catalog %}
   <section class="bg-white py-8 my-8 md:my-0 overflow-x-hidden">
     <div class="relative -mx-2">
       <image-slider :images="[
@@ -192,7 +195,9 @@
       </div>
     </div>
   </section>
+  {% endblock catalog %}
 
+  {% block contact %}
   <section class="bg-crimson py-8 md:py-16 px-6">
     <div class="container mx-auto px-0">
       <h2 class="flex justify-center items-center">
@@ -210,6 +215,7 @@
       </div>
     </div>
   </section>
+  {% endblock contact %}
 
   {% block scrolltotop %}
   <div id="pagetop" ref="pagetop" class="fixed z-40 right-0 bottom-0 mr-4 mb-6 md:mr-8 md:mb-[4.25rem] w-10 h-10 flex justify-center items-center bg-white border border-crimson transition-all cursor-pointer" @click="scrollTo('#app')">
