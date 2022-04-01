@@ -16,6 +16,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path("", RedirectView.as_view(url="/b2b/")),
+    path("healthcheck/", RedirectView.as_view(url="/b2b/")),
     re_path(r"^b2b/", include("pages.urls")),
     re_path(r"^b2b/products/", include("products.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
