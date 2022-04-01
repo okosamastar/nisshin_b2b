@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block meta %}
+<meta name="robots" content="noindex">
+{% endblock meta %}
+
 {% block title %}Page not found{% endblock %}
 
 {% block sidenav %}{% endblock sidenav %}
 
 {% block content %}
   <div class="border-b border-gray-200">
-    <div class="container mx-auto pt-6 md:py-16">
+    <div class="container mx-auto pt-6 pb-14 md:py-16">
       <h1 class="w-full pt-10 flex justify-center items-center">
         <div class="text-center">
           <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">Page Not Found</span>

@@ -26,9 +26,13 @@ class micstoreView(TemplateView):
     template_name = "pages/micstore.html"
 
 
+def custom_page_not_found(request):
+    return page_not_found(request, None)
+
+
 def spring_2022(request):
     return render(request, "pages/spring_2022.html")
 
 
-def custom_page_not_found(request):
-    return page_not_found(request, None)
+def health_check(request):
+    return render(request, "pages/healthcheck.html")
