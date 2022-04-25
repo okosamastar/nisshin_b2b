@@ -21,6 +21,7 @@ import DetailInfo from './vue/components/DetailInfo.vue'
 import CardSlider from './vue/components/CardSlider.vue'
 import ImageSlider from './vue/components/ImageSlider.vue'
 import VideoPlayer from "./vue/components/VideoPlayer.vue";
+import CtaSample from "./vue/components/CtaSample.vue";
 
 Vue.use(VueScrollTo);
 Vue.use(VueYouTubeEmbed)
@@ -48,6 +49,7 @@ new Vue({
     ImageSlider,
     CoolLightBox,
     VideoPlayer,
+    CtaSample,
   },
   data() {
     return {
@@ -59,6 +61,8 @@ new Vue({
       media: [{}],
       mediaIndex: null,
       scrollY: 0,
+      showModalOnLoad: true,
+      showStickyMessage: false,
     }
   },
   methods: {
@@ -210,8 +214,12 @@ new Vue({
     },
     hideIndicator: function (e) {
       e.currentTarget.classList.add('hidden');
+    },
+    hideModal: function(e) {
+      this.showModalOnLoad = false
+      this.showStickyMessage = true
     }
-  },
+   },
   beforeCreate() {
     const mountEl = document.querySelector("#app");
     const dataSet = { ...mountEl.dataset }
