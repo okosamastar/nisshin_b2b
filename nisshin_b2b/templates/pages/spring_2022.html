@@ -2182,8 +2182,20 @@
 {% endblock content %}
 
 {% block modal %}
+  <div v-if="showStickyMessage" id="stickyMessage" ref="stickyMessage" class="fixed left-0 top-0 z-50 inset-0 overflow-y-auto">
+    <div class="w-full min-h-screen flex justify-center items-end sm:items-start">
+      <div class="bg-white sm:bg-opacity-90 flex justify-between items-center mb-[48px] sm:mb-0 sm:mt-[153px] p-2 sm:rounded">
+        <div class="mx-auto flex-shrink-0 flex items-center justify-center">
+          <svg-vue icon="info" class="w-4 h-4 text-crimson"></svg-vue>
+        </div>
+        <div class="ml-2 text-xs tracking-tight">
+          <p>2022年春新商品展示会は2022年4月25日(月)をもちまして終了しました。</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div v-if="showModalOnLoad" class="fixed z-50 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <div class="flex justify-center items-center min-h-screen pt-[140px] px-4 text-center sm:block">
       <!--
         Background overlay, show/hide based on modal state.
 
@@ -2194,7 +2206,7 @@
           From: "opacity-100"
           To: "opacity-0"
       -->
-      <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity" aria-hidden="true"></div>
+      <div class="fixed inset-0 bg-black bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
       <!-- This element is to trick the browser into centering the modal contents. -->
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
@@ -2209,7 +2221,7 @@
           From: "opacity-100 translate-y-0 sm:scale-100"
           To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
       -->
-      <div class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+      <div class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:-translate-y-1/2">
         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div class="sm:flex sm:items-start">
             <div class="mx-auto flex-shrink-0 flex items-center justify-center">

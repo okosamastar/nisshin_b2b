@@ -62,6 +62,7 @@ new Vue({
       mediaIndex: null,
       scrollY: 0,
       showModalOnLoad: true,
+      showStickyMessage: false,
     }
   },
   methods: {
@@ -216,6 +217,7 @@ new Vue({
     },
     hideModal: function(e) {
       this.showModalOnLoad = false
+      this.showStickyMessage = true
     }
    },
   beforeCreate() {
