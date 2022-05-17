@@ -40,14 +40,14 @@ class ProductsView(PrefetchRelatedMixin, ListView):
 
         context["current_category"] = current_category
         context["subcategories"] = (
-            current_category.child.all()
+            current_category.child.filter(product__is_published=True)
             .annotate(Count("product"))
             .order_by("the_order")
         )
         context["category_list"] = Category.objects.filter(parent_id__isnull=True)
 
         product_in_category = Product.objects.filter(
-            category__slug=current_category.slug
+            category__slug=current_category.slug, is_published=True
         )
         context["all_count"] = product_in_category.count()
 
