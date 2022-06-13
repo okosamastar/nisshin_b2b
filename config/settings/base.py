@@ -79,6 +79,7 @@ THIRD_PARTY_APPS = [
     "easy_thumbnails",
     "django_filters",
     "adminsortable",
+    "import_export",
 ]
 
 LOCAL_APPS = [
