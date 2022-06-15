@@ -11,5 +11,6 @@ urlpatterns = [
     path("archives/", RedirectView.as_view(url="/b2b/archives/spring_2022/")),
     path("archives/spring_2022/", views.spring_2022, name="spring_2022"),
     path("healthcheck/", views.health_check),
+    path("nswc/", views.welna_club),
     path("404/", views.custom_page_not_found),
 ]
