@@ -36,3 +36,7 @@ def spring_2022(request):
 
 def health_check(request):
     return render(request, "pages/healthcheck.html")
+
+
+def welna_club(request):
+    return render(request, "pages/nswc.html")
