@@ -1,31 +1,32 @@
 from adminsortable.admin import SortableAdmin
 from django.contrib import admin
+from import_export.admin import ExportActionMixin
 
 from .models import Brand, Category, Facility, Industry, Photo, Product, Series, Tag
 
 
 # Register your models here.
-class CategoryAdmin(SortableAdmin):
+class CategoryAdmin(ExportActionMixin, SortableAdmin):
     pass
 
 
-class TagAdmin(SortableAdmin):
+class TagAdmin(ExportActionMixin, SortableAdmin):
     pass
 
 
-class IndustryAdmin(SortableAdmin):
+class IndustryAdmin(ExportActionMixin, SortableAdmin):
     pass
 
 
-class FacilityAdmin(SortableAdmin):
+class FacilityAdmin(ExportActionMixin, SortableAdmin):
     pass
 
 
-class BrandAdmin(SortableAdmin):
+class BrandAdmin(ExportActionMixin, SortableAdmin):
     pass
 
 
-class SeriesAdmin(SortableAdmin):
+class SeriesAdmin(ExportActionMixin, SortableAdmin):
     pass
 
 
@@ -33,7 +34,7 @@ class PhotoInline(admin.StackedInline):
     model = Photo
 
 
-class ProductAdmin(SortableAdmin):
+class ProductAdmin(ExportActionMixin, SortableAdmin):
     inlines = [PhotoInline]
     prepopulated_fields = {"slug": ("markcode",)}
 
