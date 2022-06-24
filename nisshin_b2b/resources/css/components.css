@@ -8,8 +8,20 @@
             @apply leading-8 border-crimson text-crimson hover:bg-crimson hover:text-white;
         }
     }
+
+    &:hover {
+      svg {
+        @apply text-white;
+      }
+    }
+
     &.disabled {
       @apply bg-gray-600 text-gray-800 cursor-not-allowed hover:bg-gray-600;
+      &:hover {
+        svg {
+          @apply text-gray-800;
+        }
+      }
     }
 }
 
