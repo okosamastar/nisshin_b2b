@@ -20,6 +20,7 @@ urlpatterns = [
     path("", RedirectView.as_view(url="/b2b/")),
     re_path(r"^b2b/", include("pages.urls")),
     re_path(r"^b2b/products/", include("products.urls")),
+    re_path(r"^b2b/brands/", include("brands.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS

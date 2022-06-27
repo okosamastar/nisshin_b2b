@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}販売サイトのご案内｜日清製粉ウェルナ業務用{% endblock title %}
+{% block description %}日清製粉ウェルナの業務用商品をお買い求めの際の、弊社お取引先様ECサイトをご案内しております。{% endblock description %}
+
+{% block content %}
+  <section class="">
+    <div class="parallax-section">
+      <div class="parallax-child-section">
+        <div class="bg-gray-to-transparent relative z-10 h-full">
+          <div class="container mx-auto h-full flex items-center">
+            <h1 class="flex flex-col items-start">
+              <span class="inline-block p-2 bg-crimson text-2xl sm:text-3xl md:text-4xl text-white font-bold font-en uppercase leading-none tracking-wider">E-commerce</span>
+              <span class="inline-block p-2 mt-2 bg-crimson text-2xl sm:text-3xl md:text-4xl text-white font-bold font-en uppercase leading-none tracking-wider">Websites</span>
+              <span class="block mt-4 text-lg md:text-xl font-bold leading-snug tracking-wider">販売サイト<br>のご案内</span>
+            </h1>
+          </div>
+        </div>
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/bg_kitchen.jpg' %});"></section>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <div class="container mx-auto">
+      <div class="flex">
+        <div class="w-1/2">
+          <img src="{% static 'images/brands/iqf/image-about_01.png' %}" class="w-full h-auto" alt="Smile Meal スマイルミール とは">
+        </div>
+        <div class="w-1/2">
+          <h2 class="text-2.5xl font-bold text-crimson text-right tracking-tight">「IQFバラ凍結パスタ」シリーズの特徴</h2>
+          <p class="mt-10 leading-loose pl-12">
+            通常、乾麺の場合１０分以上かかるショートパスタの茹で時間を約３０秒に短縮でき、時短調理に貢献する製品です。下ゆでが不要のため、仕込みの簡便化、調理の効率化が図れます。また、バラ凍結のため、メニューに合わせてお好みの量をロスなく使用できます。<br><br>
+            当社独自技術の配合で時間が経っても食感が長持ちするため、テイクアウトやデリバリーにも最適です。押し出し製法でコシの強さと肉厚でしっかりした食感を実現しました。
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <div class="w-1/2">
+          <div class="flex items-center my-6">
+            <div class="w-28 h-28 bg-crimson text-white font-bold flex justify-center items-center text-3xl leading-tight tracking-[3px]">
+              時短<br>料理
+            </div>
+            <div class="ml-6 text-2xl font-bold tracking-wide">
+              ゆで時間<span class="marked text-crimson mx-0.5">約30秒</span>で<br>
+              ショートパスタを提供
+            </div>
+          </div>
+          <div class="flex items-center my-6">
+            <div class="w-28 h-28 bg-crimson text-white font-bold flex justify-center items-center text-3xl leading-tight tracking-[3px]">
+              時短<br>料理
+            </div>
+            <div class="ml-6 text-2xl font-bold tracking-wide">
+              ゆで時間<span class="marked text-crimson mx-0.5">約30秒</span>で<br>
+              ショートパスタを提供
+            </div>
+          </div>
+          <div class="flex items-center my-6">
+            <div class="w-28 h-28 bg-crimson text-white font-bold flex justify-center items-center text-3xl leading-tight tracking-[3px]">
+              時短<br>料理
+            </div>
+            <div class="ml-6 text-2xl font-bold tracking-wide">
+              ゆで時間<span class="marked text-crimson mx-0.5">約30秒</span>で<br>
+              ショートパスタを提供
+            </div>
+          </div>
+        </div>
+        <div class="w-1/2">
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mt-10">
+    <div class="container mx-auto">
+      <div class="flex items-center -mx-6">
+        <div class="w-1/2 px-6">
+          <h2 class="text-3xl font-bold border-l-8 border-crimson pl-3">やさしい味わい ナポリタン</h2>
+          <p class="mt-6 leading-relaxed">
+            麺の長さを半分にし、やわらかめの食感にすることで、高齢の方も食べやすいように工夫したナポリタンです。また、ソースは塩味控えめでもおいしく、食物繊維入りの設計です。お好みの具材によりアレンジが可能で、付け合わせにも使用可能です。<br><br>
+            トマトケチャップ・トマトペーストをベースにソテーオニオン・ニンニクの風味を生かし、やさしいながらも濃厚な味わいです。
+          </p>
+          <div class="py-8 my-6 bg-gray-100 flex justify-center">
+            <img src="{% static 'images/brands/iqf/figure-napolitan.png' %}" alt="やさしい味わい ナポリタン" class="max-w-[400px]">
+          </div>
+          <ul class="list-caution text-xs">
+            <li>６５歳以上が１日に推奨されている食物繊維量は２１ｇ/日とされております。（厚生労働省　日本人の食事摂取基準2020年版より）</li>
+          </ul>
+        </div>
+        <div class="w-1/2 px-6">
+          <div class="-mx-12">
+            <img src="{% static 'images/brands/iqf/image-napolitan.png' %}" alt="やさしい味わい ナポリタン">
+          </div>
+          <div class="flex justify-start items-center w-full -mt-24">
+            <div class="relative z-20 w-5/12 p-4 -mr-8">
+              <img src="{% static 'images/brands/iqf/image-napolitan_inside.png' %}" alt="やさしい味わい ナポリタン">
+            </div>
+            <div class="relative z-10 w-7/12 p-1">
+              <img src="{% static 'images/brands/iqf/image-napolitan_package.png' %}" alt="やさしい味わい ナポリタン">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-10">
+    <div class="container mx-auto">
+      <div class="flex flex-row-reverse items-center -mx-6">
+        <div class="w-1/2 px-6">
+          <h2 class="text-3xl font-bold border-l-8 border-crimson pl-3">やさしい味わい 和風パスタ</h2>
+          <p class="mt-6 leading-relaxed">
+            麺の長さを半分にし、やわらかめの食感にすることで、高齢の方も食べやすいように工夫した和風パスタです。ソースは塩味控えめでもおいしく、食物繊維入りの設計です。お好みの具材によりアレンジが可能で、付け合わせにも使用可能です。<br><br>
+            鰹節エキスで旨味を加え、唐辛子、黒胡椒を使用してアクセントを付けました。ゆず風味であっさりとした仕上がりです。
+          </p>
+          <div class="py-8 my-6 bg-gray-100 flex justify-center">
+            <img src="{% static 'images/brands/iqf/figure-wafu_pasta.png' %}" alt="やさしい味わい 和風パスタ" class="max-w-[400px]">
+          </div>
+          <ul class="list-caution text-xs">
+            <li>６５歳以上が１日に推奨されている食物繊維量は２１ｇ/日とされております。（厚生労働省　日本人の食事摂取基準2020年版より）</li>
+          </ul>
+        </div>
+        <div class="w-1/2 px-6">
+          <div class="-mx-12">
+            <img src="{% static 'images/brands/iqf/image-wafu_pasta.png' %}" alt="やさしい味わい 和風パスタ">
+          </div>
+          <div class="flex justify-end items-center w-full -mt-24">
+            <div class="relative z-10 w-7/12 p-1">
+              <img src="{% static 'images/brands/iqf/image-wafu_pasta_package.png' %}" alt="やさしい味わい 和風パスタ">
+            </div>
+            <div class="relative z-20 w-5/12 p-4 -ml-8">
+              <img src="{% static 'images/brands/iqf/image-wafu_pasta_inside.png' %}" alt="やさしい味わい 和風パスタ">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-10 py-16 bg-crimson">
+    <div class="container mx-auto">
+      <div class="flex">
+        <div class="w-[30%]">
+          <div class="h-full">
+            <img src="{% static 'images/brands/mama_the_pro/image-mama_the_pro_01.jpg' %}" alt="マ・マー THE PRO" class="h-full object-cover">
+          </div>
+        </div>
+        <div class="w-[40%] px-8">
+          <h3 class="text-center">
+            <img src="{% static 'images/brands/mama_the_pro/logo-mama_the_pro.png' %}" alt="マ・マー THE PRO" class="w-[250px] mx-auto">
+            <span class="block mt-5 text-white text-2xl font-bold tracking-tight">マ・マー THE PRO ブランドとは</span>
+          </h3>
+          <p class="mt-5 mb-10 text-white leading-loose">
+            多様化する食生活が、いつの時代も健康で、より豊かであるように。 自然の恵みで、世界の人々に健康をお届けする、日清製粉ウェルナの業務用パスタ関連ブランド「マ・マー THE PRO」。
+          </p>
+          <a href="{% url 'brand' 'mama_the_pro' %}" class="button bg-white text-crimson font-bold">マ・マー THE PROブランド<br>はこちらから</a>
+        </div>
+        <div class="w-[30%]">
+          <div class="h-full">
+            <img src="{% static 'images/brands/mama_the_pro/image-mama_the_pro_02.jpg' %}" alt="マ・マー THE PRO" class="h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="mt-10">
+    <div class="container mx-auto">
+
+      <h2 class="slashed w-full pt-10 flex justify-center items-center">
+        <div class="text-center">
+          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">E-commerce Websites</span>
+          <span class="block text-2xl md:text-3xl font-bold leading-snug tracking-tight">お取引先様のECサイト一覧</span>
+        </div>
+      </h2>
+      <div class="pt-6 sm:pt-10 mt-6 sm:mt-10 border-t border-dashed">
+        <p class="text-sm md:text-base sm:text-center">商品のお買い求めをご希望の方は、下記弊社お取引先様ECサイトにて、ご購入いただけます。</p>
+      </div>
+      <div class="mt-6 sm:mt-10 md:mt-12 flex flex-wrap justify-center sm:-mx-3 md:-mx-6">
+
+        <div class="w-full sm:w-1/2 md:w-5/12 sm:px-3 md:px-6">
+          <div class="h-full border border-crimson flex flex-col justify-between shadow">
+            <div class="flex-none h-32 flex justify-center items-center border-t-3 border-crimson">
+              <img src="{% static 'images/ec_foods_fridge.png' %}" class="w-64 h-auto" alt="フーヅフリッジ様">
+            </div>
+            <dl class="flex-1 p-4 pb-0 border-t border-dashed border-crimson">
+              <dt class="p-1 bg-crimson text-xs text-white leading-none">サイト名</dt>
+              <dd class="h-10 flex items-center mt-2 text-sm leading-snug font-bold">フーヅフリッジ様</dd>
+              <dt class="mt-6 p-1 bg-crimson text-xs text-white leading-none">特徴</dt>
+              <dd class="mt-2 text-sm leading-relaxed">業務用食材の仕入れならフーヅフリッジ。当店はUCCグループが運営する食品・キッチン用品通販サイトです。国内外1,000社以上のネットワークから厳選された約4,000アイテム商品を取り扱い。</dd>
+            </dl>
+            <div class="p-4 mt-2">
+              <div class="mb-4 text-center text-xs">※ 新しいウィンドウで開きます↓</div>
+              <a href="https://foodsfridge.jp/ja/list?category_code=nisshinf&utm_source=nisshin-foods.com&utm_medium=referral&utm_campaign=nisshin-foods" target="_blank" class="button py-4 flex justify-center items-center hover:text-white no-hover-svg">
+                <span class="font-bold">販売サイトへ</span>
+                <svg-vue icon="external" class="w-3 h-3 mt-1 ml-2 text-gray-600 text-white"></svg-vue>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full sm:w-1/2 md:w-5/12 sm:px-3 md:px-6 mt-6 sm:mt-0">
+          <div class="h-full border border-crimson flex flex-col justify-between shadow">
+            <div class="flex-none h-32 flex justify-center items-center border-t-3 border-crimson">
+              <img src="{% static 'images/ec_micstore.png' %}" class="w-64 h-auto" alt="フーヅフリッジ様">
+            </div>
+            <dl class="flex-1 p-4 pb-0 border-t border-dashed border-crimson">
+              <dt class="p-1 bg-crimson text-xs text-white leading-none">サイト名</dt>
+              <dd class="h-10 flex items-center mt-2 text-sm leading-snug font-bold">MICREED WEB SHOP<br>MICstore(ミクストア)様</dd>
+              <dt class="mt-6 p-1 bg-crimson text-xs text-white leading-none">特徴</dt>
+              <dd class="mt-2 text-sm leading-relaxed">
+                株式会社ミクリードが運営する飲食店向けの業務用食材販売並びに情報発信のためのWEBサイトです。もっと仕入れを楽に！年中無休で配達！旬の食材からデザートまで、バイヤーが厳選した美味しい食材、約4,000点の品揃えを1パックからお届け！登録料や年会費は無料！
+                <ul class="list-caution text-xs mt-4 leading-snug">
+                  <li>ご登録は飲食店、または法人や個人事業者の方となります。一般消費者（個人）の方はご登録いただけません。</li>
+                </ul>
+              </dd>
+            </dl>
+            <div class="p-4 mt-2">
+              <a href="{% url 'micstore' %}" class="button py-4">
+                <span class="font-bold">お取扱商品一覧</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-10 md:mb-10">
+        <p class="text-sm md:text-base sm:text-center leading-relaxed">お取引先様のECサイトでは、日清製粉ウェルナ業務用商品のお取り扱いが一部無い場合や、<br class="hidden sm:block">欠品等により購入できない場合もございますので予めご了承ください。</p>
+      </div>
+
+    </div>
+  </section>
+{% endblock content %}
