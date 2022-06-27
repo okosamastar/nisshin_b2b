@@ -2181,6 +2181,54 @@
   </div>
 {% endblock content %}
 
+{% block catalog %}
+  <section class="bg-white py-8 my-8 md:my-0 overflow-x-hidden">
+    <div class="relative -mx-2">
+      <image-slider :images="[
+        '{% static 'images/heros/image_food_01.jpg' %}',
+        '{% static 'images/heros/image_food_02.jpg' %}',
+        '{% static 'images/heros/image_food_03.jpg' %}',
+        '{% static 'images/heros/image_food_04.jpg' %}',
+        '{% static 'images/heros/image_food_05.jpg' %}',
+      ]"
+      ></image-slider>
+      <div class="absolute inset-0 flex justify-center items-center">
+        <div class="sm:container flex justify-center items-center">
+          <div class="relative w-10/12 md:w-8/12 p-1 xs:p-10 xs:pl-14 xs:pt-14 bg-white shadow-lg rounded-md">
+            <div class="xs:flex border border-crimson xs:border-none p-6 xs:p-0 rounded">
+              <div class="w-full xs:w-8/12">
+                <div class="h-full xs:border-l border-solid border-crimson xs:px-8 flex flex-col justify-between">
+                  <div class="xs:absolute xs:left-0 xs:top-0 xs:-rotate-90 xs:p-4 text-xs font-bold text-crimson font-en text-center xs:text-left tracking-wide transform xs:translate-y-[3.6rem]">CATALOG</div>
+                  <div class="">
+                    <h3 class="mt-2 xs:mt-0 text-2xl xs:text-xl sm:text-3xl font-bold text-center xs:text-left leading-tight">
+                      新商品カタログ
+                    </h3>
+                  </div>
+                  <div class="xs:hidden w-6/12 mt-4 mx-auto">
+                    <a href="https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/gyoumu_catalog.pdf" target="_blank" class="block shadow-md">
+                      <img src="{% static 'images/image_catalog.png' %}" alt="新商品カタログ">
+                    </a>
+                  </div>
+                  <div class="">
+                    <h4 class="mt-4 mb-4 sm:mb-2 text-base font-bold leading-snug tracking-tight text-center xs:text-left">2022年 業務用新商品リニューアル品のご案内</h4>
+                    <p class="text-sm sm:text-base pb-4 leading-normal sm:leading-snug">2022年業務用春の新商品をまとめた資料です。ダウンロードしてご覧ください。</p>
+                  </div>
+                  <a href="https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/gyoumu_catalog.pdf" target="_blank" class="button crimson ghost text-lg font-bold py-3 xs:py-2 sm:py-3">ダウンロードはこちら</a>
+                </div>
+              </div>
+              <div class="hidden xs:block w-4/12">
+                <a href="https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/gyoumu_catalog.pdf" target="_blank" class="block shadow-md">
+                  <img src="{% static 'images/image_catalog.png' %}" alt="業務用総合カタログ">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock catalog %}
+
 {% block modal %}
   <div v-if="showStickyMessage" id="stickyMessage" ref="stickyMessage" class="fixed left-0 bottom-[48px] md:bottom-auto md:top-[153px] z-50 w-full pointer-events-none">
     <div class="flex justify-center items-end md:items-start w-full mx-auto">
