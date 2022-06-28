@@ -169,9 +169,9 @@
 }
 
 .dotted {
-  @apply h-8 border-l-5 border-crimson flex items-center;
+  @apply h-8 flex items-center;
   > span {
-    @apply flex-none inline-flex items-center h-full px-4 text-lg text-crimson font-bold bg-white;
+    @apply flex-none inline-flex items-center h-full px-4 border-l-5 border-crimson text-lg text-crimson font-bold bg-white;
   }
   &:after {
     @apply flex-1 h-8;
@@ -204,6 +204,21 @@
         left: 50%;
         top: 0;
     }
+}
+
+.bg-wave {
+  display: inline;
+  padding: 0 2px 10px;
+  background-image: url("../images/line_wave.png");
+  background-position: left bottom;
+  background-repeat: repeat-x;
+  background-size: 15px;
+  &.white {
+    background-image: url("../images/line_wave-white.png");
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    background-size: 15px;
+  }
 }
 
 .bg-plate {
@@ -752,4 +767,11 @@
 }
 .cool-lightbox__wrapper video{
     max-height: calc(100vh - 120px);
+}
+
+table  {
+  @apply border-t border-l border-gray-600;
+  th, td {
+    @apply border-r border-b border-gray-600;
+  }
 }
