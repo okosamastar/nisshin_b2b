@@ -10,6 +10,7 @@ import VueSplide from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import inView from "in-view";
 import ScrollHint from 'scroll-hint';
+import 'scroll-hint/css/scroll-hint.css';
 import _ from "lodash";
 
 const VueScrollTo = require('vue-scrollto');
@@ -246,6 +247,12 @@ new Vue({
     this.handleScroll()
 
     inView('#products').on('enter', this.showStickyNav).on('exit', this.hideStickyNav)
+
+    new ScrollHint('.js-scrollable', {
+      i18n: {
+        scrollable: 'スクロールできます'
+      }
+    });
 
   }
 });
