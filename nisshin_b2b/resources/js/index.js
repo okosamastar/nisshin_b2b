@@ -9,6 +9,7 @@ import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 import VueSplide from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import inView from "in-view";
+import ScrollHint from 'scroll-hint';
 import _ from "lodash";
 
 const VueScrollTo = require('vue-scrollto');
