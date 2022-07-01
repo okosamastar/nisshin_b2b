@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Smile Meal スマイルミール｜日清製粉ウェルナ業務用{% endblock title %}
+{% block description %}{% endblock description %}
+
+{% block sidenav %}
+  <div class="md:sticky md:top-0 md:right-0 z-40 md:w-full">
+    <div class="nav fixed md:absolute bottom-0 md:top-1/2 md:bottom-auto left-0 md:left-auto md:right-0 z-40 w-full md:w-16 md:h-screen md:mt-[-80px] flex md:flex-col justify-center items-center text-white pointer-events-none">
+      <brand-menu static="{% static '' %}">
+        <ul class="menu-list hidden w-full mt-4">
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#top')">
+            <span class="block px-4 border-l-4 border-white leading-tight">トップ</span>
+            <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
+          </li>
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#about')">
+            <span class="block px-4 border-l-4 border-white leading-tight">マ・マー THE PROとは</span>
+            <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
+          </li>
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#recommend')">
+            <span class="block px-4 border-l-4 border-white leading-tight">おすすめ製品</span>
+            <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
+          </li>
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#lineup')">
+            <span class="block px-4 border-l-4 border-white leading-tight">マ・マー THE PROの製品紹介</span>
+            <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
+          </li>
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#series')">
+            <span class="block px-4 border-l-4 border-white leading-tight">マ・マー THE PROのシリーズ紹介</span>
+            <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
+          </li>
+        </ul>
+      </brand-menu>
+      <a href="{% url 'contact' %}" class="w-1/2 md:w-full py-3 md:py-6 md:px-3 md:mt-0.5 bg-crimson hover:bg-crimson-400 hover:text-white flex md:flex-col justify-center items-center no-hover-svg pointer-events-auto">
+        <svg-vue icon="mail" class="w-6 h-6 text-white"></svg-vue>
+        <img src="{% static 'images/v_text_contact.png' %}" alt="お問い合わせ" class="hidden md:block w-4 mt-2">
+        <span class="md:hidden ml-2 text-sm font-bold text-white">お問い合わせ</span>
+      </a>
+      <a href="https://secure-link.jp/wf/?c=wf14875648" target="_blank" class="hidden w-1/2 md:w-full py-3 md:py-6 md:px-3 md:mt-0.5 bg-green text-white hover:bg-green-400 flex md:flex-col justify-center items-center pointer-events-auto">
+        <svg-vue icon="foodie" class="w-6 h-6 text-white"></svg-vue>
+        <img src="{% static 'images/v_text_sample.png' %}" alt="無料サンプル" class="hidden md:block w-4 mt-2">
+        <span class="md:hidden ml-2 text-sm font-bold text-white">無料サンプル</span>
+      </a>
+    </div>
+  </div>
+{% endblock sidenav %}
+
+{% block content %}
+  <section id="top" class="h-[770px] md:h-[900px] bg-red-to-white">
+    <div class="flex flex-col-reverse md:flex-row items-center max-w-[2000px] mx-auto">
+      <div class="relative z-20 flex-none md:w-96 p-1 -mt-12 mx-4 md:mt-0 md:ml-24 md:-mr-24 bg-white shadow-lg">
+        <div class="py-6 px-10 md:p-10 border-t-8 border-black">
+          <img src="{% static 'images/brands/smile_meal/logo-smile_meal.png' %}" class="w-full h-auto mx-auto" alt="Smile Meal スマイルミール とは">
+        </div>
+        <p class="border-t border-dashed border-black p-6 md:px-10 text-sm md:text-base font-bold leading-relaxed md:leading-loose">
+          マ・マー THE PRO「Smile Meal（スマイルミール）」シリーズは、塩味控えめで食物繊維を配合した、高齢者の健康と栄養に配慮した冷凍調理パスタです。
+        </p>
+      </div>
+      <div class="relative z-10 flex-1 md:h-[600px]">
+        <img src="{% static 'images/brands/smile_meal/image-main.jpg' %}" class="w-full h-full object-cover" alt="Smile Meal スマイルミール とは">
+        <span class="absolute right-0 bottom-0 bg-transparent m-2 p-0.5 text-2xs font-bold text-gray-200 tracking-wide leading-none">※調理例</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="-mt-60">
+    <div class="container mx-auto">
+      <div class="md:flex">
+        <div class="md:w-1/2">
+          <img src="{% static 'images/brands/smile_meal/image-slider_01.jpg' %}" class="w-full h-auto" alt="Smile Meal スマイルミール とは">
+        </div>
+        <div class="md:w-1/2 md:pl-12">
+          <h2 class="mt-6 md:mt-0 text-2.5xl md:text-4xl font-bold text-crimson text-center md:text-right">Smile Meal <span class="text-base md:text-lg">スマイルミール</span> とは</h2>
+          <p class="mt-6 md:mt-10 text-sm md:text-base leading-loose">
+            「Smile Meal（スマイルミール）」シリーズは、<strong class="font-bold">「高齢者の健康と栄養に配慮した味・品質設計」</strong>と<span class="font-bold">「簡便調理」</span>という特長を有した冷凍調理パスタのシリーズです。麺の長さを半分にし、塩味控えめで食物繊維入りの設計にすることで、高齢者の方も食べやすいように工夫しております。<br><br>
+            また、具材の入っていない個食タイプなのでお好みの具材と合わせることでアレンジや個別対応が可能です。長さが半分の麵なので食べやすく、やさしい味わいながらも満足感を感じていただけます。<br><br>
+            人手不足の現場でも、コンベクションオーブンで具材と一緒に温めるだけの簡便調理なので、調理負担を軽減できます。
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 md:mt-28 py-0.5 px-6 md:py-0 md:px-12 bg-crimson-50">
+        <div class="md:flex md:-mx-4">
+          <div class="relative md:w-1/3 md:px-4 my-12">
+            <div class="pl-4 ml-10 border-l-3 border-crimson">
+              <h3>
+                <span class="text-sm font-bold leading-none">高齢者でも食べやすい</span>
+                <span class="block mt-1 text-3xl font-bold leading-none">常食として設計</span>
+              </h3>
+              <p class="py-6 text-sm font-medium leading-relaxed">
+                個食タイプで個別対応も可能<br>
+                お好みの具材を合わせることで
+              </p>
+              <strogn class="marked text-3xl text-crimson font-bold leading-none">
+                アレンジ可能◎
+              </strogn>
+            </div>
+            <div class="absolute left-0 top-0 w-8 md:ml-4">
+              <img src="{% static 'images/brands/smile_meal/text-point_01.png' %}" alt="POINT 01">
+            </div>
+          </div>
+          <div class="relative md:w-1/3 md:px-4 my-12">
+            <div class="pl-4 ml-10 border-l-3 border-crimson">
+              <h3>
+                <span class="text-sm font-bold leading-none">高齢者の健康と栄養に配慮した</span>
+                <span class="block mt-1 text-3xl font-bold leading-none tracking-wider">品質設計</span>
+              </h3>
+              <p class="py-6 text-sm font-medium leading-relaxed">
+                長さが半分の麺なので食べやすく、<br>
+                やさしい味わいでも美味しさしっかり
+              </p>
+              <strogn class="marked text-3xl text-crimson font-bold leading-none tracking-wider">
+                満足感も◎
+              </strogn>
+            </div>
+            <div class="absolute left-0 top-0 w-8 md:ml-4">
+              <img src="{% static 'images/brands/smile_meal/text-point_02.png' %}" alt="POINT 02">
+            </div>
+          </div>
+          <div class="relative md:w-1/3 md:px-4 my-12">
+            <div class="pl-4 ml-10 border-l-3 border-crimson">
+              <h3>
+                <span class="text-sm font-bold leading-none">調理負担が軽減できる</span>
+                <span class="block mt-1 text-3xl font-bold leading-none tracking-wider">簡便調理</span>
+              </h3>
+              <p class="py-6 text-sm font-medium leading-relaxed">
+                コンベクションオーブンで<br>
+                具材と一緒に温めるだけ
+              </p>
+              <strogn class="marked text-3xl text-crimson font-bold leading-none">
+                ラクラク◎
+              </strogn>
+            </div>
+            <div class="absolute left-0 top-0 w-8 md:ml-4">
+              <img src="{% static 'images/brands/smile_meal/text-point_03.png' %}" alt="POINT 03">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recommend" class="mt-10 md:mt-24 overflow-x-hidden">
+    <div class="container mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold border-l-8 border-crimson pl-3">やさしい味わい ナポリタン</h2>
+      <div class="flex flex-col-reverse md:flex-row items-center mt-4 md:mt-0 md:-mx-6">
+        <div class="md:w-1/2 md:px-6">
+          <p class="mt-6 text-sm md:text-base leading-loose">
+            麺の長さを半分にし、やわらかめの食感にすることで、高齢の方も食べやすいように工夫したナポリタンです。また、ソースは塩味控えめでもおいしく、食物繊維入りの設計です。お好みの具材によりアレンジが可能で、付け合わせにも使用可能です。<br><br>
+            トマトケチャップ・トマトペーストをベースにソテーオニオン・ニンニクの風味を生かし、やさしいながらも濃厚な味わいです。
+          </p>
+          <div class="py-8 my-6 bg-gray-100 flex justify-center">
+            <img src="{% static 'images/brands/smile_meal/figure-napolitan.png' %}" alt="やさしい味わい ナポリタン" class="max-w-[320px]">
+          </div>
+        </div>
+        <div class="relative md:w-1/2 md:px-6 md:-mt-14">
+          <div class="md:-ml-6 md:-mr-24">
+            <img src="{% static 'images/brands/smile_meal/image-napolitan.png' %}" alt="やさしい味わい ナポリタン" class="relative z-20">
+            <div class="absolute top-0 left-0 z-10 bg-crimson w-screen h-[85%] mt-[10%] ml-[50%]"></div>
+            <span class="absolute right-0 top-0 p-4 text-2xs font-bold text-gray-600 tracking-wide">※調理例</span>
+          </div>
+          <div class="relative z-30 w-full flex justify-center items-center w-full -mt-20">
+            <div class="relative z-20 w-5/12 md:ml-4 -mr-4">
+              <img src="{% static 'images/brands/smile_meal/image-napolitan_inside.png' %}" alt="やさしい味わい ナポリタン">
+            </div>
+            <div class="relative z-10 w-7/12">
+              <img src="{% static 'images/brands/smile_meal/image-napolitan_package.png' %}" alt="やさしい味わい ナポリタン">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-16 md:mt-28">
+    <div class="container mx-auto">
+      <div class="md:flex justify-end">
+        <div class="md:w-1/2 md:px-6">
+          <h2 class="text-2xl md:text-3xl font-bold border-l-8 border-crimson pl-3">やさしい味わい 和風パスタ</h2>
+        </div>
+      </div>
+      <div class="flex flex-col-reverse md:flex-row-reverse items-center mt-4 md:mt-0 md:-mx-6">
+        <div class="md:w-1/2 md:px-6">
+          <p class="mt-6 text-sm md:text-base leading-loose">
+            麺の長さを半分にし、やわらかめの食感にすることで、高齢の方も食べやすいように工夫した和風パスタです。また、ソースは塩味控えめでもおいしく、食物繊維入りの設計です。お好みの具材によりアレンジが可能で、付け合わせにも使用可能です。<br><br>
+            鰹節エキスで旨味を加え、唐辛子、黒胡椒を使用してアクセントを付けました。ゆず風味であっさりとした仕上がりです。
+          </p>
+          <div class="py-8 my-6 bg-gray-100 flex justify-center">
+            <img src="{% static 'images/brands/smile_meal/figure-wafu_pasta.png' %}" alt="やさしい味わい 和風パスタ" class="max-w-[320px]">
+          </div>
+        </div>
+        <div class="relative md:w-1/2 md:px-6 md:-mt-14">
+          <div class="md:-ml-24 md:-mr-6">
+            <img src="{% static 'images/brands/smile_meal/image-wafu_pasta.png' %}" alt="やさしい味わい 和風パスタ" class="relative z-20">
+            <div class="absolute top-0 right-0 z-10 bg-crimson w-screen h-[85%] mt-[10%] mr-[50%]"></div>
+            <span class="absolute left-0 top-0 p-4 text-2xs font-bold text-gray-600 tracking-wide">※調理例</span>
+          </div>
+          <div class="relative z-30 flex justify-center items-center w-full -mt-16">
+            <div class="relative z-10 w-7/12">
+              <img src="{% static 'images/brands/smile_meal/image-wafu_pasta_package.png' %}" alt="やさしい味わい 和風パスタ">
+            </div>
+            <div class="relative z-20 w-5/12 -ml-4 md:mr-4">
+              <img src="{% static 'images/brands/smile_meal/image-wafu_pasta_inside.png' %}" alt="やさしい味わい 和風パスタ">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lineup" class="mt-16 md:mt-32">
+    <div class="container mx-auto">
+
+      <h2 class="slashed w-full pt-10 flex justify-center items-center">
+        <div class="text-center">
+          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">LINEUP</span>
+          <span class="block text-2xl font-bold leading-snug tracking-tight">Smile Meal<span class="text-lg">（スマイルミール）</span>の<br class="md:hidden">ラインアップ</span>
+        </div>
+      </h2>
+
+      <div class="flex flex-wrap justify-center -mx-1 sm:-mx-2 mt-8 md:mt-14 transform">
+
+        <div class="w-full sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
+          <a href="{% url 'products.detail' '290470' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+
+              <div class="py-3 overflow-hidden">
+                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290470_01.jpg.412x412_q85_crop.jpg" alt="マ・マー THE PRO Smile Meal やさしい味わい ナポリタン" class="w-auto h-full mx-auto">
+              </div>
+
+              <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+              </div>
+
+              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
+                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
+              </div>
+            </div>
+            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+              <span class="p-1 text-xs border border-crimson text-crimson leading-none">調理済みパスタ</span>
+              <span class="mt-2 text-sm md:text-base">マ・マー THE PRO Smile Meal やさしい味わい ナポリタン</span>
+            </h4>
+            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
+              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
+                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
+              </dt>
+              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">230g×12×2</dd>
+              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
+                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
+              </dt>
+              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290470</dd>
+            </dl>
+          </a>
+        </div>
+
+        <div class="w-full sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
+          <a href="{% url 'products.detail' '290480' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+
+              <div class="py-3 overflow-hidden">
+                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290480_01.jpg.412x412_q85_crop.jpg" alt="マ・マー THE PRO Smile Meal やさしい味わい 和風パスタ" class="w-auto h-full mx-auto">
+              </div>
+
+              <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+              </div>
+
+              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
+                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
+              </div>
+            </div>
+            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+              <span class="p-1 text-xs border border-crimson text-crimson leading-none">調理済みパスタ</span>
+              <span class="mt-2 text-sm md:text-base">マ・マー THE PRO Smile Meal やさしい味わい 和風パスタ</span>
+            </h4>
+            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
+              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
+                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
+              </dt>
+              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">230g×12×2</dd>
+              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
+                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
+              </dt>
+              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290480</dd>
+            </dl>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="series" class="mt-10 md:mt-24 py-6 md:py-16 bg-crimson">
+    <div class="container mx-auto">
+      <div class="md:flex md:-mx-16">
+        <div class="hidden md:block w-[30%]">
+          <div class="h-full">
+            <img src="{% static 'images/brands/mama_the_pro/image-mama_the_pro_01.jpg' %}" alt="マ・マー THE PRO" class="h-full object-cover">
+          </div>
+        </div>
+        <div class="md:w-[40%]">
+          <div class="relative z-10 md:hidden h-[160px] rounded overflow-hidden">
+            <img src="{% static 'images/brands/mama_the_pro/image-mama_the_pro_02.jpg' %}" alt="マ・マー THE PRO" class="w-full h-[160px] object-cover">
+            <span class="absolute right-0 bottom-0 bg-transparent m-1 p-0.5 text-2xs font-bold text-black tracking-wide leading-none">※調理例</span>
+          </div>
+          <div class="h-full flex flex-col justify-between p-4 md:px-14 md:py-0">
+            <img src="{% static 'images/brands/mama_the_pro/logo-mama_the_pro.png' %}" alt="マ・マー THE PRO" class="relative z-20 -mt-12 md:mt-0 w-[180px] md:w-[250px] mx-auto">
+            <h3 class="text-center">
+              <span class="block mt-5 text-white text-xl md:text-2xl font-bold tracking-tight">マ・マー THE PRO ブランドとは</span>
+            </h3>
+            <p class="mt-5 mb-8 md:mb-10 text-sm md:text-base text-white leading-relaxed md:leading-loose">
+              多様化する食生活が、いつの時代も健康で、より豊かであるように。 自然の恵みで、世界の人々に健康をお届けする、日清製粉ウェルナの業務用パスタ関連ブランド「マ・マー THE PRO」。
+            </p>
+            <a href="{% url 'brand' 'mama-the-pro' %}" class="button bg-white text-crimson font-bold">マ・マー THE PROブランド<br>はこちらから</a>
+          </div>
+        </div>
+        <div class="hidden md:block w-[30%]">
+          <div class="relative h-full">
+            <img src="{% static 'images/brands/mama_the_pro/image-mama_the_pro_02.jpg' %}" alt="マ・マー THE PRO" class="h-full object-cover">
+            <span class="absolute right-0 bottom-0 bg-transparent m-2 p-0.5 text-2xs font-bold text-gray-200 tracking-wide leading-none">※調理例</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
