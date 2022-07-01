@@ -22,6 +22,7 @@ import CardSlider from './vue/components/CardSlider.vue'
 import ImageSlider from './vue/components/ImageSlider.vue'
 import VideoPlayer from "./vue/components/VideoPlayer.vue";
 import CtaSample from "./vue/components/CtaSample.vue";
+import BrandMenu from "./vue/components/BrandMenu.vue";
 
 Vue.use(VueScrollTo);
 Vue.use(VueYouTubeEmbed)
@@ -50,6 +51,7 @@ new Vue({
     CoolLightBox,
     VideoPlayer,
     CtaSample,
+    BrandMenu,
   },
   data() {
     return {
