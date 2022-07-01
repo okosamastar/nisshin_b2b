@@ -14,15 +14,19 @@
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
           </li>
           <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#about')">
-            <span class="block px-4 border-l-4 border-white leading-tight">マ・マー THE PROとは</span>
+            <span class="block px-4 border-l-4 border-white leading-tight">Smile Mealとは</span>
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
           </li>
-          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#recommend')">
-            <span class="block px-4 border-l-4 border-white leading-tight">おすすめ製品</span>
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#products')">
+            <span class="block px-4 border-l-4 border-white leading-tight">商品紹介</span>
+            <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
+          </li>
+          <li class="hidden flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#recipe')">
+            <span class="block px-4 border-l-4 border-white leading-tight">SmileMealお勧めレシピ</span>
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
           </li>
           <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#lineup')">
-            <span class="block px-4 border-l-4 border-white leading-tight">マ・マー THE PROの製品紹介</span>
+            <span class="block px-4 border-l-4 border-white leading-tight">商品ラインアップ</span>
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
           </li>
           <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#series')">
@@ -90,9 +94,9 @@
                 個食タイプで個別対応も可能<br>
                 お好みの具材を合わせることで
               </p>
-              <strogn class="marked text-3xl text-crimson font-bold leading-none">
+              <strong class="marked text-3xl text-crimson font-bold leading-none">
                 アレンジ可能◎
-              </strogn>
+              </strong>
             </div>
             <div class="absolute left-0 top-0 w-8 md:ml-4">
               <img src="{% static 'images/brands/smile_meal/text-point_01.png' %}" alt="POINT 01">
@@ -108,9 +112,9 @@
                 長さが半分の麺なので食べやすく、<br>
                 やさしい味わいでも美味しさしっかり
               </p>
-              <strogn class="marked text-3xl text-crimson font-bold leading-none tracking-wider">
+              <strong class="marked text-3xl text-crimson font-bold leading-none tracking-wider">
                 満足感も◎
-              </strogn>
+              </strong>
             </div>
             <div class="absolute left-0 top-0 w-8 md:ml-4">
               <img src="{% static 'images/brands/smile_meal/text-point_02.png' %}" alt="POINT 02">
@@ -126,9 +130,9 @@
                 コンベクションオーブンで<br>
                 具材と一緒に温めるだけ
               </p>
-              <strogn class="marked text-3xl text-crimson font-bold leading-none">
+              <strong class="marked text-3xl text-crimson font-bold leading-none">
                 ラクラク◎
-              </strogn>
+              </strong>
             </div>
             <div class="absolute left-0 top-0 w-8 md:ml-4">
               <img src="{% static 'images/brands/smile_meal/text-point_03.png' %}" alt="POINT 03">
