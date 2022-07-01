@@ -57,8 +57,8 @@
         </p>
       </div>
       <div class="relative z-10 flex-1 md:h-[600px]">
-        <img src="{% static 'images/brands/smile_meal/image-main.jpg' %}" class="w-full h-full object-cover" alt="Smile Meal スマイルミール とは">
-        <span class="absolute right-0 bottom-0 bg-transparent m-2 p-0.5 text-2xs font-bold text-gray-200 tracking-wide leading-none">※調理例</span>
+        <img src="{% static 'images/brands/smile_meal/image-main.jpg' %}" class="hidden md:block w-full h-full object-cover" alt="Smile Meal スマイルミール とは">
+        <img src="{% static 'images/brands/smile_meal/image-main-sp.jpg' %}" class="md:hidden w-full h-full object-cover" alt="Smile Meal スマイルミール とは">
       </div>
     </div>
   </section>
@@ -67,7 +67,10 @@
     <div class="container mx-auto">
       <div class="md:flex">
         <div class="md:w-1/2">
-          <img src="{% static 'images/brands/smile_meal/image-slider_01.jpg' %}" class="w-full h-auto" alt="Smile Meal スマイルミール とは">
+          <div class="relative">
+            <span class="absolute right-0 bottom-0 bg-white m-2 p-0.5 text-2xs font-bold text-gray-800 tracking-wide leading-none">※調理例</span>
+            <img src="{% static 'images/brands/smile_meal/image-slider_01.jpg' %}" class="w-full h-auto" alt="Smile Meal スマイルミール とは">
+          </div>
         </div>
         <div class="md:w-1/2 md:pl-12">
           <h2 class="mt-6 md:mt-0 text-2.5xl md:text-4xl font-bold text-crimson text-center md:text-right">Smile Meal <span class="text-base md:text-lg">スマイルミール</span> とは</h2>
