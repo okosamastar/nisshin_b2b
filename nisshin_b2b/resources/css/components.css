@@ -234,6 +234,11 @@
   }
 }
 
+.bg-slashed {
+  background: url('../images/rept_stripe-red.png') left top repeat;
+  background-size: 17px 11px;
+}
+
 .bg-plate {
     background: transparent url("../images/bg_title.png") center center no-repeat;
     background-size: contain;
@@ -247,6 +252,9 @@
 .bg-red-to-white {
   background: rgb(255,255,255);
   background: linear-gradient(90deg, rgba(232,40,23,1) 0, rgba(232,40,23,1) 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+  &.angled {
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 38.196%, rgba(232,40,23,1) 38.196%, rgba(232,40,23,1) 100%);
+  }
 }
 @screen md {
   .bg-red-to-white {
