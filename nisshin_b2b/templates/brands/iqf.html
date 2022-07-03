@@ -8,7 +8,7 @@
   <div class="md:sticky md:top-0 md:right-0 z-40 md:w-full">
     <div class="nav fixed md:absolute bottom-0 md:top-1/2 md:bottom-auto left-0 md:left-auto md:right-0 z-40 w-full md:w-16 md:h-screen md:mt-[-80px] flex md:flex-col justify-center items-center text-white pointer-events-none">
       <brand-menu static="{% static '' %}">
-        <ul class="menu-list hidden w-full mt-4">
+        <ul class="hidden w-full">
           <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#top')">
             <span class="block px-4 border-l-4 border-white leading-tight">トップ</span>
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
@@ -467,7 +467,7 @@
         </div>
       </h2>
 
-      <div class="flex flex-wrap justify-start -mx-1 sm:-mx-2 mt-8 md:mt-14 transform">
+      <div class="flex flex-wrap justify-start -mx-1 sm:-mx-2 mt-8 md:mt-10 transform">
 
         <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
           <a href="{% url 'products.detail' '290210' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
@@ -649,7 +649,7 @@
         </div>
       </h2>
 
-      <div class="flex flex-wrap justify-center -mx-1 sm:-mx-2 mt-8 md:mt-14 transform">
+      <div class="flex flex-wrap justify-center -mx-1 sm:-mx-2 mt-8 md:mt-10 transform">
 
         <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
           <a href="{% url 'products.detail' '290420' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">

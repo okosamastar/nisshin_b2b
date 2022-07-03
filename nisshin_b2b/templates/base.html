@@ -223,7 +223,7 @@
   {% endblock contact %}
 
   {% block scrolltotop %}
-  <div id="pagetop" ref="pagetop" class="fixed z-40 right-0 bottom-0 mr-4 mb-6 md:mr-8 md:mb-[4.25rem] w-10 h-10 flex justify-center items-center bg-white border border-crimson transition-all cursor-pointer" @click="scrollTo('#app')">
+  <div id="pagetop" ref="pagetop" class="fixed z-40 right-0 bottom-0 mr-2 mb-14 md:mr-8 md:mb-[4.25rem] w-10 h-10 flex justify-center items-center bg-white border border-crimson transition-all cursor-pointer" @click="scrollTo('#app')">
     <svg-vue icon="chevron" class="w-3 h-3 mt-1 text-crimson -rotate-90"></svg-vue>
   </div>
   {% endblock scrolltotop %}
@@ -363,7 +363,7 @@
     :items="media"
     :index="mediaIndex"
     :effect="'fade'"
-    :useZoomBar="true"
+    :use-zoom-bar="true"
     @close="mediaIndex = null"
   >
   </cool-light-box>

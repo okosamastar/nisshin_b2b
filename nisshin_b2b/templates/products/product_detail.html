@@ -63,22 +63,22 @@
                 {{ product.description }}
               </p>
               {% if product.brand.name %}
-              <div class="mt-4 p-4 bg-crimson flex justify-between items-center">
+              <a href="{% url 'brand' brand=product.brand.slug %}" class="mt-4 p-4 bg-crimson flex justify-between items-center">
                 <div class="flex-none w-8 h-8 bg-white rounded-full flex justify-center items-center">
                   <svg-vue icon="medal" class="w-6 h-6 text-crimson"></svg-vue>
                 </div>
-                <span class="flex-1 pl-2 text-left text-white">{{ product.brand.name }}</span>
+                <span class="flex-1 pl-2 text-left text-white">{{ product.brand.name }} ブランド</span>
                 <svg-vue icon="chevron_alt" class="flex-none w-4 h-4 rotate-90 text-white"></svg-vue>
-              </div>
-              {% endif %}
-              {% if product.series.name %}
-              <div class="mt-4 p-4 bg-white border border-crimson flex justify-between items-center">
-                <div class="flex-none w-8 h-8 bg-white rounded-full flex justify-center items-center">
-                  <svg-vue icon="relation" class="w-6 h-6 text-crimson"></svg-vue>
-                </div>
-                <span class="flex-1 pl-2 text-left text-crimson">{{ product.series.name }}</span>
-                <svg-vue icon="chevron_alt" class="flex-none w-4 h-4 rotate-90 text-crimson"></svg-vue>
-              </div>
+              </a>
+                {% if product.series.name %}
+                <a href="{% url 'series' brand=product.brand.slug series=product.series.slug %}" class="mt-4 p-4 bg-white border border-crimson flex justify-between items-center">
+                  <div class="flex-none w-8 h-8 bg-white rounded-full flex justify-center items-center">
+                    <svg-vue icon="relation" class="w-6 h-6 text-crimson"></svg-vue>
+                  </div>
+                  <span class="flex-1 pl-2 text-left text-crimson">{{ product.series.name }} シリーズ</span>
+                  <svg-vue icon="chevron_alt" class="flex-none w-4 h-4 rotate-90 text-crimson"></svg-vue>
+                </a>
+                {% endif %}
               {% endif %}
             </div>
           </div>
