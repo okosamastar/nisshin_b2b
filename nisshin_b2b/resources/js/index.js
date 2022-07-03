@@ -25,6 +25,8 @@ import ImageSlider from './vue/components/ImageSlider.vue'
 import VideoPlayer from "./vue/components/VideoPlayer.vue"
 import CtaSample from "./vue/components/CtaSample.vue"
 import BrandMenu from "./vue/components/BrandMenu.vue"
+import Collapsable from "./vue/components/Collapsable"
+import Switcher from "./vue/components/Switcher"
 
 Vue.use(VueScrollTo);
 Vue.use(VueYouTubeEmbed)
@@ -54,6 +56,8 @@ new Vue({
     VideoPlayer,
     CtaSample,
     BrandMenu,
+    Collapsable,
+    Switcher,
   },
   data() {
     return {

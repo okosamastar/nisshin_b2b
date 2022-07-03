@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load thumbnail %}
 
 {% block title %}販売サイトのご案内｜日清製粉ウェルナ業務用{% endblock title %}
 {% block description %}日清製粉ウェルナの業務用商品をお買い求めの際の、弊社お取引先様ECサイトをご案内しております。{% endblock description %}
@@ -102,106 +103,113 @@
         <h2 class="dotted">
           <span class="text-lg md:text-2xl">早ゆでスパゲティシリーズ</span>
         </h2>
-        <div class="mt-6 md:mt-12 p-4 md:p-8 bg-gray-100">
-          <div class="flex justify-center">
-            <div class="w-60 mx-2">
-              <img src="{% static 'images/brands/mama_the_pro/image-hayayude_16.png' %}" alt="早ゆでスパゲティ 1.6mm">
-            </div>
-            <div class="w-60 mx-2">
-              <img src="{% static 'images/brands/mama_the_pro/image-hayayude_22.png' %}" alt="早ゆでスパゲティ 2.2mm">
-            </div>
-          </div>
-        </div>
-        <div class="mt-6 md:mt-10 md:flex md:-mx-6">
-          <div class="flex-1 md:px-6">
-            <p class="text-sm md:text-base leading-loose">当社独自の「早ゆで・スーパープロント製法」により、パスタ本来のおいしさはそのままにゆで時間を短縮しました。断面に4か所の切り込みが入った特殊形状で、本格アルデンテ食感はそのままに、ゆで時間を大幅に短縮することができ、オーダーからスピーディーにゆで立てのパスタメニューの提供が可能になりました（1.6㎜の場合：ゆで時間3分　2.2㎜の場合：ゆで時間8分）。</p>
-            <div class="mt-6 md:mt-8 md:px-10">
-              <h4 class="mb-4 py-2 text-xl font-bold text-crimson text-center bg-crimson-50">麺の断面写真</h4>
-              <img src="{% static 'images/brands/mama_the_pro/figure_hayayude_01.png' %}" alt="アルデンテなゆで上がりに">
+        <collapsable :initial_open="false" open_text="詳細を表示" close_text="詳細を隠す" :mobile_only="true">
+          <div class="mt-6 md:mt-12 p-4 md:p-8 bg-gray-100">
+            <div class="flex justify-center">
+              <div class="w-60 mx-2">
+                <img src="{% static 'images/brands/mama_the_pro/image-hayayude_16.png' %}" alt="早ゆでスパゲティ 1.6mm">
+              </div>
+              <div class="w-60 mx-2">
+                <img src="{% static 'images/brands/mama_the_pro/image-hayayude_22.png' %}" alt="早ゆでスパゲティ 2.2mm">
+              </div>
             </div>
           </div>
-          <div class="mt-6 md:mt-0 flex-none md:w-[480px] md:px-6">
-            <div class="p-6 md:p-10 border border-gray-800">
-              <img src="{% static 'images/brands/mama_the_pro/text-hayayude_01.png' %}" alt="早ゆでなのにゆで上がりの硬さが通常のパスタと同等品質！">
-              <span class="block my-6 py-2 px-4 text-lg text-white font-bold text-center bg-crimson">早ゆでパスタの破断強度データ</span>
-              <img src="{% static 'images/brands/mama_the_pro/figure-hayayude_graph_01.png' %}" alt="早ゆでパスタの破断強度データ">
-              <ul class="list-caution pt-6 text-xs">
-                <li>「早ゆでプロント1.6」のハンドリングは2分ボイル＋1分煽り工程、「マ・マー スパゲティ1.6」のハンドリングは6分ボイル＋1分煽り工程にて</li>
-                <li class="mt-3">当社調べ</li>
-              </ul>
+          <div class="mt-6 md:mt-10 md:flex md:-mx-6">
+            <div class="flex-1 md:px-6">
+              <p class="text-sm md:text-base leading-loose">
+                当社独自の「早ゆで・スーパープロント製法」により、パスタ本来のおいしさはそのままにゆで時間を短縮しました。断面に4か所の切り込みが入った特殊形状で、本格アルデンテ食感はそのままに、ゆで時間を大幅に短縮することができ、オーダーからスピーディーにゆで立てのパスタメニューの提供が可能になりました（1.6㎜の場合：ゆで時間3分　2.2㎜の場合：ゆで時間8分）。</p>
+              <div class="mt-6 md:mt-8 md:px-10">
+                <h4 class="mb-4 py-2 text-xl font-bold text-crimson text-center bg-crimson-50">麺の断面写真</h4>
+                <img src="{% static 'images/brands/mama_the_pro/figure_hayayude_01.png' %}" alt="アルデンテなゆで上がりに">
+              </div>
+            </div>
+            <div class="mt-6 md:mt-0 flex-none md:w-[480px] md:px-6">
+              <div class="p-6 md:p-10 border border-gray-800">
+                <img src="{% static 'images/brands/mama_the_pro/text-hayayude_01.png' %}"
+                     alt="早ゆでなのにゆで上がりの硬さが通常のパスタと同等品質！">
+                <span
+                  class="block my-6 py-2 px-4 text-lg text-white font-bold text-center bg-crimson">早ゆでパスタの破断強度データ</span>
+                <img src="{% static 'images/brands/mama_the_pro/figure-hayayude_graph_01.png' %}" alt="早ゆでパスタの破断強度データ">
+                <ul class="list-caution pt-6 text-xs">
+                  <li>「早ゆでプロント1.6」のハンドリングは2分ボイル＋1分煽り工程、「マ・マー スパゲティ1.6」のハンドリングは6分ボイル＋1分煽り工程にて</li>
+                  <li class="mt-3">当社調べ</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="mt-8 md:mt-16 text-center">
-          <div class="speech">
-            <span class="text-sm font-bold">早ゆでスパゲティシリーズのある</span>
-          </div>
-          <div class="-mt-4 p-8 bg-crimson-50 text-center">
-            <div class="w-64 mx-auto">
-              <a href="#" class="button py-4"><span class="font-bold">ロングパスタはこちらから</span></a>
+          <div class="mt-8 md:mt-16 text-center">
+            <div class="speech">
+              <span class="text-sm font-bold">早ゆでスパゲティシリーズのある</span>
+            </div>
+            <div class="-mt-4 p-8 bg-crimson-50 text-center">
+              <div class="w-64 mx-auto">
+                <a href="#" class="button py-4"><span class="font-bold">ロングパスタはこちらから</span></a>
+              </div>
             </div>
           </div>
-        </div>
+        </collapsable>
       </div>
       <div class="mt-12 md:mt-24">
         <h2 class="dotted">
           <span class="text-lg md:text-2xl">PASTS STELLA<span class="text-sm md:text-lg">（パスタ・ステラ）</span>シリーズ</span>
         </h2>
-        <div class="mt-6 md:mt-12 p-2 md:p-8 bg-gray-100">
-          <div class="md:flex items-center">
-            <div class="hidden flex-none w-60 px-6 md:flex justify-center">
-              <img src="{% static 'images/brands/mama_the_pro/logo-pasta_stella.png' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ" class="mb-10">
+        <collapsable :initial_open="false" open_text="詳細を表示" close_text="詳細を隠す" :mobile_only="true">
+          <div class="mt-6 md:mt-12 p-2 md:p-8 bg-gray-100">
+            <div class="md:flex items-center">
+              <div class="hidden flex-none w-60 px-6 md:flex justify-center">
+                <img src="{% static 'images/brands/mama_the_pro/logo-pasta_stella.png' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ" class="mb-10">
+              </div>
+              <div class="flex flex-wrap justify-between">
+                <div class="w-1/3 p-2 md:p-4">
+                  <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_napolitan.png' %}" alt="早ゆでスパゲティ 1.6mm">
+                </div>
+                <div class="w-1/3 p-2 md:p-4">
+                  <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_wafu_tarako.png' %}" alt="早ゆでスパゲティ 2.2mm">
+                </div>
+                <div class="w-1/3 p-2 md:p-4">
+                  <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_carbonara.png' %}" alt="早ゆでスパゲティ 2.2mm">
+                </div>
+                <div class="w-1/3 p-2 md:p-4">
+                  <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_bolognese.png' %}" alt="早ゆでスパゲティ 1.6mm">
+                </div>
+                <div class="w-1/3 p-2 md:p-4">
+                  <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_tomato_cream.png' %}" alt="早ゆでスパゲティ 2.2mm">
+                </div>
+                <div class="w-1/3 p-2 md:p-4">
+                  <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_porcini_cream.png' %}" alt="早ゆでスパゲティ 2.2mm">
+                </div>
+              </div>
             </div>
-            <div class="flex flex-wrap justify-between">
-              <div class="w-1/3 p-2 md:p-4">
-                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_napolitan.png' %}" alt="早ゆでスパゲティ 1.6mm">
+          </div>
+          <div class="mt-6 md:mt-10 md:flex md:-mx-8">
+            <div class="md:w-6/12 md:px-8">
+              <p class="text-sm md:text-base leading-loose">
+                STELLA、それはイタリア語で「星」のこと。「PASTA　STELLA（パスタ・ステラ）」は、三ツ星のイメージから想起する満足感を目指して開発された冷凍レンジ用パスタです。<br><br>
+                さまざまな食感が楽しめる多彩な形状のパスタとこだわりソースが織りなす、贅沢なメニューを揃えました。レンジひとつでお店で手軽に、リストランテの本格的な味を再現していただけます。
+              </p>
+              <div class="pt-6 px-10 md:py-10 md:pl-10 md:pr-0">
+                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_02.jpg' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ">
               </div>
-              <div class="w-1/3 p-2 md:p-4">
-                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_wafu_tarako.png' %}" alt="早ゆでスパゲティ 2.2mm">
+            </div>
+            <div class="w-7/12 md:w-6/12 md:px-8 -mt-14 -ml-10 md:m-0">
+              <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_01.png' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ">
+            </div>
+          </div>
+          <div class="w-full -mt-52 md:-mt-72 pl-20 md:px-32">
+            <div class="flex justify-end bg-crimson pt-18 pb-10 md:py-0">
+              <div class="w-8/12 md:w-7/12 md:pt-32 md:pl-18 md:pr-10 -mb-16 -mr-4 md:mr-0">
+                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_03.jpg' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ">
               </div>
-              <div class="w-1/3 p-2 md:p-4">
-                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_carbonara.png' %}" alt="早ゆでスパゲティ 2.2mm">
-              </div>
-              <div class="w-1/3 p-2 md:p-4">
-                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_bolognese.png' %}" alt="早ゆでスパゲティ 1.6mm">
-              </div>
-              <div class="w-1/3 p-2 md:p-4">
-                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_tomato_cream.png' %}" alt="早ゆでスパゲティ 2.2mm">
-              </div>
-              <div class="w-1/3 p-2 md:p-4">
-                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_porcini_cream.png' %}" alt="早ゆでスパゲティ 2.2mm">
+            </div>
+          </div>
+          <div class="mt-12 md:mt-28 text-center">
+            <div class="p-8 bg-crimson-50 text-center">
+              <div class="w-64 mx-auto">
+                <a href="#" class="button py-4"><span class="font-bold">調理済みパスタはこちらから</span></a>
               </div>
             </div>
           </div>
-        </div>
-        <div class="mt-6 md:mt-10 md:flex md:-mx-8">
-          <div class="md:w-6/12 md:px-8">
-            <p class="text-sm md:text-base leading-loose">
-              STELLA、それはイタリア語で「星」のこと。「PASTA　STELLA（パスタ・ステラ）」は、三ツ星のイメージから想起する満足感を目指して開発された冷凍レンジ用パスタです。<br><br>
-              さまざまな食感が楽しめる多彩な形状のパスタとこだわりソースが織りなす、贅沢なメニューを揃えました。レンジひとつでお店で手軽に、リストランテの本格的な味を再現していただけます。
-            </p>
-            <div class="pt-6 px-10 md:py-10 md:pl-10 md:pr-0">
-              <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_02.jpg' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ">
-            </div>
-          </div>
-          <div class="w-7/12 md:w-6/12 md:px-8 -mt-14 -ml-10 md:m-0">
-            <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_01.png' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ">
-          </div>
-        </div>
-        <div class="w-full -mt-52 md:-mt-72 pl-20 md:px-32">
-          <div class="flex justify-end bg-crimson pt-18 pb-10 md:py-0">
-            <div class="w-8/12 md:w-7/12 md:pt-32 md:pl-18 md:pr-10 -mb-16 -mr-4 md:mr-0">
-              <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_03.jpg' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ">
-            </div>
-          </div>
-        </div>
-        <div class="mt-12 md:mt-28 text-center">
-          <div class="p-8 bg-crimson-50 text-center">
-            <div class="w-64 mx-auto">
-              <a href="#" class="button py-4"><span class="font-bold">調理済みパスタはこちらから</span></a>
-            </div>
-          </div>
-        </div>
+        </collapsable>
       </div>
     </div>
   </section>
@@ -252,19 +260,67 @@
         </div>
       </h2>
 
-      <div class="tags max-w-2xl mx-auto mt-10 bg-gray-100 sm:flex justify-start">
-        <h3 class="py-2 px-4 sm:p-0 flex justify-center items-center sm:border-r border-dashed border-gray-300">
-          <span class="px-4 text-sm font-en text-crimson tracking-wider font-bold uppercase">filter</span>
-        </h3>
-        <ul class="flex-1 p-2 sm:p-4 flex flex-wrap justify-center sm:justify-start items-center -mx-1">
-          <li class="inline-block py-1 px-1">
-            <a href="#" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full flex items-center">
-              <span class="text-white">hogehoge</span>
-              <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">0</div>
-            </a>
-          </li>
-        </ul>
-      </div>
+      {% regroup product_list by series.name as series_items %}
+      <switcher
+        base-name="series"
+        :groups="[
+          {% for series in series_items %}
+          { name: '{{ series.grouper }}', count: {{ series.list|length }} },
+          {% endfor %}
+        ]"
+      >
+      {% for series in series_items %}
+        <div id="series{{ forloop.counter }}" class="flex flex-wrap -mx-1 sm:-mx-2 transform">
+          {% for product in series.list %}
+            <div class="w-full sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
+              <a href="{% url 'products.detail' slug=product.slug %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+                <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+
+                  {% if product.main_photo %}
+                    <div class="py-3 overflow-hidden">
+                      <img src="{{ product.main_photo.photo|thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                    </div>
+                  {% else %}
+                    <div class="py-1 overflow-hidden bg-gray-100">
+                      <img src="{% static 'images/default_thumbnail.png' %}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                    </div>
+                  {% endif %}
+
+                  {% if product.is_new %}
+                    <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                      <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+                    </div>
+                  {% endif %}
+
+                  {% if product.preservation %}
+                    <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
+                      {% with 'images/badge_'|add:product.preservation.slug|add:'_mini.png' as image_badge %}
+                        <img src="{% static image_badge %}" alt="{{ product.preservation.name | safe }}" class="no-effect">
+                      {% endwith %}
+                    </div>
+                  {% endif %}
+                </div>
+                <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+                  <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
+                  <span class="mt-2 text-sm md:text-base">{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}</span>
+                </h4>
+                <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
+                  <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
+                    <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
+                  </dt>
+                  <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">{{ product.packing | default:'---' }}</dd>
+                  <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
+                    <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
+                  </dt>
+                  <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">{{ product.markcode }}</dd>
+                </dl>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      </switcher>
+
     </div>
   </section>
 
