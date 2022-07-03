@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div :id="baseName + '-list'">
     <div class="tags max-w-2xl mx-auto mt-10 bg-gray-100 sm:flex justify-start">
       <h3 class="py-2 px-4 sm:p-0 flex justify-center items-center sm:border-r border-dashed border-gray-300">
         <span class="px-4 text-sm font-en text-crimson tracking-wider font-bold uppercase">filter</span>
@@ -23,8 +23,19 @@
         </li>
       </ul>
     </div>
-    <div ref="cont" class="mt-8 md:mt-14">
+    <div ref="cont" class="mt-8 md:mt-14 overflow-hidden transition-height">
       <slot></slot>
+    </div>
+    <div
+        v-if="defaultHeight < originalHeight"
+        class="relative -mt-12 md:-mt-28 pt-18 md:pt-32 text-center"
+        :class="isOpen ? '' : 'bg-transparent-to-white'"
+    >
+      <div class="p-8 bg-crimson-50 text-center">
+        <button class="w-64 button py-4 mx-auto" @click="handleClick">
+          <span class="font-bold">{{ buttonText }}</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -42,15 +53,26 @@ export default {
       type: Array,
       default: []
     },
+    defaultHeight: {
+      type: Number,
+      default: 640
+    }
   },
 
   data() {
     return {
+      originalHeight: 0,
+      targetHeight: this.defaultHeight,
       currentIndex: 1,
+      buttonText: 'VIEW MORE',
+      isOpen: false
     }
   },
 
   methods: {
+    handleResize: function () {
+      this.switchContent(this.currentIndex)
+    },
     switchContent: function(num) {
       for (let i = 1; i < this.groups.length + 1; i++) {
         const elm = document.getElementById(this.baseName + i )
@@ -61,11 +83,46 @@ export default {
           elm.classList.add('hidden')
         }
       }
-    }
+      this.isOpen = true
+
+        this.$refs.cont.style.height = null;
+        this.originalHeight = this.$refs.cont.offsetHeight
+        this.setContainerHeight()
+
+    },
+    handleClick: function () {
+      if(this.buttonText === 'VIEW LESS') {
+        this.$nextTick(function (){
+          this.scrollTo('#' + this.baseName + '-list')
+        })
+      }
+      this.setContainerHeight()
+    },
+    setContainerHeight: function () {
+      if (this.originalHeight > this.defaultHeight) {
+          this.isOpen = !this.isOpen
+          this.buttonText = this.isOpen ? 'VIEW LESS' : 'VIEW MORE'
+          this.targetHeight = this.isOpen ? this.originalHeight : this.defaultHeight
+          this.$refs.cont.style.height = this.targetHeight + 'px'
+      }
+    },
+    scrollTo: function (id) {
+      const target = document.querySelector(id)
+      const duration = 500
+      const options = {
+        offset: this.isMobile ? -(48 + 127):-(64 + 140),//add global menu height
+        onDone: undefined,
+        onCancel: undefined,
+      }
+      this.$scrollTo(target, duration, options)
+    },
   },
 
   mounted() {
-    this.switchContent(1)
+    window.addEventListener("resize", _.throttle(this.handleResize, 250), {
+      passive: false,
+    });
+    this.switchContent(this.currentIndex)
   }
 }
 </script>

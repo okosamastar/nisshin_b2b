@@ -281,6 +281,10 @@
   }
 }
 
+.bg-transparent-to-white {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0, rgba(255,255,255,1) 100px);
+}
+
 @screen xl {
   .shadow-top {
     @apply relative z-10 shadow-lg;
@@ -808,35 +812,43 @@ table  {
 }
 
 #brand-menu {
-  @apply block flex flex-col justify-center items-center h-12 md:w-16 md:h-16 px-2 bg-brown-600 hover:bg-brown-500 pointer-events-auto;
+  @apply block w-full md:w-16 h-12 md:h-16 pt-3 px-2 bg-brown-600 hover:bg-brown-500 pointer-events-auto transition-all duration-300 ease-in-out overflow-hidden;
+  .toggle-icon {
+    @apply pr-3 py-1 md:pl-3 md:mb-1;
+    span {
+      @apply transition-all duration-500 ease-in-out;
+    }
+  }
+  .menu-title {
+    @apply flex justify-center items-center cursor-pointer md:block;
+  }
   .menu-text {
-    @apply w-[80px] md:w-[48px];
+    @apply w-[80px] md:w-[48px] transition-all duration-500 ease-in-out;
   }
   .menu-list {
-    @apply hidden;
+    @apply w-60;
   }
   &.open {
-    width: 320px;
-    @apply absolute bottom-0 md:bottom-auto md:top-0 left-0 md:left-auto md:right-0 h-auto py-8 px-10 justify-start items-start cursor-default;
+    @apply w-80 h-screen md:h-auto mt-8 md:mt-0 py-8 px-10 cursor-default transform -translate-y-96 md:-translate-x-64 md:-translate-y-0;
     .toggle-icon {
-      @apply absolute top-[2rem] right-[1.6rem];
+      @apply absolute top-[2rem] right-[1.6rem] pl-3;
       span {
         &:first-child {
           @apply absolute left-[0.75rem] top-[0.75rem] rotate-45;
         }
         &:nth-child(2){
-          @apply invisible;
+          @apply opacity-0;
         }
         &:last-child {
           @apply absolute right-[0.75rem] top-[0.75rem] mt-0 -rotate-45;
         }
       }
     }
+    .menu-title {
+      @apply block;
+    }
     .menu-text {
       @apply w-[140px];
-    }
-    .menu-list {
-      @apply block;
     }
   }
 }
