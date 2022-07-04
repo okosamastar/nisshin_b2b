@@ -9,6 +9,7 @@ import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 import VueSplide from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import inView from "in-view";
+import VueMobileDetection from 'vue-mobile-detection'
 import ScrollHint from 'scroll-hint';
 import 'scroll-hint/css/scroll-hint.css';
 import _ from "lodash";
@@ -29,10 +30,11 @@ import Collapsable from "./vue/components/Collapsable"
 import Switcher from "./vue/components/Switcher"
 
 Vue.use(VueScrollTo);
-Vue.use(VueYouTubeEmbed)
-Vue.use( VueSplide );
+Vue.use(VueYouTubeEmbed);
+Vue.use(VueSplide);
 Vue.use(SvgVue);
 Vue.use(VueLazyLoad);
+Vue.use(VueMobileDetection);
 
 new Vue({
   el: '#app',

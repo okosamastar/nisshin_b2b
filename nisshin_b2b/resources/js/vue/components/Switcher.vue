@@ -72,8 +72,7 @@ export default {
 
   methods: {
     handleResize: function () {
-      if (this.currentWidth === window.innerWidth) {
-        console.log('canceled resize event')
+      if (this.$isMobile() && this.currentWidth === window.innerWidth) {
         return;
       }
       this.switchContent(this.currentIndex)

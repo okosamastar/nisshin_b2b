@@ -54,7 +54,7 @@ export default {
 
   methods: {
     handleResize: function () {
-      if (this.currentWidth === window.innerWidth) {
+      if (this.$isMobile() && this.currentWidth === window.innerWidth) {
         return;
       }
       if(this.mobile_only && window.innerWidth >= 992) {
@@ -62,6 +62,7 @@ export default {
       } else {
         this.isOpen = this.initial_open
       }
+
       this.setDetailsHeight();
     },
     setHeight: (detail, open = false) => {
