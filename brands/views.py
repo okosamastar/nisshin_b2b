@@ -14,8 +14,8 @@ class BrandView(PrefetchRelatedMixin, ListView):
     def get_queryset(self):
         brand = self.kwargs["brand"]
         queryset = Product.objects.filter(
-            brand__slug=brand, is_published=True
-        ).order_by("category", "series")
+            brand__slug=brand, is_published=True, category__parent_id__isnull=True
+        ).order_by("category")
         if "series" in self.kwargs:
             series = self.kwargs["series"]
             queryset = queryset.filter(series__slug=series)
