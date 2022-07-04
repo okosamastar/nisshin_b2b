@@ -85,7 +85,7 @@
 
   </section>
 
-  <section id="recommend" class="relative w-full">
+  <section id="recommend" class="relative w-full overflow-x-hidden">
     <div class="absolute left-0 top-0 z-10 w-full h-72 md:h-96">
       <img src="{% static 'images/brands/mama_the_pro/bg-mama_the_pro.jpg' %}" alt="「マ・マー　THE PRO」おすすめ製品" class="object-cover w-full h-full">
     </div>
@@ -181,7 +181,7 @@
               </div>
             </div>
           </div>
-          <div class="mt-6 md:mt-10 md:flex md:-mx-8">
+          <div class="mt-6 md:mt-10 md:flex md:-mx-8 overflow-x-visible">
             <div class="md:w-6/12 md:px-8">
               <p class="text-sm md:text-base leading-loose">
                 STELLA、それはイタリア語で「星」のこと。「PASTA　STELLA（パスタ・ステラ）」は、三ツ星のイメージから想起する満足感を目指して開発された冷凍レンジ用パスタです。<br><br>
@@ -272,7 +272,7 @@
       {% for products in brand_items %}
         <div id="series{{ forloop.counter }}" class="flex flex-wrap -mx-1 sm:-mx-2 transform">
           {% for product in products.list %}
-            <div class="w-full sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
+            <div class="w-1/2 sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
               <a href="{% url 'products.detail' slug=product.slug %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
                 <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
 
@@ -304,15 +304,15 @@
                   <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
                   <span class="mt-2 text-sm md:text-base">{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}</span>
                 </h4>
-                <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-                  <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
+                <dl class="py-1 px-0.5 flex flex-wrap items-center bg-gray-100 text-black">
+                  <dt class="w-[45%] md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
                     <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
                   </dt>
-                  <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">{{ product.packing | default:'---' }}</dd>
-                  <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
+                  <dd class="w-[55%] md:w-6/12 pl-1 md:pl-2 md:pl-3 mb-1 text-2xs md:text-xs tracking-tighter md:tracking-wide">{{ product.packing | default:'---' }}</dd>
+                  <dt class="w-[45%] md:w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
                     <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
                   </dt>
-                  <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">{{ product.markcode }}</dd>
+                  <dd class="w-[55%] md:w-6/12 pl-1 md:pl-2 md:pl-3 text-2xs md:text-xs">{{ product.markcode }}</dd>
                 </dl>
               </a>
             </div>

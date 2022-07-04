@@ -61,6 +61,7 @@ export default {
 
   data() {
     return {
+      currentWidth: window.innerWidth,
       originalHeight: 0,
       targetHeight: this.defaultHeight,
       currentIndex: 1,
@@ -71,6 +72,10 @@ export default {
 
   methods: {
     handleResize: function () {
+      if (this.currentWidth === window.innerWidth) {
+        console.log('canceled resize event')
+        return;
+      }
       this.switchContent(this.currentIndex)
     },
     switchContent: function(num) {
@@ -84,11 +89,11 @@ export default {
         }
       }
       this.isOpen = true
-
+      this.$nextTick(function (){
         this.$refs.cont.style.height = null;
         this.originalHeight = this.$refs.cont.offsetHeight
         this.setContainerHeight()
-
+      })
     },
     handleClick: function () {
       if(this.buttonText === 'VIEW LESS') {
