@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <details ref="detail" class="relative pb-16" :class="{'md:pb-0': mobile_only}">
+  <div class="overflow-visible">
+    <details ref="detail" class="relative pb-16 overflow-visible" :class="{'md:pb-0': mobile_only}">
       <summary>
         <div class="absolute bottom-0 left-0 w-full cursor-pointer" :class="{'md:hidden': mobile_only}">
           <div class="flex justify-center items-center w-full py-2  border border-crimson bg-white rounded shadow-md">
@@ -45,6 +45,7 @@ export default {
 
   data() {
     return {
+      currentWidth: window.innerWidth,
       isOpen: this.initial_open,
     }
   },
@@ -53,6 +54,9 @@ export default {
 
   methods: {
     handleResize: function () {
+      if (this.currentWidth === window.innerWidth) {
+        return;
+      }
       if(this.mobile_only && window.innerWidth >= 992) {
         this.isOpen = true
       } else {
