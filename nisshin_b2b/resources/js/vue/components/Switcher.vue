@@ -1,6 +1,6 @@
 <template>
   <div :id="baseName + '-list'">
-    <div class="tags max-w-2xl mx-auto mt-10 bg-gray-100 sm:flex justify-start">
+    <div class="tags w-full md:w-9/12 mx-auto mt-10 bg-gray-100 sm:flex justify-start">
       <h3 class="py-2 px-4 sm:p-0 flex justify-center items-center sm:border-r border-dashed border-gray-300">
         <span class="px-4 text-sm font-en text-crimson tracking-wider font-bold uppercase">filter</span>
       </h3>
