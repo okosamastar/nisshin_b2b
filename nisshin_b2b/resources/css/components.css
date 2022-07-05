@@ -1,28 +1,27 @@
 .button {
-    @apply block py-3 px-2 rounded text-center text-white bg-crimson-500 leading-5 hover:bg-crimson-400 hover:text-white;
+  @apply block py-3 px-2 rounded text-center text-white bg-crimson-500 leading-5 hover:bg-crimson-400 hover:text-white;
 
-    &.ghost {
-        @apply bg-white border-2 border-solid border-orange text-orange leading-6 hover:bg-orange hover:text-white;
+  &.ghost {
+    @apply bg-white border-2 border-solid border-orange text-orange leading-6 hover:bg-orange hover:text-white;
 
-        &.crimson {
-            @apply leading-8 border-crimson text-crimson hover:bg-crimson hover:text-white;
-        }
-    }
-
-    &:hover {
-      svg {
-        @apply text-white;
-      }
-    }
-
-    &.disabled {
-      @apply bg-gray-600 text-gray-800 cursor-not-allowed hover:bg-gray-600;
+    &.crimson {
+      @apply leading-8 border-crimson text-crimson hover:bg-crimson hover:text-white;
       &:hover {
         svg {
-          @apply text-gray-800;
+          @apply text-white;
         }
       }
     }
+  }
+
+  &.disabled {
+    @apply bg-gray-600 text-gray-800 cursor-not-allowed hover:bg-gray-600;
+    &:hover {
+      svg {
+        @apply text-gray-800;
+      }
+    }
+  }
 }
 
 #nav {
