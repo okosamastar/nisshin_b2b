@@ -8,7 +8,7 @@
           <span class="block w-6 h-[0.2rem] mt-[0.26rem] bg-white"></span>
         </div>
         <div class="menu-text">
-          <img :src="static + 'images/brands/mama_the_pro/text-brand_menu.png'" alt="MENU">
+          <img :src="static + 'brands/mama_the_pro/text-brand_menu.png'" alt="MENU">
         </div>
       </div>
       <div ref="menuList" class="menu-list mt-6">
