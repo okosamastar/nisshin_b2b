@@ -88,7 +88,7 @@
             <p class="my-5 md:mb-8 text-sm text-white leading-loose">
               多様化する食生活が、いつの時代も健康で、より豊かであるように。 自然の恵みで、世界の人々に健康をお届けする、日清製粉ウェルナの業務用パスタ関連ブランド「マ・マー THE PRO」。
             </p>
-            <a href="{% url 'brand' brand='mama-the-pro' %}" class="button bg-white text-crimson font-bold">マ・マー THE PROブランド<br>はこちらから</a>
+            <a href="{% url 'brand' brand='mama-the-pro' %}" class="button bg-white text-crimson font-bold border border-transparent hover:border-white">マ・マー THE PROブランド<br>はこちらから</a>
           </div>
         </div>
         <div class="hidden md:block w-[28%]">
@@ -113,25 +113,25 @@
 
       <div class="mt-8 sm:mt-10 md:flex md:-mx-6">
         <a href="{% url 'series' brand='mama-the-pro' series='smile-meal' %}" class="block md:w-1/2 md:px-6">
-          <div class="flex flex-col h-full bg-white shadow-md">
-            <div class="flex-none">
+          <div class="flex flex-col h-full bg-white shadow-md wrap-image">
+            <div class="flex-none overflow-hidden">
               <img src="{% static 'images/brands/mama_the_pro/thumb-simile_meal.jpg' %}" alt="Smile Meal スマイルミール">
             </div>
             <div class="flex-1 py-6 flex justify-center items-center">
               <h4 class="w-60 md:w-80">
-                <img src="{% static 'images/brands/smile_meal/logo-smile_meal.png' %}" alt="Smile Meal スマイルミール">
+                <img src="{% static 'images/brands/smile_meal/logo-smile_meal.png' %}" alt="Smile Meal スマイルミール" class="no-effect">
               </h4>
             </div>
           </div>
         </a>
         <a href="{% url 'series' brand='mama-the-pro' series='iqf' %}" class="block md:w-1/2 md:px-6 mt-8 md:mt-0">
-          <div class="flex flex-col h-full bg-white shadow-md">
-            <div class="flex-none">
+          <div class="flex flex-col h-full bg-white shadow-md wrap-image">
+            <div class="flex-none overflow-hidden">
               <img src="{% static 'images/brands/mama_the_pro/thumb-iqf.jpg' %}" alt="「IQFバラ凍結パスタ」シリーズ">
             </div>
             <div class="flex-1 py-6 flex justify-center items-center">
               <h4 class="w-60 md:w-80">
-                <img src="{% static 'images/brands/iqf/logo-iqf_horizontal.png' %}" alt="「IQFバラ凍結パスタ」シリーズ">
+                <img src="{% static 'images/brands/iqf/logo-iqf_horizontal.png' %}" alt="「IQFバラ凍結パスタ」シリーズ" class="no-effect">
               </h4>
             </div>
           </div>

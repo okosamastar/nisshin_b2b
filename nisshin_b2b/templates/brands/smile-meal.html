@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static thumbnail %}
 
 {% block title %}Smile Meal（スマイルミール）｜日清製粉ウェルナ業務用{% endblock title %}
 {% block description %}マ・マー THE PRO「Smile Meal（スマイルミール）」シリーズは、塩味控えめで食物繊維を配合した、高齢者の健康と栄養に配慮した冷凍調理パスタです。{% endblock description %}
@@ -81,7 +81,7 @@
           </p>
         </div>
       </div>
-      <div id="feature" class="mt-8 md:mt-28 py-0.5 px-6 md:py-0 md:px-12 bg-crimson-50">
+      <div id="feature" class="mt-8 md:mt-18 py-0.5 px-6 md:py-0 md:px-10 bg-crimson-50">
         <div class="md:flex md:-mx-4">
           <div class="relative md:w-1/3 md:px-4 my-12">
             <div class="pl-4 ml-10 border-l-3 border-crimson">
@@ -90,8 +90,7 @@
                 <span class="block mt-1 text-3xl font-bold leading-none">常食として設計</span>
               </h3>
               <p class="py-6 text-sm font-medium leading-relaxed">
-                個食タイプで個別対応も可能<br>
-                お好みの具材を合わせることで
+                個食タイプで個別対応も可能。<br class="hidden md:block">お好みの具材を合わせることで
               </p>
               <strong class="marked text-3xl text-crimson font-bold leading-none">
                 アレンジ可能◎
@@ -108,8 +107,7 @@
                 <span class="block mt-1 text-3xl font-bold leading-none tracking-wider">品質設計</span>
               </h3>
               <p class="py-6 text-sm font-medium leading-relaxed">
-                長さが半分の麺なので食べやすく、<br>
-                やさしい味わいでも美味しさしっかり
+                長さが半分の麺なので食べやすく、<br class="hidden md:block">やさしい味わいでも美味しさしっかり
               </p>
               <strong class="marked text-3xl text-crimson font-bold leading-none tracking-wider">
                 満足感も◎
@@ -126,8 +124,7 @@
                 <span class="block mt-1 text-3xl font-bold leading-none tracking-wider">簡便調理</span>
               </h3>
               <p class="py-6 text-sm font-medium leading-relaxed">
-                コンベクションオーブンで<br>
-                具材と一緒に温めるだけ
+                コンベクションオーブンで具材と一緒に温めるだけ
               </p>
               <strong class="marked text-3xl text-crimson font-bold leading-none">
                 ラクラク◎
@@ -142,7 +139,7 @@
     </div>
   </section>
 
-  <section class="mt-10 md:mt-24 overflow-x-hidden">
+  <section class="mt-10 md:mt-20 overflow-x-hidden">
     <div class="container mx-auto">
       <h2 class="text-2xl md:text-3xl font-bold border-l-8 border-crimson pl-3">やさしい味わい ナポリタン</h2>
       <div class="flex flex-col-reverse md:flex-row items-center mt-4 md:mt-0 md:-mx-6">
@@ -174,7 +171,7 @@
     </div>
   </section>
 
-  <section class="mt-16 md:mt-28">
+  <section class="mt-6 md:mt-20">
     <div class="container mx-auto">
       <div class="md:flex justify-end">
         <div class="md:w-1/2 md:px-6">
@@ -210,7 +207,7 @@
     </div>
   </section>
 
-  <section id="lineup" class="mt-16 md:mt-32">
+  <section id="lineup" class="mt-6 md:mt-24">
     <div class="container mx-auto">
 
       <h2 class="slashed w-full pt-10 flex justify-center items-center">
@@ -222,78 +219,59 @@
 
       <div class="flex flex-wrap justify-center -mx-1 sm:-mx-2 mt-8 md:mt-10 transform">
 
-        <div class="w-full sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290470' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+        {% for product in product_list %}
+          <div class="w-1/2 sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
+            <a href="{% url 'products.detail' slug=product.slug %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+              <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
 
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290470_01.jpg.412x412_q85_crop.jpg" alt="マ・マー THE PRO Smile Meal やさしい味わい ナポリタン" class="w-auto h-full mx-auto">
+                {% if product.main_photo %}
+                  <div class="py-3 overflow-hidden">
+                    <img src="{{ product.main_photo.photo|thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                  </div>
+                {% else %}
+                  <div class="py-1 overflow-hidden bg-gray-100">
+                    <img src="{% static 'images/default_thumbnail.png' %}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                  </div>
+                {% endif %}
+
+                {% if product.is_new %}
+                  <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                    <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+                  </div>
+                {% endif %}
+
+                {% if product.preservation %}
+                  <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
+                    {% with 'images/badge_'|add:product.preservation.slug|add:'_mini.png' as image_badge %}
+                      <img src="{% static image_badge %}" alt="{{ product.preservation.name | safe }}" class="no-effect">
+                    {% endwith %}
+                  </div>
+                {% endif %}
               </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">調理済みパスタ</span>
-              <span class="mt-2 text-sm md:text-base">マ・マー THE PRO Smile Meal やさしい味わい ナポリタン</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">230g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290470</dd>
-            </dl>
-          </a>
-        </div>
-
-        <div class="w-full sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290480' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
-
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290480_01.jpg.412x412_q85_crop.jpg" alt="マ・マー THE PRO Smile Meal やさしい味わい 和風パスタ" class="w-auto h-full mx-auto">
-              </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">調理済みパスタ</span>
-              <span class="mt-2 text-sm md:text-base">マ・マー THE PRO Smile Meal やさしい味わい 和風パスタ</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">230g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290480</dd>
-            </dl>
-          </a>
-        </div>
+              <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+                <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
+                <span class="mt-2 text-sm md:text-base">{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}</span>
+              </h4>
+              <dl class="py-1 px-0.5 flex flex-wrap items-center bg-gray-100 text-black">
+                <dt class="w-[45%] md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
+                  <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
+                </dt>
+                <dd class="w-[55%] md:w-6/12 pl-1 md:pl-2 md:pl-3 mb-1 text-2xs md:text-xs tracking-tighter md:tracking-wide">{{ product.packing | default:'---' }}</dd>
+                <dt class="w-[45%] md:w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
+                  <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
+                </dt>
+                <dd class="w-[55%] md:w-6/12 pl-1 md:pl-2 md:pl-3 text-2xs md:text-xs">{{ product.markcode }}</dd>
+              </dl>
+            </a>
+          </div>
+        {% endfor %}
 
       </div>
 
     </div>
   </section>
 
-  <section id="series" class="mt-10 md:mt-24 py-6 md:py-16 bg-crimson">
+  <section id="series" class="mt-10 md:mt-20 py-6 md:py-16 bg-crimson">
     <div class="container mx-auto">
       <div class="md:flex md:-mx-16">
         <div class="hidden md:block w-[30%]">

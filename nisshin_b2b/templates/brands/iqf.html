@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static thumbnail %}
 
 {% block title %}IQFバラ凍結パスタ｜日清製粉ウェルナ業務用{% endblock title %}
 {% block description %}マ・マー THE PRO「IQFバラ凍結パスタ」シリーズは、ゆで時間約30秒で好きな量を好きな時に使用できる冷凍ショートパスタです。 豊富なラインアップで外食・中食の様々な業態で幅広くご活用いただけます。{% endblock description %}
@@ -110,10 +110,10 @@
             </div>
           </div>
         </div>
-        <div class="relative md:w-1/2 mt-12 md:mt-0">
+        <div class="relative md:w-1/2 mt-16 md:mt-0">
           <div class="flex flex-wrap">
             <div class="w-full">
-              <div class="relative z-20 p-10 -mt-12 -mr-12">
+              <div class="relative z-20 px-10 py-6 my:p-10 -mt-12 -mr-8 md:-mr-12">
                 <div class="relative">
                   <img src="{% static 'images/brands/iqf/image-about_02.jpg' %}" class="w-full h-auto" alt="「IQFバラ凍結パスタ」シリーズ">
                   <span class="absolute right-0 bottom-0 bg-white m-2 p-0.5 text-2xs font-bold text-gray-800 tracking-wide leading-none">※調理例</span>
@@ -122,7 +122,7 @@
               <div class="absolute top-0 left-0 z-10 bg-yellow w-screen h-[80%] mt-[10%]"></div>
             </div>
             <div class="w-1/2">
-              <div class="relative z-20 pr-10 -ml-12">
+              <div class="relative z-20 pr-6 md:pr-10 -ml-8 md:-ml-12">
                 <div class="relative">
                   <img src="{% static 'images/brands/iqf/image-about_03.jpg' %}" class="w-full h-auto" alt="「IQFバラ凍結パスタ」シリーズ">
                   <span class="absolute right-0 bottom-0 bg-white m-2 p-0.5 text-2xs font-bold text-gray-800 tracking-wide leading-none">※調理例</span>
@@ -130,7 +130,7 @@
               </div>
             </div>
             <div class="w-1/2">
-              <div class="relative z-20 pr-6">
+              <div class="relative z-20 pr-2 md:pr-6">
                 <div class="relative">
                   <img src="{% static 'images/brands/iqf/image-about_04.jpg' %}" class="w-full h-auto" alt="「IQFバラ凍結パスタ」シリーズ">
                   <span class="absolute right-0 bottom-0 bg-white m-2 p-0.5 text-2xs font-bold text-gray-800 tracking-wide leading-none">※調理例</span>
@@ -143,7 +143,7 @@
     </div>
   </section>
 
-  <section class="mt-6">
+  <section class="mt-8 md:mt-6">
     <div class="container mx-auto">
       <div class="">
         <h3 class="text-xl md:text-2xl text-crimson font-bold">用途によって選べる嬉しい２つのサイズ</h3>
@@ -183,7 +183,7 @@
     </div>
   </section>
 
-  <section id="menu" class="mt-12 md:mt-20 py-12 md:py-16 bg-gray-50">
+  <section id="menu" class="mt-8 md:mt-20 py-8 md:py-16 bg-gray-50">
     <div class="container mx-auto">
       <div class="md:flex items-center">
         <h3 class="text-xl md:text-2xl text-white font-bold">
@@ -457,7 +457,7 @@
     </div>
   </section>
 
-  <section id="lineup" class="mt-10">
+  <section id="lineup" class="mt-8 md:mt-16">
     <div class="container mx-auto">
 
       <h2 class="slashed w-full pt-10 flex justify-center items-center">
@@ -469,293 +469,127 @@
 
       <div class="flex flex-wrap justify-start -mx-1 sm:-mx-2 mt-8 md:mt-10 transform">
 
-        <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290210' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+        {% for product in product_list %}
+          {% if not "MINI" in product.title %}
+          <div class="w-1/2 sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
+            <a href="{% url 'products.detail' slug=product.slug %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+              <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
 
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290210_01.jpg.412x412_q85_crop.jpg" alt="IQF（バラ凍結）ペンネリガーテ" class="w-auto h-full mx-auto">
+                {% if product.main_photo %}
+                  <div class="py-3 overflow-hidden">
+                    <img src="{{ product.main_photo.photo|thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                  </div>
+                {% else %}
+                  <div class="py-1 overflow-hidden bg-gray-100">
+                    <img src="{% static 'images/default_thumbnail.png' %}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                  </div>
+                {% endif %}
+
+                {% if product.is_new %}
+                  <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                    <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+                  </div>
+                {% endif %}
+
+                {% if product.preservation %}
+                  <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
+                    {% with 'images/badge_'|add:product.preservation.slug|add:'_mini.png' as image_badge %}
+                      <img src="{% static image_badge %}" alt="{{ product.preservation.name | safe }}" class="no-effect">
+                    {% endwith %}
+                  </div>
+                {% endif %}
               </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">ショートパスタ</span>
-              <span class="mt-2 text-sm md:text-base">IQF（バラ凍結）ペンネリガーテ</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">500g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290210</dd>
-            </dl>
-          </a>
-        </div>
-
-        <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290220' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
-
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290220_01.jpg.412x412_q85_crop.jpg" alt="IQF（バラ凍結）フィジリ" class="w-auto h-full mx-auto">
-              </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">ショートパスタ</span>
-              <span class="mt-2 text-sm md:text-base">IQF（バラ凍結）フィジリ</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">500g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290220</dd>
-            </dl>
-          </a>
-        </div>
-
-        <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290230' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
-
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290230_01.jpg.412x412_q85_crop.jpg" alt="IQF（バラ凍結）リガトーニ" class="w-auto h-full mx-auto">
-              </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">ショートパスタ</span>
-              <span class="mt-2 text-sm md:text-base">IQF（バラ凍結）リガトーニ</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">500g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290230</dd>
-            </dl>
-          </a>
-        </div>
-
-        <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290280' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
-
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290280_01.jpg.412x412_q85_crop.jpg" alt="IQF（バラ凍結）カサレッチャ" class="w-auto h-full mx-auto">
-              </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">ショートパスタ</span>
-              <span class="mt-2 text-sm md:text-base">IQF（バラ凍結）カサレッチャ</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">500g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290280</dd>
-            </dl>
-          </a>
-        </div>
-
-        <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290290' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
-
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290290_01.jpg.412x412_q85_crop.jpg" alt="IQF（バラ凍結）パッケリ" class="w-auto h-full mx-auto">
-              </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">ショートパスタ</span>
-              <span class="mt-2 text-sm md:text-base">IQF（バラ凍結）パッケリ</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">400g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290290</dd>
-            </dl>
-          </a>
-        </div>
+              <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+                <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
+                <span class="mt-2 text-sm md:text-base">{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}</span>
+              </h4>
+              <dl class="py-1 px-0.5 flex flex-wrap items-center bg-gray-100 text-black">
+                <dt class="w-[45%] md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
+                  <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
+                </dt>
+                <dd class="w-[55%] md:w-6/12 pl-1 md:pl-2 md:pl-3 mb-1 text-2xs md:text-xs tracking-tighter md:tracking-wide">{{ product.packing | default:'---' }}</dd>
+                <dt class="w-[45%] md:w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
+                  <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
+                </dt>
+                <dd class="w-[55%] md:w-6/12 pl-1 md:pl-2 md:pl-3 text-2xs md:text-xs">{{ product.markcode }}</dd>
+              </dl>
+            </a>
+          </div>
+          {% endif %}
+        {% endfor %}
 
       </div>
 
     </div>
   </section>
 
-  <section id="lineup-mini" class="mt-10">
+  <section id="lineup-mini" class="mt-8 md:mt-16">
     <div class="container mx-auto">
 
       <h2 class="slashed w-full pt-10 flex justify-center items-center">
         <div class="text-center">
           <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">LINEUP</span>
-          <span class="block text-2xl font-bold leading-snug tracking-tight">IQF<span class="text-lg">（バラ凍結）</span><br class="md:hidden">MINIシリーズ<br class="md:hidden">のラインアップ</span>
+          <span class="block text-2xl font-bold leading-snug tracking-tight">IQF<span class="text-base md:text-lg">（バラ凍結）</span>MINIシリーズ<br class="md:hidden">のラインアップ</span>
         </div>
       </h2>
 
-      <div class="flex flex-wrap justify-center -mx-1 sm:-mx-2 mt-8 md:mt-10 transform">
+      <div class="flex flex-wrap justify-start -mx-1 sm:-mx-2 mt-8 md:mt-10 transform">
 
-        <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290420' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+        {% for product in product_list %}
+          {% if "MINI" in product.title %}
+          <div class="w-1/2 sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
+            <a href="{% url 'products.detail' slug=product.slug %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+              <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
 
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290420_01.jpg.412x412_q85_crop.jpg" alt="マ・マー THE PRO IQF（バラ凍結）MINI フィジリ" class="w-auto h-full mx-auto">
+                {% if product.main_photo %}
+                  <div class="py-3 overflow-hidden">
+                    <img src="{{ product.main_photo.photo|thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                  </div>
+                {% else %}
+                  <div class="py-1 overflow-hidden bg-gray-100">
+                    <img src="{% static 'images/default_thumbnail.png' %}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                  </div>
+                {% endif %}
+
+                {% if product.is_new %}
+                  <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                    <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+                  </div>
+                {% endif %}
+
+                {% if product.preservation %}
+                  <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
+                    {% with 'images/badge_'|add:product.preservation.slug|add:'_mini.png' as image_badge %}
+                      <img src="{% static image_badge %}" alt="{{ product.preservation.name | safe }}" class="no-effect">
+                    {% endwith %}
+                  </div>
+                {% endif %}
               </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">ショートパスタ</span>
-              <span class="mt-2 text-sm md:text-base">マ・マー THE PRO IQF（バラ凍結）MINI フィジリ</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">500g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290420</dd>
-            </dl>
-          </a>
-        </div>
-
-        <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290440' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
-
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290440_01.jpg.412x412_q85_crop.jpg" alt="マ・マー THE PRO IQF（バラ凍結）MINI ストレートマカロニ" class="w-auto h-full mx-auto">
-              </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">ショートパスタ</span>
-              <span class="mt-2 text-sm md:text-base">マ・マー THE PRO IQF（バラ凍結）MINI ストレートマカロニ</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">500g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290440</dd>
-            </dl>
-          </a>
-        </div>
-
-        <div class="w-full sm:w-1/3 md:w-3/12 px-1 sm:px-2 mb-2 sm:mb-4">
-          <a href="{% url 'products.detail' '290430' %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
-            <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
-
-              <div class="py-3 overflow-hidden">
-                <img src="https://static-pro-nisshin-seifun-welna.s3.amazonaws.com/media/photos/290430_01.jpg.412x412_q85_crop.jpg" alt="マ・マー THE PRO IQF（バラ凍結）MINI シェル" class="w-auto h-full mx-auto">
-              </div>
-
-              <div class="hidden absolute left-0 top-0 w-12 h-12 mx-2">
-                <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
-              </div>
-
-              <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
-                <img src="{% static 'images/badge_frozen_mini.png' %}" alt="冷凍" class="no-effect">
-              </div>
-            </div>
-            <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
-              <span class="p-1 text-xs border border-crimson text-crimson leading-none">ショートパスタ</span>
-              <span class="mt-2 text-sm md:text-base">マ・マー THE PRO IQF（バラ凍結）MINI シェル</span>
-            </h4>
-            <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
-              <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">500g×12×2</dd>
-              <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
-                <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
-              </dt>
-              <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">290430</dd>
-            </dl>
-          </a>
-        </div>
+              <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+                <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
+                <span class="mt-2 text-sm md:text-base">{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}</span>
+              </h4>
+              <dl class="py-1 px-0.5 flex flex-wrap items-center bg-gray-100 text-black">
+                <dt class="w-[45%] md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
+                  <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
+                </dt>
+                <dd class="w-[55%] md:w-6/12 pl-1 md:pl-2 md:pl-3 mb-1 text-2xs md:text-xs tracking-tighter md:tracking-wide">{{ product.packing | default:'---' }}</dd>
+                <dt class="w-[45%] md:w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
+                  <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
+                </dt>
+                <dd class="w-[55%] md:w-6/12 pl-1 md:pl-2 md:pl-3 text-2xs md:text-xs">{{ product.markcode }}</dd>
+              </dl>
+            </a>
+          </div>
+          {% endif %}
+        {% endfor %}
 
       </div>
 
     </div>
   </section>
 
-  <section id="series" class="mt-10 md:mt-24 py-6 md:py-16 bg-crimson">
+  <section id="series" class="mt-10 md:mt-20 py-6 md:py-16 bg-crimson">
     <div class="container mx-auto">
       <div class="md:flex md:-mx-16">
         <div class="hidden md:block w-[30%]">
@@ -766,7 +600,7 @@
         <div class="md:w-[40%]">
           <div class="relative z-10 md:hidden h-[160px] rounded overflow-hidden">
             <img src="{% static 'images/brands/mama_the_pro/image-mama_the_pro_02.jpg' %}" alt="マ・マー THE PRO" class="w-full h-[160px] object-cover">
-            <span class="absolute right-0 bottom-0 bg-transparent m-1 p-0.5 text-2xs font-bold text-black tracking-wide leading-none">※調理例</span>
+            <span class="absolute right-0 bottom-0 bg-white m-1 p-0.5 text-2xs font-bold text-black tracking-wide leading-none">※調理例</span>
           </div>
           <div class="h-full flex flex-col justify-between p-4 md:px-14 md:py-0">
             <img src="{% static 'images/brands/mama_the_pro/logo-mama_the_pro.png' %}" alt="マ・マー THE PRO" class="relative z-20 -mt-12 md:mt-0 w-[180px] md:w-[250px] mx-auto">

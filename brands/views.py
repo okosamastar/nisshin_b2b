@@ -22,18 +22,11 @@ class BrandView(PrefetchRelatedMixin, ListView):
         return queryset
 
     def get_template_names(self):
-        # if "series" in self.kwargs:
-        #     template = "brands/%s.html" % self.kwargs["series"]
-        # else:
-        #     template = "brands/%s.html" % self.kwargs["brand"]
-
+        template = ""
         if "series" in self.kwargs:
-            if "smile-meal" == self.kwargs["series"]:
-                template = "brands/smile-meal.html"
-            elif "iqf" == self.kwargs["series"]:
-                template = "brands/iqf.html"
-        else:
-            template = "brands/mama-the-pro.html"
+            template = "brands/%s.html" % self.kwargs["series"]
+        elif "brand" in self.kwargs:
+            template = "brands/%s.html" % self.kwargs["brand"]
 
         try:
             loader.get_template(template)
