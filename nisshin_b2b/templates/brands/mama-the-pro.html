@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
-{% load thumbnail %}
+{% load static thumbnail %}
 
 {% block title %}マ・マー THE PRO｜日清製粉ウェルナ業務用{% endblock title %}
 {% block description %}多様化する食生活が、いつの時代も健康で、より豊かであるように。 自然の恵みで、世界の人々に健康をお届けする、日清製粉ウェルナの業務用パスタ関連ブランド「マ・マー THE PRO」。{% endblock description %}
@@ -137,7 +136,7 @@
               </div>
             </div>
           </div>
-          <div class="mt-8 md:mt-16 text-center">
+          <div class="mt-8 md:mt-10 text-center">
             <div class="speech">
               <span class="text-sm font-bold">早ゆでスパゲティシリーズのある</span>
             </div>
@@ -149,7 +148,7 @@
           </div>
         </collapsable>
       </div>
-      <div class="mt-12 md:mt-24">
+      <div class="mt-12 md:mt-20">
         <h2 class="dotted">
           <span class="text-lg md:text-2xl">PASTS STELLA<span class="text-sm md:text-lg">（パスタ・ステラ）</span>シリーズ</span>
         </h2>
@@ -214,7 +213,7 @@
     </div>
   </section>
 
-  <section id="series" class="mt-12 md:mt-28">
+  <section id="series" class="mt-14 md:mt-20">
     <div class="container mx-auto">
       <h2 class="slashed w-full pt-10 flex justify-center items-center">
         <div class="text-center">
@@ -224,25 +223,25 @@
       </h2>
       <div class="mt-8 sm:mt-10 md:flex md:-mx-6">
         <a href="{% url 'series' brand='mama-the-pro' series='smile-meal' %}" class="block md:w-1/2 md:px-6">
-          <div class="flex flex-col h-full bg-white shadow-md">
-            <div class="flex-none">
+          <div class="flex flex-col h-full bg-white shadow-md wrap-image">
+            <div class="flex-none overflow-hidden">
               <img src="{% static 'images/brands/mama_the_pro/thumb-simile_meal.jpg' %}" alt="Smile Meal スマイルミール">
             </div>
             <div class="flex-1 py-6 flex justify-center items-center">
               <h4 class="w-60 md:w-80">
-                <img src="{% static 'images/brands/smile_meal/logo-smile_meal.png' %}" alt="Smile Meal スマイルミール">
+                <img src="{% static 'images/brands/smile_meal/logo-smile_meal.png' %}" alt="Smile Meal スマイルミール" class="no-effect">
               </h4>
             </div>
           </div>
         </a>
         <a href="{% url 'series' brand='mama-the-pro' series='iqf' %}" class="block md:w-1/2 md:px-6 mt-8 md:mt-0">
-          <div class="flex flex-col h-full bg-white shadow-md">
-            <div class="flex-none">
+          <div class="flex flex-col h-full bg-white shadow-md wrap-image">
+            <div class="flex-none overflow-hidden">
               <img src="{% static 'images/brands/mama_the_pro/thumb-iqf.jpg' %}" alt="「IQFバラ凍結パスタ」シリーズ">
             </div>
             <div class="flex-1 py-6 flex justify-center items-center">
               <h4 class="w-60 md:w-80">
-                <img src="{% static 'images/brands/iqf/logo-iqf_horizontal.png' %}" alt="「IQFバラ凍結パスタ」シリーズ">
+                <img src="{% static 'images/brands/iqf/logo-iqf_horizontal.png' %}" alt="「IQFバラ凍結パスタ」シリーズ" class="no-effect">
               </h4>
             </div>
           </div>
@@ -251,7 +250,7 @@
     </div>
   </section>
 
-  <section id="lineup" class="mt-16 md:mt-28">
+  <section id="lineup" class="mt-14 md:mt-20">
     <div class="container mx-auto">
       <h2 class="slashed w-full pt-10 flex justify-center items-center">
         <div class="text-center">

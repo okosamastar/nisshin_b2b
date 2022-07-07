@@ -9,8 +9,8 @@
             v-for="(group, index) in groups"
             :id="'btn-' + baseName + (index + 1)"
             :key="'btn-' + (index + 1)"
-            class="inline-block m-1 py-2 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full flex items-center"
-            :class="currentIndex === (index + 1) ? 'bg-yellow text-black cursor-default' : 'bg-crimson text-white cursor-pointer'"
+            class="inline-block m-1 py-2 px-4 text-xs md:text-sm font-bold rounded-full flex items-center"
+            :class="currentIndex === (index + 1) ? 'bg-yellow text-black cursor-not-allowed' : 'bg-crimson hover:bg-crimson-400 text-white cursor-pointer'"
             @click="switchContent(index + 1)"
         >
           <span>{{ group.name }}</span>

@@ -55,7 +55,6 @@
 
     img {
       @apply transition-all duration-1000;
-
       transform: scale(1, 1);
     }
 
