@@ -64,18 +64,12 @@
               </p>
               {% if product.brand.name %}
               <a href="{% url 'brand' brand=product.brand.slug %}" class="mt-4 p-4 bg-crimson hover:bg-crimson-400 hover:text-white flex justify-between items-center">
-                <div class="flex-none w-8 h-8 bg-white rounded-full flex justify-center items-center text-crimson-400">
-                  <svg-vue icon="medal" class="w-6 h-6 text-crimson no-hover-svg"></svg-vue>
-                </div>
-                <span class="flex-1 pl-2 text-left text-white">{{ product.brand.name }} ブランド</span>
+                <span class="flex-1 text-left text-white">{{ product.brand.name }} ブランド</span>
                 <svg-vue icon="chevron_alt" class="flex-none w-4 h-4 rotate-90 text-white no-hover-svg hover-to-right"></svg-vue>
               </a>
                 {% if product.series.name %}
-                <a href="{% url 'series' brand=product.brand.slug series=product.series.slug %}" class="mt-4 p-4 bg-white text-crimson border border-crimson flex justify-between items-center">
-                  <div class="flex-none w-8 h-8 bg-white rounded-full flex justify-center items-center text-crimson-400">
-                    <svg-vue icon="relation" class="w-6 h-6 text-crimson no-hover-svg"></svg-vue>
-                  </div>
-                  <span class="flex-1 pl-2 text-left">{{ product.series.name }} シリーズ</span>
+                <a href="{% url 'series' brand=product.brand.slug series=product.series.slug %}" class="mt-4 p-4 bg-white text-crimson hover:text-crimson-300 border border-crimson hover:border-crimson-300 flex justify-between items-center">
+                  <span class="flex-1 text-left">{{ product.series.name }} シリーズ</span>
                   <svg-vue icon="chevron_alt" class="flex-none w-4 h-4 rotate-90 hover-to-right"></svg-vue>
                 </a>
                 {% endif %}

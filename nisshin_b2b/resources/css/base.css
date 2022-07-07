@@ -80,7 +80,7 @@ a {
     svg {
       @apply text-crimson;
       &.hover-to-right {
-        @apply transform translate-x-2 transition-all duration-300 ease-in-out;
+        @apply transform translate-x-1.5 transition-all duration-300 ease-in-out;
       }
     }
     &.hover\:text-white {
