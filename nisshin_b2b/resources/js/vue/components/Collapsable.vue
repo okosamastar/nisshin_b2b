@@ -25,6 +25,10 @@ export default {
   name: "Collapsable",
 
   props: {
+    mobile_only: {
+      type: Boolean,
+      default: false
+    },
     initial_open: {
       type: Boolean,
       default: true
@@ -36,10 +40,6 @@ export default {
     close_text: {
       type: String,
       default: 'CLOSE'
-    },
-    mobile_only: {
-      type: Boolean,
-      default: false
     },
   },
 
@@ -54,15 +54,20 @@ export default {
 
   methods: {
     handleResize: function () {
-      if (this.$isMobile() && this.currentWidth === window.innerWidth) {
-        return;
-      }
-      if(this.mobile_only && window.innerWidth >= 992) {
-        this.isOpen = true
-      } else {
+      if(this.$isMobile()){
+        if(this.currentWidth === window.innerWidth){
+          return;
+        }
+        console.log('width is changed in mobile device')
         this.isOpen = this.initial_open
+      } else {
+        if(this.mobile_only) {
+          this.isOpen = true
+        } else {
+          this.isOpen = this.initial_open
+        }
       }
-
+      this.currentWidth = window.innerWidth
       this.setDetailsHeight();
     },
     setHeight: (detail, open = false) => {
@@ -70,7 +75,7 @@ export default {
       const rect = detail.getBoundingClientRect();
       detail.dataset.width = rect.width;
       detail.style.setProperty(open ? `--expanded` : `--collapsed`, `${rect.height}px`);
-
+      console.log('set height to ' + rect.height)
     },
     setDetailsHeight: function () {
       const detail = this.$refs.detail
@@ -82,17 +87,15 @@ export default {
   },
 
   mounted() {
-    window.addEventListener("resize", _.throttle(this.handleResize, 250), {
-      passive: false,
-    });
-    this.handleResize();
 
     this.$refs.detail.addEventListener("toggle", function() {
       this.isOpen = this.$refs.detail.open
     }.bind(this))
 
-    this.$refs.detail.open = this.isOpen
-
+    window.addEventListener("resize", _.throttle(this.handleResize, 250), {
+      passive: false,
+    });
+    this.handleResize();
   },
 
   destroyed() {
