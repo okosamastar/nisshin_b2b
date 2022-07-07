@@ -75,6 +75,7 @@ export default {
       if (this.$isMobile() && this.currentWidth === window.innerWidth) {
         return;
       }
+      this.currentWidth = window.innerWidth
       this.switchContent(this.currentIndex)
     },
     switchContent: function(num) {
