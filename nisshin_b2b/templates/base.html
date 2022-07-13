@@ -49,11 +49,13 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com/"/>
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin/>
+
+  {% compress css %}
+  <link href="{% static 'css/app.css' %}" rel="stylesheet">
+  {% endcompress %}
+
   {% block css %}
-    <!-- Your stuff: Third-party CSS libraries go here -->{% compress css %}
-    <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/app.css' %}" rel="stylesheet">{% endcompress %}
-  {% endblock %}
+  {% endblock css %}
 </head>
 
 <body class="bg-white">
@@ -373,9 +375,12 @@
 </div>
 
 {# Placed at the top of the document so pages load faster with defer #}
+{% compress js %}
+<script defer src="{% static 'js/index.js' %}"></script>
+{% endcompress %}
+
 {% block javascript %}
-  <!-- place project specific Javascript in this file -->{% compress js %}
-  <script defer src="{% static 'js/index.js' %}"></script>{% endcompress %}
+  <!-- place project specific Javascript in this file -->
 {% endblock javascript %}
 
 {% block inline_javascript %}
@@ -385,7 +390,7 @@
     <script>
       window.addEventListener('DOMContentLoaded', () => {/* Run whatever you want */});
     </script>
-    {% endcomment %}
+  {% endcomment %}
 {% endblock inline_javascript %}
 </body>
 
