@@ -20,6 +20,7 @@ module.exports = {
     spacing: {
       ...spacing,
       '18': '4.5rem',
+      '22': '5.5rem',
     },
     fontSize: {
       '2xs': '0.625rem',

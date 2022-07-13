@@ -66,13 +66,13 @@ export default {
       targetHeight: this.defaultHeight,
       currentIndex: 1,
       buttonText: 'VIEW MORE',
-      isOpen: false
+      isOpen: false,
     }
   },
 
   methods: {
     handleResize: function () {
-      if (this.$isMobile() && this.currentWidth === window.innerWidth) {
+      if (this.$$isMobile() && this.currentWidth === window.innerWidth) {
         return;
       }
       this.currentWidth = window.innerWidth
@@ -98,7 +98,15 @@ export default {
     handleClick: function () {
       if(this.buttonText === 'VIEW LESS') {
         this.$nextTick(function (){
-          this.scrollTo('#' + this.baseName + '-list')
+          this.$scrollTo (
+              '#' + this.baseName + '-list',
+              500,
+              {
+                offset: this.$isMobile ? -(48 + 127):-(64 + 140),//add global menu height
+                onDone: undefined,
+                onCancel: undefined,
+              }
+          )
         })
       }
       this.setContainerHeight()
@@ -110,16 +118,6 @@ export default {
           this.targetHeight = this.isOpen ? this.originalHeight : this.defaultHeight
           this.$refs.cont.style.height = this.targetHeight + 'px'
       }
-    },
-    scrollTo: function (id) {
-      const target = document.querySelector(id)
-      const duration = 500
-      const options = {
-        offset: this.isMobile ? -(48 + 127):-(64 + 140),//add global menu height
-        onDone: undefined,
-        onCancel: undefined,
-      }
-      this.$scrollTo(target, duration, options)
     },
   },
 
