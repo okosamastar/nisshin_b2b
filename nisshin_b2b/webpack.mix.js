@@ -71,6 +71,9 @@ mix.js(`${resourcesPath}/js/index.js`, `${staticPath}/js/`)
         `${staticPath}/css/style.css`
     ], `${staticPath}/css/app.css`)
 
+    .copyDirectory(`${resourcesPath}/js/special/`, `${staticPath}/js/special/`)
+    .copyDirectory(`${resourcesPath}/css/special/`, `${staticPath}/css/special/`)
+
 // .options({
 //   processCssUrls: false,
 // })
