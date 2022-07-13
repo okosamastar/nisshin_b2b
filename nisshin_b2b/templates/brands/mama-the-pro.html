@@ -7,39 +7,34 @@
 {% block sidenav %}
   <div class="md:sticky md:top-0 md:right-0 z-40 md:w-full">
     <div class="nav fixed md:absolute bottom-0 md:top-1/2 md:bottom-auto left-0 md:left-auto md:right-0 z-40 w-full md:w-16 md:h-screen md:mt-[-80px] flex md:flex-col justify-center items-center text-white pointer-events-none">
-      <brand-menu static="{% static 'images/' %}">
+      <page-menu static="{% static 'images/' %}">
         <ul class="hidden w-full">
-          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#top')">
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-green-300 cursor-pointer" @click="scrollTo('#top')">
             <span class="block px-4 border-l-4 border-white leading-tight">トップ</span>
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
           </li>
-          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#about')">
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-green-300 cursor-pointer" @click="scrollTo('#about')">
             <span class="block px-4 border-l-4 border-white leading-tight">マ・マーTHE PROとは</span>
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
           </li>
-          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#recommend')">
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-green-300 cursor-pointer" @click="scrollTo('#recommend')">
             <span class="block px-4 border-l-4 border-white leading-tight">おすすめ製品紹介</span>
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
           </li>
-          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#series')">
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-green-300 cursor-pointer" @click="scrollTo('#series')">
             <span class="block px-4 border-l-4 border-white leading-tight">マ・マーTHE PROシリーズ紹介</span>
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
           </li>
-          <li class="flex justify-between items-center py-4 border-t border-dashed border-brown-300 cursor-pointer" @click="scrollTo('#lineup')">
+          <li class="flex justify-between items-center py-4 border-t border-dashed border-green-300 cursor-pointer" @click="scrollTo('#lineup')">
             <span class="block px-4 border-l-4 border-white leading-tight">製品ラインアップ</span>
             <svg-vue icon="chevron" class="w-3 h-3 rotate-90"></svg-vue>
           </li>
         </ul>
-      </brand-menu>
-      <a href="{% url 'contact' %}" class="w-1/2 md:w-full py-3 md:py-6 md:px-3 md:mt-0.5 bg-crimson hover:bg-crimson-400 hover:text-white flex md:flex-col justify-center items-center no-hover-svg pointer-events-auto">
+      </page-menu>
+      <a href="{% url 'contact' %}" class="w-1/2 md:w-full py-3 md:py-6 md:px-3 md:mt-0.5 bg-crimson hover:bg-crimson-400 hover:text-white border-t md:border-l md:border-b border-crimson-300 flex md:flex-col justify-center items-center no-hover-svg pointer-events-auto">
         <svg-vue icon="mail" class="w-6 h-6 text-white"></svg-vue>
         <img src="{% static 'images/v_text_contact.png' %}" alt="お問い合わせ" class="hidden md:block w-4 mt-2">
         <span class="md:hidden ml-2 text-sm font-bold text-white">お問い合わせ</span>
-      </a>
-      <a href="https://secure-link.jp/wf/?c=wf14875648" target="_blank" class="hidden w-1/2 md:w-full py-3 md:py-6 md:px-3 md:mt-0.5 bg-green text-white hover:bg-green-400 flex md:flex-col justify-center items-center pointer-events-auto">
-        <svg-vue icon="foodie" class="w-6 h-6 text-white"></svg-vue>
-        <img src="{% static 'images/v_text_sample.png' %}" alt="無料サンプル" class="hidden md:block w-4 mt-2">
-        <span class="md:hidden ml-2 text-sm font-bold text-white">無料サンプル</span>
       </a>
     </div>
   </div>
@@ -58,7 +53,7 @@
       </div>
       <div class="relative z-10 flex-1 md:h-full">
         <img src="{% static 'images/brands/mama_the_pro/image-main.png' %}" class="w-full h-full object-contain" alt="Smile Meal スマイルミール とは">
-        <span class="absolute right-0 bottom-0 bg-transparent p-0.5 mb-12 md:mb-[2%] mr-4 md:mr-[20%] text-2xs font-bold md:text-white tracking-wide leading-none">※調理例</span>
+        <span class="absolute right-0 bottom-0 bg-transparent p-0.5 mb-12 md:mb-[2%] mr-4 md:mr-[20%] text-2xs font-bold md:text-white tracking-wide leading-none">調理例</span>
       </div>
     </div>
 
@@ -71,11 +66,11 @@
           <div class="md:w-7/12 md:pl-12 mt-6 md:mt-0">
             <h2 class="w-full text-2xl md:text-3xl font-bold text-white text-center tracking-wider">
               <span class="inline-block pb-1 border-b-3 border-white">業務用市場に</span>
-              <span class="inline-block pb-1 mt-2 border-b-3 border-white">プロクォリティをお届けする</span>
+              <span class="inline-block pb-1 mt-2 border-b-3 border-white">プロクオリティをお届けする</span>
             </h2>
             <p class="mt-6 md:mt-10 md:px-12 text-sm md:text-base leading-loose text-white">
               「マ・マー THE PRO」は常温・冷凍それぞれの温度帯で、「早ゆでスパゲティ」シリーズや冷凍パスタシリーズ「PASTA　STELLA（パスタ・ステラ）」をはじめとする多数のパスタ関連アイテムを有しています。<br><br>
-              これからも「おいしさ」「品質」の提供を基本としながら、業務用市場における多様化するニーズにお応えするプロクォリティの製品をお届けしてまいります。
+              これからも「おいしさ」「品質」の提供を基本としながら、業務用市場における多様化するニーズにお応えするプロクオリティの製品をお届けしてまいります。
             </p>
           </div>
         </div>
@@ -102,7 +97,7 @@
         <h2 class="dotted">
           <span class="text-lg md:text-2xl">早ゆでスパゲティシリーズ</span>
         </h2>
-        <collapsable :initial_open="false" open_text="詳細を表示" close_text="詳細を隠す" :mobile_only="true">
+        <collapsable :id_number="1" :initial_open="false" open_text="詳細を表示" close_text="詳細を隠す" :mobile_only="true">
           <div class="mt-6 md:mt-12 p-4 md:p-8 bg-gray-100">
             <div class="flex justify-center">
               <div class="w-60 mx-2">
@@ -117,9 +112,10 @@
             <div class="flex-1 md:px-6">
               <p class="text-sm md:text-base leading-loose">
                 当社独自の「早ゆで・スーパープロント製法」により、パスタ本来のおいしさはそのままにゆで時間を短縮しました。断面に4か所の切り込みが入った特殊形状で、本格アルデンテ食感はそのままに、ゆで時間を大幅に短縮することができ、オーダーからスピーディーにゆで立てのパスタメニューの提供が可能になりました（1.6㎜の場合：ゆで時間3分　2.2㎜の場合：ゆで時間8分）。</p>
-              <div class="mt-6 md:mt-8 md:px-10">
+              <div class="relative mt-6 md:mt-8 md:px-10">
                 <h4 class="mb-4 py-2 text-xl font-bold text-crimson text-center bg-crimson-50">麺の断面写真</h4>
                 <img src="{% static 'images/brands/mama_the_pro/figure-hayayude_01.png' %}" alt="アルデンテなゆで上がりに">
+                <span class="absolute right-0 bottom-0 bg-transparent md:mb-4 md:mr-16 p-0.5 text-2xs font-bold text-gray-600 tracking-wide leading-none transform scale-90">調理例</span>
               </div>
             </div>
             <div class="mt-6 md:mt-0 flex-none md:w-[480px] md:px-6">
@@ -150,13 +146,13 @@
       </div>
       <div class="mt-12 md:mt-20">
         <h2 class="dotted">
-          <span class="text-lg md:text-2xl">PASTS STELLA<span class="text-sm md:text-lg">（パスタ・ステラ）</span>シリーズ</span>
+          <span class="text-lg md:text-2xl">PASTA STELLA<span class="text-sm md:text-lg">（パスタ・ステラ）</span>シリーズ</span>
         </h2>
-        <collapsable :mobile_only="true" :initial_open="false" open_text="詳細を表示" close_text="詳細を隠す">
+        <collapsable :id_number="2" :mobile_only="true" :initial_open="false" open_text="詳細を表示" close_text="詳細を隠す">
           <div class="mt-6 md:mt-12 p-2 md:p-8 bg-gray-100">
             <div class="md:flex items-center">
               <div class="hidden flex-none w-60 px-6 md:flex justify-center">
-                <img src="{% static 'images/brands/mama_the_pro/logo-pasta_stella.png' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ" class="mb-10">
+                <img src="{% static 'images/brands/mama_the_pro/logo-pasta_stella.png' %}" alt="PASTA STELLA（パスタ・ステラ）シリーズ" class="mb-10">
               </div>
               <div class="flex flex-wrap justify-between">
                 <div class="w-1/3 p-2 md:p-4">
@@ -187,17 +183,17 @@
                 さまざまな食感が楽しめる多彩な形状のパスタとこだわりソースが織りなす、贅沢なメニューを揃えました。レンジひとつでお店で手軽に、リストランテの本格的な味を再現していただけます。
               </p>
               <div class="pt-6 px-10 md:py-10 md:pl-10 md:pr-0">
-                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_02.jpg' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ">
+                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_02.jpg' %}" alt="PASTA STELLA（パスタ・ステラ）シリーズ">
               </div>
             </div>
             <div class="w-7/12 md:w-6/12 md:px-8 -mt-14 -ml-10 md:m-0">
-              <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_01.png' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ">
+              <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_01.png' %}" alt="PASTA STELLA（パスタ・ステラ）シリーズ">
             </div>
           </div>
           <div class="w-full -mt-52 md:-mt-72 pl-20 md:px-32">
             <div class="flex justify-end bg-crimson pt-18 pb-10 md:py-0">
               <div class="w-8/12 md:w-7/12 md:pt-32 md:pl-18 md:pr-10 -mb-16 -mr-4 md:mr-0">
-                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_03.jpg' %}" alt="PASTS STELLA（パスタ・ステラ）シリーズ">
+                <img src="{% static 'images/brands/mama_the_pro/image-pasta_stella_03.jpg' %}" alt="PASTA STELLA（パスタ・ステラ）シリーズ">
               </div>
             </div>
           </div>
