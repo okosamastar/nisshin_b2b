@@ -10,7 +10,7 @@ urlpatterns = [
     path("ec/micstore/", views.micstoreView.as_view(), name="micstore"),
     path("archives/", RedirectView.as_view(url="/b2b/archives/spring_2022/")),
     path("archives/<str:slug>/", views.archivePageView.as_view(), name="archive"),
-    path("special/<str:slug>/", views.landingPageView.as_view(), name="special"),
+    # path("special/<str:slug>/", views.landingPageView.as_view(), name="special"),
     path("healthcheck/", views.health_check),
     path("nswc/", views.welna_club),
     path("404/", views.custom_page_not_found),
