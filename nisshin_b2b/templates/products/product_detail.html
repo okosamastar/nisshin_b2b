@@ -63,7 +63,7 @@
                 {{ product.description }}
               </p>
               {% if product.brand.name %}
-              <a href="{% url 'brand' brand=product.brand.slug %}" class="mt-4 p-4 bg-crimson hover:bg-crimson-400 hover:text-white flex justify-between items-center">
+              <a href="{% url 'brand' brand=product.brand.slug %}" class="hidden mt-4 p-4 bg-crimson hover:bg-crimson-400 hover:text-white flex justify-between items-center">
                 <span class="flex-1 text-left text-white">{{ product.brand.name }} ブランド</span>
                 <svg-vue icon="chevron_alt" class="flex-none w-4 h-4 rotate-90 text-white no-hover-svg hover-to-right"></svg-vue>
               </a>
