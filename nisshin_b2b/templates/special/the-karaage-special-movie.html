@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  衣にとことんこだわったから揚げ粉｜プロのための業務用食品サイト｜株式会社日清製粉ウェルナ
+{% endblock title %}
+
+{% block content %}
+<div class="l-wrapper">
+
+  <main class="l-main" id="gyoumuyou-top">
+    <!--メイン開始-->
+    <h1 class="py-8 bg-crimson text-center text-white font-medium tracking-wider">
+      <span class="text-xl md:text-3xl">THE KARAAGE スペシャル映像</span>
+      <span class="block text-sm md:text-base">日本を代表する名店の粉打ちを披露</span>
+    </h1>
+    <div class="container mx-auto">
+      <div class="mt-10 flex justify-center">
+        <video autoplay loop playsinline muted controls width="80%" height=auto src="https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/karaage/mov/03_technic.mp4"></video>
+      </div>
+      <p class="my-10">
+        <a href="{% url 'special' slug='the-karaage' %}" class="w-full md:w-96 mx-auto button ghost crimson rounded-full flex justify-center items-center">
+          <svg-vue icon="chevron" class="w-3 h-3 mr-3"></svg-vue>
+          THE KARAAGEページへ戻る
+        </a>
+      </p>
+    </div>
+    <!--メイン終了-->
+  </main>
+</div>
+{% endblock content %}

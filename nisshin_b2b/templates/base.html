@@ -49,11 +49,13 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com/"/>
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin/>
+
+  {% compress css %}
+  <link href="{% static 'css/app.css' %}" rel="stylesheet">
+  {% endcompress %}
+
   {% block css %}
-    <!-- Your stuff: Third-party CSS libraries go here -->{% compress css %}
-    <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/app.css' %}" rel="stylesheet">{% endcompress %}
-  {% endblock %}
+  {% endblock css %}
 </head>
 
 <body class="bg-white">
@@ -184,7 +186,7 @@
                   </div>
                   <a href="https://cdn.pro.nisshin-seifun-welna.com/media/catalog/index.html" target="_blank" class="button crimson ghost text-lg font-bold py-3 xs:py-2 sm:py-3">
                     <span class="flex justify-center items-center">
-                      閲覧はこちらから<svg-vue icon="external" class="w-4 h-4 mt-0.5 ml-2"></svg-vue>
+                      閲覧はこちらから<svg-vue icon="external" class="w-4 h-4 mt-0.5 ml-2 hover:text-white"></svg-vue>
                     </span>
                   </a>
                 </div>
@@ -223,7 +225,7 @@
   {% endblock contact %}
 
   {% block scrolltotop %}
-  <div id="pagetop" ref="pagetop" class="fixed z-40 right-0 bottom-0 mr-4 mb-6 md:mr-8 md:mb-[4.25rem] w-10 h-10 flex justify-center items-center bg-white border border-crimson transition-all cursor-pointer" @click="scrollTo('#app')">
+  <div id="pagetop" ref="pagetop" class="fixed z-40 right-0 bottom-0 mr-2 mb-14 md:mr-8 md:mb-[4.25rem] w-10 h-10 flex justify-center items-center bg-white border border-crimson transition-all cursor-pointer" @click="scrollTo('#app')">
     <svg-vue icon="chevron" class="w-3 h-3 mt-1 text-crimson -rotate-90"></svg-vue>
   </div>
   {% endblock scrolltotop %}
@@ -363,7 +365,7 @@
     :items="media"
     :index="mediaIndex"
     :effect="'fade'"
-    :useZoomBar="true"
+    :use-zoom-bar="true"
     @close="mediaIndex = null"
   >
   </cool-light-box>
@@ -373,9 +375,12 @@
 </div>
 
 {# Placed at the top of the document so pages load faster with defer #}
+{% compress js %}
+<script defer src="{% static 'js/index.js' %}"></script>
+{% endcompress %}
+
 {% block javascript %}
-  <!-- place project specific Javascript in this file -->{% compress js %}
-  <script defer src="{% static 'js/index.js' %}"></script>{% endcompress %}
+  <!-- place project specific Javascript in this file -->
 {% endblock javascript %}
 
 {% block inline_javascript %}
@@ -385,7 +390,7 @@
     <script>
       window.addEventListener('DOMContentLoaded', () => {/* Run whatever you want */});
     </script>
-    {% endcomment %}
+  {% endcomment %}
 {% endblock inline_javascript %}
 </body>
 

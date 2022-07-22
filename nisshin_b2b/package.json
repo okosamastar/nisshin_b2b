@@ -60,5 +60,9 @@
     "vue-template-compiler": "^2.6.14",
     "vue-youtube-embed": "^2.2.2",
     "webpack-livereload-plugin": "^1.2.0"
+  },
+  "dependencies": {
+    "scroll-hint": "^1.2.5",
+    "vue-mobile-detection": "1.0.0"
   }
 }

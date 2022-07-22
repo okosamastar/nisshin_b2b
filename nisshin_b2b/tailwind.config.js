@@ -20,6 +20,7 @@ module.exports = {
     spacing: {
       ...spacing,
       '18': '4.5rem',
+      '22': '5.5rem',
     },
     fontSize: {
       '2xs': '0.625rem',
@@ -29,7 +30,9 @@ module.exports = {
       'base': '1rem',
       'lg': '1.125rem',
       'xl': '1.25rem',
+      '1.5xl': '1.375rem',
       '2xl': '1.5rem',
+      '2.5xl': '1.75rem',
       '3xl': '1.875rem',
       '4xl': '2.25rem',
       '5xl': '2.6rem',
@@ -98,14 +101,14 @@ module.exports = {
           '400': '#FED14D',
           '500': '#FEC724',
           '600': '#E9AE01',
-          '700': '#B18501',
+          '700': '#B4932C',
           '800': '#795B01',
           '900': '#413100'
         },
         'blue': {
           DEFAULT: '#2B7CC1',
-          '50': '#DBEAF7',
-          '100': '#C6DEF2',
+          '50': '#EFF7FF',
+          '100': '#E0EFFF',
           '200': '#9CC6E9',
           '300': '#72ADE0',
           '400': '#4995D6',
@@ -143,8 +146,8 @@ module.exports = {
         },
         'crimson': {
           DEFAULT: '#E82817',
-          '50': '#FFEDEB',
-          '100': '#F7B2AB',
+          '50': '#FFEBEB',
+          '100': '#FFD9D9',
           '200': '#F38F86',
           '300': '#EF6D61',
           '400': '#EC4A3C',
@@ -217,6 +220,11 @@ module.exports = {
         '80' : '80',
         '90' : '90',
         '100' : '100',
+      },
+      transitionProperty: {
+        'width': 'width',
+        'height': 'height',
+        'spacing': 'margin, padding',
       }
     },
   },

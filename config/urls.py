@@ -3,6 +3,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views import defaults as default_views
+
 # from django.views.generic import TemplateView
 from django.views.generic import RedirectView
 from rest_framework.authtoken.views import obtain_auth_token
@@ -18,6 +19,7 @@ urlpatterns = [
     path("", RedirectView.as_view(url="/b2b/")),
     re_path(r"^b2b/", include("pages.urls")),
     re_path(r"^b2b/products/", include("products.urls")),
+    re_path(r"^b2b/brands/", include("brands.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS

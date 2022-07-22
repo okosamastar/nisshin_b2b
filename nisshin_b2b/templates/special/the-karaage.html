@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  衣にとことんこだわったから揚げ粉｜プロのための業務用食品サイト｜株式会社日清製粉ウェルナ
+{% endblock title %}
+
+{% block css %}
+  <link href="{% static 'css/special/the-karaage/modaal.css' %}" rel="stylesheet">
+  <link href="{% static 'css/special/the-karaage/animate.css' %}" rel="stylesheet">
+  <link href="{% static 'css/special/the-karaage/style.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block content %}
+<div class="l-wrapper">
+
+  <main class="l-main">
+    <!--メイン開始-->
+
+    <div id="page-karaage">
+
+      <section id="section-main" class="animated">
+        <video autoplay loop playsinline muted controls src="https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/karaage/mov/main.mp4">
+        </video>
+      </section>
+      <!-- /section-main -->
+
+      <section id="section01">
+        <div class="block-info">
+          <h2 class="animated"><img src="{% static 'images/special/the-karaage/section01_ttl01.png' %}" alt="衣にとことんこだわったから揚げ粉"></h2>
+          <p class="animated"><img src="{% static 'images/special/the-karaage/section01_ttl02.png' %}" alt="日本唐揚協会"></p>
+        </div>
+        <!-- /block-info -->
+        <div class="block_moviethumb animated">
+          <p class="thumb-pc thumb" data-player="player1"><a href="#modalmovie01" class="modalmovie"><img src="{% static 'images/special/the-karaage/section01_movie_thumb01.jpg' %}" alt="からあげを知り尽くした男がトレンドを語る"></a></p>
+          <p class="thumb-pc thumb"><a href="https://secure-link.jp/wf/?c=wf05737232" target="_blank"><img src="{% static 'images/special/the-karaage/section01_movie_thumb02.jpg' %}" alt="粉打ちが味を決める！粉打ちの匠が極意披露"></a></p>
+          <p class="thumb-pc thumb" data-player="player3"><a href="#modalmovie03" class="modalmovie"><img src="{% static 'images/special/the-karaage/section01_movie_thumb03.jpg' %}" alt="からあげの巨匠 THE KARAAGEを試す"></a></p>
+          <p class="thumb-pc thumb" data-player="player4"><a href="#modalmovie04" class="modalmovie"><img src="{% static 'images/special/the-karaage/section01_movie_thumb04.jpg' %}" alt="からあげの巨匠 THE KARAAGEを試す"></a></p>
+        </div>
+        <!-- /block_moviethumb -->
+        <p class="movieatt"><span>音声を出力する場合はナビゲーションバーのスピーカーボタンを押してください。</span></p>
+        <div id="modalmovie01" class="block-movie">
+          <div class="block-movie-inner"></div>
+        </div>
+        <!-- /modalmovie01 -->
+        <div id="modalmovie02" class="block-movie">
+          <div class="block-movie-inner"></div>
+        </div>
+        <!-- /modalmovie02 -->
+        <div id="modalmovie03" class="block-movie">
+          <div class="block-movie-inner"></div>
+        </div>
+        <!-- /modalmovie03 -->
+        <div id="modalmovie04" class="block-movie">
+          <div class="block-movie-inner"></div>
+        </div>
+        <!-- modalmovie04 -->
+      </section>
+      <!-- /section01 -->
+
+      <section id="section02">
+        <h2 class="animated"><img src="{% static 'images/special/the-karaage/section02_ttl.png' %}" alt="衣にこだわった3つの理由とは"></h2>
+        <ul class="animated">
+          <li>
+            <picture>
+              <source media="(max-width:768px)" srcset="{% static 'images/special/the-karaage/section02_kodawari01_sp.png' %}">
+              <img src="{% static 'images/special/the-karaage/section02_kodawari01.png' %}" alt="【こだわり1】食感：カリッサクッなどの揚げたてのおいしい食感は重要な要素です。">
+            </picture>
+          </li>
+          <li>
+            <picture>
+              <source media="(max-width:768px)" srcset="{% static 'images/special/the-karaage/section02_kodawari02_sp.png' %}">
+              <img src="{% static 'images/special/the-karaage/section02_kodawari02.png' %}" alt="【こだわり2】経時耐性：揚げたての食感が持続する「経時耐性」を付与することでテイクアウトや惣菜にもおすすめです。">
+            </picture>
+          </li>
+          <li>
+            <picture>
+              <source media="(max-width:768px)" srcset="{% static 'images/special/the-karaage/section02_kodawari03_sp.png' %}">
+              <img src="{% static 'images/special/the-karaage/section02_kodawari03.png' %}" alt="【こだわり3】外観：見た目にも個性・こだわりを持つことで食欲もそそります。">
+            </picture>
+          </li>
+        </ul>
+      </section>
+      <!-- /section02 -->
+
+      <section id="section03" class="prod_info">
+        <p class="new animated"><img src="{% static 'images/special/the-karaage/section03_new.png' %}" alt="NEW"></p>
+        <div class="block_prod">
+          <picture class="ph animated">
+            <source media="(max-width:768px)" srcset="{% static 'images/special/the-karaage/section03_ph_sp.jpg' %}">
+            <img src="{% static 'images/special/the-karaage/section03_ph.jpg' %}" alt="薄衣サクサクから揚げ粉">
+          </picture>
+          <!-- /picture -->
+          <div class="block_ex animated">
+            <h2 class="ttl"><img src="{% static 'images/special/the-karaage/section03_ttl.png' %}" alt="薄衣サクサクから揚げ粉"></h2>
+            <p class="read">昨今のから揚げのトレンドである「薄衣」でありながらも、<br>軽くてサクサクした食感が長持ちするから揚げ粉です。</p>
+            <div>
+              <p class="phthumb"><img src="{% static 'images/special/the-karaage/section03_ph_prod.png' %}" alt="薄衣サクサクから揚げ粉"></p>
+              <p>⾺鈴薯澱粉の良さである<br class="pc-only">粉吹き感は踏襲しながらも、<br>課題である⾷感の劣化を低減。<br class="pc-only">パック耐性もあります。</p>
+            </div>
+          </div>
+          <!-- /block_ex -->
+        </div>
+      </section>
+      <!-- /section03 -->
+
+      <section id="section_graph">
+        <p class="graph animated">
+          <picture>
+            <source media="(max-width:768px)" srcset="{% static 'images/special/the-karaage/graph_sp.png' %}">
+            <img src="{% static 'images/special/the-karaage/graph.png' %}" alt="薄衣サクサクから揚げ粉と馬鈴薯澱粉のサクミ数値比較">
+          </picture>
+        </p>
+      </section>
+      <!-- /section_graph -->
+
+      <section id="section04" class="prod_info">
+        <div class="block_prod">
+          <picture class="ph animated">
+            <source media="(max-width:768px)" srcset="{% static 'images/special/the-karaage/section04_ph_sp.jpg' %}">
+            <img src="{% static 'images/special/the-karaage/section04_ph.jpg' %}" alt="ゴツゴツから揚げ粉">
+          </picture>
+          <!-- /picture -->
+          <div class="block_ex animated">
+            <h2 class="ttl"><img src="{% static 'images/special/the-karaage/section04_ttl.png' %}" alt="ゴツゴツから揚げ粉"></h2>
+            <p class="read">凹凸感のあるゴツゴツとした外観に仕上がり、<br>時間が経ってもしっかりとした食感が残るから揚げ粉です。</p>
+            <div>
+              <p class="phthumb"><img src="{% static 'images/special/the-karaage/section04_ph_prod.png' %}" alt="ゴツゴツから揚げ粉"></p>
+              <p>通常は先打ちで作られるゴツゴツとした<br>凹凸感のある外観を後打ちでも実現。<br>衣は硬くなく、歯切れが良い食感。<br class="pc-only">パック耐性もあります。</p>
+            </div>
+          </div>
+          <!-- /block_ex -->
+        </div>
+      </section>
+      <!-- /section04 -->
+
+      <section id="section05" class="prod_info">
+        <div class="block_prod">
+          <picture class="ph animated">
+            <source media="(max-width:768px)" srcset="{% static 'images/special/the-karaage/section05_ph_sp.jpg' %}">
+            <img src="{% static 'images/special/the-karaage/section05_ph.jpg' %}" alt="ザクザクから揚げ粉">
+          </picture>
+          <!-- /picture -->
+          <div class="block_ex animated">
+            <h2 class="ttl"><img src="{% static 'images/special/the-karaage/section05_ttl.png' %}" alt="ザクザクから揚げ粉"></h2>
+            <p class="read">米粉を配合しており、ザクザクとした<br>特徴のある食感に仕上がるから揚げ粉です。<br>フライドチキンやジーパイ等のアレンジから揚げにも最適です。</p>
+            <div>
+              <p class="phthumb"><img src="{% static 'images/special/the-karaage/section05_ph_prod.png' %}" alt="ザクザクから揚げ粉"></p>
+              <p>から揚げ専門店が<br class="pc-only">自家配合では実現しにくい、<br>ザクザクとした食感が特徴です。<br>パック耐性もあります。</p>
+            </div>
+          </div>
+          <!-- /block_ex -->
+        </div>
+      </section>
+      <!-- /section06 -->
+
+      <section id="section06" class="prod_info">
+        <div class="block_prod">
+          <picture class="ph animated">
+            <source media="(max-width:768px)" srcset="{% static 'images/special/the-karaage/section06_ph_sp.jpg' %}">
+            <img src="{% static 'images/special/the-karaage/section06_ph.jpg' %}" alt="タレかけカリサクから揚げ粉">
+          </picture>
+          <!-- /picture -->
+          <div class="block_ex animated">
+            <h2 class="ttl"><img src="{% static 'images/special/the-karaage/section06_ttl.png' %}" alt="タレかけカリサクから揚げ粉"></h2>
+            <p class="read">アレンジメニューとしてタレをかけたから揚げが増えています。<br>タレをかけても衣がしっかりしており、<br>カリサクの食感が長持ちするから揚げ粉です。</p>
+            <div>
+              <p class="phthumb"><img src="{% static 'images/special/the-karaage/section06_ph_prod.png' %}" alt="タレかけカリサクから揚げ粉"></p>
+              <p>から揚げ専門店が自家配合では<br class="pc-only">実現しにくい、<br class="sp-only">タレをかけても、<br class="pc-only">衣がふやけずに<br class="sp-only">カリサクとした食感を<br class="pc-only">実現可能です。<br class="sp-only">パック耐性もあります。</p>
+            </div>
+          </div>
+          <!-- /block_ex -->
+        </div>
+      </section>
+      <!-- /section05 -->
+
+      <section id="section07">
+        <p class="etc animated"><img src="{% static 'images/special/the-karaage/section07_etc.png' %}" alt="その他"></p>
+        <div>
+          <div class="block_etc block_etc01 animated">
+            <p class="ph"><img src="{% static 'images/special/the-karaage/section07_ph01.jpg' %}" alt="味付け自由な水溶きタイプ中華街仕立て"></p>
+            <h2 class="ttl"><img src="{% static 'images/special/the-karaage/section07_ttl01.png' %}" alt="味付け自由な水溶きタイプ中華街仕立て"></h2>
+            <p class="txt">熱処理粉配合により、カリッとした衣に仕上がる<br>水溶きタイプのから揚げ粉。<br>から揚げ粉に味付けをしていないため、<br>好みの味付けにアレンジ可能です。</p>
+          </div>
+          <!-- /block_detail01 -->
+          <div class="block_etc block_etc02 animated">
+            <p class="ph"><img src="{% static 'images/special/the-karaage/section07_ph02.jpg' %}" alt="お肉ジューシータイプ"></p>
+            <h2 class="ttl"><img src="{% static 'images/special/the-karaage/section07_ttl02.png' %}" alt="お肉ジューシータイプ"></h2>
+            <p class="txt">仕込み不要の⽔溶きタイプのから揚げ粉で、<br>スピード調理が可能。<br>⾁汁キープ成分の⼒で<br>ジューシーな⾷感を実現しました。</p>
+          </div>
+          <!-- /block_detail02 -->
+        </div>
+      </section>
+      <!-- /section07 -->
+
+      <section id="section08" class="animated">
+        <p class="ttl"><img src="{% static 'images/special/the-karaage/section08_ttl.png' %}" alt="商品情報"></p>
+        <ul>
+          <li class="new">
+            <p class="icon_new"><img src="{% static 'images/special/the-karaage/section08_new.png' %}" alt="NEW"></p>
+            <h2 class="name">THE KARAAGE<br>薄衣サクサクから揚げ粉<br>SAKU・KARA</h2>
+            <p class="ph"><img src="{% static 'images/special/the-karaage/section08_ph01.jpg' %}" alt="THE KARAAGE 薄衣サクサクから揚げ粉 SAKU・KARA"></p>
+            <p class="term"><span>賞味期限</span>12ヶ月</p>
+            <ul>
+              <li><span>［荷姿］</span>1kg×10</li>
+              <li><span>［段ボール］</span>225×390×280mm</li>
+              <li><span>［個包装］</span>345×225×40mm</li>
+              <li><span>［ケース重量］</span>10.8kg</li>
+              <li><span>［POSコード］</span>4902110271300</li>
+              <li><span>［GTINコード］</span>14902110271307</li>
+              <li><span>［マークコード］</span>271300</li>
+            </ul>
+          </li>
+          <!-- /li -->
+          <li class="new">
+            <p class="icon_new"><img src="{% static 'images/special/the-karaage/section08_new.png' %}" alt="NEW"></p>
+            <h2 class="name">THE KARAAGE<br>ゴツゴツから揚げ粉<br>GOTSU・KARA</h2>
+            <p class="ph"><img src="{% static 'images/special/the-karaage/section08_ph02.jpg' %}" alt="THE KARAAGE ゴツゴツから揚げ粉 GOTSU・KARA"></p>
+            <p class="term"><span>賞味期限</span>12ヶ月</p>
+            <ul>
+              <li><span>［荷姿］</span>1kg×10</li>
+              <li><span>［段ボール］</span>225×390×280mm</li>
+              <li><span>［個包装］</span>345×225×40mm</li>
+              <li><span>［ケース重量］</span>10.8kg</li>
+              <li><span>［POSコード］</span>4902110271317</li>
+              <li><span>［GTINコード］</span>14902110271314</li>
+              <li><span>［マークコード］</span>271310</li>
+            </ul>
+          </li>
+          <!-- /li -->
+          <li class="new">
+            <p class="icon_new"><img src="{% static 'images/special/the-karaage/section08_new.png' %}" alt="NEW"></p>
+            <h2 class="name">THE KARAAGE<br>ザクザクから揚げ粉<br>ZAKU・KARA</h2>
+            <p class="ph"><img src="{% static 'images/special/the-karaage/section08_ph04.jpg' %}" alt="THE KARAAGE ザクザクから揚げ粉 ZAKU・KARA"></p>
+            <p class="term"><span>賞味期限</span>12ヶ月</p>
+            <ul>
+              <li><span>［荷姿］</span>1kg×10</li>
+              <li><span>［段ボール］</span>225×390×280mm</li>
+              <li><span>［個包装］</span>345×225×40mm</li>
+              <li><span>［ケース重量］</span>10.8kg</li>
+              <li><span>［POSコード］</span>4902110271331</li>
+              <li><span>［GTINコード］</span>14902110271338</li>
+              <li><span>［マークコード］</span>271330</li>
+            </ul>
+          </li>
+          <!-- /li -->
+          <li class="new">
+            <p class="icon_new"><img src="{% static 'images/special/the-karaage/section08_new.png' %}" alt="NEW"></p>
+            <h2 class="name">THE KARAAGE<br>タレかけカリサクから揚げ粉<br>TARE・KARA</h2>
+            <p class="ph"><img src="{% static 'images/special/the-karaage/section08_ph03.jpg' %}" alt="THE KARAAGE タレかけカリサクから揚げ粉 TARE・KARA"></p>
+            <p class="term"><span>賞味期限</span>12ヶ月</p>
+            <ul>
+              <li><span>［荷姿］</span>1kg×10</li>
+              <li><span>［段ボール］</span>235×390×280mm</li>
+              <li><span>［個包装］</span>345×225×40mm</li>
+              <li><span>［ケース重量］</span>10.8kg</li>
+              <li><span>［POSコード］</span>4902110271324</li>
+              <li><span>［GTINコード］</span>14902110271321</li>
+              <li><span>［マークコード］</span>271320</li>
+            </ul>
+          </li>
+          <!-- /li -->
+          <li>
+            <h2 class="name">THE KARAAGE<br>から揚げ粉<br>お肉ジューシータイプ 1kg</h2>
+            <p class="ph"><img src="{% static 'images/special/the-karaage/section08_ph05.jpg' %}" alt="THE KARAAGE から揚げ粉 お肉ジューシータイプ 1kg"></p>
+            <p class="term"><span>賞味期限</span>13ヶ月</p>
+            <ul>
+              <li><span>［荷姿］</span>1kg×10</li>
+              <li><span>［段ボール］</span>246×390×310mm</li>
+              <li><span>［個包装］</span>330×225×40mm</li>
+              <li><span>［ケース重量］</span>11.0kg</li>
+              <li><span>［POSコード］</span>4902110337594</li>
+              <li><span>［GTINコード］</span>14902110337591</li>
+              <li><span>［マークコード］</span>337590</li>
+            </ul>
+          </li>
+          <!-- /li -->
+          <li>
+            <h2 class="name">THE KARAAGE<br>から揚げ粉<br>お肉ジューシータイプ 500g</h2>
+            <p class="ph pt"><img src="{% static 'images/special/the-karaage/section08_ph06.jpg' %}" alt="THE KARAAGE から揚げ粉 お肉ジューシータイプ 500g"></p>
+            <p class="term"><span>賞味期限</span>13ヶ月</p>
+            <ul>
+              <li><span>［荷姿］</span>500g×20</li>
+              <li><span>［段ボール］</span>223×373×348mm</li>
+              <li><span>［個包装］</span>250×200×30mm</li>
+              <li><span>［ケース重量］</span>11.0kg</li>
+              <li><span>［POSコード］</span>4902110337600</li>
+              <li><span>［GTINコード］</span>14902110337607</li>
+              <li><span>［マークコード］</span>337600</li>
+            </ul>
+          </li>
+          <!-- /li -->
+          <li>
+            <h2 class="name line04">THE KARAAGE<br>から揚げ粉<br>味付け自由な水溶きタイプ<br>中華街仕立て</h2>
+            <p class="ph"><img src="{% static 'images/special/the-karaage/section08_ph07.jpg' %}" alt="THE KARAAGE から揚げ粉 味付け自由な水溶きタイプ 中華街仕立て"></p>
+            <p class="term"><span>賞味期限</span>12ヶ月</p>
+            <ul>
+              <li><span>［荷姿］</span>1kg×10</li>
+              <li><span>［段ボール］</span>224×396×316mm</li>
+              <li><span>［個包装］</span>345×225×40mm</li>
+              <li><span>［ケース重量］</span>10.8kg</li>
+              <li><span>［POSコード］</span>4902110270594</li>
+              <li><span>［GTINコード］</span>14902110270591</li>
+              <li><span>［マークコード］</span>270590</li>
+            </ul>
+          </li>
+          <!-- /li -->
+        </ul>
+      </section>
+      <!-- /section08 -->
+
+    </div>
+    <!-- page-karaage -->
+
+    <!--メイン終了-->
+  </main>
+
+</div>
+{% endblock content %}
+
+{% block javascript %}
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+  <script src="{% static 'js/special/the-karaage/modaal.js' %}"></script>
+  <script src="{% static 'js/special/the-karaage/jquery.inview.js' %}"></script>
+  <script src="{% static 'js/special/the-karaage/script.js' %}"></script>
+{% endblock javascript %}
+
+{% block inline_javascript %}
+  <script>
+    $(function() {
+      $('#section08 .ph').matchHeight();
+      $('#section08 .name').matchHeight();
+
+      // Standard Modal
+      $('.modalmovie').modaal({
+        background_scroll: 'true',
+        before_open: function() {
+          $('#modalmovie01 .block-movie-inner').html('<video autoplay muted playsinline controls width="100%" src="https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/karaage/mov/01_speaktrends.mp4"></video>');
+          $('#modalmovie02 .block-movie-inner').html('<video autoplay muted playsinline controls width="100%" src="#"></video>');
+          $('#modalmovie03 .block-movie-inner').html('<video autoplay muted playsinline controls width="100%" src="https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/karaage/mov/04_trial.mp4"></video>');
+          $('#modalmovie04 .block-movie-inner').html('<video autoplay muted playsinline controls width="100%" src="https://nisshin.s3-ap-northeast-1.amazonaws.com/welna/b2b/karaage/mov/02_introduction.mp4"></video>');
+        },
+        after_close: function() {
+          $(".block-movie video").remove();
+        }
+      });
+    });
+  </script>
+{% endblock inline_javascript %}

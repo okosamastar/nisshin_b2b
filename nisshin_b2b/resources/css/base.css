@@ -79,12 +79,18 @@ a {
   &:hover {
     svg {
       @apply text-crimson;
+      &.hover-to-right {
+        @apply transform translate-x-1.5 transition-all duration-300 ease-in-out;
+      }
     }
-  }
-  &.no-hover-svg {
-    &:hover{
+    &.hover\:text-white {
       svg {
-        color: inherit;
+        @apply text-white;
+      }
+    }
+    svg {
+      &.no-hover-svg {
+        color: inherit !important;
       }
     }
   }

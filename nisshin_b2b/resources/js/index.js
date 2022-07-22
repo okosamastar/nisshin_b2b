@@ -9,6 +9,9 @@ import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 import VueSplide from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import inView from "in-view";
+import VueMobileDetection from 'vue-mobile-detection'
+import ScrollHint from 'scroll-hint';
+import 'scroll-hint/css/scroll-hint.css';
 import _ from "lodash";
 
 const VueScrollTo = require('vue-scrollto');
@@ -20,14 +23,18 @@ import DetailSlider from './vue/components/DetailSlider.vue'
 import DetailInfo from './vue/components/DetailInfo.vue'
 import CardSlider from './vue/components/CardSlider.vue'
 import ImageSlider from './vue/components/ImageSlider.vue'
-import VideoPlayer from "./vue/components/VideoPlayer.vue";
-import CtaSample from "./vue/components/CtaSample.vue";
+import VideoPlayer from "./vue/components/VideoPlayer.vue"
+import CtaSample from "./vue/components/CtaSample.vue"
+import PageMenu from "./vue/components/PageMenu.vue"
+import Collapsable from "./vue/components/Collapsable"
+import Switcher from "./vue/components/Switcher"
 
 Vue.use(VueScrollTo);
-Vue.use(VueYouTubeEmbed)
-Vue.use( VueSplide );
+Vue.use(VueYouTubeEmbed);
+Vue.use(VueSplide);
 Vue.use(SvgVue);
-Vue.use(VueLazyLoad)
+Vue.use(VueLazyLoad);
+Vue.use(VueMobileDetection);
 
 new Vue({
   el: '#app',
@@ -50,6 +57,9 @@ new Vue({
     CoolLightBox,
     VideoPlayer,
     CtaSample,
+    PageMenu,
+    Collapsable,
+    Switcher,
   },
   data() {
     return {
@@ -243,6 +253,12 @@ new Vue({
     this.handleScroll()
 
     inView('#products').on('enter', this.showStickyNav).on('exit', this.hideStickyNav)
+
+    new ScrollHint('.js-scrollable', {
+      i18n: {
+        scrollable: 'スクロールできます'
+      }
+    });
 
   }
 });

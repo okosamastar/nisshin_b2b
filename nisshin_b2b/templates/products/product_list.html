@@ -34,7 +34,7 @@
             <ul class="flex-1 p-2 sm:p-4 flex flex-wrap justify-center sm:justify-start items-center -mx-1">
               <li class="inline-block py-1 px-1">
                 {% if view.kwargs.tag or view.kwargs.cat != current_category.slug %}
-                <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full flex items-center">
+                <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson hover:bg-crimson-400 text-xs md:text-sm font-bold rounded-full flex items-center">
                   <span class="text-white">すべて</span>
                   <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">{{ all_count }}</div>
                 </a>
@@ -53,7 +53,7 @@
                       <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex justify-center items-center leading-none tracking-[0]">{{ tag.count }}</div>
                     </span>
                   {% elif tag.active %}
-                  <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full flex items-center">
+                  <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson hover:bg-crimson-400 text-xs md:text-sm font-bold rounded-full flex items-center">
                     <span class="text-white">{{ tag.name }}</span>
                     <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">{{ tag.count }}</div>
                   </a>
@@ -73,7 +73,7 @@
                       <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex justify-center items-center leading-none tracking-[0]">{{ cat.product__count }}</div>
                     </span>
                   {% else %}
-                    <a href="{% url 'products.products' cat=current_category.slug cat=cat.slug %}" class="block py-1 px-4 bg-crimson text-xs md:text-sm font-bold rounded-full flex items-center">
+                    <a href="{% url 'products.products' cat=current_category.slug cat=cat.slug %}" class="block py-1 px-4 bg-crimson hover:bg-crimson-400 text-xs md:text-sm font-bold rounded-full flex items-center">
                       <span class="text-white">{{ cat.title }}</span>
                       <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">{{ cat.product__count }}</div>
                     </a>
