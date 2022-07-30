@@ -151,7 +151,7 @@ class Product(TimeStampedModel, SortableMixin):
     freespace_b = models.TextField(null=True, blank=True)
     freespace_c = models.TextField(null=True, blank=True)
     country = models.CharField(max_length=255, null=True, blank=True)
-    related = models.ManyToManyField("self", null=True, blank=True, symmetrical=False)
+    related = models.ManyToManyField("self", blank=True, symmetrical=False)
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     category = models.ManyToManyField(
         Category,

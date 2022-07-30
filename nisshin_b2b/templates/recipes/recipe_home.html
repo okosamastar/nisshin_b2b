@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}商品情報｜日清製粉ウェルナ業務用{% endblock title %}
+{% block description %}日清製粉ウェルナは、業態の変化や多様化するニーズに応え、業務用のお客様の皆様の課題解決につながる商品群を「常温」「冷凍」の温度帯で幅広くご用意しています。{% endblock description %}
+
+{% block content %}
+  <section class="">
+    <div class="parallax-section">
+      <div class="parallax-child-section">
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({{ current_category.hero | thumbnail_url:'hero' }});"></section>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mx-auto">
+    <div class="relative z-30 shadow-top bg-white pt-8 xl:p-10 xl:-mt-24 xl:-mx-10 rounded">
+      <div class="md:flex md:flex-row-reverse md:-mx-4">
+        <div class="flex-1 md:px-4">
+          <h2 class="slashed w-full pt-10 flex justify-center items-center">
+            <div class="text-center">
+              <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">{{ current_category.title_en }}</span>
+              <span class="block text-2xl md:text-3xl font-bold leading-snug">{{ current_category.title }}</span>
+              {% if current_category.subtitle %}<span class="block text-sm sm:text-base">{{ current_category.subtitle }}</span>{% endif %}
+            </div>
+          </h2>
+
+          {% if current_category.slug != 'others' %}
+          <div class="tags mt-10 bg-gray-100 sm:flex justify-start">
+            <h3 class="py-2 px-4 sm:p-0 flex justify-center items-center border-b sm:border-b-none sm:border-r border-dashed border-gray-300">
+              <span class="text-sm font-en text-crimson tracking-wider font-bold uppercase sm:-rotate-90">tags</span>
+            </h3>
+            <ul class="flex-1 p-2 sm:p-4 flex flex-wrap justify-center sm:justify-start items-center -mx-1">
+              <li class="inline-block py-1 px-1">
+                {% if view.kwargs.tag or view.kwargs.cat != current_category.slug %}
+                <a href="{% url 'products.products' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson hover:bg-crimson-400 text-xs md:text-sm font-bold rounded-full flex items-center">
+                  <span class="text-white">すべて</span>
+                  <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">{{ all_count }}</div>
+                </a>
+                {% else %}
+                <span class="block py-1 px-4 bg-yellow text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                  <span class="text-black">すべて</span>
+                  <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex justify-center items-center leading-none tracking-[0]">{{ all_count }}</div>
+                </span>
+                {% endif %}
+              </li>
+              {% for tag in tag_list %}
+                <li class="inline-block py-1 px-1">
+                  {% if tag.slug == view.kwargs.tag %}
+                    <span class="block py-1 px-4 bg-yellow text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                      <span class="text-black">{{ tag.name }}</span>
+                      <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex justify-center items-center leading-none tracking-[0]">{{ tag.count }}</div>
+                    </span>
+                  {% elif tag.active %}
+                  <a href="{% url 'products.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson hover:bg-crimson-400 text-xs md:text-sm font-bold rounded-full flex items-center">
+                    <span class="text-white">{{ tag.name }}</span>
+                    <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">{{ tag.count }}</div>
+                  </a>
+                  {% else %}
+                    <span class="block py-1 px-4 bg-gray-200 text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                      <span class="text-gray-400">{{ tag.name }}</span>
+                      <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-gray-300 flex justify-center items-center leading-none tracking-[0]">{{ tag.count }}</div>
+                    </span>
+                  {% endif %}
+                </li>
+              {% endfor %}
+              {% for cat in subcategories  %}
+                <li class="inline-block py-1 px-1">
+                  {% if cat.slug == view.kwargs.cat %}
+                    <span class="block py-1 px-4 bg-yellow text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                      <span class="text-black">{{ cat.title }}</span>
+                      <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex justify-center items-center leading-none tracking-[0]">{{ cat.product__count }}</div>
+                    </span>
+                  {% else %}
+                    <a href="{% url 'products.products' cat=current_category.slug cat=cat.slug %}" class="block py-1 px-4 bg-crimson hover:bg-crimson-400 text-xs md:text-sm font-bold rounded-full flex items-center">
+                      <span class="text-white">{{ cat.title }}</span>
+                      <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">{{ cat.product__count }}</div>
+                    </a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          <div class="flex flex-wrap -mx-1 sm:-mx-2 mt-8 md:mt-14 transform">
+
+            {% for product in product_list %}
+            <div class="w-full sm:w-1/3 md:w-4/12 px-1 sm:px-2 mb-2 sm:mb-4">
+              <a href="{% url 'products.detail' slug=product.slug %}" class="block wrap-image h-full flex flex-col justify-between border border-solid border-gray-300 bg-white">
+                <div class="relative aspect-w-4 aspect-h-3 border-b border-dashed border-gray-300">
+
+                  {% if product.main_photo %}
+                  <div class="py-3 overflow-hidden">
+                    <img src="{{ product.main_photo.photo|thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                  </div>
+                  {% else %}
+                  <div class="py-1 overflow-hidden bg-gray-100">
+                    <img src="{% static 'images/default_thumbnail.png' %}" alt="{{ product.title | safe }}" class="w-auto h-full mx-auto">
+                  </div>
+                  {% endif %}
+
+                  {% if product.is_new %}
+                  <div class="absolute left-0 top-0 w-12 h-12 mx-2">
+                    <img src="{% static 'images/badge_new.png' %}" alt="New" class="no-effect">
+                  </div>
+                  {% endif %}
+
+                  {% if product.preservation %}
+                  <div class="absolute left-auto right-0 top-auto bottom-0 w-13 h-13 p-2">
+                    {% with 'images/badge_'|add:product.preservation.slug|add:'_mini.png' as image_badge %}
+                    <img src="{% static image_badge %}" alt="{{ product.preservation.name | safe }}" class="no-effect">
+                    {% endwith %}
+                  </div>
+                  {% endif %}
+                </div>
+                <h4 class="flex-1 p-4 font-bold flex flex-col justify-start items-start">
+                  <span class="p-1 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
+                  <span class="mt-2 text-sm md:text-base">{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}</span>
+                </h4>
+                <dl class="py-2 px-2 flex flex-wrap items-center bg-gray-100 text-black">
+                  <dt class="w-6/12 md:w-6/12 py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
+                    <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">荷姿</span>
+                  </dt>
+                  <dd class="md:w-6/12 pl-2 md:pl-3 mb-1 text-xs">{{ product.packing | default:'---' }}</dd>
+                  <dt class="w-6/12 py-1 pl-1 text-2xs md:text-xs font-bold bg-white">
+                    <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug tracking-tighter">マークコード</span>
+                  </dt>
+                  <dd class="md:w-6/12 pl-2 md:pl-3 text-xs">{{ product.markcode }}</dd>
+                </dl>
+              </a>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+        <div class="flex-none md:w-[280px] md:px-4 mt-8 md:mt-0">
+          <a href="{% url 'products.category' %}">
+            <h3 class="flex items-center p-3 bg-crimson">
+              <div class="w-7 h-7 flex justify-center items-center bg-white rounded-full">
+                <svg-vue icon="grid" class="w-4 h-4 text-crimson"></svg-vue>
+              </div>
+              <span class="text-white ml-2 font-bold tracking-wider">商品メニュー</span>
+            </h3>
+          </a>
+          <ul>
+            {% for category in category_list %}
+              <li>
+                <a href="{% url 'products.products' cat=category.slug %}" class="w-full py-4 flex justify-between items-center border-b border-dashed border-gray-600">
+                  <div class="flex-none w-16 h-16">
+                    <img src="{{ category.photo|thumbnail_url:'square_small' }}" alt="{{ category.title | safe }}">
+                  </div>
+                  <div class="flex-1 text-left">
+                    <span class="block pl-3 font-bold">{{ category.title }}</span>
+                    {% if category.subtitle %}
+                      <span class="block pl-3 text-sm">{{ category.subtitle }}</span>
+                    {% endif %}
+                  </div>
+                  <svg-vue icon="chevron_alt" class="flex-none w-3 h-3 rotate-90"></svg-vue>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}
