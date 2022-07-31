@@ -75,20 +75,20 @@
         <div class="w-8/12 px-4">
           <div class="recipe-steps">
             {% if recipe.instructions.all.0.label == 'step' %}
-            <h3 class="dotted">
-              <span>{{ recipe.title }}の作り方</span>
+            <h3 class="dotted mb-6">
+              <span class="break-words">{{ recipe.title }}の作り方</span>
             </h3>
             {% endif %}
             {% for instruction in recipe.instructions.all %}
               {% if instruction.label == 'title' %}
               </div>
-              <div class="recipe-steps mt-6">
-              <h3 class="dotted">
-                <span>{{ instruction.step }}</span>
+              <div class="recipe-steps mt-6 break-all">
+              <h3 class="dotted mb-6">
+                <span class="break-all">{{ instruction.step }}</span>
               </h3>
               {% else %}
-              <div class="recipe-step relative py-3 flex justify-between items-center border-b border-dashed last:border-none">
-                <p class="flex-grow absolute left-0 top-0">{{ instruction.step }}</p>
+              <div class="recipe-step">
+                <p class="flex-grow">{{ instruction.step }}</p>
               </div>
               {% endif %}
             {% endfor %}

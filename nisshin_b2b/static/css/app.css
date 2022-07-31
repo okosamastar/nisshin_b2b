@@ -2719,13 +2719,13 @@ video {
     }
 }.dotted{
 	display: flex;
-	height: 2rem;
+	min-height: 2rem;
 	align-items: center;
 	font-size: 1.125rem;
 }.dotted > span{
 	display: inline-flex;
 	height: 100%;
-	flex: none;
+	min-height: 2rem;
 	align-items: center;
 	border-left-width: 5px;
 	--tw-border-opacity: 1;
@@ -3453,14 +3453,68 @@ video {
   height: 86px;
 }.recipe-steps {
   counter-reset: section;
-}.recipe-steps .recipe-step {
-    background-image: linear-gradient(left , rgb(255,255,255) 50%, rgb(233,39,23) 50%, rgb(255,255,255) 50.5%);
-  }.recipe-steps .recipe-step:before {
-      content: "step";
-    }.recipe-steps .recipe-step:after {
-      counter-increment: section;
-      content: counter(section);
-    }.pointer-events-none{
+}.recipe-steps .recipe-step{
+	position: relative;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	padding-bottom: 1.5rem;
+    background: transparent linear-gradient(90deg, #E82817 2px, white 2px) 1.7rem 0 repeat-y;
+    background-size: 50%;
+}.recipe-steps .recipe-step:last-child {
+      background-image: none;
+    }.recipe-steps .recipe-step p{
+	margin-left: 4.5rem;
+	min-height: 2.5rem;
+}.recipe-steps .recipe-step p:before{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+	width: 3rem;
+	border-bottom-width: 1px;
+	border-style: dashed;
+	--tw-border-opacity: 1;
+	border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+	padding-top: 0.125rem;
+	padding-bottom: 0.125rem;
+	text-align: center;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+        font-family: 'Lato', sans-serif;
+        content: "STEP";
+}.recipe-steps .recipe-step p:after{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+	width: 3rem;
+	padding-top: 1.75rem;
+	text-align: center;
+	font-size: 1.25rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+        font-family: 'Lato', sans-serif;
+        counter-increment: section;
+        content: counter(section);
+}.recipe-steps .recipe-step:before{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	display: block;
+	height: 3.75rem;
+	width: 3.5rem;
+	border-radius: 0.125rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(232, 40, 23, var(--tw-bg-opacity));
+      content: '';
+}.pointer-events-none{
 	pointer-events: none;
 }.pointer-events-auto{
 	pointer-events: auto;
@@ -4004,6 +4058,10 @@ video {
 	overflow-x: visible;
 }.whitespace-nowrap{
 	white-space: nowrap;
+}.break-words{
+	overflow-wrap: break-word;
+}.break-all{
+	word-break: break-all;
 }.rounded-md{
 	border-radius: 0.375rem;
 }.rounded{

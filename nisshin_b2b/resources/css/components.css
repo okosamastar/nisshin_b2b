@@ -180,9 +180,9 @@
 }
 
 .dotted {
-  @apply h-8 flex items-center text-lg;
+  @apply min-h-[2rem] flex items-center text-lg;
   > span {
-    @apply flex-none inline-flex items-center h-full px-4 border-l-5 border-crimson text-crimson font-bold bg-white;
+    @apply inline-flex items-center h-full min-h-[2rem] px-4 border-l-5 border-crimson text-crimson font-bold bg-white;
   }
   &:after {
     @apply flex-1 h-8;
@@ -858,13 +858,29 @@ table  {
 .recipe-steps {
   counter-reset: section;
   .recipe-step {
-    background-image: linear-gradient(left , rgb(255,255,255) 50%, rgb(233,39,23) 50%, rgb(255,255,255) 50.5%);
-    &:before {
-      content: "step";
+    @apply relative py-5 pb-6;
+    background: transparent linear-gradient(90deg, theme('colors.crimson.500') 2px, white 2px) 1.7rem 0 repeat-y;
+    background-size: 50%;
+    &:last-child {
+      background-image: none;
     }
-    &:after {
-      counter-increment: section;
-      content: counter(section);
+    p {
+      @apply ml-18 min-h-[2.5rem];
+      &:before {
+        @apply absolute left-0 top-0 z-10 w-12 mx-1 py-0.5 text-center text-white font-bold border-b border-dashed border-white;
+        font-family: $font-en;
+        content: "STEP";
+      }
+      &:after {
+        @apply absolute left-0 top-0 pt-7 z-10 w-12 mx-1 text-xl text-center text-white font-bold;
+        font-family: $font-en;
+        counter-increment: section;
+        content: counter(section);
+      }
+    }
+    &:before {
+      @apply absolute left-0 top-0 z-0 block bg-crimson rounded-sm w-14 h-15;
+      content: '';
     }
   }
 }
