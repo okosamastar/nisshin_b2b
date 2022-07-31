@@ -3314,7 +3314,16 @@ video {
 	width: 128px;
 }.scroll-hint-icon {
   height: 86px;
-}.pointer-events-none{
+}.recipe-steps {
+  counter-reset: section;
+}.recipe-steps .recipe-step {
+    background-image: linear-gradient(left , rgb(255,255,255) 50%, rgb(233,39,23) 50%, rgb(255,255,255) 50.5%);
+  }.recipe-steps .recipe-step:before {
+      content: "step";
+    }.recipe-steps .recipe-step:after {
+      counter-increment: section;
+      content: counter(section);
+    }.pointer-events-none{
 	pointer-events: none;
 }.pointer-events-auto{
 	pointer-events: auto;
@@ -3768,6 +3777,10 @@ video {
 	flex: 1 1 0%;
 }.flex-shrink-0{
 	flex-shrink: 0;
+}.flex-grow{
+	flex-grow: 1;
+}.flex-grow-0{
+	flex-grow: 0;
 }.table-auto{
 	table-layout: auto;
 }.-translate-y-8{
@@ -4210,6 +4223,8 @@ video {
 	text-align: left;
 }.text-center{
 	text-align: center;
+}.text-right{
+	text-align: right;
 }.align-top{
 	vertical-align: top;
 }.align-bottom{
@@ -4408,6 +4423,8 @@ video {
   20% { opacity:1; transform: translateX(-0.8rem); }
   80% { opacity:1; transform: translateX(0.8rem); }
   100% { opacity:0; transform: translateX(1.6rem); }
+}.last\:border-none:last-child{
+	border-style: none;
 }.hover\:border-white:hover{
 	--tw-border-opacity: 1;
 	border-color: rgba(255, 255, 255, var(--tw-border-opacity));

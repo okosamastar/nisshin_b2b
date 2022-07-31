@@ -162,10 +162,12 @@ class Ingredient(SortableMixin):
 
 
 class Instruction(SortableMixin):
+    LABEL = Choices("step", "title")
     step = models.TextField(null=True, blank=True)
     recipe = models.ForeignKey(
         Recipe, related_name="instructions", on_delete=models.CASCADE
     )
+    label = StatusField(choices_name="LABEL", default=LABEL.step)
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     class Meta:

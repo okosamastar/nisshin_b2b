@@ -854,3 +854,17 @@ table  {
 .scroll-hint-icon {
   height: 86px;
 }
+
+.recipe-steps {
+  counter-reset: section;
+  .recipe-step {
+    background-image: linear-gradient(left , rgb(255,255,255) 50%, rgb(233,39,23) 50%, rgb(255,255,255) 50.5%);
+    &:before {
+      content: "step";
+    }
+    &:after {
+      counter-increment: section;
+      content: counter(section);
+    }
+  }
+}

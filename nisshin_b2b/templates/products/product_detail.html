@@ -29,12 +29,7 @@
                 :add-padding=true
                 :images="[
                 {% if product.photos.all|length > 0 %}
-                  {% for photo in product.photos.all %}
-                    {
-                      src: '{{ photo.photo | thumbnail_url:'square' }}',
-                      title: '{{ product.title | safe }}'
-                    },
-                  {% endfor %}
+                  1
                 {% else %}
                 {
                   src: '{% static 'images/default_thumbnail.png' %}',
