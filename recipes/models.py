@@ -41,7 +41,10 @@ class Category(MPTTModel, SortableMixin):
     )
 
     def __str__(self):
-        return self.title
+        if self.parent:
+            return self.title + " (" + str(self.parent) + ")"
+        else:
+            return self.title
 
     def get_absolute_url(self):
         return reverse("recipe_list_by_category", args=[self.slug])
