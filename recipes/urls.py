@@ -6,6 +6,8 @@ from . import views
 
 
 urlpatterns = [
-    # path("", views.CategoriesView.as_view(), name="recipes.top"),
+    path("", views.HomeView.as_view(), name="recipe.home"),
     path("detail/<slug:slug>", views.RecipeDetail.as_view(), name="recipe.detail"),
+    path("<str:cat>/", views.RecipesView.as_view(), name="recipe.recipes"),
+    path("<str:cat>/<str:tag>/", views.RecipesView.as_view(), name="recipe.tags"),
 ]

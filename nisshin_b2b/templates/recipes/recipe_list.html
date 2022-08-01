@@ -9,164 +9,121 @@
   <section class="">
     <div class="parallax-section">
       <div class="parallax-child-section">
-        <div class="bg-gray-to-transparent relative z-10 h-full">
-          <div class="container mx-auto h-full flex items-center">
-            <h1 class="flex flex-col items-start">
-              <span class="inline-block p-2 bg-crimson text-2xl sm:text-3xl md:text-4xl text-white font-bold font-en uppercase leading-none tracking-wider">Product</span>
-              <span class="inline-block p-2 mt-2 bg-crimson text-2xl sm:text-3xl md:text-4xl text-white font-bold font-en uppercase leading-none tracking-wider">LINEUP</span>
-              <span class="block mt-4 text-lg md:text-xl font-bold leading-none tracking-wider">商品情報</span>
-            </h1>
-          </div>
-        </div>
-        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/bg_foods.jpg' %});"></section>
-      </div>
-    </div>
-    <div class="container mx-auto">
-      <div class="brackets shadow-top relative z-30 w-full md:w-7/12 py-6 md:p-10 bg-white mt-2 md:-mt-10 leading-relaxed">
-        <p class="text-sm md:text-base">業態の変化や多様化するニーズに応え、業務用のお客様の皆様の課題解決につながる商品群を「常温」「冷凍」の温度帯で幅広くご用意しています。</p>
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({{ current_category.hero | thumbnail_url:'hero' }});"></section>
       </div>
     </div>
   </section>
 
-  <section class="mt-2 -mb-2 md:mt-8 md:mb-0 overflow-x-hidden">
+  <section class="mb-10">
     <div class="container mx-auto">
-      <h2 class="slashed pt-10 flex justify-center items-center">
-        <div class="text-center">
-          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">Product LINEUP</span>
-          <span class="block text-2xl md:text-3xl font-bold leading-snug">カテゴリー</span>
-        </div>
-      </h2>
+      <div class="relative z-30 shadow-top bg-white pt-8 xl:p-10 xl:-mt-24 xl:-mx-10 rounded">
 
-      <div class="mt-8 sm:mt-10 md:mb-10">
-        <ul class="flex flex-wrap -mx-1 sm:-mx-2">
-          {% for category in category_list %}
-          <li class="w-1/2 md:w-1/4 px-1 sm:px-2 mb-2 sm:mb-4">
-            <a href="{% url 'products.products' cat=category.slug %}" class="block shadow-md wrap-image">
-              <div class="overflow-hidden">
-                <img src="{{ category.photo|thumbnail_url:'rectangle' }}" alt="">
-              </div>
-              <h3 class="text-center h-20 flex flex-col justify-center items-center">
-                <span class="block font-bold text-sm sm:text-base">{{ category.title }}</span>
-                {% if category.subtitle %}
-                  <span class="block text-xs sm:text-sm">{{ category.subtitle }}</span>
-                {% endif %}
-              </h3>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="mt-10 -mb-2 md:mt-8 md:mb-0">
-    <div class="container mx-auto">
-      <h2 class="slashed pt-10 flex justify-center items-center">
-        <div class="text-center">
-          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">BRAND</span>
-          <span class="block text-2xl md:text-3xl font-bold leading-snug">ブランド</span>
-        </div>
-      </h2>
-
-      <div class="mt-8 sm:mt-10 p-6 md:p-10 md:flex bg-crimson">
-        <div class="hidden md:block w-[28%]">
-          <div class="h-full">
-            <img src="{% static 'images/brands/mama_the_pro/image-mama_the_pro_01.jpg' %}" alt="マ・マー THE PRO" class="h-full object-cover">
+        <h2 class="slashed w-full pt-10 flex justify-center items-center">
+          <div class="text-center">
+            <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">{{ current_category.title_en }}</span>
+            <span class="block text-2xl md:text-3xl font-bold leading-snug">{{ current_category.title }}</span>
+            {% if current_category.subtitle %}<span class="block text-sm sm:text-base">{{ current_category.subtitle }}</span>{% endif %}
           </div>
-        </div>
-        <div class="md:w-[44%]">
-          <div class="relative z-10 md:hidden h-[160px] rounded overflow-hidden">
-            <img src="{% static 'images/brands/mama_the_pro/image-mama_the_pro_02.jpg' %}" alt="マ・マー THE PRO" class="w-full h-[160px] object-cover">
-            <span class="absolute right-0 bottom-0 bg-transparent m-1 p-0.5 text-2xs font-bold text-black tracking-wide leading-none">調理例</span>
-          </div>
-          <div class="h-full flex flex-col justify-between p-4 md:px-10 md:py-0">
-            <img src="{% static 'images/brands/mama_the_pro/logo-mama_the_pro.png' %}" alt="マ・マー THE PRO" class="relative z-20 -mt-12 md:mt-0 w-[180px] md:w-[200px] mx-auto">
-            <h3 class="text-center">
-              <span class="block mt-5 text-white text-lg md:text-xl font-bold tracking-tight">マ・マー THE PRO ブランドとは</span>
+        </h2>
+
+        {% if current_category.slug != 'others' %}
+          <div class="tags mt-10 lg:mx-20 bg-gray-100 sm:flex justify-start">
+            <h3 class="py-2 px-4 sm:p-0 flex justify-center items-center border-b sm:border-b-0 sm:border-r border-dashed border-gray-300">
+              <span class="text-xs font-en text-crimson tracking-[.1rem] font-bold uppercase sm:-rotate-90">tags</span>
             </h3>
-            <p class="my-5 md:mb-8 text-sm text-white leading-loose">
-              多様化する食生活が、いつの時代も健康で、より豊かであるように。 自然の恵みで、世界の人々に健康をお届けする、日清製粉ウェルナの業務用パスタ関連ブランド「マ・マー THE PRO」。
-            </p>
-            <a href="{% url 'brand' brand='mama-the-pro' %}" class="button bg-white text-crimson font-bold border border-transparent hover:border-white">マ・マー THE PROブランド<br>はこちらから</a>
+            <ul class="flex-1 p-2 sm:p-4 flex flex-wrap justify-center sm:justify-start items-center -mx-1">
+              <li class="inline-block py-1 px-1">
+                {% if view.kwargs.tag or view.kwargs.cat != current_category.slug %}
+                <a href="{% url 'recipe.recipes' cat=current_category.slug %}" class="block py-1 px-4 bg-crimson hover:bg-crimson-400 text-xs md:text-sm font-bold rounded-full flex items-center">
+                  <span class="text-white">すべて</span>
+                  <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">{{ all_count }}</div>
+                </a>
+                {% else %}
+                <span class="block py-1 px-4 bg-yellow text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                  <span class="text-black">すべて</span>
+                  <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex justify-center items-center leading-none tracking-[0]">{{ all_count }}</div>
+                </span>
+                {% endif %}
+              </li>
+              {% for tag in tag_list %}
+                <li class="inline-block py-1 px-1">
+                  {% if tag.slug == view.kwargs.tag %}
+                    <span class="block py-1 px-4 bg-yellow text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                    <span class="text-black">{{ tag.name }}</span>
+                    <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex justify-center items-center leading-none tracking-[0]">{{ tag.count }}</div>
+                  </span>
+                  {% else %}
+                    <a href="{% url 'recipe.tags' cat=current_category.slug tag=tag.slug %}" class="block py-1 px-4 bg-crimson hover:bg-crimson-400 text-xs md:text-sm font-bold rounded-full flex items-center">
+                      <span class="text-white">{{ tag.name }}</span>
+                      <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">{{ tag.recipe__count }}</div>
+                    </a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+              {% for cat in subcategories  %}
+                <li class="inline-block py-1 px-1">
+                  {% if cat.slug == view.kwargs.cat %}
+                    <span class="block py-1 px-4 bg-yellow text-xs md:text-sm font-bold rounded-full cursor-not-allowed flex items-center">
+                    <span class="text-black">{{ cat.title }}</span>
+                    <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-gray-100 text-black flex justify-center items-center leading-none tracking-[0]">{{ cat.recipe__count }}</div>
+                  </span>
+                  {% else %}
+                    <a href="{% url 'recipe.recipes' cat=current_category.slug cat=cat.slug %}" class="block py-1 px-4 bg-crimson hover:bg-crimson-400 text-xs md:text-sm font-bold rounded-full flex items-center">
+                      <span class="text-white">{{ cat.title }}</span>
+                      <div class="w-4 h-4 ml-1 -mr-1 text-2xs rounded-full bg-white text-crimson flex justify-center items-center leading-none tracking-[0]">{{ cat.recipe__count }}</div>
+                    </a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
           </div>
-        </div>
-        <div class="hidden md:block w-[28%]">
-          <div class="relative h-full">
-            <img src="{% static 'images/brands/mama_the_pro/image-mama_the_pro_02.jpg' %}" alt="マ・マー THE PRO" class="h-full object-cover">
-            <span class="absolute right-0 bottom-0 bg-transparent m-2 p-0.5 text-2xs font-bold text-gray-200 tracking-wide leading-none">調理例</span>
-          </div>
-        </div>
-      </div>
+        {% endif %}
 
-    </div>
-  </section>
+        <ul class="flex flex-wrap -mx-1 sm:-mx-2 mt-8 md:mt-14 transform">
 
-  <section class="mt-10 -mb-2 md:mt-24 md:mb-0">
-    <div class="container mx-auto">
-      <h2 class="slashed pt-10 flex justify-center items-center">
-        <div class="text-center">
-          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">SERIES</span>
-          <span class="block text-2xl md:text-3xl font-bold leading-snug">シリーズ</span>
-        </div>
-      </h2>
+          {% for recipe in recipe_list %}
 
-      <div class="mt-8 sm:mt-10 md:flex md:-mx-6">
-        <a href="{% url 'series' brand='mama-the-pro' series='smile-meal' %}" class="block md:w-1/2 md:px-6">
-          <div class="flex flex-col h-full bg-white shadow-md wrap-image">
-            <div class="flex-none overflow-hidden">
-              <img src="{% static 'images/brands/mama_the_pro/thumb-simile_meal.jpg' %}" alt="Smile Meal スマイルミール">
-            </div>
-            <div class="flex-1 py-6 flex justify-center items-center">
-              <h4 class="w-60 md:w-80">
-                <img src="{% static 'images/brands/smile_meal/logo-smile_meal.png' %}" alt="Smile Meal スマイルミール" class="no-effect">
-              </h4>
-            </div>
-          </div>
-        </a>
-        <a href="{% url 'series' brand='mama-the-pro' series='iqf' %}" class="block md:w-1/2 md:px-6 mt-8 md:mt-0">
-          <div class="flex flex-col h-full bg-white shadow-md wrap-image">
-            <div class="flex-none overflow-hidden">
-              <img src="{% static 'images/brands/mama_the_pro/thumb-iqf.jpg' %}" alt="「IQFバラ凍結パスタ」シリーズ">
-            </div>
-            <div class="flex-1 py-6 flex justify-center items-center">
-              <h4 class="w-60 md:w-80">
-                <img src="{% static 'images/brands/iqf/logo-iqf_horizontal.png' %}" alt="「IQFバラ凍結パスタ」シリーズ" class="no-effect">
-              </h4>
-            </div>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="mt-10 -mb-2 md:mt-24 md:mb-0 overflow-x-hidden">
-    <div class="container mx-auto">
-      <h2 class="slashed pt-10 flex justify-center items-center">
-        <div class="text-center">
-          <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide leading-none">Event Archives</span>
-          <span class="block text-2xl md:text-3xl font-bold leading-snug">過去に実施したイベント</span>
-        </div>
-      </h2>
-
-      <div class="mt-8 sm:mt-10 md:mb-10">
-        <ul class="flex flex-wrap -mx-1 sm:-mx-2">
-
-            <li class="w-full sm:w-1/2 px-1 sm:px-2 mb-2 sm:mb-4">
-              <a href="{% url 'archive' slug='spring_2022' %}" class="block shadow-md wrap-image">
-                <div class="overflow-hidden">
-                  <img src="{% static 'images/heros/hero_exhibit2022.jpg' %}" alt="">
+            <li class="w-1/4 px-1 sm:px-2">
+              <a href="{% url 'recipe.detail' slug=recipe.slug %}" class="relative block h-full flex flex-col justify-start bg-white border border-gray-200">
+                {% if recipe.main_photo %}
+                  <div class="wrap-image">
+                    <img src="{{ recipe.main_photo.photo | thumbnail_url:'rectangle' }}" alt="{{ recipe.title | safe }}" class="w-full">
+                  </div>
+                {% else %}
+                  <div class="wrap-image">
+                    <img src="{% static 'images/' %}default_rectangle.png" :alt="{{ recipe.title | safe }}" class="w-auto h-full mx-auto">
+                  </div>
+                {% endif %}
+                {% if recipe.is_new %}
+                  <div class="absolute left-0 top-0 w-12 h-12">
+                    <img src="{% static 'images/' %}new_corner.png" alt="New" class="no-effect">
+                  </div>
+                {% endif %}
+                <div class="p-4">
+                  {% if recipe.dish_types|length > 0 %}
+                    {% for dish_type in recipe.dish_types.all %}
+                      <span class="inline-block mb-2 py-1 px-2 text-xs border-2 border-crimson text-crimson leading-none">{{ dish_type }}</span>
+                    {% endfor %}
+                  {% endif %}
+                  <h5 class="font-bold">{{ recipe.title }}</h5>
                 </div>
-                <h3 class="text-center h-20 flex flex-col justify-center items-center">
-                  <span class="block font-bold text-sm sm:text-base">2022年春 新商品展示会</span>
-                </h3>
+                {% if recipe.events|length > 0 %}
+                  <div class="pt-2 px-4 border-t border-dashed border-gray-200 bg-gray-100">
+                    {% for event in recipe.events.all %}
+                      <span class="inline-block mb-2 py-1.5 px-3 text-xs text-white text-center bg-crimson rounded-full leading-none">{{ event }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
               </a>
             </li>
 
+          {% endfor %}
         </ul>
+        <div class="mt-12 py-10 bg-crimson-50 flex justify-center">
+          <a href="{% url 'recipe.home' %}" class="button md:w-80 py-5"><span class="font-bold tracking-wider">レシピTOPに戻る</span></a>
+        </div>
       </div>
-
     </div>
   </section>
+
 {% endblock content %}

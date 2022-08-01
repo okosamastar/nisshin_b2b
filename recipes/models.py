@@ -143,7 +143,7 @@ class Recipe(TimeStampedModel, SortableMixin):
         return self.title + " (" + str(self.slug) + ")"
 
     def main_category(self):
-        return self.category.get(parent_id__isnull=True)
+        return self.category.filter(show_in_menu=True).first()
 
     def main_photo(self):
         return self.photos.get(label="main")
@@ -223,6 +223,19 @@ class RecipeNutrient(SortableMixin):
     label = models.CharField(max_length=255, null=True, blank=True)
     amount = models.CharField(max_length=255, null=False, blank=False)
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+
+    class Meta:
+        ordering = ["the_order"]
+
+
+class RecommendedItem(SortableMixin):
+    recipe = models.ForeignKey(
+        Recipe, null=False, blank=False, on_delete=models.CASCADE
+    )
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+
+    def __str__(self):
+        return self.recipe.title
 
     class Meta:
         ordering = ["the_order"]

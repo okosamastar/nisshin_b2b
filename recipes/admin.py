@@ -11,6 +11,7 @@ from .models import (
     Recipe,
     RecipeNutrient,
     RecipeProduct,
+    RecommendedItem,
     Tag,
 )
 
@@ -25,6 +26,10 @@ class TagAdmin(ExportActionMixin, SortableAdmin):
 
 
 class NutrientAdmin(ExportActionMixin, admin.ModelAdmin):
+    pass
+
+
+class RecommendedItemAdmin(ExportActionMixin, admin.ModelAdmin):
     pass
 
 
@@ -67,4 +72,5 @@ class RecipeAdmin(ExportActionMixin, SortableAdmin):
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Nutrient, NutrientAdmin)
+admin.site.register(RecommendedItem, RecommendedItemAdmin)
 admin.site.register(Recipe, RecipeAdmin)
