@@ -55,7 +55,7 @@
               {% for product in recipe.recipeproduct_set.all %}
               <dl class="py-3 flex justify-between items-center border-b border-crimson border-dashed last:border-none">
                 <dt class="flex-grow font-bold">{{ product.product.title }}</dt>
-                <dd class="flex-grow-0 ml-4 pl-4 text-right font-bold">{{ product.amount }}</dd>
+                <dd class="flex-grow-0 ml-4 pl-4 text-right font-bold whitespace-nowrap">{{ product.amount }}</dd>
               </dl>
               {% endfor %}
             </div>
@@ -72,7 +72,7 @@
             {% for ingredient in ingredients.list %}
             <dl class="py-3 flex justify-between items-center border-b border-dashed last:border-none">
               <dt class="flex-grow">{{ ingredient.name }}</dt>
-              <dd class="flex-grow-0 pl-4 text-right">{{ ingredient.amount }}</dd>
+              <dd class="flex-grow-0 pl-6 text-right">{{ ingredient.amount }}</dd>
             </dl>
             {% endfor %}
           </div>
@@ -108,7 +108,7 @@
                 <div class="flex items-center">
                   <svg-vue icon="bulb" class="flex-none w-8 h-8 text-crimson"></svg-vue>
                   <p class="ml-6 pl-6 py-2 flex-grow border-l border-dashed border-crimson leading-relaxed">
-                    {{ recipe.freespace_a }}
+                    {{ recipe.freespace_a | linebreaksbr }}
                   </p>
                 </div>
               </div>
