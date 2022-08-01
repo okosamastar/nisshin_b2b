@@ -83,7 +83,7 @@
 
           {% for recipe in recipe_list %}
 
-            <li class="w-1/4 px-1 sm:px-2">
+            <li class="w-1/2 sm:w-1/4 px-1 sm:px-2">
               <a href="{% url 'recipe.detail' slug=recipe.slug %}" class="relative block h-full flex flex-col justify-start bg-white border border-gray-200">
                 {% if recipe.main_photo %}
                   <div class="wrap-image">
@@ -119,8 +119,8 @@
 
           {% endfor %}
         </ul>
-        <div class="mt-12 py-10 bg-crimson-50 flex justify-center">
-          <a href="{% url 'recipe.home' %}" class="button md:w-80 py-5"><span class="font-bold tracking-wider">レシピTOPに戻る</span></a>
+        <div class="mt-8 sm:mt-12 py-6 sm:py-10 bg-crimson-50 flex justify-center">
+          <a href="{% url 'recipe.home' %}" class="button w-64 md:w-80 py-5"><span class="font-bold tracking-wider">レシピTOPに戻る</span></a>
         </div>
       </div>
     </div>
