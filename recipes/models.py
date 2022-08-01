@@ -60,7 +60,11 @@ class Category(MPTTModel, SortableMixin):
 
 class Tag(SortableMixin):
     LABEL = Choices(
-        ("tag", "ノーマルタグ"), ("menu", "メニュータイプ"), ("dish", "ディッシュタイプ"), ("event", "イベント")
+        ("tag", "ノーマルタグ"),
+        ("menu", "メニュータイプ"),
+        ("dish", "ディッシュタイプ"),
+        ("business", "業態"),
+        ("event", "イベント"),
     )
     name = models.CharField(max_length=255, null=False, blank=False)
     slug = models.SlugField(max_length=100, unique=True)
