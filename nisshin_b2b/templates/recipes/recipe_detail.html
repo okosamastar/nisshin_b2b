@@ -8,15 +8,15 @@
   <section class="">
     <div class="parallax-section">
       <div class="parallax-child-section">
-        <section class="fw-main-row" id="frontlashID" style="background-image: url({{ current_category.hero | thumbnail_url:'hero' }});"></section>
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({{ recipe.hero | thumbnail_url:'hero' }});"></section>
       </div>
     </div>
   </section>
 
-  <div class="container mx-auto">
+  <div class="container mx-auto mb-16">
     <div class="relative z-30 shadow-top bg-white pt-8 xl:p-10 xl:-mt-24 xl:-mx-10 rounded">
-      <div class="flex justify-between items-start -mx-4">
-        <div class="w-7/12 px-4">
+      <div class="md:flex justify-between items-start md:-mx-4">
+        <div class="md:w-7/12 md:px-4">
           <div class="">
             {% for tag in recipe.tag.all %}
               <span class="py-0.5 px-2 border border-crimson text-xs text-crimson">{{ tag.name }}</span>
@@ -25,7 +25,7 @@
           <h1 class="py-10 text-3xl font-bold">{{ recipe.title }}</h1>
           <p class="py-6 border-t border-dashed border-black leading-loose">{{ recipe.description }}</p>
         </div>
-        <div class="w-5/12 px-4">
+        <div class="md:w-5/12 md:px-4">
           {% for photo in recipe.photos.all %}
             {% if photo.label == 'main' %}
               <img src="{{ photo.photo | thumbnail_url:'rectangle' }}" alt="{{ product.title | safe }}" class="w-full">
@@ -41,8 +41,8 @@
         </a>
       </div>
 
-      <div class="mt-10 flex items-start -mx-4">
-        <div class="flex-none w-4/12 px-4">
+      <div class="mt-10 md:flex items-start md:-mx-4">
+        <div class="flex-none md:w-4/12 md:px-4">
           <h2 class="p-2 flex items-center bg-crimson text-white">
             <div class="w-8 h-8 rounded-full bg-white flex justify-center items-center">
               <svg-vue icon="foodie" class="w-5 h-5 text-crimson"></svg-vue>
@@ -78,7 +78,7 @@
           </div>
           {% endfor %}
         </div>
-        <div class="w-8/12 px-4">
+        <div class="mt-12 md:mt-0 md:w-8/12 md:px-4">
           <div class="recipe-steps">
             {% if recipe.instructions.all.0.label == 'step' %}
             <h3 class="dotted mb-10">
@@ -150,9 +150,9 @@
       <h4 class="dotted">
         <span>レシピで使用した製品</span>
       </h4>
-      <div class="mt-10 flex flex-wrap items-center -mx-4 -mb-8">
+      <div class="mt-10 md:flex flex-wrap items-center md:-mx-4 -mb-8">
         {% for product in recipe.products.all %}
-        <div class="w-1/2 px-4 mb-8">
+        <div class="md:w-1/2 md:px-4 mb-8">
           <div class="flex items-start -mx-4">
             <div class="relative w-5/12 px-4">
               <a href="{% url 'products.detail' slug=product.slug %}" class="block relative">

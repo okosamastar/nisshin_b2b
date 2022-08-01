@@ -29,7 +29,12 @@
                 :add-padding=true
                 :images="[
                 {% if product.photos.all|length > 0 %}
-                  1
+                  {% for photo in product.photos.all %}
+                    {
+                      src: '{{ photo.photo | thumbnail_url:'square' }}',
+                      title: '{{ product.title | safe }}'
+                    },
+                  {% endfor %}
                 {% else %}
                 {
                   src: '{% static 'images/default_thumbnail.png' %}',
@@ -225,9 +230,10 @@
             </div>
 
             {% if product.freespace_a %}
+              {{ product.freespace_a }}
             <div class="w-full mt-4">
               <div class="flex items-center">
-                <a href="#" class="text-xs text-crimson font-bold underline hover:no-underline">{{ product.freespace_a }}</a>
+                <a href="#" class="text-xs text-crimson font-bold underline hover:no-underline">テキストが入ります。テキストが入ります。テキストが入ります。</a>
                 <a href="#">
                   <svg-vue icon="chevron" class="w-3 h-3 ml-2 text-crimson"></svg-vue>
                 </a>
