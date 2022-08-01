@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
-{% load thumbnail %}
+{% load static thumbnail %}
 
 {% block title %}{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}｜商品情報｜日清製粉ウェルナ業務用{% endblock title %}
 {% block description %}日清製粉ウェルナは、業態の変化や多様化するニーズに応え、業務用のお客様の皆様の課題解決につながる商品群を「常温」「冷凍」の温度帯で幅広くご用意しています。{% endblock description %}
@@ -23,7 +22,7 @@
               <span class="py-0.5 px-2 border border-crimson text-xs text-crimson">{{ tag.name }}</span>
             {% endfor %}
           </div>
-          <h1 class="py-6 text-3xl font-bold">{{ recipe.title }}</h1>
+          <h1 class="py-10 text-3xl font-bold">{{ recipe.title }}</h1>
           <p class="py-6 border-t border-dashed border-black leading-loose">{{ recipe.description }}</p>
         </div>
         <div class="w-5/12 px-4">
@@ -35,22 +34,29 @@
         </div>
       </div>
 
-      <div class="mt-16 flex items-start -mx-4">
+      <div class="flex justify-end">
+        <a href="#" class="block mt-10 py-2 px-3 border-2 border-crimson flex items-center">
+          <svg-vue icon="print" class="w-6 h-6 text-crimson"></svg-vue>
+          <span class="ml-2 text-sm text-crimson font-bold">印刷する</span>
+        </a>
+      </div>
+
+      <div class="mt-10 flex items-start -mx-4">
         <div class="flex-none w-4/12 px-4">
           <h2 class="p-2 flex items-center bg-crimson text-white">
             <div class="w-8 h-8 rounded-full bg-white flex justify-center items-center">
               <svg-vue icon="foodie" class="w-5 h-5 text-crimson"></svg-vue>
             </div>
-            <span class="ml-2 font-bold">材料（{{ recipe.serves }}）</span>
+            <span class="ml-2 font-bold">材料{% if recipe.serves %}（{{ recipe.serves }}）{% endif %}</span>
           </h2>
           <div class="p-3 bg-crimson-50">
             <div class="p-3 bg-white border border-crimson rounded">
-              <h3 class="text-sm text-crimson font-bold">製品名</h3>
+              <h3 class="-mb-1 text-sm text-crimson font-bold">製品名</h3>
               {% for product in recipe.recipeproduct_set.all %}
-                <dl class="flex justify-between items-center border-b border-dashed last:border-none">
-                  <dt class="flex-grow font-bold">{{ product.product.title }}</dt>
-                  <dd class="flex-grow-0 pl-4 text-right font-bold">{{ product.amount }}</dd>
-                </dl>
+              <dl class="py-3 flex justify-between items-center border-b border-crimson border-dashed last:border-none">
+                <dt class="flex-grow font-bold">{{ product.product.title }}</dt>
+                <dd class="flex-grow-0 ml-4 pl-4 text-right font-bold">{{ product.amount }}</dd>
+              </dl>
               {% endfor %}
             </div>
           </div>
@@ -75,15 +81,15 @@
         <div class="w-8/12 px-4">
           <div class="recipe-steps">
             {% if recipe.instructions.all.0.label == 'step' %}
-            <h3 class="dotted mb-6">
-              <span class="break-words">{{ recipe.title }}の作り方</span>
+            <h3 class="dotted mb-10">
+              <span class="break-words">作り方　〜{{ recipe.title }}〜</span>
             </h3>
             {% endif %}
             {% for instruction in recipe.instructions.all %}
               {% if instruction.label == 'title' %}
               </div>
-              <div class="recipe-steps mt-6 break-all">
-              <h3 class="dotted mb-6">
+              <div class="recipe-steps mt-10 break-all">
+              <h3 class="dotted mb-10">
                 <span class="break-all">{{ instruction.step }}</span>
               </h3>
               {% else %}
@@ -93,9 +99,123 @@
               {% endif %}
             {% endfor %}
           </div>
+          {% if recipe.freespace_a %}
+            <div class="mt-10">
+              <h4 class="dotted">
+                <span>調理のポイント・備考</span>
+              </h4>
+              <div class="mt-6 py-3 px-6 bg-gray-100">
+                <div class="flex items-center">
+                  <svg-vue icon="bulb" class="flex-none w-8 h-8 text-crimson"></svg-vue>
+                  <p class="ml-6 pl-6 py-2 flex-grow border-l border-dashed border-crimson leading-relaxed">
+                    {{ recipe.freespace_a }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
+    {% if recipe.recipenutrient_set.all|length > 0 %}
+    <div class="mt-10">
+      <h4 class="dotted">
+        <span>成分表</span>
+      </h4>
+      {% regroup recipe.recipenutrient_set.all by label as nutrient_groups %}
+      {% for nutrients in nutrient_groups %}
+      <table class="mt-10 w-full">
+        <thead>
+          <tr>
+            {% if nutrients.grouper %}
+              <th class="min-w-[100px] p-2 text-sm text-center bg-crimson-50"></th>
+            {% endif %}
+            {% for nutrient in nutrients.list %}
+              <th class="min-w-[100px] p-2 text-sm text-center bg-crimson-50">{{ nutrient.nutrient.name }}</th>
+            {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {% for nutrient in nutrients.list %}
+                <td class="p-2 text-sm text-center">{{ nutrient.amount }}</td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="mt-12">
+      <h4 class="dotted">
+        <span>レシピで使用した製品</span>
+      </h4>
+      <div class="mt-10 flex flex-wrap items-center -mx-4 -mb-8">
+        {% for product in recipe.products.all %}
+        <div class="w-1/2 px-4 mb-8">
+          <div class="flex items-start -mx-4">
+            <div class="relative w-5/12 px-4">
+              <a href="{% url 'products.detail' slug=product.slug %}" class="block relative">
+                {% if product.is_new %}
+                  <div class="absolute left-0 top-0 mx-2 w-16 h-16">
+                    <img src="{% static 'images/' %}badge_new.png" alt="NEW" class="no-effect">
+                  </div>
+                {% endif %}
+                {% for photo in product.photos.all %}
+                  {% if photo.label == 'main' %}
+                    <img src="{{ photo.photo | thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-full">
+                  {% endif %}
+                {% endfor %}
+              </a>
+            </div>
+            <div class="w-7/12 px-4">
+              <span class="inline-block py-1 px-2 text-xs border-2 border-crimson text-crimson leading-none">{{ product.main_category }}</span>
+              <h4 class="mt-3 flex-grow text-lg font-bold">{{ product.title }}</h4>
+              <p class="mt-3 pt-3 text-sm leading-loose border-t border-dashed border-black">
+                {{ product.description }}
+              </p>
+            </div>
+          </div>
+          <div class="mt-6">
+            <a href="{% url 'products.detail' slug=product.slug %}" class="button">詳細はこちら</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% if recipe.related.all|length > 0 %}
+    <div class="mt-12">
+      <h4 class="slashed w-full text-center pt-8 mb-10">
+        <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">RECOMMENDED RECIPES</span>
+        <span class="block text-2xl md:text-3xl font-bold leading-snug">おすすめレシピ</span>
+      </h4>
+      <div class="flex justify-center items-stretch -mx-4">
+        <recipe-card-slider :recipes="[
+            {% for related in recipe.related.all %}
+              {
+                  'title': '{{ related.title }}{% if related.subtitle %} {{ related.subtitle }}{% endif %}',
+                  'staticpath': '{% static 'images/' %}',
+                  {% if related.main_photo %}
+                  'image': '{{ related.main_photo.photo | thumbnail_url:'square' }}',
+                  {% endif %}
+                  'link': '{% url 'recipe.detail' slug=related.slug %}',
+                  'dish_types': [
+                    {% for dish_type in related.dish_types %}
+                    '{{ dish_type }}',
+                    {% endfor %}
+                  ],
+                  'events': [
+                    {% for event in related.events %}
+                    '{{ event }}',
+                    {% endfor %}
+                  ]
+              },
+            {% endfor %}
+          ]">
+        </recipe-card-slider>
+      </div>
+    </div>
+    {% endif %}
   </div>
 
 {#  <pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>#}

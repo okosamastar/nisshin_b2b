@@ -91,5 +91,7 @@
     "/images/title_smile-meal.png": "/images/title_smile-meal.png",
     "/images/v_text_contact.png": "/images/v_text_contact.png",
     "/images/v_text_sample.png": "/images/v_text_sample.png",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/css/special/.DS_Store": "/css/special/.DS_Store",
+    "/images/default_rectangle.png": "/images/default_rectangle.png"
 }

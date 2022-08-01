@@ -28,12 +28,12 @@ class NutrientAdmin(ExportActionMixin, admin.ModelAdmin):
     pass
 
 
-class RecipeProductInline(admin.TabularInline):
+class RecipeProductInline(SortableTabularInline):
     model = RecipeProduct
     extra = 1
 
 
-class RecipeNutrientInline(admin.TabularInline):
+class RecipeNutrientInline(SortableTabularInline):
     model = RecipeNutrient
     extra = 1
 

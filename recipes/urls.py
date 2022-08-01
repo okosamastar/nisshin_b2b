@@ -7,5 +7,5 @@ from . import views
 
 urlpatterns = [
     # path("", views.CategoriesView.as_view(), name="recipes.top"),
-    path("detail/<slug:slug>", views.RecipeDetail.as_view(), name="recipes.detail"),
+    path("detail/<slug:slug>", views.RecipeDetail.as_view(), name="recipe.detail"),
 ]

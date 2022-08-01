@@ -56,8 +56,12 @@ class Category(MPTTModel, SortableMixin):
 
 
 class Tag(SortableMixin):
+    LABEL = Choices(
+        ("tag", "ノーマルタグ"), ("menu", "メニュータイプ"), ("dish", "ディッシュタイプ"), ("event", "イベント")
+    )
     name = models.CharField(max_length=255, null=False, blank=False)
     slug = models.SlugField(max_length=100, unique=True)
+    label = StatusField(choices_name="LABEL", default=LABEL.tag)
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
@@ -68,7 +72,10 @@ class Tag(SortableMixin):
 
 
 class Nutrient(models.Model):
-    name = models.CharField(max_length=255, null=False, blank=False)
+    name = models.CharField(max_length=255, unique=True, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
 
 
 class Recipe(TimeStampedModel, SortableMixin):
@@ -134,10 +141,14 @@ class Recipe(TimeStampedModel, SortableMixin):
     def main_photo(self):
         return self.photos.get(label="main")
 
-    def dish_type(self):
-        for tag in self.tab.all():
-            if tag.slug == "main_dish" or tag.slug == "side_dish":
-                return tag
+    def menu_types(self):
+        return self.tag.filter(label="menu")
+
+    def dish_types(self):
+        return self.tag.filter(label="dish")
+
+    def events(self):
+        return self.tag.filter(label="event")
 
     def save(self, *args, **kwargs):  # new
         if not self.slug:
@@ -162,7 +173,7 @@ class Ingredient(SortableMixin):
 
 
 class Instruction(SortableMixin):
-    LABEL = Choices("step", "title")
+    LABEL = Choices(("step", "ステップ"), ("title", "タイトル"))
     step = models.TextField(null=True, blank=True)
     recipe = models.ForeignKey(
         Recipe, related_name="instructions", on_delete=models.CASCADE
@@ -178,7 +189,7 @@ class Photo(models.Model):
     LABEL = Choices("main", "cooked", "package")
     photo = ThumbnailerImageField(upload_to="photos", blank=False)
     recipe = models.ForeignKey(Recipe, related_name="photos", on_delete=models.CASCADE)
-    label = StatusField(choices_name="LABEL", default=LABEL.cooked)
+    label = StatusField(choices_name="LABEL", default=LABEL.main)
 
 
 class RecipeProduct(SortableMixin):
@@ -202,6 +213,7 @@ class RecipeNutrient(SortableMixin):
     nutrient = models.ForeignKey(
         Nutrient, null=False, blank=False, on_delete=models.CASCADE
     )
+    label = models.CharField(max_length=255, null=True, blank=True)
     amount = models.CharField(max_length=255, null=False, blank=False)
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 

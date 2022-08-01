@@ -22,6 +22,7 @@ import Hero from './vue/components/Hero.vue'
 import DetailSlider from './vue/components/DetailSlider.vue'
 import DetailInfo from './vue/components/DetailInfo.vue'
 import CardSlider from './vue/components/CardSlider.vue'
+import RecipeCardSlider from './vue/components/RecipeCardSlider.vue'
 import ImageSlider from './vue/components/ImageSlider.vue'
 import VideoPlayer from "./vue/components/VideoPlayer.vue"
 import CtaSample from "./vue/components/CtaSample.vue"
@@ -52,6 +53,7 @@ new Vue({
     Hero,
     DetailSlider,
     CardSlider,
+    RecipeCardSlider,
     DetailInfo,
     ImageSlider,
     CoolLightBox,

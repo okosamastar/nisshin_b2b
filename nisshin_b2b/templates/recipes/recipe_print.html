@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}{{ product.title }}{% if product.subtitle %} {{ product.subtitle }}{% endif %}｜商品情報｜日清製粉ウェルナ業務用{% endblock title %}
+{% block description %}日清製粉ウェルナは、業態の変化や多様化するニーズに応え、業務用のお客様の皆様の課題解決につながる商品群を「常温」「冷凍」の温度帯で幅広くご用意しています。{% endblock description %}
+
+{% block content %}
+  <section class="">
+    <div class="parallax-section">
+      <div class="parallax-child-section">
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({{ current_category.hero | thumbnail_url:'hero' }});"></section>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mx-auto">
+    <div class="relative z-30 shadow-top bg-white pt-8 xl:p-10 xl:-mt-24 xl:-mx-10 rounded">
+      <div class="flex justify-between items-start -mx-4">
+        <div class="w-7/12 px-4">
+          <div class="">
+            {% for tag in recipe.tag.all %}
+              <span class="py-0.5 px-2 border border-crimson text-xs text-crimson">{{ tag.name }}</span>
+            {% endfor %}
+          </div>
+          <h1 class="py-6 text-3xl font-bold">{{ recipe.title }}</h1>
+          <p class="py-6 border-t border-dashed border-black leading-loose">{{ recipe.description }}</p>
+        </div>
+        <div class="w-5/12 px-4">
+          {% for photo in recipe.photos.all %}
+            {% if photo.label == 'main' %}
+              <img src="{{ photo.photo | thumbnail_url:'rectangle' }}" alt="{{ product.title | safe }}" class="w-full">
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="mt-16 flex items-start -mx-4">
+        <div class="flex-none w-4/12 px-4">
+          <h2 class="p-2 flex items-center bg-crimson text-white">
+            <div class="w-8 h-8 rounded-full bg-white flex justify-center items-center">
+              <svg-vue icon="foodie" class="w-5 h-5 text-crimson"></svg-vue>
+            </div>
+            <span class="ml-2 font-bold">材料{% if recipe.serves %}（{{ recipe.serves }}）{% endif %}</span>
+          </h2>
+          <div class="p-3 bg-crimson-50">
+            <div class="p-3 bg-white border border-crimson rounded">
+              <h3 class="text-sm text-crimson font-bold">製品名</h3>
+              {% for product in recipe.recipeproduct_set.all %}
+                <dl class="flex justify-between items-center border-b border-dashed last:border-none">
+                  <dt class="flex-grow font-bold">{{ product.product.title }}</dt>
+                  <dd class="flex-grow-0 pl-4 text-right font-bold">{{ product.amount }}</dd>
+                </dl>
+              {% endfor %}
+            </div>
+          </div>
+
+          {% regroup recipe.ingredients.all by label as ingredient_groups %}
+          {% for ingredients in ingredient_groups %}
+          <div class="mt-1 pt-3 px-3 bg-gray-50">
+            <h4 class="py-1 pl-1 mb-1 text-2xs md:text-xs font-bold bg-white">
+              <span class="block border-l-3 border-solid border-crimson pl-1 md:px-2 leading-snug">
+                {% if ingredients.grouper == None %}材料{% else %}{{ ingredients.grouper }}{% endif %}
+              </span>
+            </h4>
+            {% for ingredient in ingredients.list %}
+            <dl class="py-3 flex justify-between items-center border-b border-dashed last:border-none">
+              <dt class="flex-grow">{{ ingredient.name }}</dt>
+              <dd class="flex-grow-0 pl-4 text-right">{{ ingredient.amount }}</dd>
+            </dl>
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+        <div class="w-8/12 px-4">
+          <div class="recipe-steps">
+            {% if recipe.instructions.all.0.label == 'step' %}
+            <h3 class="dotted mb-10">
+              <span class="break-words">作り方　〜{{ recipe.title }}〜</span>
+            </h3>
+            {% endif %}
+            {% for instruction in recipe.instructions.all %}
+              {% if instruction.label == 'title' %}
+              </div>
+              <div class="recipe-steps mt-10 break-all">
+              <h3 class="dotted mb-10">
+                <span class="break-all">{{ instruction.step }}</span>
+              </h3>
+              {% else %}
+              <div class="recipe-step">
+                <p class="flex-grow">{{ instruction.step }}</p>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% if recipe.freespace_a %}
+            <div class="mt-10">
+              <h4 class="dotted">
+                <span>調理のポイント・備考</span>
+              </h4>
+              <div class="mt-6 py-3 px-6 bg-gray-100">
+                <div class="flex items-center">
+                  <svg-vue icon="bulb" class="flex-none w-8 h-8 text-crimson"></svg-vue>
+                  <p class="ml-6 pl-6 py-2 flex-grow border-l border-dashed border-crimson leading-relaxed">
+                    {{ recipe.freespace_a }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="mt-10">
+      <h4 class="dotted">
+        <span>成分表</span>
+      </h4>
+      {% regroup recipe.recipenutrient_set.all by label as nutrient_groups %}
+      {% for nutrients in nutrient_groups %}
+      <table class="mt-10 w-full">
+        <thead>
+          <tr>
+            {% if nutrients.grouper %}
+              <th class="min-w-[100px] p-2 text-sm text-center bg-crimson-50"></th>
+            {% endif %}
+            {% for nutrient in nutrients.list %}
+              <th class="min-w-[100px] p-2 text-sm text-center bg-crimson-50">{{ nutrient.nutrient.name }}</th>
+            {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {% for nutrient in nutrients.list %}
+                <td class="p-2 text-sm text-center">{{ nutrient.amount }}</td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+      {% endfor %}
+    </div>
+    <div class="mt-12">
+      <h4 class="dotted">
+        <span>レシピで使用した製品</span>
+      </h4>
+      <div class="mt-10 flex flex-wrap items-center -mx-4">
+        {% for product in recipe.products.all %}
+        <div class="w-1/2 px-4">
+          <div class="flex items-start -mx-4">
+            <div class="w-5/12 px-4">
+              {% for photo in product.photos.all %}
+                {% if photo.label == 'main' %}
+                  <img src="{{ photo.photo | thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-full">
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="w-7/12 px-4">
+              <div class="px-1">
+                <span class="inline-block py-1 px-2 text-xs border border-crimson text-crimson leading-none">{{ product.main_category }}</span>
+              </div>
+              <h4 class="flex-grow text-lg font-bold">{{ product.title }}</h4>
+              <p class="text-sm leading-relaxed">
+                {{ product.description }}
+              </p>
+            </div>
+          </div>
+          <div class="">
+            <a href="{% url 'products.detail' slug=product.slug %}" class="button">詳細はこちら</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="mt-12">
+      <h4 class="slashed w-full text-center pt-8 mb-10">
+        <span class="block mb-3 text-crimson text-xs font-bold font-en uppercase tracking-wide">RECOMMENDED RECIPES</span>
+        <span class="block text-2xl md:text-3xl font-bold leading-snug">おすすめレシピ</span>
+      </h4>
+      <div class="flex justify-center items-stretch -mx-4">
+        {% for related in recipe.related.all %}
+        <div class="w-1/4 px-4">
+          <div class="h-full flex flex-col justify-between border border-gray-200">
+            <div class="wrap-image">
+              {% for photo in related.photos.all %}
+                {% if photo.label == 'main' %}
+                  <img src="{{ photo.photo | thumbnail_url:'square' }}" alt="{{ product.title | safe }}" class="w-full">
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="p-4">
+              <div class="">
+                {% for dish_type in related.dish_types %}
+                  <span class="inline-block mb-2 py-1 px-2 text-xs border border-crimson text-crimson leading-none">{{ dish_type }}</span>
+                {% endfor %}
+              </div>
+              <h5 class="font-bold">{{ related.title }}</h5>
+            </div>
+            {% if related.events %}
+              <div class="pt-2 px-4 border-t border-dashed border-gray-200 bg-gray-100">
+                {% for event in related.events %}
+                  <span class="inline-block mb-2 py-1.5 px-3 text-xs text-white text-center bg-crimson rounded-full leading-none">{{ event }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{#  <pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>#}
+{% endblock content %}

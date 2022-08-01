@@ -858,7 +858,7 @@ table  {
 .recipe-steps {
   counter-reset: section;
   .recipe-step {
-    @apply relative py-5 pb-6;
+    @apply relative pt-4 pb-6;
     background: transparent linear-gradient(90deg, theme('colors.crimson.500') 2px, white 2px) 1.7rem 0 repeat-y;
     background-size: 50%;
     &:last-child {
@@ -867,19 +867,19 @@ table  {
     p {
       @apply ml-18 min-h-[2.5rem];
       &:before {
-        @apply absolute left-0 top-0 z-10 w-12 mx-1 py-0.5 text-center text-white font-bold border-b border-dashed border-white;
+        @apply absolute left-0 top-0 z-10 w-12 mx-1 py-0.5 text-xs text-center text-white font-bold border-b border-dashed border-white;
         font-family: $font-en;
         content: "STEP";
       }
       &:after {
-        @apply absolute left-0 top-0 pt-7 z-10 w-12 mx-1 text-xl text-center text-white font-bold;
+        @apply absolute left-0 top-0 pt-6 z-10 w-12 mx-1 text-xl text-center text-white font-bold;
         font-family: $font-en;
         counter-increment: section;
-        content: counter(section);
+        content: counter(section, decimal-leading-zero);
       }
     }
     &:before {
-      @apply absolute left-0 top-0 z-0 block bg-crimson rounded-sm w-14 h-15;
+      @apply absolute left-0 top-0 z-0 block bg-crimson rounded-sm w-14 h-14;
       content: '';
     }
   }
