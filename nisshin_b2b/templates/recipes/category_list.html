@@ -40,8 +40,8 @@
       <div class="mt-8 sm:mt-10 md:mb-10 p-2 bg-crimson">
         <ul class="flex flex-wrap -mx-1">
           {% for recipe in latest %}
-            <li class="relative w-1/4 px-1">
-              <a href="{% url 'recipe.detail' slug=recipe.slug %}" class="block h-full mb-2 flex flex-col justify-start bg-white">
+            <li class="relative w-1/4 mb-2 px-1">
+              <a href="{% url 'recipe.detail' slug=recipe.slug %}" class="block h-full flex flex-col justify-start bg-white">
                 {% if recipe.main_photo %}
                 <div class="wrap-image">
                   <img src="{{ recipe.main_photo.photo | thumbnail_url:'rectangle' }}" alt="{{ recipe.title | safe }}" class="w-full">
