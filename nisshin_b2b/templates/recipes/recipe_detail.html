@@ -81,25 +81,25 @@
           {% endfor %}
         </div>
         <div class="mt-12 md:mt-0 md:w-8/12 md:px-4">
-          <div class="recipe-steps">
-            {% if recipe.instructions.all.0.label == 'step' %}
-            <h3 class="dotted mb-10">
+          <div class="recipe-steps -mt-10 break-all">
+          {% if recipe.instructions.all.0.label == 'step' %}
+            <h3 class="dotted my-10">
               <span class="break-words">作り方</span>
             </h3>
-            {% endif %}
-            {% for instruction in recipe.instructions.all %}
-              {% if instruction.label == 'title' %}
-              </div>
-              <div class="recipe-steps mt-10 break-all">
-              <h3 class="dotted mb-10">
+          {% endif %}
+          {% for instruction in recipe.instructions.all %}
+            {% if instruction.label == 'title' %}
+            </div>
+            <div class="recipe-steps break-all">
+              <h3 class="dotted my-10">
                 <span class="break-all">{{ instruction.step }}</span>
               </h3>
               {% else %}
               <div class="recipe-step">
                 <p class="flex-grow">{{ instruction.step }}</p>
               </div>
-              {% endif %}
-            {% endfor %}
+            {% endif %}
+          {% endfor %}
           </div>
           {% if recipe.freespace_a %}
             <div class="mt-10">
