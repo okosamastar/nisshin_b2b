@@ -93,7 +93,7 @@ class Recipe(TimeStampedModel, SortableMixin):
     description = models.TextField(null=True, blank=True)
     serves = models.CharField(max_length=255, null=True, blank=True)
     is_published = models.BooleanField(default=True)
-    is_new = models.BooleanField(default=False)
+    is_new = models.BooleanField(default=True)
     is_searchable = models.BooleanField(default=True)
     hero = ThumbnailerImageField(upload_to="photos/heros/", null=True, blank=True)
     brand = models.ForeignKey(Brand, null=True, blank=True, on_delete=models.SET_NULL)
@@ -208,6 +208,7 @@ class RecipeProduct(SortableMixin):
     )
     amount = models.CharField(max_length=255, null=True, blank=True)
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    show_in_list = models.BooleanField(default=True)
 
     class Meta:
         ordering = ["the_order"]
@@ -220,8 +221,8 @@ class RecipeNutrient(SortableMixin):
     nutrient = models.ForeignKey(
         Nutrient, null=False, blank=False, on_delete=models.CASCADE
     )
-    label = models.CharField(max_length=255, null=True, blank=True)
     amount = models.CharField(max_length=255, null=False, blank=False)
+    label = models.CharField(max_length=255, null=True, blank=True)
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     class Meta:

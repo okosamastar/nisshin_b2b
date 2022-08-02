@@ -35,6 +35,8 @@ class PhotoInline(admin.StackedInline):
 
 
 class ProductAdmin(ExportActionMixin, SortableAdmin):
+    list_display = ("title", "markcode", "brand", "series", "is_new", "is_published")
+    search_fields = ["title", "markcode"]
     inlines = [PhotoInline]
     prepopulated_fields = {"slug": ("markcode",)}
 

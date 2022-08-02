@@ -15,7 +15,7 @@ class HomeView(ListView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
 
-        context["latest"] = Recipe.objects.filter(is_new=True).order_by("created")[:8]
+        context["latest"] = Recipe.objects.filter(is_new=True).order_by("-created")[:8]
         context["recommended"] = RecommendedItem.objects.all()
 
         return context

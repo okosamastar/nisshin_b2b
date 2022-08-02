@@ -8,6 +8,10 @@ from django.views import defaults as default_views
 from django.views.generic import RedirectView
 from rest_framework.authtoken.views import obtain_auth_token
 
+admin.site.site_title = "NSW PRO ADMIN"
+admin.site.site_header = "NSW PRO ADMIN"
+admin.site.index_title = "MENU"
+
 urlpatterns = [
     # path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     # Django Admin, use {% url 'admin:index' %}

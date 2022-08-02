@@ -53,10 +53,12 @@
             <div class="p-3 bg-white border border-crimson rounded">
               <h3 class="-mb-1 text-sm text-crimson font-bold">製品名</h3>
               {% for product in recipe.recipeproduct_set.all %}
-              <dl class="py-3 flex justify-between items-center border-b border-crimson border-dashed last:border-none">
-                <dt class="flex-grow font-bold">{{ product.product.title }}</dt>
-                <dd class="flex-grow-0 ml-4 pl-4 text-right font-bold whitespace-nowrap">{{ product.amount }}</dd>
-              </dl>
+                {% if product.show_in_list %}
+                <dl class="py-3 flex justify-between items-center border-b border-crimson border-dashed last:border-none">
+                  <dt class="flex-grow font-bold">{{ product.product.title }}</dt>
+                  <dd class="flex-grow-0 ml-4 pl-4 text-right font-bold whitespace-nowrap">{% if product.amount is not None %}{{ product.amount }}{% endif %}</dd>
+                </dl>
+                {% endif %}
               {% endfor %}
             </div>
           </div>
@@ -72,7 +74,7 @@
             {% for ingredient in ingredients.list %}
             <dl class="py-3 flex justify-between items-center border-b border-dashed last:border-none">
               <dt class="flex-grow">{{ ingredient.name }}</dt>
-              <dd class="flex-grow-0 pl-6 text-right">{{ ingredient.amount }}</dd>
+              <dd class="flex-grow-0 pl-6 text-right">{% if ingredient.amount is not None %}{{ ingredient.amount }}{% endif %}</dd>
             </dl>
             {% endfor %}
           </div>
@@ -82,7 +84,7 @@
           <div class="recipe-steps">
             {% if recipe.instructions.all.0.label == 'step' %}
             <h3 class="dotted mb-10">
-              <span class="break-words">作り方　〜{{ recipe.title }}〜</span>
+              <span class="break-words">作り方</span>
             </h3>
             {% endif %}
             {% for instruction in recipe.instructions.all %}
