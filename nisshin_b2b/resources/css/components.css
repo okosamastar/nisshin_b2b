@@ -858,7 +858,7 @@ table  {
 .recipe-steps {
   counter-reset: section;
   .recipe-step {
-    @apply relative pt-4 pb-6;
+    @apply relative pt-4 pb-6 last:pb-0;
     background: transparent linear-gradient(90deg, theme('colors.crimson.500') 2px, white 2px) 1.7rem 0 repeat-y;
     background-size: 50%;
     &:last-child {

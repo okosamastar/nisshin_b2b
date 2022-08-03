@@ -45,7 +45,7 @@
         </a>
       </div>
 
-      <div class="mt-4 sm:mt-10 md:flex items-start md:-mx-4">
+      <div class="mt-6 sm:mt-10 md:flex items-start md:-mx-4">
         <div class="flex-none md:w-4/12 md:px-4">
           <h2 class="p-2 flex items-center bg-crimson text-white">
             <div class="w-8 h-8 rounded-full bg-white flex justify-center items-center">
@@ -154,7 +154,7 @@
     {% endif %}
 
     {% if recipe.products.all|length > 0 %}
-    <div class="mt-8 sm:mt-12">
+    <div class="relative z-40 mt-10 sm:mt-2">
       <h4 class="dotted">
         <span>レシピで使用した製品</span>
       </h4>
@@ -227,8 +227,10 @@
     </div>
     {% endif %}
 
-    <div class="mt-12 py-6 sm:py-10 bg-crimson-50 flex justify-center">
-      <a href="{% url 'recipe.home' %}" class="button w-64 md:w-80 py-5"><span class="font-bold tracking-wider">レシピTOPに戻る</span></a>
+    <div class="pt-12">
+      <div class="py-6 sm:py-10 bg-crimson-50 flex justify-center">
+        <a href="{% url 'recipe.home' %}" class="button w-64 md:w-80 py-5"><span class="font-bold tracking-wider">レシピTOPに戻る</span></a>
+      </div>
     </div>
 
   </div>
