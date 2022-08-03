@@ -8,7 +8,11 @@
   <section class="">
     <div class="parallax-section">
       <div class="parallax-child-section">
+        {% if recipe.hero %}
         <section class="fw-main-row" id="frontlashID" style="background-image: url({{ recipe.hero | thumbnail_url:'hero' }});"></section>
+        {% else %}
+        <section class="fw-main-row" id="frontlashID" style="background-image: url({% static 'images/bg_recipe.jpg' %});"></section>
+        {% endif %}
       </div>
     </div>
   </section>
